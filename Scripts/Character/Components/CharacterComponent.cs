@@ -8,19 +8,21 @@ public class CharacterComponent : MonoBehaviour
     protected Character _Character;
     protected CharacterController _CharacterController;
     protected CharacterMovement _CharacterMovement;
-    protected Rigidbody2D _CharacterRigidBody2D;
+    protected CharacterStats _CharacterStats;
 
-    public bool _AllowMovement { get; set; }
+    // Gameobject Unity components
+    protected Rigidbody2D _CharacterRigidBody2D;
+    
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        // You may feel tempted to remove the base. series of template functions, but be warned; if you do it, you will loose your references to these components. 
         _Character = GetComponent<Character>();
         _CharacterController = GetComponent<CharacterController>();
         _CharacterMovement = GetComponent<CharacterMovement>();
         _CharacterRigidBody2D = GetComponent<Rigidbody2D>();
-
-        // You may feel tempted to remove the base. series of template functions, but be warned; if you do it, you will loose your references to these components. 
+        _CharacterStats = GetComponent<CharacterStats>();
     }
 
     // Update is called once per frame

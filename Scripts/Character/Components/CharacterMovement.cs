@@ -10,6 +10,7 @@ public class CharacterMovement : CharacterComponent
     private float _HorizontalInput;
 
     public bool _CanMove {get; set;}
+    public float _CharacterDirection => _HorizontalInput;
 
     protected override void Start()
     {
