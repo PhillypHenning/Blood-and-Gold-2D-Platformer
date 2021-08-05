@@ -10,9 +10,7 @@ public class CharacterComponent : MonoBehaviour
     protected CharacterMovement _CharacterMovement;
     protected Rigidbody2D _CharacterRigidBody2D;
 
-    protected bool _CharacterLock;
-    protected bool _CharacterAbillityLock;
-
+    public bool _AllowMovement { get; set; }
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -22,7 +20,7 @@ public class CharacterComponent : MonoBehaviour
         _CharacterMovement = GetComponent<CharacterMovement>();
         _CharacterRigidBody2D = GetComponent<Rigidbody2D>();
 
-        _CharacterAbillityLock = false;
+        // You may feel tempted to remove the base. series of template functions, but be warned; if you do it, you will loose your references to these components. 
     }
 
     // Update is called once per frame
@@ -41,6 +39,8 @@ public class CharacterComponent : MonoBehaviour
         // Standard Use Functions
         HandleInput();
         InternalInput();
+
+        // If you remove the base.HandleAbility in a child function, it will stop running that components above functions ^^ *Input. 
     }
 
     protected virtual void HandlePhysicsAbility(){

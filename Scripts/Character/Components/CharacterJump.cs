@@ -26,7 +26,6 @@ public class CharacterJump : CharacterComponent
     {
         // Check if the player has pressed the Space button and the player can jump
         if(Input.GetKeyDown(KeyCode.Space) && _CharacterCanJump){
-            Debug.Log("At first: " + _CharacterRigidBody2D.velocity.y);
             Jump();
 
         }

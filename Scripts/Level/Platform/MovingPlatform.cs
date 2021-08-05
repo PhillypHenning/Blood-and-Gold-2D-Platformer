@@ -12,6 +12,8 @@ public class MovingPlatform : LevelComponent
     private Transform _Position1, _Position2;
 
 
+    // Instead of 
+
     protected override void Start()
     {
         base.Start();
