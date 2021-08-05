@@ -16,6 +16,17 @@ public class CharacterHealth : CharacterComponent
         SetToDefault();
     }
 
+    protected override void HandleInput()
+    {
+        base.HandleInput();
+
+
+        // TODO: TESTING: REMOVE
+        if(Input.GetKeyDown(KeyCode.J)){
+            DamageCharacter(10);
+        }
+    }
+
     protected override void HandleAbility()
     {
         base.HandleAbility();

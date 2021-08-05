@@ -24,10 +24,10 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         _CollidingGameObject = other.gameObject;
-        Debug.Log("Check + " + _CollidingGameObject);
 
         if(IsUsableByPlayer()){
             // Pick up Object
+            SetReferences(_CollidingGameObject);
             PickUp();
 
             if(_DestroyItemOnPickUp){
@@ -54,6 +54,10 @@ public class Collectable : MonoBehaviour
 
     protected virtual void PickUp(){
         // --- Basic Empty Function -- \\
+
+    }
+
+    protected virtual void SetReferences(GameObject gameObject){
 
     }
 
