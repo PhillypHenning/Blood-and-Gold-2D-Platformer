@@ -12,6 +12,7 @@ public class CharacterHealth : CharacterComponent
 
     protected override void Start()
     {
+        base.Start();
         SetToDefault();
     }
 
