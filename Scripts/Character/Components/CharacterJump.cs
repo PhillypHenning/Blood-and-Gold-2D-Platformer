@@ -62,7 +62,6 @@ public class CharacterJump : CharacterComponent
 
     private void ApplyGameGravity(){
         // This function applies a more game like physics to the jumping. The jump takes longer to reach it's peak, then has a snapper fall to the ground. 
-        
         if(_CharacterRigidBody2D.velocity.y < 0){
             _CharacterRigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_Fallmultiplier - _GravityScaled) * Time.deltaTime;
         }
