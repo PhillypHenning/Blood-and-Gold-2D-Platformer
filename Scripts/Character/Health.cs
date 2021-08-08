@@ -41,6 +41,12 @@ public class Health : MonoBehaviour
         
     }
 
+    protected virtual void CheckCharacterStatus(){
+        if(_CurrentHealth <= 0){
+            _IsAlive = false;
+        }
+    }
+
     public virtual void Heal(float amount){
         float newHealth = _CurrentHealth + amount;
 
@@ -51,7 +57,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    protected virtual void Damage(float amount){
+    public virtual void Damage(float amount){
         float newHealth = _CurrentHealth - amount;
 
         if(newHealth < 0){
@@ -61,19 +67,19 @@ public class Health : MonoBehaviour
         }
     }
 
-    protected virtual void TimedDecraseHealth(float amount, float time){
+    public virtual void TimedDecraseHealth(float amount, float time){
         // TODO
     }
 
-    protected virtual void TimedIncreaseHealth(float amount, float time){
+    public virtual void TimedIncreaseHealth(float amount, float time){
 
     }
 
-    public virtual void CheckCharacterStatus(){
-        if(_CurrentHealth <= 0){
-            _IsAlive = false;
-        }
+    public bool CharacterIsAlive(){
+        return _IsAlive;
     }
+
+    
 
     
     

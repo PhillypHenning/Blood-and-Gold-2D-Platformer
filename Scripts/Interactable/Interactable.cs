@@ -19,6 +19,9 @@ public class Interactable : MonoBehaviour
     // [Header("Settings")]
     // [Header("Visual Settings")]
 
+    protected virtual void Start(){
+        SetToDefault();
+    }
 
     protected virtual void Update() {   
         // An input should initiate the interactable
@@ -72,6 +75,10 @@ public class Interactable : MonoBehaviour
     protected virtual void Reward(){
         // ---
         _RewardIssued = true;
+    }
+
+    protected virtual void SetToDefault(){
+        
     }
 
 
