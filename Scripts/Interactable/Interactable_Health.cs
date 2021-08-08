@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterHealth : Health
+public class Interactable_Health : Health
 {
-    private float _CharacterMaxHealth = 100f;
+    private float _CharacterMaxHealth = 50f;
 
     protected override void SetToDefault(){
         _DefaultMaxHealth = _CharacterMaxHealth;
@@ -13,7 +13,7 @@ public class CharacterHealth : Health
     
     protected override void HandleInput(){
         base.HandleInput();
-        if(Input.GetKeyDown(KeyCode.J)){
+        if(Input.GetKeyDown(KeyCode.K)){
             Damage(10);
         }
     }

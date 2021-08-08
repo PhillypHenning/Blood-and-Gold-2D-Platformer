@@ -12,7 +12,7 @@ public class HealingCollectable : Collectable
 
     protected override void PickUp()
     {
-        _CharacterHealth.HealCharacter(_ValueToAdd);
+        _CharacterHealth.Heal(_ValueToAdd);
     }
 
     protected override void SetReferences(GameObject gameObject)
