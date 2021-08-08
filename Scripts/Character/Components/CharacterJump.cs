@@ -45,6 +45,7 @@ public class CharacterJump : CharacterComponent
         //  1. Is the player on the ground?
         //  2. Does the player have an extra jump?
         bool canJump = false;
+
         if(_CharacterRigidBody2D.IsTouchingLayers(LayerMask.GetMask("Platforms"))){
             canJump = true;
         }
@@ -68,6 +69,29 @@ public class CharacterJump : CharacterComponent
         else if(_CharacterRigidBody2D.velocity.y > 0 && !Input.GetButton("Jump")){
             // Enables us to have a "sensitive" jump height
             _CharacterRigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_LowJumpModifier - _GravityScaled) * Time.deltaTime;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log(other.tag);
+        if(other.tag == "Platform-Slide"){
+            // Start sticky slide
+
+            // Start pushing down
+            _CharacterRigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * Time.deltaTime;
+
+            // Maybe push a little to the left?
+
+        }
+
+        if(other.tag == "Platform-Jump"){
+            Debug.Log("Jump = " + _CharacterCanJump);
+            _CharacterCanJump = true;
+            Debug.Log("Jump = " + _CharacterCanJump);
+        }
+
+        if(other.tag == "Platform"){
+            _CharacterCanJump = true;
         }
     }
 }

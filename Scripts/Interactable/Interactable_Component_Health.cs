@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable_Health : Health
+public class Interactable_Component_Health : Health
 {
     private float _CharacterMaxHealth = 50f;
 

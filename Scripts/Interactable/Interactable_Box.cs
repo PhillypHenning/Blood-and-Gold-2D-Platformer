@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Interactable_Box : Interactable
 {
-    private Interactable_Health _Interactable_Health;
+    private Interactable_Component_Health _Interactable_Health;
 
     protected override void Start() {
-        _Interactable_Health = GetComponent<Interactable_Health>();
+        _Interactable_Health = GetComponent<Interactable_Component_Health>();
         base.Start();
     }
     
