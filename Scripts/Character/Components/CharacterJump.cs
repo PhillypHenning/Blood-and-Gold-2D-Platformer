@@ -17,6 +17,8 @@ public class CharacterJump : CharacterComponent
     // If we make the variable based on simply standing on the ground that will effect every other ability since the character will likely be standing on the ground. 
     // TODO: Find a reliable way to know when the character is moving? I was thinking by having a floating y value, if it's moving then count the character in a jump motion?
 
+    private CharacterAnimation _Animation;
+
     protected override void Start()
     {
         base.Start();
@@ -48,7 +50,10 @@ public class CharacterJump : CharacterComponent
 
         if(_CharacterRigidBody2D.IsTouchingLayers(LayerMask.GetMask("Platforms"))){
             canJump = true;
+            _CharacterAnimation.Landing();
         }
+        // TODO: no direct access to another scripts private variables should happen...
+        _CharacterAnimation._isGrounded = canJump;
         _CharacterCanJump = canJump;
     }
 
@@ -59,6 +64,9 @@ public class CharacterJump : CharacterComponent
         
         //_CharacterStats._CanUseAbility = false;
         _CharacterRigidBody2D.velocity = Vector2.up * _VerticalTakeoff;
+
+        // animate the jump
+        _CharacterAnimation.Jump();
     }
 
     private void ApplyGameGravity(){
@@ -73,6 +81,7 @@ public class CharacterJump : CharacterComponent
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        // LOGIC NOT CURRENTLY IN USE
         Debug.Log(other.tag);
         if(other.tag == "Platform-Slide"){
             // Start sticky slide
@@ -92,6 +101,7 @@ public class CharacterJump : CharacterComponent
 
         if(other.tag == "Platform"){
             _CharacterCanJump = true;
+            //_CharacterAnimation.Landing();
         }
     }
 }

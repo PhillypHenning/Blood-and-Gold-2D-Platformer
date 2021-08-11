@@ -29,5 +29,4 @@ public class Character : MonoBehaviour
 
     public CharacterTypes CharacterType => _CharacterType;
     public GameObject CharacterSprite => _CharacterSprite;
-    public Animator CharacterAnimator => _CharacterAnimator;   
 }
