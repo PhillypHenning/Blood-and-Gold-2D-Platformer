@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class CharacterComponent : MonoBehaviour
     protected CharacterController _CharacterController;
     protected CharacterMovement _CharacterMovement;
     protected CharacterStats _CharacterStats;
+    protected CharacterAnimation _CharacterAnimation;
 
     // Gameobject Unity components
     protected Rigidbody2D _CharacterRigidBody2D;
@@ -23,12 +25,21 @@ public class CharacterComponent : MonoBehaviour
         _CharacterMovement = GetComponent<CharacterMovement>();
         _CharacterRigidBody2D = GetComponent<Rigidbody2D>();
         _CharacterStats = GetComponent<CharacterStats>();
+        // does every character component need an animation component?
+        _CharacterAnimation = GetComponent<CharacterAnimation>();
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
         HandleAbility();
+        // will every child component have an animation to handle?
+        HandleAnimation();
+    }
+
+    protected virtual void HandleAnimation()
+    {
+        // use this for components that use animation
     }
 
     protected virtual void FixedUpdate()

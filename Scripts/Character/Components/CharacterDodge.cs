@@ -23,6 +23,7 @@ public class CharacterDodge : CharacterComponent
     {
         if(_Character.CharacterType == Character.CharacterTypes.Player && Input.GetKeyDown(KeyCode.LeftShift) && _CanDodge && _CharacterMovement._CharacterDirection  !=0 && _CharacterStats._CanUseAbility){
             // Dodge here  
+            print("do a flip");
             Dodge();
         }
     }
@@ -50,6 +51,7 @@ public class CharacterDodge : CharacterComponent
         //_Test._CanUseAbility = false; <-This works as long as CharacterComponent is the top most Component in the Character Gameobject. 
         _CharacterStats._CanUseAbility = false;
         _DodgeTimer = 0;
+        _CharacterAnimation.Dodge();
     }
     
     private void StopDodge(){

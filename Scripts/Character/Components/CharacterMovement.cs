@@ -41,6 +41,31 @@ public class CharacterMovement : CharacterComponent
         }
     }
 
+    protected override void HandleAnimation()
+    {
+        // this logic doesn't really need to be in a separate animation function, most other animation 
+        // logic will need to be sprinkled into a components general logic
+        base.HandleAnimation();
+        if (_HorizontalInput != 0)
+        {
+            if ((_CharacterAnimation.FacingRight && _HorizontalInput < 0) ||
+                (!_CharacterAnimation.FacingRight && _HorizontalInput > 0))
+            {
+                _CharacterAnimation.FlipCharacter();
+            }
+
+            if (_CharacterAnimation._isMoving) return;
+
+            _CharacterAnimation.RunStart();
+        }
+        else
+        {
+            if (!_CharacterAnimation._isMoving) return;
+
+            _CharacterAnimation.RunStop();
+        }
+    }
+
     protected override void SetToDefault()
     {
         _MovementSpeed = _WalkSpeed;
