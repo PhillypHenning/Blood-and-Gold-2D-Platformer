@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a72ea990e80893408bbacccb4c57340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _WeaponName: Shotgun
 --- !u!1 &8322733785164123350
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,7 +56,7 @@ GameObject:
   - component: {fileID: 1590865461296071231}
   - component: {fileID: 149185586290910562}
   m_Layer: 0
-  m_Name: Model
+  m_Name: Shotgun Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
