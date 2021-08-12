@@ -12,6 +12,8 @@ public class CharacterMovement : CharacterComponent
     public bool _CanMove {get; set;}
     public float _CharacterDirection => _HorizontalInput;
 
+    // TODO: This component will need to know which way the sprite is facing
+
     protected override void Start()
     {
         base.Start();
