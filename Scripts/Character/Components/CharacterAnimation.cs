@@ -8,22 +8,27 @@ public class CharacterAnimation : MonoBehaviour
     private Animator _Animator;
     private Rigidbody2D _Player;
 
-    // animation component needs data to know which animations to play
-
-    // TODO: update publicity of these bools, we may house them elsewhere
-    public bool _isMoving;
+    // TODO: update isGrounded logic... it should not be manually set elsewhere
     public bool _isGrounded;
-    public bool _isJumping;
-    public bool _isTakingDamage;
-    public bool _isDead;
-    public bool _isFalling;
-    public bool _staticAnimation;
+
+    private bool _isMoving;
+    private bool _isJumping;
+    private bool _isTakingDamage;
+    private bool _isDead;
+    private bool _isFalling;
+
+    private float _staticAnimationTime;
+    private bool _staticAnimation;
 
     private bool _facingRight = true;
 
     public bool FacingRight => _facingRight;
+    public bool IsMoving => _isMoving;
 
     private Dictionary<AnimationState, float> _AnimationTimes = new Dictionary<AnimationState, float>();
+    private AnimationState _CurrentAnimation;
+
+    public AnimationState CurrentAnimation => _CurrentAnimation;
 
     /* TODO: store animation clips as Hash ID's (Animator.StringToHash("your_clip_name") to improve performance */
     public enum AnimationState {
@@ -44,8 +49,6 @@ public class CharacterAnimation : MonoBehaviour
         Die
     }
 
-    private AnimationState _CurrentAnimation = AnimationState.None;
-
     void Start()
     {
         _Animator = GetComponentInChildren<Animator>();
@@ -59,6 +62,7 @@ public class CharacterAnimation : MonoBehaviour
 
     void Update()
     {
+        if (_staticAnimationTime > 0) _staticAnimationTime -= Time.deltaTime;
         UpdateAnimation();
     }
 
@@ -92,7 +96,7 @@ public class CharacterAnimation : MonoBehaviour
     // handles dynamic animations
     public void UpdateAnimation()
     {
-        if (_staticAnimation) return;
+        if (_staticAnimationTime > 0) return;
         // TODO: We shouldn't need to include the "isJumping" flag, but the current logic 
         // leaves "isGrounded" true for a few frames because the collision detection overlaps
         if (_isGrounded && !_isJumping)
@@ -124,7 +128,7 @@ public class CharacterAnimation : MonoBehaviour
 
     public void FlipCharacter()
     {
-        // we could store this globally instead
+        // maybe we could store this globally instead
         var character = transform.Find("Sprite").transform;
         _facingRight = !_facingRight;
         character.localRotation = Quaternion.Euler(character.rotation.x, _facingRight ? 0 : -180, character.rotation.z);
@@ -132,8 +136,8 @@ public class CharacterAnimation : MonoBehaviour
 
     public void RunStart()
     {
-        // TODO: after landing, RunStart should be called again, but if horizontal input is still being read, it will not
         if (!_isGrounded) return;
+        if (_CurrentAnimation == AnimationState.Run || _CurrentAnimation == AnimationState.RunStart) return;
         _isMoving = true;
         ChangeAnimationState(AnimationState.RunStart);
         StaticAnimationDelay(_AnimationTimes[AnimationState.RunStart]);
@@ -141,7 +145,7 @@ public class CharacterAnimation : MonoBehaviour
 
     public void RunStop()
     {
-        if (!_isGrounded) return;
+        if (!_isGrounded || !_isMoving) return;
         _isMoving = false;
         ChangeAnimationState(AnimationState.RunStop);
         StaticAnimationDelay(_AnimationTimes[AnimationState.RunStop]);
@@ -183,8 +187,14 @@ public class CharacterAnimation : MonoBehaviour
     // used for animations that should not be interrupted by dynamic animations
     private void StaticAnimationDelay(float delay)
     {
+        // TODO: find a way to cancel coroutine or find another solution
+        // currently there is an issue if a second static animation is triggered, the first static animation's delay coroutine
+        // will cancel the second animation before it's finished
+        // perhaps having a delay timer would be better..?
         _staticAnimation = true;
-        StartCoroutine("EndStaticAnimation", delay);
+
+        _staticAnimationTime = delay;
+        //StartCoroutine("EndStaticAnimation", delay);
     }
 
     private IEnumerator EndStaticAnimation(float delay)

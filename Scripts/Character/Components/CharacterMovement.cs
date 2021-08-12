@@ -54,14 +54,10 @@ public class CharacterMovement : CharacterComponent
                 _CharacterAnimation.FlipCharacter();
             }
 
-            if (_CharacterAnimation._isMoving) return;
-
             _CharacterAnimation.RunStart();
         }
         else
         {
-            if (!_CharacterAnimation._isMoving) return;
-
             _CharacterAnimation.RunStop();
         }
     }
