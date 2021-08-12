@@ -127,6 +127,7 @@ public class CharacterAnimation : MonoBehaviour
         // we could store this globally instead
         var character = transform.Find("Sprite").transform;
         _facingRight = !_facingRight;
+        
         character.localRotation = Quaternion.Euler(character.rotation.x, _facingRight ? 0 : -180, character.rotation.z);
     }
 
