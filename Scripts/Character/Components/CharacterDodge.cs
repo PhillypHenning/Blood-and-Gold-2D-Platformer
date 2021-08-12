@@ -8,7 +8,7 @@ public class CharacterDodge : CharacterComponent
     private float _DodgeDuration = .5f;
     private float _DodgeTimer;
     private bool _CanDodge;
-    private bool _isDodging;
+    private bool _IsDodging;
 
     // Ensure this component is the second in the character gameobject hierarchy (Scripts; 1. Character, 2. CharacterComponents) 
 
