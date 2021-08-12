@@ -9,13 +9,14 @@ public class CharacterComponent : MonoBehaviour
     protected Character _Character;
     protected CharacterController _CharacterController;
     protected CharacterMovement _CharacterMovement;
+    protected CharacterJump _CharacterJump;
     protected CharacterStats _CharacterStats;
+    protected CharacterHealth _CharacterHealth;
     protected CharacterAnimation _CharacterAnimation;
 
     // Gameobject Unity components
     protected Rigidbody2D _CharacterRigidBody2D;
     
-
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -23,8 +24,10 @@ public class CharacterComponent : MonoBehaviour
         _Character = GetComponent<Character>();
         _CharacterController = GetComponent<CharacterController>();
         _CharacterMovement = GetComponent<CharacterMovement>();
+        _CharacterJump = GetComponent<CharacterJump>();
         _CharacterRigidBody2D = GetComponent<Rigidbody2D>();
         _CharacterStats = GetComponent<CharacterStats>();
+        _CharacterHealth = GetComponent<CharacterHealth>();
         // does every character component need an animation component?
         _CharacterAnimation = GetComponent<CharacterAnimation>();
     }
@@ -49,6 +52,9 @@ public class CharacterComponent : MonoBehaviour
 
     protected virtual void HandleAbility()
     {
+        // actions below this line should not be possible after death
+        if (!_CharacterHealth.IsAlive) return;
+
         // Standard Use Functions
         HandleInput();
         InternalInput();
@@ -65,7 +71,6 @@ public class CharacterComponent : MonoBehaviour
     {
         // Handles Player Inputs and Actions on them
         // For an easy example please review the Dash component.
-
     }
 
     protected virtual void InternalInput()

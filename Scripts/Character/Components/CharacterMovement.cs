@@ -37,9 +37,23 @@ public class CharacterMovement : CharacterComponent
     
     protected override void HandleInput()
     {
-        if (_Character.CharacterType == Character.CharacterTypes.Player)
+        if (_Character.CharacterType == Character.CharacterTypes.Player && _CanMove)
         {
             _HorizontalInput = Input.GetAxisRaw("Horizontal");
+            if (_HorizontalInput != 0)
+            {
+                if ((_CharacterAnimation.FacingRight && _HorizontalInput < 0) ||
+                    (!_CharacterAnimation.FacingRight && _HorizontalInput > 0))
+                {
+                    _CharacterAnimation.FlipCharacter();
+                }
+
+                _CharacterAnimation.RunStart();
+            }
+            else
+            {
+                _CharacterAnimation.RunStop();
+            }
         }
     }
 
@@ -47,21 +61,8 @@ public class CharacterMovement : CharacterComponent
     {
         // this logic doesn't really need to be in a separate animation function, most other animation 
         // logic will need to be sprinkled into a components general logic
+        // it has moved up to the characterinput... is that too disorganized?
         base.HandleAnimation();
-        if (_HorizontalInput != 0)
-        {
-            if ((_CharacterAnimation.FacingRight && _HorizontalInput < 0) ||
-                (!_CharacterAnimation.FacingRight && _HorizontalInput > 0))
-            {
-                _CharacterAnimation.FlipCharacter();
-            }
-
-            _CharacterAnimation.RunStart();
-        }
-        else
-        {
-            _CharacterAnimation.RunStop();
-        }
     }
 
     protected override void SetToDefault()

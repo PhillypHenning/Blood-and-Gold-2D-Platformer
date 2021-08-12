@@ -21,9 +21,8 @@ public class CharacterDodge : CharacterComponent
 
     protected override void HandleInput()
     {
-        if(_Character.CharacterType == Character.CharacterTypes.Player && Input.GetKeyDown(KeyCode.LeftShift) && _CanDodge && _CharacterMovement._CharacterDirection  !=0 && _CharacterStats._CanUseAbility){
-            // Dodge here  
-            print("do a flip");
+        if (_Character.CharacterType == Character.CharacterTypes.Player && Input.GetKeyDown(KeyCode.LeftShift) && _CanDodge && _CharacterMovement._CharacterDirection != 0)
+        {
             Dodge();
         }
     }
@@ -45,6 +44,7 @@ public class CharacterDodge : CharacterComponent
     }
 
     private void Dodge(){
+        // TODO: adjust collider to fit sprite animation
         _IsDodging = true;
         _CanDodge = false;
         _CharacterMovement._CanMove = false;
@@ -60,5 +60,4 @@ public class CharacterDodge : CharacterComponent
         _CharacterMovement._CanMove = true;
         _CharacterStats._CanUseAbility = true;
     }
-
 }

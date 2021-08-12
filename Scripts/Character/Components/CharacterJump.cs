@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class CharacterJump : CharacterComponent
 {
     private bool _CharacterCanJump;
+    private bool _IsGrounded;
+    public bool IsGrounded => _IsGrounded;
 
     private float _VerticalTakeoff = 15f;
     private float _Fallmultiplier = 2.5f;
@@ -35,29 +38,34 @@ public class CharacterJump : CharacterComponent
 
     protected override void HandleInput()
     {
-        // Check if the player has pressed the Space button and the player can jump
-        if(Input.GetKeyDown(KeyCode.Space) && _CharacterCanJump ){
+        if (Input.GetKeyDown(KeyCode.Space) && _CharacterCanJump)
+        {
             Jump();
         }
     }
 
-    private void DecideCharacterCanJump(){
+    private void DecideCharacterCanJump()
+    {
         // Any decision logic should be put in here.
         // Basic Decisions;
         //  1. Is the player on the ground?
         //  2. Does the player have an extra jump?
-        bool canJump = false;
+        bool touchingPlatform = false;
 
-        if(_CharacterRigidBody2D.IsTouchingLayers(LayerMask.GetMask("Platforms"))){
-            canJump = true;
-            _CharacterAnimation.Landing();
+        if (_CharacterRigidBody2D.IsTouchingLayers(LayerMask.GetMask("Platforms")))
+        {
+            touchingPlatform = true;
+            //_CharacterAnimation.Landing();
         }
-        // TODO: no direct access to another scripts private variables should happen...
-        _CharacterAnimation._isGrounded = canJump;
-        _CharacterCanJump = canJump;
+
+        // if we add a double jump this logic will need to change since "canjump" will be determined by other factors
+        _CharacterCanJump = touchingPlatform;
+        // update logic here for proper encapsulation
+        _Character._IsGrounded = touchingPlatform;
     }
 
-    private void Jump(){
+    private void Jump()
+    {
         //_CharacterRigidBody2D.velocity = new Vector2(0, _JumpHeight);
         //_CharacterRigidBody2D.AddForce(new Vector2(0, _JumpHeight), ForceMode2D.Impulse);
         
@@ -69,21 +77,25 @@ public class CharacterJump : CharacterComponent
         _CharacterAnimation.Jump();
     }
 
-    private void ApplyGameGravity(){
+    private void ApplyGameGravity()
+    {
         // This function applies a more game like physics to the jumping. The jump takes longer to reach it's peak, then has a snapper fall to the ground. 
-        if(_CharacterRigidBody2D.velocity.y < 0){
+        if (_CharacterRigidBody2D.velocity.y < 0)
+        {
             _CharacterRigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_Fallmultiplier - _GravityScaled) * Time.deltaTime;
         }
-        else if(_CharacterRigidBody2D.velocity.y > 0 && !Input.GetButton("Jump")){
+        else if (_CharacterRigidBody2D.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
             // Enables us to have a "sensitive" jump height
             _CharacterRigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_LowJumpModifier - _GravityScaled) * Time.deltaTime;
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        // LOGIC NOT CURRENTLY IN USE
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
         Debug.Log(other.tag);
-        if(other.tag == "Platform-Slide"){
+        if (other.tag == "Platform-Slide")
+        {
             // Start sticky slide
 
             // Start pushing down
@@ -93,13 +105,15 @@ public class CharacterJump : CharacterComponent
 
         }
 
-        if(other.tag == "Platform-Jump"){
+        if (other.tag == "Platform-Jump")
+        {
             Debug.Log("Jump = " + _CharacterCanJump);
             _CharacterCanJump = true;
             Debug.Log("Jump = " + _CharacterCanJump);
         }
 
-        if(other.tag == "Platform"){
+        if (other.tag == "Platform")
+        {
             _CharacterCanJump = true;
             //_CharacterAnimation.Landing();
         }
