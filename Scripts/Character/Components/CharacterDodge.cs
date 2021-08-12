@@ -8,7 +8,7 @@ public class CharacterDodge : CharacterComponent
     private float _DodgeDuration = .5f;
     private float _DodgeTimer;
     private bool _CanDodge;
-    private bool _isDodging;
+    private bool _IsDodging;
 
     // Ensure this component is the second in the character gameobject hierarchy (Scripts; 1. Character, 2. CharacterComponents) 
 
@@ -16,7 +16,7 @@ public class CharacterDodge : CharacterComponent
     {
         base.Start();
         _CanDodge = true;
-        _isDodging = false;
+        _IsDodging = false;
     }
 
     protected override void HandleInput()
@@ -32,7 +32,7 @@ public class CharacterDodge : CharacterComponent
     {
         base.HandleAbility();
 
-        if(_isDodging){
+        if(_IsDodging){
             if(_DodgeTimer < _DodgeDuration){
                 //Dodging
                 _DodgeTimer += Time.deltaTime;
@@ -45,7 +45,7 @@ public class CharacterDodge : CharacterComponent
     }
 
     private void Dodge(){
-        _isDodging = true;
+        _IsDodging = true;
         _CanDodge = false;
         _CharacterMovement._CanMove = false;
         //_Test._CanUseAbility = false; <-This works as long as CharacterComponent is the top most Component in the Character Gameobject. 
@@ -55,7 +55,7 @@ public class CharacterDodge : CharacterComponent
     }
     
     private void StopDodge(){
-        _isDodging = false;
+        _IsDodging = false;
         _CanDodge = true;
         _CharacterMovement._CanMove = true;
         _CharacterStats._CanUseAbility = true;
