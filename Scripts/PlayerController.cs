@@ -128,7 +128,6 @@ public class PlayerController : MonoBehaviour
     {
         // TODO: double jump functionality ?
 
-
         if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
         {
             _isGrounded = false;

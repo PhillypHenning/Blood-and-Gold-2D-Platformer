@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    // global variables example
+    public bool _IsGrounded;
+
     public enum CharacterTypes
     {
         Player, 
         AI
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        // hey I'm just a little test line or something
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -25,7 +26,6 @@ public class Character : MonoBehaviour
     // Class to contain other "Character" GameObjects
     [SerializeField] private CharacterTypes _CharacterType;
     [SerializeField] private GameObject _CharacterSprite;
-    [SerializeField] private Animator _CharacterAnimator;
 
     public CharacterTypes CharacterType => _CharacterType;
     public GameObject CharacterSprite => _CharacterSprite;

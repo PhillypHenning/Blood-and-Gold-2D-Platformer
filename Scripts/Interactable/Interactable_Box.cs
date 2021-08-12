@@ -12,7 +12,7 @@ public class Interactable_Box : Interactable
     }
     
     protected override bool InputEnabled(){
-        if(!_Interactable_Health.CharacterIsAlive()){
+        if(!_Interactable_Health.IsAlive){
             return true;
         }
         return false;

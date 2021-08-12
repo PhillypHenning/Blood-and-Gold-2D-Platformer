@@ -1,22 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-
     protected float _MaxHealth;
     protected float _CurrentHealth;
     protected float _DefaultMaxHealth { get; set;}
 
     protected bool _IsAlive;
 
-    protected virtual void Start() {
+    public bool IsAlive => _IsAlive;
+    public float CurrentHealth => _CurrentHealth;
+
+    private CharacterAnimation _CharacterAnimation;
+
+    protected virtual void Start() 
+    {
         // Set Default values
         SetToDefault();
+        _CharacterAnimation = GetComponentInChildren<CharacterAnimation>();
     }
 
-    protected virtual void Update(){
+    protected virtual void Update()
+    {
         HandleAbility();
     }
     
@@ -28,59 +36,69 @@ public class Health : MonoBehaviour
         _IsAlive = true;
     }
 
-    protected virtual void HandleAbility(){
-        CheckCharacterStatus();
+    protected virtual void HandleAbility()
+    {
         HandleInput();
     }
 
-    protected virtual void HandleInput(){
+    protected virtual void HandleInput()
+    {
         // For testing purposes.
         // You would want to override this puppy with the child script and add something like; 
         // if(Input.GetKeyDown(KeyCode.J))
         // DamageCharacter(10);
-        
     }
 
-    protected virtual void CheckCharacterStatus(){
+    protected virtual void CheckCharacterStatus()
+    {
+        // not needed
         if(_CurrentHealth <= 0){
             _IsAlive = false;
         }
     }
 
-    public virtual void Heal(float amount){
+    public virtual void Heal(float amount)
+    {
         float newHealth = _CurrentHealth + amount;
 
-        if(newHealth > _MaxHealth){
+        if (newHealth > _MaxHealth)
+        {
             return;
-        }else{
+        }
+        else
+        {
             _CurrentHealth += amount;
         }
     }
 
-    public virtual void Damage(float amount){
+    public virtual void Damage(float amount)
+    {
         float newHealth = _CurrentHealth - amount;
 
-        if(newHealth < 0){
-            return;
-        }else{
+        if (newHealth <= 0)
+        {
+            Die();
+        }
+        else
+        {
             _CurrentHealth -= amount;
+            _CharacterAnimation.Hurt();
         }
     }
 
-    public virtual void TimedDecraseHealth(float amount, float time){
+    private void Die()
+    {
+        _IsAlive = false;
+        _CharacterAnimation.Die();
+    }
+
+    public virtual void TimedDecraseHealth(float amount, float time)
+    {
         // TODO
     }
 
-    public virtual void TimedIncreaseHealth(float amount, float time){
+    public virtual void TimedIncreaseHealth(float amount, float time)
+    {
 
     }
-
-    public bool CharacterIsAlive(){
-        return _IsAlive;
-    }
-
-    
-
-    
-    
 }
