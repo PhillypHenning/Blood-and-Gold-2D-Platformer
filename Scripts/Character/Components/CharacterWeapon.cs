@@ -9,6 +9,7 @@ public class CharacterWeapon : CharacterComponent
     [SerializeField] private Transform _WeaponHolderPosition;
 
     public Weapon _CurrentWeapon { get; set; }
+    private SpriteRenderer _CurrentWeaponsSprite;
 
     protected override void Start()
     {
@@ -18,9 +19,11 @@ public class CharacterWeapon : CharacterComponent
 
     protected override void HandleInput()
     {
-        if(Input.GetKeyDown(KeyCode.LeftControl)){
+        if(Input.GetKey(KeyCode.LeftControl)){
             Aim();
-        }   
+        }else{
+            StopAim();
+        }
 
         if(Input.GetKeyDown(KeyCode.R)){
             Reload();
@@ -39,13 +42,36 @@ public class CharacterWeapon : CharacterComponent
         // Instantiates the Weapon that is set in the Unity settings.
         // By default it has been set to the Revolver.
         _CurrentWeapon = Instantiate(weapon, weaponPosition.position, weaponPosition.rotation);
+        
 
         // Make the instantiated weapon a child object of the Player Gameobject Weapon Holder
         _CurrentWeapon.transform.parent = weaponPosition;
+
+        // Find the gameobject by the Serialized Weapon Name variable (Weapon script)
+        GameObject SearchingForWeaponSprite = GameObject.Find(_CurrentWeapon.WeaponName + " Model");
+
+        // Disable the sprite until it's being used. 
+        _CurrentWeaponsSprite = SearchingForWeaponSprite.GetComponent<SpriteRenderer>();
+        _CurrentWeaponsSprite.enabled = false;
     }
 
-    public void Aim(){
+    private void Aim(){
         // Lock the character's movement
-        
+
+        // Put character into aiming animation
+
+        // Enable the gameobject
+        _CurrentWeaponsSprite.enabled= true;
+
+        // Changes the gun Direction
+        if(_CharacterAnimation.FacingRight){
+            _CurrentWeapon.transform.localScale = new Vector3(1,1,1);
+        }else{
+            _CurrentWeapon.transform.localScale = new Vector3(-1,1,1);
+        }
+    }
+
+    private void StopAim(){
+        _CurrentWeaponsSprite.enabled = false;
     }
 }

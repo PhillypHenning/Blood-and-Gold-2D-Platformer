@@ -3,7 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
-{
+{   
+
+    [Header("Settings")]
+    [SerializeField] private string _WeaponName;
+
+    public string WeaponName => _WeaponName;
+    
     // Start is called before the first frame update
     void Start()
     {
