@@ -55,7 +55,6 @@ public class CharacterJump : CharacterComponent
         if (_CharacterRigidBody2D.IsTouchingLayers(LayerMask.GetMask("Platforms")))
         {
             touchingPlatform = true;
-            //_CharacterAnimation.Landing();
         }
 
         // if we add a double jump this logic will need to change since "canjump" will be determined by other factors

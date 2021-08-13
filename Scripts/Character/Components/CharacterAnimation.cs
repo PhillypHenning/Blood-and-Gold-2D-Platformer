@@ -106,6 +106,7 @@ public class CharacterAnimation : MonoBehaviour
             }
             else if (_IsMoving)
             {
+                // TODO: update run to ensure RunStart happens first every time... maybe
                 ChangeAnimationState(AnimationState.Run);
             }
             else
@@ -165,7 +166,25 @@ public class CharacterAnimation : MonoBehaviour
         }
     }
 
-    public void FlipCharacter()
+    public void Movement(float horizontalMovement)
+    {
+        if (horizontalMovement != 0)
+        {
+            if ((FacingRight && horizontalMovement < 0) ||
+                (!FacingRight && horizontalMovement > 0))
+            {
+                FlipCharacter();
+            }
+
+            RunStart();
+        }
+        else
+        {
+            RunStop();
+        }
+    }
+
+    private void FlipCharacter()
     {
         //var character = transform.Find("Sprite").transform;
         var character = _Character.CharacterSprite.transform;
@@ -173,7 +192,7 @@ public class CharacterAnimation : MonoBehaviour
         character.localRotation = Quaternion.Euler(character.rotation.x, _FacingRight ? 0 : -180, character.rotation.z);
     }
 
-    public void RunStart()
+    private void RunStart()
     {
         if (!_Character._IsGrounded || IsMoving) return;
         _IsMoving = true;
@@ -181,11 +200,12 @@ public class CharacterAnimation : MonoBehaviour
         ChangeAnimationState(AnimationState.RunStart, AnimationType.Static);
     }
 
-    public void RunStop()
+    private void RunStop()
     {
         if (!_Character._IsGrounded || !IsMoving) return;
         _IsMoving = false;
 
+        if (_CurrentAnimation != AnimationState.Run) return;
         ChangeAnimationState(AnimationState.RunStop, AnimationType.Static);
     }
 
@@ -194,9 +214,8 @@ public class CharacterAnimation : MonoBehaviour
         ChangeAnimationState(AnimationState.Jump, AnimationType.Priority);
     }
 
-    public void Landing()
+    private void Landing()
     {
-        print("we landed");
         ChangeAnimationState(AnimationState.Landing, AnimationType.Static);
     }
 

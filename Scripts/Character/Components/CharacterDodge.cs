@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterDodge : CharacterComponent
 {   
     public float _DodgeDistance = 250;
-    private float _DodgeDuration = .5f;
+    private float _DodgeDuration = .6f;
     private float _DodgeTimer;
     private bool _CanDodge;
     private bool _IsDodging;
