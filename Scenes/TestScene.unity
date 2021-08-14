@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12071,7 +12071,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CharacterType: 0
   _CharacterSprite: {fileID: 1990230194}
-  _CharacterAnimator: {fileID: 1990230198}
 --- !u!114 &956671928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12128,7 +12127,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 956671925}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 95c81355f83d0c1468a0a62885dde0ea, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -12208,7 +12207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc56a35c7e66d314cbd95aa304a5da8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isGrounded: 0
 --- !u!114 &956671938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12292,7 +12290,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CharacterType: 1
   _CharacterSprite: {fileID: 0}
-  _CharacterAnimator: {fileID: 0}
 --- !u!4 &987349467
 Transform:
   m_ObjectHideFlags: 0

@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _WeaponName: Revolver
+  _TimeBetweenShots: 1.2
+  _MagazineSize: 6
 --- !u!1 &8472558439408547273
 GameObject:
   m_ObjectHideFlags: 0
