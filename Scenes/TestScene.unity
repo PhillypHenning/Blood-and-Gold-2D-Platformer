@@ -12069,6 +12069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3345af1cdea05a242b56f47a89a3f196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _IsGrounded: 0
   _CharacterType: 0
   _CharacterSprite: {fileID: 1990230194}
 --- !u!114 &956671928
@@ -12288,6 +12289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3345af1cdea05a242b56f47a89a3f196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _IsGrounded: 0
   _CharacterType: 1
   _CharacterSprite: {fileID: 0}
 --- !u!4 &987349467

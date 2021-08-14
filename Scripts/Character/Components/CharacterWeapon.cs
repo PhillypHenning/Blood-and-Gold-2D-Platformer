@@ -37,7 +37,7 @@ public class CharacterWeapon : CharacterComponent
         if(_CurrentWeapon == null){
             return;
         }
-        _CurrentWeapon.TriggerShot();
+        _CurrentWeapon.StartShooting();
     }
 
     public void Reload(){
