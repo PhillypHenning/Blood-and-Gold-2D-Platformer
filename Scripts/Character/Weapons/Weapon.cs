@@ -48,15 +48,15 @@ public class Weapon : MonoBehaviour
     }
 
     private void RefillAmmo(){
-        if(_CanReload){
+        //if(_CanReload){
             _CurrentAmmo = _MaxMagazineSize;
-        }
+        //}
     }
 
     private void ConsumeAmmo(){
-        if(_CanShoot){
+        //if(_CanShoot){
             _CurrentAmmo -= 1;
-        }
+        //}
     }
 
 
