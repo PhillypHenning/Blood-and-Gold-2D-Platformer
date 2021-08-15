@@ -19,4 +19,4 @@
 
 
 ## Links to the Author
-Background Art: https://szadiart.itch.io/pixel-fantasy-caves
+Background "Cave" Art: https://szadiart.itch.io/pixel-fantasy-caves
