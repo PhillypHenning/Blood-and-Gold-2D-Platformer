@@ -21,6 +21,9 @@ public class CharacterWeapon : CharacterComponent
     {
         if(Input.GetKey(KeyCode.LeftControl)){
             Aim();
+            if(Input.GetKeyDown(KeyCode.RightControl)){
+                Shoot();
+            }
         }else{
             StopAim();
         }
@@ -31,17 +34,25 @@ public class CharacterWeapon : CharacterComponent
     }
 
     public void Shoot(){
-
+        if(_CurrentWeapon == null){
+            return;
+        }
+        _CurrentWeapon.StartShooting();
     }
 
     public void Reload(){
+        if(_CurrentWeapon == null){
+            return;
+        }
 
+        _CurrentWeapon.Reload();
     }
 
     public void EquipWeapon(Weapon weapon, Transform weaponPosition){
         // Instantiates the Weapon that is set in the Unity settings.
         // By default it has been set to the Revolver.
         _CurrentWeapon = Instantiate(weapon, weaponPosition.position, weaponPosition.rotation);
+        _CurrentWeapon.SetOwner(_Character);
         
 
         // Make the instantiated weapon a child object of the Player Gameobject Weapon Holder

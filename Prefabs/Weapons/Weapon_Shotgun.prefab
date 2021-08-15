@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _WeaponName: Shotgun
+  _TimeBetweenShots: 0.5
+  _TimeBetweenReloads: 0.5
+  _MaxMagazineSize: 2
 --- !u!1 &8322733785164123350
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,10 +9,10 @@ public class CharacterJump : CharacterComponent
     private bool _IsGrounded;
     public bool IsGrounded => _IsGrounded;
 
-    private float _VerticalTakeoff = 15f;
+    private float _VerticalTakeoff = 20f;
     private float _Fallmultiplier = 2.5f;
     private float _LowJumpModifier = 2.5f;
-    private float _GravityScaled = 1f;
+    private float _GravityScaled = .5f; // Lower = More gravity applied.
 
     public float _HeightestJumpReached; // TODO: Stretch goal, but may be interesting?
 

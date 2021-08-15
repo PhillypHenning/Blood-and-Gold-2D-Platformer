@@ -6,7 +6,7 @@ public class CharacterMovement : CharacterComponent
 {
     public float _MovementSpeed { get; set; }
     
-    private float _WalkSpeed = 150f; 
+    private float _WalkSpeed = 200f; 
     private float _HorizontalInput;
 
     public bool _CanMove {get; set;}
