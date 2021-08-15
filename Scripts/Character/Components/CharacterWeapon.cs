@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterWeapon : CharacterComponent
 {
     [Header("Weapon Settings")]
+    // TODO: Update to use programmatic solution over Unity setting. [_WeaponToUse]
     [SerializeField] private Weapon _WeaponToUse;
     [SerializeField] private Transform _WeaponHolderPosition;
 

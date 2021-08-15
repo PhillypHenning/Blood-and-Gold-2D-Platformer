@@ -41,10 +41,14 @@ public class Weapon : MonoBehaviour
         WeaponCanReload();
     }
 
+    protected void RequestShot(){
+        ConsumeAmmo();
+    }
+
     // Private \\
     // -------- \\
     private void TriggerShot(){
-        ConsumeAmmo();
+        RequestShot();
     }
 
     private void RefillAmmo(){
@@ -58,7 +62,6 @@ public class Weapon : MonoBehaviour
             _CurrentAmmo -= 1;
         //}
     }
-
 
     // I dislike how these work.. 
     private void WeaponCanShoot(){
