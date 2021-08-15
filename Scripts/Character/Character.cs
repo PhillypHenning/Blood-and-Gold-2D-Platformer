@@ -5,7 +5,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     // global variables example
-    public bool _IsGrounded;
+    public bool _IsGrounded { get; set; }
 
     public enum CharacterTypes
     {

@@ -9,9 +9,6 @@ public class CharacterAnimation : MonoBehaviour
     private Rigidbody2D _Player;
     private Character _Character;
 
-    // TODO: update isGrounded logic... it should not be manually set elsewhere
-    //    public bool _isGrounded;
-
     private bool _IsMoving;
     private bool _IsDead;
     private bool _IsFalling;
@@ -23,6 +20,9 @@ public class CharacterAnimation : MonoBehaviour
 
     public bool FacingRight => _FacingRight;
     public bool IsMoving => _IsMoving;
+
+    // would this be a good way to access our global variables to avoid clunky code?
+    private bool IsGrounded => _Character._IsGrounded;
 
     private Dictionary<AnimationState, float> _AnimationTimes = new Dictionary<AnimationState, float>();
     private AnimationState _CurrentAnimation;
@@ -228,6 +228,7 @@ public class CharacterAnimation : MonoBehaviour
     {
         ChangeAnimationState(AnimationState.Hurt, AnimationType.Priority);
     }
+
     public void Die()
     {
         _IsDead = true;
