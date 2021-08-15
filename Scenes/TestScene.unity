@@ -12220,7 +12220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bdeefb8fc173a24bb3cea072ae83ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _WeaponToUse: {fileID: -1836987829772707570, guid: 36517eaa30fcfff41b3bce410a70bc16, type: 3}
+  _WeaponToUse: {fileID: -5452773183673280733, guid: 36517eaa30fcfff41b3bce410a70bc16, type: 3}
   _WeaponHolderPosition: {fileID: 2107719872}
 --- !u!114 &956671939
 MonoBehaviour:
@@ -13305,7 +13305,7 @@ SpriteRenderer:
   m_Size: {x: 1.5, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1876477671
