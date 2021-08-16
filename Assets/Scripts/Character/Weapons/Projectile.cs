@@ -65,10 +65,8 @@ public class Projectile : MonoBehaviour
             _ProjectileReturnToPool.DestroyObject();
         }
         if(other.tag == "Interactable"){
-            Debug.Log("Check");
             Interactable interactable = other.GetComponent<Interactable>();
             if(interactable._Breakable){
-                Debug.Log("Check2");
                 interactable.DamageInteractable(_BulletDamage);
                 _ProjectileReturnToPool.DestroyObject();
             }

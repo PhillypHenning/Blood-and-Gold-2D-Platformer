@@ -38,6 +38,7 @@ public class ObjectPooler : MonoBehaviour
         {
             // Check if the pooledObject is already active, if it isn't;
             if(!_PooledObjects[i].activeInHierarchy){
+                Debug.Log("Check");
                 return _PooledObjects[i];
             }
 

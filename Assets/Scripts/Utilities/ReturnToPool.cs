@@ -5,7 +5,6 @@ using UnityEngine;
 public class ReturnToPool : MonoBehaviour
 {
     [SerializeField] private float _LifeTime = 2f;
-
     private Projectile _Projectile;
 
     void Start()
