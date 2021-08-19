@@ -29,6 +29,7 @@ public class Interactable_Door : Interactable
         // holds _Character in case reference is lost when player leaves collision 
         var player = _Character;
         // var characterMovement = _Character.GetComponent<CharacterMovement>();
+        player.IsLocked = true;
 
         yield return _Fader.FadeOut();
         // TODO: fix "MovePosition" call (player is being moved to wrong position when running commented code below)
@@ -36,6 +37,7 @@ public class Interactable_Door : Interactable
         player.transform.position = _Target.position;
         yield return _Fader.FadeWait();
         yield return _Fader.FadeIn();
+        player.IsLocked = false;
     }
 
 }

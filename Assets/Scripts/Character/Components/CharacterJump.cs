@@ -38,7 +38,7 @@ public class CharacterJump : CharacterComponent
 
     protected override void HandleInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _CharacterCanJump)
+        if (Input.GetKeyDown(KeyCode.Space) && _CharacterCanJump && !_Character.IsLocked)
         {
             Jump();
         }
@@ -59,8 +59,9 @@ public class CharacterJump : CharacterComponent
 
         // if we add a double jump this logic will need to change since "canjump" will be determined by other factors
         _CharacterCanJump = touchingPlatform;
-        // update logic here for proper encapsulation
-        _Character._IsGrounded = touchingPlatform;
+
+        // TODO: add coyote timer?
+        _Character.IsGrounded = touchingPlatform;
     }
 
     private void Jump()

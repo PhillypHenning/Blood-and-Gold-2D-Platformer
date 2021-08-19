@@ -28,7 +28,6 @@ public class CharacterComponent : MonoBehaviour
         _CharacterRigidBody2D = GetComponent<Rigidbody2D>();
         _CharacterStats = GetComponent<CharacterStats>();
         _CharacterHealth = GetComponent<CharacterHealth>();
-        // does every character component need an animation component?
         _CharacterAnimation = GetComponent<CharacterAnimation>();
     }
 
@@ -79,7 +78,8 @@ public class CharacterComponent : MonoBehaviour
         
     }
 
-    protected virtual void SetToDefault(){
+    protected virtual void SetToDefault()
+    {
         
     }
 }

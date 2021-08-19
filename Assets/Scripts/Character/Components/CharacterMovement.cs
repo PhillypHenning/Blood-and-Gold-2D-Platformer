@@ -9,7 +9,7 @@ public class CharacterMovement : CharacterComponent
     private float _WalkSpeed = 200f; 
     private float _HorizontalInput;
 
-    public bool _CanMove {get; set;}
+    public bool _CanMove {get; set;} // marked for deletion
     public float _CharacterDirection => _HorizontalInput;
 
     public bool _MovementSurpressed;
@@ -32,14 +32,15 @@ public class CharacterMovement : CharacterComponent
         // It can feel like sliding on ice. Be cognitive that the Rigidbody mass is weighed in to the function.
         //_CharacterRigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalInput, 0));
         //_CharacterRigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalInput, 0), ForceMode2D.Force); // <-- Default, gradual force build up applied
-        if(_CanMove){
+        if(!_Character.IsLocked){
             _CharacterRigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalInput, 0), ForceMode2D.Impulse); // <-- Specified, Immediate force applied        
         }
     }
     
     protected override void HandleInput()
     {
-        if (_Character.CharacterType == Character.CharacterTypes.Player && _CanMove)
+        print("character locked? : " + _Character.IsLocked);
+        if (_Character.CharacterType == Character.CharacterTypes.Player && !_Character.IsLocked)
         {
             _HorizontalInput = Input.GetAxisRaw("Horizontal");
             _CharacterAnimation.Movement(_HorizontalInput);

@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    // global variables example
-    public bool _IsGrounded { get; set; }
+    // Global character state variables
+    private bool _IsGrounded;
+    private bool _IsLocked;
+
+    // public property accessors
+    public bool IsLocked { get => _IsLocked; set => _IsLocked = value; }
+    public bool IsGrounded { get => _IsGrounded; set => _IsGrounded = value; }
 
     public enum CharacterTypes
     {
         Player, 
         AI
-    }
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-        
     }
 
     // Class to contain other "Character" GameObjects

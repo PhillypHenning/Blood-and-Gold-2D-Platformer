@@ -22,7 +22,7 @@ public class CharacterAnimation : MonoBehaviour
     public bool IsMoving => _IsMoving;
 
     // would this be a good way to access our global variables to avoid clunky code?
-    private bool IsGrounded => _Character._IsGrounded;
+    private bool IsGrounded => _Character.IsGrounded;
 
     private Dictionary<AnimationState, float> _AnimationTimes = new Dictionary<AnimationState, float>();
     private AnimationState _CurrentAnimation;
@@ -97,7 +97,7 @@ public class CharacterAnimation : MonoBehaviour
     {
         if (PriorityAnimationPlaying() || StaticAnimationPlaying() || _IsDead) return;
 
-        if (_Character._IsGrounded)
+        if (_Character.IsGrounded)
         {
             if (_IsFalling)
             {
@@ -194,7 +194,7 @@ public class CharacterAnimation : MonoBehaviour
 
     private void RunStart()
     {
-        if (!_Character._IsGrounded || IsMoving) return;
+        if (!_Character.IsGrounded || IsMoving) return;
         _IsMoving = true;
 
         ChangeAnimationState(AnimationState.RunStart, AnimationType.Static);
@@ -202,7 +202,7 @@ public class CharacterAnimation : MonoBehaviour
 
     private void RunStop()
     {
-        if (!_Character._IsGrounded || !IsMoving) return;
+        if (!_Character.IsGrounded || !IsMoving) return;
         _IsMoving = false;
 
         if (_CurrentAnimation != AnimationState.Run) return;

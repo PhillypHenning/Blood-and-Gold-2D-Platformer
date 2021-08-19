@@ -7,7 +7,7 @@ public class CharacterDodge : CharacterComponent
     public float _DodgeDistance = 250;
     private float _DodgeDuration = .6f;
     private float _DodgeTimer;
-    private bool _CanDodge;
+    private bool _CanDodge; // marked for deletion
     private bool _IsDodging;
 
     // Ensure this component is the second in the character gameobject hierarchy (Scripts; 1. Character, 2. CharacterComponents) 
@@ -46,8 +46,7 @@ public class CharacterDodge : CharacterComponent
     private void Dodge(){
         // TODO: adjust collider to fit sprite animation
         _IsDodging = true;
-        _CanDodge = false;
-        _CharacterMovement._CanMove = false;
+        _Character.IsLocked = true;
         //_Test._CanUseAbility = false; <-This works as long as CharacterComponent is the top most Component in the Character Gameobject. 
         _CharacterStats._CanUseAbility = false;
         _DodgeTimer = 0;
@@ -56,8 +55,7 @@ public class CharacterDodge : CharacterComponent
     
     private void StopDodge(){
         _IsDodging = false;
-        _CanDodge = true;
-        _CharacterMovement._CanMove = true;
+        _Character.IsLocked = false;
         _CharacterStats._CanUseAbility = true;
     }
 }
