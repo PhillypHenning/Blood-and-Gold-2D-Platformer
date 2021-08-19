@@ -56,6 +56,8 @@ public class CharacterMovement : CharacterComponent
     }
 
     public void MovePosition(Vector2 newPosition){
+        // TODO: (Potentially) add option to disable animations while position is being moved 
+        Debug.Log(newPosition);
         _CharacterRigidBody2D.MovePosition(newPosition);
     }
 

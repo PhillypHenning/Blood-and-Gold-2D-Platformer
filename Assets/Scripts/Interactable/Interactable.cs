@@ -22,9 +22,7 @@ public class Interactable : MonoBehaviour
     protected virtual void Start(){
         SetToDefault();
 
-        
         _InteractableHealth = GetComponent<Interactable_Component_Health>();
-        
     }
 
     protected virtual void Update() {   
