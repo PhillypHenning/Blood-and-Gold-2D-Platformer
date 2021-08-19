@@ -5,6 +5,7 @@ using UnityEngine;
 public class Parallax : MonoBehaviour
 {
     private Vector2 _StartPosition;
+    private SpriteRenderer _SpriteRenderer;
     private float _ZPosStart;
 
     public Camera _Camera;
@@ -16,21 +17,24 @@ public class Parallax : MonoBehaviour
 
     public float _ParallaxFactor => Mathf.Abs(_DistanceFromSubject / _ClippingPlane);
 
-    private void Start() {
+    private void Start() {     
+        _SpriteRenderer = GetComponent<SpriteRenderer>();
+
         _StartPosition = transform.position;
-        _ZPosStart = transform.position.z;  
+        _ZPosStart = transform.position.z;
     }
 
-    public void Update()
+    private void Update()
     {
-        Debug.Log("_StartPosition " + _StartPosition);
-        Debug.Log("Travel " + Travel);
-        Debug.Log("_ParallaxFactor " + _ParallaxFactor);
-        Vector2 newPos = _StartPosition + Travel * _ParallaxFactor;
-        Debug.Log("newPos " + newPos);
-
-        transform.position = new Vector3(newPos.x, newPos.y, _ZPosStart);
+        //Vector2 newPos = _StartPosition + Travel * _ParallaxFactor;
+        //transform.position = new Vector3(newPos.x, newPos.y, _ZPosStart);
     }
 
-
+    private void FixedUpdate()
+    {
+        Vector2 newPos = _StartPosition + Travel * _ParallaxFactor;
+        //newPos.y = newPos.y * 2;
+        transform.position = new Vector3(newPos.x, newPos.y, _ZPosStart);
+        //Loop();
+    }
 }
