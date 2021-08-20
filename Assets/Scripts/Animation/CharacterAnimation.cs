@@ -6,26 +6,20 @@ using UnityEngine;
 public class CharacterAnimation : MonoBehaviour
 {
     private Animator _Animator;
-    private Rigidbody2D _Player;
     private Character _Character;
 
-    private bool _IsMoving;
     private bool _IsDead;
     private bool _IsFalling;
+    private bool _IsRunning;
 
     private float _StaticAnimationTime;
     private float _PriorityAnimationTime;
 
-    private bool _FacingRight = true;
-
-    public bool FacingRight => _FacingRight;
-    public bool IsMoving => _IsMoving;
-
-    // would this be a good way to access our global variables to avoid clunky code?
-    private bool IsGrounded => _Character.IsGrounded;
 
     private Dictionary<AnimationState, float> _AnimationTimes = new Dictionary<AnimationState, float>();
     private AnimationState _CurrentAnimation;
+
+    public Dictionary<AnimationState, float> AnimationTimes => _AnimationTimes;
 
     // Dynamic animations are fluid and handeled within the UpdateAnimations function
     // Static animations will prevent dynamic animation logic until it has played through
@@ -38,7 +32,7 @@ public class CharacterAnimation : MonoBehaviour
     }
 
     /* TODO: store animation clips as Hash ID's (Animator.StringToHash("your_clip_name") to improve performance */
-    private enum AnimationState {
+    public enum AnimationState {
         None,
         Idle,
         RunStart,
@@ -59,16 +53,15 @@ public class CharacterAnimation : MonoBehaviour
     void Start()
     {
         _Animator = GetComponentInChildren<Animator>();
-        _Player = GetComponent<Rigidbody2D>();
         _Character = GetComponent<Character>();
 
-        if (_Player == null) print("CharacterAnimation couldn't find RigidBody2D to assign to _Player.");
+        if (_Character == null) print("CharacterAnimation couldn't find Character to assign to _Character.");
         if (_Animator == null) print("CharacterAnimation couldn't find Animator component to assign to _Animator.");
 
         UpdateAnimationTimes();
     }
 
-    // Sets the animation timers for one-time-play animations
+    // Populates _AnimationTime Dict with animation states and their respective durations
     private void UpdateAnimationTimes()
     {
         AnimationClip[] clips = _Animator.runtimeAnimatorController.animationClips;
@@ -104,9 +97,8 @@ public class CharacterAnimation : MonoBehaviour
                 _IsFalling = false;
                 Landing();
             }
-            else if (_IsMoving)
+            else if (_Character.IsMoving)
             {
-                // TODO: update run to ensure RunStart happens first every time... maybe
                 ChangeAnimationState(AnimationState.Run);
             }
             else
@@ -114,7 +106,7 @@ public class CharacterAnimation : MonoBehaviour
                 ChangeAnimationState(AnimationState.Idle);
             }
         }
-        else if (_Player.velocity.y < 0)
+        else if (_Character.RigidBody2D.velocity.y < 0)
         {
             if (_IsFalling)
             {
@@ -134,7 +126,7 @@ public class CharacterAnimation : MonoBehaviour
         if (StaticAnimationPlaying()) _StaticAnimationTime -= Time.deltaTime;
         if (PriorityAnimationPlaying()) _PriorityAnimationTime -= Time.deltaTime;
     }
-    
+
     private bool StaticAnimationPlaying()
     {
         return _StaticAnimationTime > 0;
@@ -166,16 +158,10 @@ public class CharacterAnimation : MonoBehaviour
         }
     }
 
-    public void Movement(float horizontalMovement)
+    public void Movement()
     {
-        if (horizontalMovement != 0)
+        if (_Character.IsMoving)
         {
-            if ((FacingRight && horizontalMovement < 0) ||
-                (!FacingRight && horizontalMovement > 0))
-            {
-                FlipCharacter();
-            }
-
             RunStart();
         }
         else
@@ -184,26 +170,18 @@ public class CharacterAnimation : MonoBehaviour
         }
     }
 
-    private void FlipCharacter()
-    {
-        //var character = transform.Find("Sprite").transform;
-        var character = _Character.CharacterSprite.transform;
-        _FacingRight = !_FacingRight;
-        character.localRotation = Quaternion.Euler(character.rotation.x, _FacingRight ? 0 : -180, character.rotation.z);
-    }
-
     private void RunStart()
     {
-        if (!_Character.IsGrounded || IsMoving) return;
-        _IsMoving = true;
+        if (!_Character.IsGrounded || _IsRunning) return;
+        _IsRunning = true;
 
         ChangeAnimationState(AnimationState.RunStart, AnimationType.Static);
     }
 
     private void RunStop()
     {
-        if (!_Character.IsGrounded || !IsMoving) return;
-        _IsMoving = false;
+        if (!_Character.IsGrounded || !_IsRunning) return;
+        _IsRunning = false;
 
         if (_CurrentAnimation != AnimationState.Run) return;
         ChangeAnimationState(AnimationState.RunStop, AnimationType.Static);

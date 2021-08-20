@@ -21,7 +21,7 @@ public class CharacterWeapon : CharacterComponent
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        if(_CharacterAnimation.FacingRight){
+        if(_Character.FacingRight){
             _CurrentWeapon.transform.localScale = new Vector3(1,1,1);
         }else{
             _CurrentWeapon.transform.localScale = new Vector3(-1,1,1);

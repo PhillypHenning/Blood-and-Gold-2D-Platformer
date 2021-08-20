@@ -101,14 +101,19 @@ public class Weapon : MonoBehaviour
 
         // Gets the reference to the Projectile class on the GameObject
         // TODO: MOVE THE "FACING RIGHT" out of the fucking animation component.
+        // PHILTODO: no more swears </3
         Projectile projectile = pooledProjectile.GetComponent<Projectile>();
-        Vector2 newDirection = _WeaponOwner.GetComponent<CharacterAnimation>().FacingRight ? transform.right : transform.right*-1;
+        Vector2 newDirection = _WeaponOwner.FacingRight ? transform.right : transform.right*-1;
 
-        projectile.SetDirection(newDirection, transform.rotation, _WeaponOwner.GetComponent<CharacterAnimation>().FacingRight);
+        projectile.SetDirection(newDirection, transform.rotation, _WeaponOwner.FacingRight);
     }
 
-    // PUBLIC \\
-    // ------- \\
+         //\\
+        //  \\
+       //    \\
+      //      \\
+     // PUBLIC \\
+    // -------- \\
     public void Reload(){
         RefillAmmo();
     }
