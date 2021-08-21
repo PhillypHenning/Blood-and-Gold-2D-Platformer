@@ -108,13 +108,22 @@ public class Weapon : MonoBehaviour
 
         projectile.SetDirection(newDirection, transform.rotation, _WeaponOwner.FacingRight);
     }
-
+          /*
          //\\
         //  \\
        //    \\
       //      \\
      // PUBLIC \\
     // -------- \\
+    || ( .) ( .)|| 
+    ||      >   ||
+    ||      _   ||
+    \\ ________//
+          | |
+          |*/
+    
+    
+    
     public void Reload(){
         RefillAmmo();
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Revolver_Reload");
