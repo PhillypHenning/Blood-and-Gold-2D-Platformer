@@ -62,6 +62,13 @@ namespace FMOD.Studio
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public struct TIMELINE_NESTED_BEAT_PROPERTIES
+    {
+        public Guid eventid;
+        public TIMELINE_BEAT_PROPERTIES properties;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public struct ADVANCEDSETTINGS
     {
         public int cbsize;
@@ -319,6 +326,7 @@ namespace FMOD.Studio
         REAL_TO_VIRTUAL          = 0x00008000,
         VIRTUAL_TO_REAL          = 0x00010000,
         START_EVENT_COMMAND      = 0x00020000,
+        NESTED_TIMELINE_BEAT     = 0x00040000,
 
         ALL                      = 0xFFFFFFFF,
     }
@@ -1144,8 +1152,7 @@ namespace FMOD.Studio
         }
         public RESULT getVolume(out float volume)
         {
-            float finalVolume;
-            return getVolume(out volume, out finalVolume);
+            return FMOD_Studio_EventInstance_GetVolume(this.handle, out volume, IntPtr.Zero);
         }
         public RESULT getVolume(out float volume, out float finalvolume)
         {
@@ -1157,8 +1164,7 @@ namespace FMOD.Studio
         }
         public RESULT getPitch(out float pitch)
         {
-            float finalPitch;
-            return getPitch(out pitch, out finalPitch);
+            return FMOD_Studio_EventInstance_GetPitch(this.handle, out pitch, IntPtr.Zero);
         }
         public RESULT getPitch(out float pitch, out float finalpitch)
         {
@@ -1306,9 +1312,13 @@ namespace FMOD.Studio
         [DllImport(STUDIO_VERSION.dll)]
         private static extern RESULT FMOD_Studio_EventInstance_GetDescription              (IntPtr _event, out IntPtr description);
         [DllImport(STUDIO_VERSION.dll)]
+        private static extern RESULT FMOD_Studio_EventInstance_GetVolume                   (IntPtr _event, out float volume, IntPtr zero);
+        [DllImport(STUDIO_VERSION.dll)]
         private static extern RESULT FMOD_Studio_EventInstance_GetVolume                   (IntPtr _event, out float volume, out float finalvolume);
         [DllImport(STUDIO_VERSION.dll)]
         private static extern RESULT FMOD_Studio_EventInstance_SetVolume                   (IntPtr _event, float volume);
+        [DllImport(STUDIO_VERSION.dll)]
+        private static extern RESULT FMOD_Studio_EventInstance_GetPitch                    (IntPtr _event, out float pitch, IntPtr zero);
         [DllImport(STUDIO_VERSION.dll)]
         private static extern RESULT FMOD_Studio_EventInstance_GetPitch                    (IntPtr _event, out float pitch, out float finalpitch);
         [DllImport(STUDIO_VERSION.dll)]

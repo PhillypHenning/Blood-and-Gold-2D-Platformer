@@ -179,7 +179,7 @@ namespace FMODUnity
                         }
                         else
                         {
-                            EditorParamRef paramRef = eventRef.Parameters.Find(p => p.Name == name);
+                            EditorParamRef paramRef = eventRef.LocalParameters.Find(p => p.Name == name);
 
                             if (paramRef != null)
                             {
@@ -202,7 +202,7 @@ namespace FMODUnity
                 }
 
                 missingParameters.Clear();
-                missingParameters.AddRange(eventRef.Parameters.Where(
+                missingParameters.AddRange(eventRef.LocalParameters.Where(
                     p => {
                         PropertyRecord record = propertyRecords.Find(r => r.name == p.Name);
                         return record == null || record.valueProperties.Count < serializedTargets.Count;

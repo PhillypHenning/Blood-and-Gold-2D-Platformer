@@ -307,6 +307,27 @@ namespace FMOD
     }
 
     [StructLayout(LayoutKind.Sequential)]
+    public struct DSP_LOUDNESS_METER_INFO_TYPE
+    {
+        public float momentaryloudness;
+        public float shorttermloudness;
+        public float integratedloudness;
+        public float loudness10thpercentile;
+        public float loudness95thpercentile;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 66)]
+        public float[] loudnesshistogram;
+        public float maxtruepeak;
+        public float maxmomentaryloudness;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct DSP_LOUDNESS_METER_WEIGHTING_TYPE
+    {
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        public float[] channelweight;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public struct DSP_DESCRIPTION
     {
         public uint                           pluginsdkversion;
@@ -716,6 +737,24 @@ namespace FMOD
         WINDOWTYPE,
         SPECTRUMDATA,
         DOMINANT_FREQ
+    }
+
+
+    public enum DSP_LOUDNESS_METER : int
+    {
+        STATE,
+        WEIGHTING,
+        INFO
+    }
+
+
+    public enum DSP_LOUDNESS_METER_STATE_TYPE : int
+    {
+        RESET_INTEGRATED = -3,
+        RESET_MAXPEAK = -2,
+        RESET_ALL = -1,
+        PAUSED = 0,
+        ANALYZING = 1
     }
 
     public enum DSP_ENVELOPEFOLLOWER : int

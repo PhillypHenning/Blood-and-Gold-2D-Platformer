@@ -31,7 +31,7 @@ namespace FMODUnity
             OnCacheChange();
             if (Settings.Instance.ImportType == ImportType.AssetBundle)
             {
-                CopyToStreamingAssets();
+                UpdateBankStubAssets(EditorUserBuildSettings.activeBuildTarget);
             }
 
             BankRefresher.HandleBankRefresh(result);
@@ -260,8 +260,10 @@ namespace FMODUnity
 
                     FileInfo bankFileInfo = new FileInfo(bankFileName);
 
-                    // Timestamp check - if it doesn't match update events from that bank
-                    if (bankRef.LastModified != bankFileInfo.LastWriteTime)
+                    // Update events from this bank if it has been modified,
+                    // or it is a master bank (so that we get any global parameters)
+                    if (bankRef.LastModified != bankFileInfo.LastWriteTime
+                        || masterBankFileNames.Contains(Path.GetFileName(bankFileName)))
                     {
                         bankRef.LastModified = bankFileInfo.LastWriteTime;
                         UpdateCacheBank(bankRef);
@@ -273,7 +275,7 @@ namespace FMODUnity
                     {
                         for (int i = 0; i < bankPlatforms.Length; i++)
                         {
-                            string platformBankPath = RuntimeUtils.GetCommonPlatformPath(Path.Combine(bankFolders[i], bankFileName));
+                            string platformBankPath = RuntimeUtils.GetCommonPlatformPath(bankFolders[i] + bankFileName.Replace(defaultBankFolder, ""));
                             var fileInfo = new FileInfo(platformBankPath);
                             if (fileInfo.Exists)
                             {
@@ -325,16 +327,17 @@ namespace FMODUnity
             eventCache.EditorEvents.ForEach((x) => x.Banks.Remove(bankRef));
 
             FMOD.Studio.Bank bank; 
-            bankRef.LoadResult = EditorUtils.System.loadBankFile(bankRef.Path, FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out bank);
+            FMOD.RESULT loadResult =
+                EditorUtils.System.loadBankFile(bankRef.Path, FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out bank);
 
-            if (bankRef.LoadResult == FMOD.RESULT.ERR_EVENT_ALREADY_LOADED)
+            if (loadResult == FMOD.RESULT.ERR_EVENT_ALREADY_LOADED)
             {
                 EditorUtils.System.getBank(bankRef.Name, out bank);
                 bank.unload();
-                bankRef.LoadResult = EditorUtils.System.loadBankFile(bankRef.Path, FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out bank);
+                loadResult = EditorUtils.System.loadBankFile(bankRef.Path, FMOD.Studio.LOAD_BANK_FLAGS.NORMAL, out bank);
             }
 
-            if (bankRef.LoadResult == FMOD.RESULT.OK)
+            if (loadResult == FMOD.RESULT.OK)
             {
                 // Get studio path
                 string studioPath;
@@ -379,7 +382,8 @@ namespace FMODUnity
                         {
                             FMOD.Studio.PARAMETER_DESCRIPTION param;
                             eventDesc.getParameterDescriptionByIndex(paramIndex, out param);
-                            if ((param.flags & FMOD.Studio.PARAMETER_FLAGS.READONLY) != 0)
+                            // Skip if readonly and not global
+                            if ((param.flags & FMOD.Studio.PARAMETER_FLAGS.READONLY) != 0 && (param.flags & FMOD.Studio.PARAMETER_FLAGS.GLOBAL) == 0)
                             {
                                 continue;
                             }
@@ -391,11 +395,10 @@ namespace FMODUnity
                                 AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(paramRef));
                                 eventRef.Parameters.Add(paramRef);
                             }
-                            paramRef.Name = param.name;
+
+                            InitializeParamRef(paramRef, param);
+
                             paramRef.name = "parameter:/" + Path.GetFileName(path) + "/" + paramRef.Name;
-                            paramRef.Min = param.minimum;
-                            paramRef.Max = param.maximum;
-                            paramRef.Default = param.defaultvalue;
                             paramRef.Exists = true;
                         }
                         eventRef.Parameters.RemoveAll((x) => !x.Exists);
@@ -422,11 +425,10 @@ namespace FMODUnity
                                 eventCache.EditorParameters.Add(paramRef);
                                 paramRef.ID = param.id;
                             }
-                            paramRef.Name = param.name;
+
+                            InitializeParamRef(paramRef, param);
+
                             paramRef.name = "parameter:/" + param.name;
-                            paramRef.Min = param.minimum;
-                            paramRef.Max = param.maximum;
-                            paramRef.Default = param.defaultvalue;
                             paramRef.Exists = true;
                         }
                     }
@@ -435,8 +437,26 @@ namespace FMODUnity
             }
             else
             {
-                Debug.LogError(string.Format("FMOD Studio: Unable to load {0}: {1}", bankRef.Name, FMOD.Error.String(bankRef.LoadResult)));
+                Debug.LogError(string.Format("FMOD Studio: Unable to load {0}: {1}", bankRef.Name, FMOD.Error.String(loadResult)));
                 eventCache.StringsBankWriteTime = DateTime.MinValue;
+            }
+        }
+
+        static void InitializeParamRef(EditorParamRef paramRef, FMOD.Studio.PARAMETER_DESCRIPTION description)
+        {
+            paramRef.Name = description.name;
+            paramRef.Min = description.minimum;
+            paramRef.Max = description.maximum;
+            paramRef.Default = description.defaultvalue;
+            paramRef.IsGlobal = (description.flags & FMOD.Studio.PARAMETER_FLAGS.GLOBAL) != 0;
+
+            if ((description.flags & FMOD.Studio.PARAMETER_FLAGS.DISCRETE) != 0)
+            {
+                paramRef.Type = ParameterType.Discrete;
+            }
+            else
+            {
+                paramRef.Type = ParameterType.Continuous;
             }
         }
 
@@ -448,6 +468,14 @@ namespace FMODUnity
         static EventManager()
         {
             EditorApplication.delayCall += Startup;
+
+            BuildStatusWatcher.OnBuildStarted += () => {
+                BuildTargetChanged();
+                CopyToStreamingAssets(EditorUserBuildSettings.activeBuildTarget);
+            };
+            BuildStatusWatcher.OnBuildEnded += () => {
+                UpdateBankStubAssets(EditorUserBuildSettings.activeBuildTarget);
+            };
         }
 
         static void Startup()
@@ -545,16 +573,16 @@ namespace FMODUnity
 
         private const string FMODLabel = "FMOD";
 
-        public static void CopyToStreamingAssets()
+        public static void CopyToStreamingAssets(BuildTarget buildTarget)
         {
             if (string.IsNullOrEmpty(Settings.Instance.SourceBankPath))
                 return;
 
-            Platform platform = Settings.Instance.CurrentEditorPlatform;
+            Platform platform = Settings.Instance.GetPlatform(buildTarget);
 
             if (platform == Settings.Instance.DefaultPlatform)
             {
-                Debug.LogWarningFormat("FMOD Studio: copy banks for platform {0} : Unsupported platform", EditorUserBuildSettings.activeBuildTarget);
+                Debug.LogWarningFormat("FMOD Studio: copy banks for platform {0} : Unsupported platform", buildTarget);
                 return;
             }
 
@@ -659,6 +687,142 @@ namespace FMODUnity
                 AssetDatabase.Refresh();
                 Debug.LogFormat("FMOD Studio: copy banks for platform {0} : copying banks from {1} to {2} succeeded",
                     platform.DisplayName, bankSourceFolder, bankTargetFolder);
+            }
+        }
+
+        public static void UpdateBankStubAssets(BuildTarget buildTarget)
+        {
+            if (Settings.Instance.ImportType != ImportType.AssetBundle
+                || string.IsNullOrEmpty(Settings.Instance.SourceBankPath))
+            {
+                return;
+            }
+
+            Platform platform = Settings.Instance.GetPlatform(buildTarget);
+
+            if (platform == Settings.Instance.DefaultPlatform)
+            {
+                Debug.LogWarningFormat("FMOD: Updating bank stubs: Unsupported platform {0}", buildTarget);
+                return;
+            }
+
+            string bankTargetFolder = Application.dataPath;
+            
+            if (!string.IsNullOrEmpty(Settings.Instance.TargetAssetPath))
+            {
+                bankTargetFolder += "/" + Settings.Instance.TargetAssetPath;
+            }
+
+            bankTargetFolder = RuntimeUtils.GetCommonPlatformPath(bankTargetFolder);
+
+            string bankSourceFolder = Settings.Instance.SourceBankPath;
+
+            if (Settings.Instance.HasPlatforms)
+            {
+                bankSourceFolder += "/" + platform.BuildDirectory;
+            }
+
+            bankSourceFolder = RuntimeUtils.GetCommonPlatformPath(bankSourceFolder);
+
+            if (Path.GetFullPath(bankTargetFolder).TrimEnd('/').ToUpperInvariant() ==
+                Path.GetFullPath(bankSourceFolder).TrimEnd('/').ToUpperInvariant())
+            {
+                return;
+            }
+
+            bool madeChanges = false;
+
+            Directory.CreateDirectory(bankTargetFolder);
+
+            try
+            {
+                const string BankAssetExtension = ".bytes";
+
+                // Clean out any stale stubs
+                string[] existingBankFiles =
+                    Directory.GetFiles(bankTargetFolder, "*" + BankAssetExtension, SearchOption.AllDirectories);
+
+                foreach (string bankFilePath in existingBankFiles)
+                {
+                    string bankName = EditorBankRef.CalculateName(bankFilePath, bankTargetFolder);
+
+                    if (!eventCache.EditorBanks.Exists(x => x.Name == bankName))
+                    {
+                        string assetPath = bankFilePath.Replace(Application.dataPath, AssetsFolderName);
+
+                        if (AssetHasLabel(assetPath, FMODLabel))
+                        {
+                            AssetDatabase.MoveAssetToTrash(assetPath);
+                            madeChanges = true;
+                        }
+                    }
+                }
+
+                // Create any stubs that don't exist, and ensure any that do exist have the correct data
+                foreach (var bankRef in eventCache.EditorBanks)
+                {
+                    string sourcePath = bankSourceFolder + "/" + bankRef.Name + ".bank";
+                    string targetPathRelative = bankRef.Name + BankAssetExtension;
+                    string targetPathFull = bankTargetFolder + "/" + targetPathRelative;
+
+                    EnsureFoldersExist(targetPathRelative, bankTargetFolder);
+
+                    FileInfo targetInfo = new FileInfo(targetPathFull);
+
+                    string stubData = RuntimeManager.BankStubPrefix + bankRef.Name;
+
+                    // Minimise asset database refreshing by only writing the stub if necessary
+                    bool writeStub;
+
+                    if (targetInfo.Exists && targetInfo.Length == stubData.Length)
+                    {
+                        using (StreamReader reader = targetInfo.OpenText())
+                        {
+                            string contents = reader.ReadToEnd();
+                            writeStub = (contents != stubData);
+                        }
+                    }
+                    else
+                    {
+                        writeStub = true;
+                    }
+
+                    if (writeStub)
+                    {
+                        // Create or update the stub
+                        using (StreamWriter writer = targetInfo.CreateText())
+                        {
+                            writer.Write(stubData);
+                        }
+
+                        madeChanges = true;
+
+                        if (!targetInfo.Exists)
+                        {
+                            string assetPath = targetPathFull.Replace(Application.dataPath, "Assets");
+                            AssetDatabase.ImportAsset(assetPath);
+
+                            UnityEngine.Object obj = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(assetPath);
+                            AssetDatabase.SetLabels(obj, new string[] { FMODLabel });
+                        }
+                    }
+                }
+
+                RemoveEmptyFMODFolders(bankTargetFolder);
+            }
+            catch(Exception exception)
+            {
+                Debug.LogErrorFormat("FMOD: Updating bank stubs in {0} to match {1}",
+                    bankTargetFolder, bankSourceFolder);
+                Debug.LogException(exception);
+                return;
+            }
+
+            if (madeChanges)
+            {
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+                Debug.LogFormat("FMOD: Updated bank stubs in {0} to match {1}", bankTargetFolder, bankSourceFolder);
             }
         }
 
@@ -863,16 +1027,6 @@ namespace FMODUnity
         }
 
 #if UNITY_2018_1_OR_NEWER
-        public class PreprocessBuild : IPreprocessBuildWithReport
-        {
-            public int callbackOrder { get { return 0; } }
-            public void OnPreprocessBuild(BuildReport report)
-            {
-                BuildTargetChanged();
-                CopyToStreamingAssets();
-            }
-        }
-
         public class PreprocessScene : IProcessSceneWithReport
         {
             public int callbackOrder { get { return 0; } }
@@ -885,16 +1039,6 @@ namespace FMODUnity
             }
         }
 #else
-        public class PreprocessBuild : IPreprocessBuild
-        {
-            public int callbackOrder { get { return 0; } }
-            public void OnPreprocessBuild(BuildTarget target, string path)
-            {
-                BuildTargetChanged();
-                CopyToStreamingAssets();
-            }
-        }
-
         public class PreprocessScene : IProcessScene
         {
             public int callbackOrder { get { return 0; } }
@@ -921,7 +1065,6 @@ namespace FMODUnity
 
         private static bool AssetHasLabel(string assetPath, string label)
         {
-            AssetDatabase.ImportAsset(assetPath);
             UnityEngine.Object asset = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(assetPath);
             string[] labels = AssetDatabase.GetLabels(asset);
 

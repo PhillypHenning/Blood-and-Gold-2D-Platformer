@@ -7,6 +7,12 @@ using UnityEngine;
 
 namespace FMODUnity
 {
+    public enum ParameterType
+    {
+        Continuous,
+        Discrete,
+    }
+
     public class EditorParamRef : ScriptableObject
     {
         [SerializeField]
@@ -19,6 +25,10 @@ namespace FMODUnity
         public float Default;
         [SerializeField]
         public ParameterID ID;
+        [SerializeField]
+        public ParameterType Type;
+        [SerializeField]
+        public bool IsGlobal;
 
         [Serializable]
         public struct ParameterID

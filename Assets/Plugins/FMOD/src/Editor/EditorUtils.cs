@@ -1,8 +1,17 @@
-﻿using System;
+﻿#if UNITY_ADDRESSABLES_EXIST
+    // The Addressables package depends on the ScriptableBuildPipeline package
+    #define UNITY_SCRIPTABLEBUILDPIPELINE_EXIST
+#endif
+
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.Build;
+#if UNITY_SCRIPTABLEBUILDPIPELINE_EXIST
+using UnityEditor.Build.Pipeline;
+#endif
 using UnityEditor.SceneManagement;
 using System.IO;
 using System.Text;
@@ -52,7 +61,7 @@ namespace FMODUnity
 
                 string projectPath = settings.SourceProjectPath;
                 string projectFolder = Path.GetDirectoryName(projectPath);
-                string buildFolder = Path.Combine(projectFolder, BuildFolder);
+                string buildFolder = RuntimeUtils.GetCommonPlatformPath(Path.Combine(projectFolder, BuildFolder));
                 if (!Directory.Exists(buildFolder) ||
                     Directory.GetDirectories(buildFolder).Length == 0 ||
                     Directory.GetFiles(Directory.GetDirectories(buildFolder)[0], "*.bank", SearchOption.AllDirectories).Length == 0
@@ -199,9 +208,12 @@ namespace FMODUnity
 
                 if (speakerMode != Settings.Instance.GetEditorSpeakerMode())
                 {
-                    PreviewStop();
-                    DestroySystem();
-                    CreateSystem();
+                    RecreateSystem();
+                }
+
+                if (encryptionKey != Settings.Instance.EncryptionKey)
+                {
+                    RecreateSystem();
                 }
             }
 
@@ -218,6 +230,14 @@ namespace FMODUnity
 
         static FMOD.Studio.System system;
         static FMOD.SPEAKERMODE speakerMode;
+        static string encryptionKey;
+
+        static void RecreateSystem()
+        {
+            PreviewStop();
+            DestroySystem();
+            CreateSystem();
+        }
 
         static void DestroySystem()
         {
@@ -248,6 +268,13 @@ namespace FMODUnity
             // Use play-in-editor speaker mode for event browser preview and metering
             speakerMode = Settings.Instance.GetEditorSpeakerMode();
             CheckResult(lowlevel.setSoftwareFormat(0, speakerMode, 0));
+
+            encryptionKey = Settings.Instance.EncryptionKey;
+            if (!string.IsNullOrEmpty(encryptionKey))
+            {
+                FMOD.Studio.ADVANCEDSETTINGS studioAdvancedSettings = new FMOD.Studio.ADVANCEDSETTINGS();
+                CheckResult(system.setAdvancedSettings(studioAdvancedSettings, encryptionKey));
+            }
 
             CheckResult(system.initialize(256, FMOD.Studio.INITFLAGS.ALLOW_MISSING_PLUGINS | FMOD.Studio.INITFLAGS.SYNCHRONOUS_UPDATE, FMOD.INITFLAGS.NORMAL, IntPtr.Zero));
 
@@ -292,7 +319,7 @@ namespace FMODUnity
 
             for (int i = 0; i < emitter.Params.Length; i++)
             {
-                if (!eventRef.Parameters.Exists((x) => x.Name == emitter.Params[i].Name))
+                if (!eventRef.LocalParameters.Exists((x) => x.Name == emitter.Params[i].Name))
                 {
                     int end = emitter.Params.Length - 1;
                     emitter.Params[i] = emitter.Params[end];
@@ -648,7 +675,14 @@ namespace FMODUnity
                 FMOD.Studio.PARAMETER_DESCRIPTION paramDesc;
                 CheckResult(previewEventDesc.getParameterDescriptionByName(param.Name, out paramDesc));
                 param.ID = paramDesc.id;
-                PreviewUpdateParameter(param.ID, previewParamValues[param.Name]);
+                if (param.IsGlobal)
+                {
+                    CheckResult(System.setParameterByID(param.ID, previewParamValues[param.Name]));
+                }
+                else
+                {
+                    PreviewUpdateParameter(param.ID, previewParamValues[param.Name]);
+                }
             }
 
             CheckResult(previewEventInstance.start());
@@ -1108,6 +1142,96 @@ namespace FMODUnity
                 }
             }
         }
+    }
+
+    public class BuildStatusWatcher
+    {
+        public static Action OnBuildStarted;
+        public static Action OnBuildEnded;
+
+        static bool buildInProgress = false;
+
+        static void SetBuildInProgress(bool inProgress)
+        {
+            if (inProgress != buildInProgress)
+            {
+                buildInProgress = inProgress;
+
+                if (buildInProgress)
+                {
+                    EditorApplication.update += PollBuildStatus;
+
+                    if (OnBuildStarted != null)
+                    {
+                        OnBuildStarted();
+                    }
+                }
+                else
+                {
+                    EditorApplication.update -= PollBuildStatus;
+
+                    if (OnBuildEnded != null)
+                    {
+                        OnBuildEnded();
+                    }
+                }
+            }
+        }
+
+        static void PollBuildStatus()
+        {
+            SetBuildInProgress(BuildPipeline.isBuildingPlayer);
+        }
+
+#if UNITY_2018_1_OR_NEWER
+        private class BuildProcessor : IPreprocessBuildWithReport, IPostprocessBuildWithReport
+        {
+            public int callbackOrder { get { return 0; } }
+
+            public void OnPreprocessBuild(UnityEditor.Build.Reporting.BuildReport report)
+            {
+                SetBuildInProgress(true);
+            }
+
+            public void OnPostprocessBuild(UnityEditor.Build.Reporting.BuildReport report)
+            {
+                SetBuildInProgress(false);
+            }
+        }
+#else
+        private class BuildProcessor : IPreprocessBuild, IPostprocessBuild
+        {
+            public int callbackOrder { get { return 0; } }
+
+            public void OnPreprocessBuild(BuildTarget target, string path)
+            {
+                SetBuildInProgress(true);
+            }
+
+            public void OnPostprocessBuild(BuildTarget target, string path)
+            {
+                SetBuildInProgress(false);
+            }
+        }
+#endif
+
+#if UNITY_SCRIPTABLEBUILDPIPELINE_EXIST
+        [InitializeOnLoadMethod]
+        static void RegisterScriptableBuildCallbacks()
+        {
+            BuildCallbacks callbacks = ContentPipeline.BuildCallbacks;
+
+            callbacks.PostDependencyCallback += (parameters, dependencyData) => {
+                SetBuildInProgress(true);
+                return ReturnCode.Success;
+            };
+
+            callbacks.PostWritingCallback += (parameters, dependencyData, writeData, results) => {
+                SetBuildInProgress(false);
+                return ReturnCode.Success;
+            };
+        }
+#endif
     }
 
     public static class SerializedPropertyExtensions
