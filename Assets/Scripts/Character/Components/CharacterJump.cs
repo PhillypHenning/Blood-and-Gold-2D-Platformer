@@ -38,7 +38,8 @@ public class CharacterJump : CharacterComponent
 
     protected override void HandleInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _CharacterCanJump)
+        base.HandleInput();
+        if (Input.GetKeyDown(KeyCode.Space) && _CharacterCanJump && !_Character.IsLocked)
         {
             Jump();
         }
@@ -52,15 +53,16 @@ public class CharacterJump : CharacterComponent
         //  2. Does the player have an extra jump?
         bool touchingPlatform = false;
 
-        if (_CharacterRigidBody2D.IsTouchingLayers(LayerMask.GetMask("Platforms")))
+        if (_Character.RigidBody2D.IsTouchingLayers(LayerMask.GetMask("Platforms")))
         {
             touchingPlatform = true;
         }
 
         // if we add a double jump this logic will need to change since "canjump" will be determined by other factors
         _CharacterCanJump = touchingPlatform;
-        // update logic here for proper encapsulation
-        _Character._IsGrounded = touchingPlatform;
+
+        // TODO: add coyote timer?
+        _Character.IsGrounded = touchingPlatform;
     }
 
     private void Jump()
@@ -69,8 +71,7 @@ public class CharacterJump : CharacterComponent
         //_CharacterRigidBody2D.AddForce(new Vector2(0, _JumpHeight), ForceMode2D.Impulse);
         
         
-        //_CharacterStats._CanUseAbility = false;
-        _CharacterRigidBody2D.velocity = Vector2.up * _VerticalTakeoff;
+        _Character.RigidBody2D.velocity = Vector2.up * _VerticalTakeoff;
 
         // animate the jump
         _CharacterAnimation.Jump();
@@ -79,14 +80,14 @@ public class CharacterJump : CharacterComponent
     private void ApplyGameGravity()
     {
         // This function applies a more game like physics to the jumping. The jump takes longer to reach it's peak, then has a snapper fall to the ground. 
-        if (_CharacterRigidBody2D.velocity.y < 0)
+        if (_Character.RigidBody2D.velocity.y < 0)
         {
-            _CharacterRigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_Fallmultiplier - _GravityScaled) * Time.deltaTime;
+            _Character.RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_Fallmultiplier - _GravityScaled) * Time.deltaTime;
         }
-        else if (_CharacterRigidBody2D.velocity.y > 0 && !Input.GetButton("Jump"))
+        else if (_Character.RigidBody2D.velocity.y > 0 && !Input.GetButton("Jump"))
         {
             // Enables us to have a "sensitive" jump height
-            _CharacterRigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_LowJumpModifier - _GravityScaled) * Time.deltaTime;
+            _Character.RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_LowJumpModifier - _GravityScaled) * Time.deltaTime;
         }
     }
 
@@ -98,7 +99,7 @@ public class CharacterJump : CharacterComponent
             // Start sticky slide
 
             // Start pushing down
-            _CharacterRigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * Time.deltaTime;
+            _Character.RigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * Time.deltaTime;
 
             // Maybe push a little to the left?
 

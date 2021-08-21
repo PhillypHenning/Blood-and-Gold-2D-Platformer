@@ -5,9 +5,15 @@ using UnityEngine;
 public class CharacterHealth : Health
 {
     private float _CharacterMaxHealth = 100f;
+    private CharacterAnimation _CharacterAnimation;
+    private Character _Character;
 
     protected override void SetToDefault()
     {
+        _Character = GetComponent<Character>();
+        _CharacterAnimation = GetComponent<CharacterAnimation>();
+        if (_Character == null) Debug.LogError("CharacterHealth was unable to find 'Character' component.");
+        if (_CharacterAnimation == null) Debug.LogWarning("CharacterHealth was unable to find 'CharacterAnimation' component.");
         _DefaultMaxHealth = _CharacterMaxHealth;
         base.SetToDefault();
     }
@@ -19,5 +25,22 @@ public class CharacterHealth : Health
         {
             Damage(10);
         }
+    }
+
+    public override void Damage(float amount)
+    {
+        base.Damage(amount);
+
+        if (_CharacterAnimation == null) return;
+        _CharacterAnimation.Hurt();
+    }
+
+    protected override void Die()
+    {
+        base.Die();
+        _Character.IsLocked = true;
+
+        if (_CharacterAnimation == null) return;
+        _CharacterAnimation.Die();
     }
 }

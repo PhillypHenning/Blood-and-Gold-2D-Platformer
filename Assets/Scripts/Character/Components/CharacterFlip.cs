@@ -16,7 +16,7 @@ public class CharacterFlip : CharacterComponent
     protected override void HandleAbility()
     {
         base.HandleAbility();
-        if(_CharacterAnimation.FacingRight){
+        if(_Character.FacingRight){
             _WeaponHolder.transform.localPosition = new Vector3(0.8f,1.7f,1);
         }else{
             _WeaponHolder.transform.localPosition = new Vector3(-0.8f,1.7f,1);

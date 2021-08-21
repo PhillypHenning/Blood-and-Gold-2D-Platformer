@@ -14,13 +14,10 @@ public class Health : MonoBehaviour
     public bool IsAlive => _IsAlive;
     public float CurrentHealth => _CurrentHealth;
 
-    private CharacterAnimation _CharacterAnimation;
-
     protected virtual void Start() 
     {
         // Set Default values
         SetToDefault();
-        _CharacterAnimation = GetComponentInChildren<CharacterAnimation>();
     }
 
     protected virtual void Update()
@@ -82,16 +79,12 @@ public class Health : MonoBehaviour
         else
         {
             _CurrentHealth -= amount;
-            if(_CharacterAnimation != null){
-                _CharacterAnimation.Hurt();
-            }
         }
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         _IsAlive = false;
-        _CharacterAnimation.Die();
     }
 
     public virtual void TimedDecraseHealth(float amount, float time)

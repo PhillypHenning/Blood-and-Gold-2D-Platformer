@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class CharacterMovement : CharacterComponent
 {
-    public float _MovementSpeed { get; set; }
+    public float _MovementSpeed;
     
-    private float _WalkSpeed = 200f; 
-    private float _HorizontalInput;
+    private float _HorizontalMovement;
 
-    public bool _CanMove {get; set;}
-    public float _CharacterDirection => _HorizontalInput;
+    public float HorizontalMovement => _HorizontalMovement;
 
     public bool _MovementSurpressed;
+
 
     // TODO: This component will need to know which way the sprite is facing
 
@@ -20,7 +19,6 @@ public class CharacterMovement : CharacterComponent
     {
         base.Start();
         SetToDefault();
-        _CanMove = true;
     }
 
     protected override void HandlePhysicsAbility()
@@ -32,23 +30,41 @@ public class CharacterMovement : CharacterComponent
         // It can feel like sliding on ice. Be cognitive that the Rigidbody mass is weighed in to the function.
         //_CharacterRigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalInput, 0));
         //_CharacterRigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalInput, 0), ForceMode2D.Force); // <-- Default, gradual force build up applied
-        if(_CanMove){
-            _CharacterRigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalInput, 0), ForceMode2D.Impulse); // <-- Specified, Immediate force applied        
+        if (CanMove())
+        {
+            _Character.RigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalMovement, 0), ForceMode2D.Impulse); // <-- Specified, Immediate force applied        
         }
     }
     
     protected override void HandleInput()
     {
-        if (_Character.CharacterType == Character.CharacterTypes.Player && _CanMove)
+        if (CanMove())
         {
-            _HorizontalInput = Input.GetAxisRaw("Horizontal");
-            _CharacterAnimation.Movement(_HorizontalInput);
+            _HorizontalMovement = Input.GetAxisRaw("Horizontal");
+            _Character.IsMoving = _HorizontalMovement != 0;
+            if (_Character.IsMoving)
+            {
+                if ((_Character.FacingRight && _HorizontalMovement < 0) || !_Character.FacingRight && _HorizontalMovement > 0)
+                {
+                    FlipCharacter();
+                }
+            }
+
+            _CharacterAnimation.Movement();
         }
     }
 
     protected override void SetToDefault()
     {
-        _MovementSpeed = _WalkSpeed;
+        _MovementSpeed = 200f;
+    }
+
+    private void FlipCharacter()
+    {
+        // TODO: flip entire character instead of just the sprite
+        var character = _Character.CharacterSprite.transform;
+        _Character.FacingRight = !_Character.FacingRight;
+        character.localRotation = Quaternion.Euler(character.rotation.x, _Character.FacingRight ? 0 : -180, character.rotation.z);
     }
 
     public void IncreaseMovementSpeed(float amount, float abilitylength,  bool lockout = true){
@@ -56,7 +72,14 @@ public class CharacterMovement : CharacterComponent
     }
 
     public void MovePosition(Vector2 newPosition){
-        _CharacterRigidBody2D.MovePosition(newPosition);
+        // TODO: (Potentially) add option to disable animations while position is being moved 
+        Debug.Log(newPosition);
+        _Character.RigidBody2D.MovePosition(newPosition);
+    }
+
+    public bool CanMove()
+    {
+        return !_Character.IsLocked;
     }
 
     public void Stop(){

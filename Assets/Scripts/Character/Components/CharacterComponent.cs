@@ -10,12 +10,10 @@ public class CharacterComponent : MonoBehaviour
     protected CharacterController _CharacterController;
     protected CharacterMovement _CharacterMovement;
     protected CharacterJump _CharacterJump;
-    protected CharacterStats _CharacterStats;
     protected CharacterHealth _CharacterHealth;
     protected CharacterAnimation _CharacterAnimation;
 
     // Gameobject Unity components
-    protected Rigidbody2D _CharacterRigidBody2D;
     
     // Start is called before the first frame update
     protected virtual void Start()
@@ -25,10 +23,7 @@ public class CharacterComponent : MonoBehaviour
         _CharacterController = GetComponent<CharacterController>();
         _CharacterMovement = GetComponent<CharacterMovement>();
         _CharacterJump = GetComponent<CharacterJump>();
-        _CharacterRigidBody2D = GetComponent<Rigidbody2D>();
-        _CharacterStats = GetComponent<CharacterStats>();
         _CharacterHealth = GetComponent<CharacterHealth>();
-        // does every character component need an animation component?
         _CharacterAnimation = GetComponent<CharacterAnimation>();
     }
 
@@ -36,13 +31,6 @@ public class CharacterComponent : MonoBehaviour
     protected virtual void Update()
     {
         HandleAbility();
-        // will every child component have an animation to handle?
-        HandleAnimation();
-    }
-
-    protected virtual void HandleAnimation()
-    {
-        // use this for components that use animation
     }
 
     protected virtual void FixedUpdate()
@@ -69,17 +57,20 @@ public class CharacterComponent : MonoBehaviour
 
     protected virtual void HandleInput()
     {
+        if (_Character.CharacterType != Character.CharacterTypes.Player) return;
         // Handles Player Inputs and Actions on them
         // For an easy example please review the Dash component.
     }
 
     protected virtual void InternalInput()
     {
+        if (_Character.CharacterType != Character.CharacterTypes.AI) return;
         // Handles "Game Engine" Inputs (AI)
         
     }
 
-    protected virtual void SetToDefault(){
+    protected virtual void SetToDefault()
+    {
         
     }
 }
