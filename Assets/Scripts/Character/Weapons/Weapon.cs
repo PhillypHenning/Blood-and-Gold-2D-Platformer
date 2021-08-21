@@ -125,6 +125,10 @@ public class Weapon : MonoBehaviour
     
     
     public void Reload(){
+        // Check if the revolver is full
+        if(_CurrentAmmo == _MaxMagazineSize){
+            return;
+        }
         RefillAmmo();
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Revolver_Reload");
     }
