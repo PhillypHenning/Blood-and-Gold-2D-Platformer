@@ -25,7 +25,8 @@ public class ObjectPooler : MonoBehaviour
         Refill();
     }
 
-    public void Refill(){
+    public void Refill()
+    {
         _PooledObjects = new List<GameObject>();
         for (int i = 0; i < _PoolSize; i++)
         {
@@ -33,24 +34,31 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    public GameObject GetGameObjectFromPool(){
+    public GameObject GetGameObjectFromPool()
+    {
         for (int i = 0; i < _PooledObjects.Count; i++)
         {
             // Check if the pooledObject is already active, if it isn't;
-            if(!_PooledObjects[i].activeInHierarchy){
+            if (!_PooledObjects[i].activeInHierarchy)
+            {
                 Debug.Log("Check");
                 return _PooledObjects[i];
             }
-
-            if(_PoolCanExpand){
-                AddGameObjectToPool();
+            if (i == _PooledObjects.Count)
+            {
+                if (_PoolCanExpand)
+                {
+                    AddGameObjectToPool();
+                }
+                
             }
         }
-        
+
         return null;
     }
 
-    public GameObject AddGameObjectToPool(){
+    public GameObject AddGameObjectToPool()
+    {
         GameObject newObject = Instantiate(_ObjectPrefab);
         newObject.SetActive(false);
         newObject.transform.parent = _ParentPool.transform;
