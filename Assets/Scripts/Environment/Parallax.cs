@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
+    // Summary
+    // 1. - Determine environment size
+    // 2. - If player moves on the x axis, follow player using full parallax effect
+    // 3.   - else; if the player is moving on the y axis, follow player instead. 
+    // 4. - 
+
+
     private Vector2 _StartPosition;
     private SpriteRenderer _SpriteRenderer;
     private float _ZPosStart;
@@ -54,8 +61,10 @@ public class Parallax : MonoBehaviour
     }
 
     private void StartParallaxEffect(){
-        Vector2 newPos = _StartPosition + Travel * _ParallaxFactor;
-        transform.position = new Vector3(newPos.x, newPos.y, _ZPosStart);
+        Vector2 newPosX = _StartPosition + Travel * _ParallaxFactor;
+        Vector2 newPosY = ((Vector2)_Subject.transform.position + Travel * _ParallaxFactor);
+        
+        transform.position = new Vector3(newPosX.x, newPosY.y, _ZPosStart);
     }
 
     private void DetermineBackgroundLoadDirection(){
