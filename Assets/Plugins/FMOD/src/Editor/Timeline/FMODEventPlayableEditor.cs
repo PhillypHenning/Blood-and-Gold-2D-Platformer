@@ -103,7 +103,7 @@ namespace FMODUnity
                     SerializedProperty current = parametersProperty.GetArrayElementAtIndex(i);
                     SerializedProperty name = current.FindPropertyRelative("Name");
 
-                    EditorParamRef paramRef = editorEventRef.Parameters.FirstOrDefault(p => p.Name == name.stringValue);
+                    EditorParamRef paramRef = editorEventRef.LocalParameters.FirstOrDefault(p => p.Name == name.stringValue);
 
                     if (paramRef != null)
                     {
@@ -128,7 +128,7 @@ namespace FMODUnity
                     SerializedProperty current = parameterLinksProperty.GetArrayElementAtIndex(i);
                     SerializedProperty name = current.FindPropertyRelative("Name");
 
-                    if (!editorEventRef.Parameters.Any(p => p.Name == name.stringValue))
+                    if (!editorEventRef.LocalParameters.Any(p => p.Name == name.stringValue))
                     {
                         namesToDelete.Add(name.stringValue);
                     }
@@ -148,9 +148,9 @@ namespace FMODUnity
                 serializedObject.Update();
 
                 missingInitialParameterValues =
-                    editorEventRef.Parameters.Where(p => !InitialParameterValueExists(p.Name)).ToList();
+                    editorEventRef.LocalParameters.Where(p => !InitialParameterValueExists(p.Name)).ToList();
                 missingParameterAutomations =
-                    editorEventRef.Parameters.Where(p => !ParameterLinkExists(p.Name)).ToList();
+                    editorEventRef.LocalParameters.Where(p => !ParameterLinkExists(p.Name)).ToList();
             }
             else
             {
@@ -237,7 +237,7 @@ namespace FMODUnity
 
             string name = property.FindPropertyRelative("Name").stringValue;
 
-            EditorParamRef paramRef = editorEventRef.Parameters.FirstOrDefault(p => p.Name == name);
+            EditorParamRef paramRef = editorEventRef.LocalParameters.FirstOrDefault(p => p.Name == name);
 
             if (paramRef == null)
             {
@@ -319,7 +319,7 @@ namespace FMODUnity
 
             string name = linkProperty.FindPropertyRelative("Name").stringValue;
 
-            EditorParamRef paramRef = editorEventRef.Parameters.FirstOrDefault(p => p.Name == name);
+            EditorParamRef paramRef = editorEventRef.LocalParameters.FirstOrDefault(p => p.Name == name);
 
             if (paramRef == null)
             {

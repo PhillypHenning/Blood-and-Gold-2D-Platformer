@@ -120,7 +120,8 @@ namespace FMODUnity
             private static readonly Texture2D eventIcon = EditorGUIUtility.Load("FMOD/EventIcon.png") as Texture2D;
             private static readonly Texture2D snapshotIcon = EditorGUIUtility.Load("FMOD/SnapshotIcon.png") as Texture2D;
             private static readonly Texture2D bankIcon = EditorGUIUtility.Load("FMOD/BankIcon.png") as Texture2D;
-            private static readonly Texture2D parameterIcon = EditorGUIUtility.Load("FMOD/EventIcon.png") as Texture2D;
+            private static readonly Texture2D continuousParameterIcon = EditorGUIUtility.Load("FMOD/ContinuousParameterIcon.png") as Texture2D;
+            private static readonly Texture2D discreteParameterIcon = EditorGUIUtility.Load("FMOD/DiscreteParameterIcon.png") as Texture2D;
 
             private class LeafItem : TreeViewItem
             {
@@ -229,21 +230,21 @@ namespace FMODUnity
                 if ((TypeFilter & TypeFilter.Event) != 0)
                 {
                     CreateSubTree("Events", EventPrefix,
-                        EventManager.Events.Where(e => e.Path.StartsWith(EventPrefix)), e => e.Path, eventIcon);
+                        EventManager.Events.Where(e => e.Path.StartsWith(EventPrefix)), e => e.Path);
 
                     CreateSubTree("Snapshots", SnapshotPrefix,
-                        EventManager.Events.Where(e => e.Path.StartsWith(SnapshotPrefix)), s => s.Path, snapshotIcon);
+                        EventManager.Events.Where(e => e.Path.StartsWith(SnapshotPrefix)), s => s.Path);
                 }
 
                 if ((TypeFilter & TypeFilter.Bank) != 0)
                 {
-                    CreateSubTree("Banks", BankPrefix, EventManager.Banks, b => b.StudioPath, bankIcon);
+                    CreateSubTree("Banks", BankPrefix, EventManager.Banks, b => b.StudioPath);
                 }
 
                 if ((TypeFilter & TypeFilter.Parameter) != 0)
                 {
                     CreateSubTree("Global Parameters", ParameterPrefix,
-                        EventManager.Parameters, p => ParameterPrefix + p.Name, parameterIcon,
+                        EventManager.Parameters, p => ParameterPrefix + p.Name,
                         (path, p) => string.Format("{0}:{1:x}:{2:x}", path, p.ID.data1, p.ID.data2));
                 }
 
@@ -263,7 +264,7 @@ namespace FMODUnity
 
             private void CreateSubTree<T>(string rootName, string rootPath,
                 IEnumerable<T> sourceRecords, Func<T, string> GetPath,
-                Texture2D icon, Func<string, T, string> MakeUniquePath = null)
+                Func<string, T, string> MakeUniquePath = null)
                 where T : ScriptableObject
             {
                 var records = sourceRecords.Select(r => new { source = r, path = GetPath(r) });
@@ -309,11 +310,47 @@ namespace FMODUnity
 
                         TreeViewItem leafItem = new LeafItem(AffirmItemID(uniquePath), 0, record.source);
                         leafItem.displayName = leafName;
-                        leafItem.icon = icon;
+                        leafItem.icon = IconForRecord(record.source);
 
                         parent.AddChild(leafItem);
                     }
                 }
+            }
+
+            private Texture2D IconForRecord(ScriptableObject record)
+            {
+                EditorEventRef eventRef = record as EditorEventRef;
+                if (eventRef != null)
+                {
+                    if (eventRef.Path.StartsWith(SnapshotPrefix))
+                    {
+                        return snapshotIcon;
+                    }
+                    else
+                    {
+                        return eventIcon;
+                    }
+                }
+
+                EditorBankRef bankRef = record as EditorBankRef;
+                if (bankRef != null)
+                {
+                    return bankIcon;
+                }
+
+                EditorParamRef paramRef = record as EditorParamRef;
+                if (paramRef != null)
+                {
+                    switch(paramRef.Type)
+                    {
+                        case ParameterType.Continuous:
+                            return continuousParameterIcon;
+                        case ParameterType.Discrete:
+                            return discreteParameterIcon;
+                    }
+                }
+
+                return null;
             }
 
             private TreeViewItem CreateFolderItems(string path, List<TreeViewItem> currentFolderItems,
@@ -1152,6 +1189,9 @@ namespace FMODUnity
             [NonSerialized]
             private Vector2 scrollPosition;
 
+            [NonSerialized]
+            private bool showGlobalParameters;
+
             public void Reset()
             {
                 parameterValues.Clear();
@@ -1160,21 +1200,46 @@ namespace FMODUnity
             public void OnGUI(EditorEventRef selectedEvent)
             {
                 scrollPosition = GUILayout.BeginScrollView(scrollPosition,
-                    GUILayout.Height(EditorGUIUtility.singleLineHeight * 3.5f));
+                    GUILayout.Height(EditorGUIUtility.singleLineHeight * 7f));
 
-                foreach (EditorParamRef paramRef in selectedEvent.Parameters)
+                foreach (EditorParamRef paramRef in selectedEvent.LocalParameters)
                 {
-                    if (!parameterValues.ContainsKey(paramRef.Name))
+                    CreateParamRefSlider(paramRef);
+                }
+
+
+                if (selectedEvent.GlobalParameters.Count > 0)
+                {
+                    showGlobalParameters = EditorGUI.Foldout(EditorGUILayout.GetControlRect(), showGlobalParameters, "Global Parameters");
+                    if (showGlobalParameters)
                     {
-                        parameterValues[paramRef.Name] = paramRef.Default;
+                        foreach (EditorParamRef paramRef in selectedEvent.GlobalParameters)
+                        {
+                            CreateParamRefSlider(paramRef, true);
+                        }
                     }
-
-                    parameterValues[paramRef.Name] = EditorGUILayout.Slider(paramRef.Name, parameterValues[paramRef.Name], paramRef.Min, paramRef.Max);
-
-                    EditorUtils.PreviewUpdateParameter(paramRef.ID, parameterValues[paramRef.Name]);
                 }
 
                 GUILayout.EndScrollView();
+            }
+
+            public void CreateParamRefSlider(EditorParamRef paramRef, bool isGlobal = false)
+            {
+                if (!parameterValues.ContainsKey(paramRef.Name))
+                {
+                    parameterValues[paramRef.Name] = paramRef.Default;
+                }
+
+                parameterValues[paramRef.Name] = EditorGUILayout.Slider(paramRef.Name, parameterValues[paramRef.Name], paramRef.Min, paramRef.Max);
+
+                if (isGlobal)
+                {
+                    EditorUtils.System.setParameterByID(paramRef.ID, parameterValues[paramRef.Name]);
+                }
+                else
+                {
+                    EditorUtils.PreviewUpdateParameter(paramRef.ID, parameterValues[paramRef.Name]);
+                }
             }
         }
 

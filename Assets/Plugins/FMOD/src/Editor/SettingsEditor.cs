@@ -1743,7 +1743,7 @@ namespace FMODUnity
                             EditorGUILayout.PropertyField(automaticSampleLoading, new GUIContent("Load Bank Sample Data"));
                         }
 
-                        EditorGUILayout.PropertyField(encryptionKey, new GUIContent("Bank Encryption Key"));
+                        EditorGUILayout.DelayedTextField(encryptionKey, new GUIContent("Bank Encryption Key"));
                     }
                 }
             }

@@ -156,14 +156,22 @@ namespace FMODUnity
                 // Only attach to object if the game is actually playing, not auditioning.
                 if (Application.isPlaying && TrackTargetObject)
                 {
-                    Rigidbody rb = TrackTargetObject.GetComponent<Rigidbody>();
-                    if (rb)
+                    #if UNITY_PHYSICS_EXIST || !UNITY_2019_1_OR_NEWER
+                    if (TrackTargetObject.GetComponent<Rigidbody>())
                     {
-                        RuntimeManager.AttachInstanceToGameObject(eventInstance, TrackTargetObject.transform, rb);
+                        RuntimeManager.AttachInstanceToGameObject(eventInstance, TrackTargetObject.transform, TrackTargetObject.GetComponent<Rigidbody>());
                     }
                     else
+                    #endif
+                    #if UNITY_PHYSICS2D_EXIST || !UNITY_2019_1_OR_NEWER
+                    if (TrackTargetObject.GetComponent<Rigidbody2D>())
                     {
                         RuntimeManager.AttachInstanceToGameObject(eventInstance, TrackTargetObject.transform, TrackTargetObject.GetComponent<Rigidbody2D>());
+                    }
+                    else
+                    #endif
+                    {
+                        RuntimeManager.AttachInstanceToGameObject(eventInstance, TrackTargetObject.transform);
                     }
                 }
                 else
