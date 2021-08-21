@@ -60,7 +60,6 @@ public class Projectile : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log(other.tag);
         if(other.tag == "Platform"){
             _ProjectileReturnToPool.DestroyObject();
         }

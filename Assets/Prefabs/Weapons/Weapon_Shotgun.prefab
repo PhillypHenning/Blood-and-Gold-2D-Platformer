@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4430191700488058706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7834556721659205200}
+  m_Layer: 0
+  m_Name: Shotgun Bullet Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7834556721659205200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4430191700488058706}
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.066, y: 0.185, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3444428115995217870}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6581642602160749439
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +39,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3444428115995217870}
-  - component: {fileID: -4067410963750463363}
+  - component: {fileID: 6199886841864414671}
+  - component: {fileID: 3220438544648302066}
   m_Layer: 0
   m_Name: Weapon_Shotgun
   m_TagString: Untagged
@@ -26,13 +57,14 @@ Transform:
   m_GameObject: {fileID: 6581642602160749439}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 24.34, y: -14.46, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 1590865461296071231}
+  - {fileID: 7834556721659205200}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4067410963750463363
+--- !u!114 &6199886841864414671
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,14 +73,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 6581642602160749439}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a72ea990e80893408bbacccb4c57340, type: 3}
+  m_Script: {fileID: 11500000, guid: 02cbb7683a7017d4fa2a0d3f584fe8b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _WeaponName: Shotgun
   _TimeBetweenShots: 0.5
   _TimeBetweenReloads: 0.5
   _MaxMagazineSize: 2
-  _ProjectileSpawnPosition: {x: 2.02, y: 0.18, z: 0}
+--- !u!114 &3220438544648302066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6581642602160749439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1d12c66d70360f47a10f18fe25b47af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _NameOfPooledObject: Pellet
+  _ObjectPrefab: {fileID: 32314885218741627, guid: 7bb0decf0d51a724f96ab04ec24d38e7, type: 3}
+  _PoolSize: 5
+  _PoolCanExpand: 1
 --- !u!1 &8322733785164123350
 GameObject:
   m_ObjectHideFlags: 0

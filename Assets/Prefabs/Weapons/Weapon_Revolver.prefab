@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _NameOfPooledObject: Bullet
-  _ObjectPrefab: {fileID: 5780852592903403741, guid: d63f827a2ec1c8545b1d82c6031f06c8, type: 3}
+  _ObjectPrefab: {fileID: 3661819316045062863, guid: d63f827a2ec1c8545b1d82c6031f06c8, type: 3}
   _PoolSize: 10
   _PoolCanExpand: 1
 --- !u!1 &8472558439408547273

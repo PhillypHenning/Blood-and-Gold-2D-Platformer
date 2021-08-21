@@ -14,14 +14,15 @@ public class ObjectPooler : MonoBehaviour
     private GameObject _ParentPool;
     private List<GameObject> _PooledObjects;
 
-
+    public string _ObjectPooledFullName { get; set; }
 
 
     private void Start()
     {
         _Weapon = GetComponent<Weapon>();
+        _ObjectPooledFullName = _Weapon.WeaponName + " " + _NameOfPooledObject + " pool";
 
-        _ParentPool = new GameObject(_Weapon.WeaponName + " " + _NameOfPooledObject + " pool");
+        _ParentPool = new GameObject(_ObjectPooledFullName);
         Refill();
     }
 

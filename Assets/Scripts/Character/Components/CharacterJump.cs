@@ -93,7 +93,6 @@ public class CharacterJump : CharacterComponent
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        Debug.Log(other.tag);
         if (other.tag == "Platform-Slide")
         {
             // Start sticky slide
