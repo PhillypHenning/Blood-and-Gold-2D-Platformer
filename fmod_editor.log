@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 00000204B4A72628 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000019A3A7FBBC8 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -23,14 +23,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 243392
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 21344
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000EFCC9CF5E8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000004D18E4EEC8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFEBA0E60E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFEBA0E60B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFEBA0E61B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFEBA0E6270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000204D80CB9B8
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE8FF160E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE8FF160B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE8FF161B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE8FF16270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000199AE527C58
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Smith_Wesson_Model_686_Revolver_Gunshot-03', format=5, channels=2, frequency=48000, lengthbytes=9792, lengthpcm=39162, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.985345.
@@ -39,14 +39,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 243392
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 21344
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000EFCC9CF5E8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000004D18E4EEC8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFEBA0E60E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFEBA0E60B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFEBA0E61B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFEBA0E6270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000204D80CB9B8
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE8FF160E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE8FF160B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE8FF161B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE8FF16270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000199AE527C58
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Smith_Wesson_Model_686_Revolver_Gunshot-04', format=5, channels=2, frequency=48000, lengthbytes=10208, lengthpcm=40704, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.986111.
@@ -55,14 +55,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 243392
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 21344
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000EFCC9CF5E8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000004D18E4EEC8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFEBA0E60E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFEBA0E60B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFEBA0E61B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFEBA0E6270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000204D80CB9B8
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE8FF160E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE8FF160B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE8FF161B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE8FF16270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000199AE527C58
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Smith_Wesson_Model_686_Revolver_Gunshot-01', format=5, channels=2, frequency=48000, lengthbytes=9568, lengthpcm=37376, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.985345.
@@ -71,14 +71,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 243392
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 21344
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000EFCC9CF5E8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000004D18E4EEC8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFEBA0E60E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFEBA0E60B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFEBA0E61B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFEBA0E6270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000204D80CB9B8
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE8FF160E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE8FF160B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE8FF161B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE8FF16270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000199AE527C58
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Smith_Wesson_Model_686_Revolver_Gunshot-05', format=5, channels=2, frequency=48000, lengthbytes=11712, lengthpcm=48128, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.973336.
@@ -87,14 +87,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 243392
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 21344
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000EFCC9CF5E8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000004D18E4EEC8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFEBA0E60E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFEBA0E60B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFEBA0E61B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFEBA0E6270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000204D80CB9B8
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE8FF160E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE8FF160B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE8FF161B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE8FF16270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000199AE527C58
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Smith_Wesson_Model_686_Revolver_Gunshot-02', format=5, channels=2, frequency=48000, lengthbytes=9984, lengthpcm=40448, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.960528.
@@ -103,14 +103,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 243392
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 21344
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000EFCC9CF5E8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000004D18E4EEC8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFEBA0E60E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFEBA0E60B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFEBA0E61B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFEBA0E6270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000204D80CD488
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE8FF160E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE8FF160B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE8FF161B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE8FF16270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000199AE528498
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Colt_Pinkerton_Revolver_Handling-05', format=5, channels=1, frequency=48000, lengthbytes=6816, lengthpcm=35840, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.773365.
@@ -119,14 +119,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 243392
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 21344
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000EFCC9CF5E8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000004D18E4EEC8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFEBA0E60E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFEBA0E60B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFEBA0E61B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFEBA0E6270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000204D80CD488
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE8FF160E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE8FF160B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE8FF161B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE8FF16270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000199AE528498
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Colt_Pinkerton_Revolver_Handling-04', format=5, channels=1, frequency=48000, lengthbytes=5568, lengthpcm=29184, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.720125.
@@ -135,33 +135,33 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 243392
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 21344
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000EFCC9CF5E8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000004D18E4EEC8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFEBA0E60E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFEBA0E60B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFEBA0E61B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFEBA0E6270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000204D80CD488
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE8FF160E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE8FF160B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE8FF161B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE8FF16270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000199AE528498
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Colt_Pinkerton_Revolver_Handling-06', format=5, channels=1, frequency=48000, lengthbytes=7040, lengthpcm=37888, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.702377.
-[LOG] SoundI::release                          :  (000002042B1AFA68)
-[LOG] SoundI::release                          :     Smith_Wesson_Model_686_Revolver_Gunshot-01 (00000204D83BD598)
-[LOG] SoundI::release                          :  (000002042B1AFEB8)
-[LOG] SoundI::release                          :     Smith_Wesson_Model_686_Revolver_Gunshot-02 (00000204D83BCD78)
-[LOG] SoundI::release                          :  (000002042B1AED78)
-[LOG] SoundI::release                          :     Smith_Wesson_Model_686_Revolver_Gunshot-03 (00000204D83C11B8)
-[LOG] SoundI::release                          :  (000002042B1AF058)
-[LOG] SoundI::release                          :     Smith_Wesson_Model_686_Revolver_Gunshot-04 (00000204D83C1358)
-[LOG] SoundI::release                          :  (000002042B1AFD48)
-[LOG] SoundI::release                          :     Smith_Wesson_Model_686_Revolver_Gunshot-05 (00000204D83C14F8)
-[LOG] SoundI::release                          :  (000002042B1B2418)
-[LOG] SoundI::release                          :     Colt_Pinkerton_Revolver_Handling-04 (00000204D83C6978)
-[LOG] SoundI::release                          :  (000002042B1B1E58)
-[LOG] SoundI::release                          :     Colt_Pinkerton_Revolver_Handling-06 (00000204D83C2EF8)
-[LOG] SoundI::release                          :  (000002042B1B4978)
-[LOG] SoundI::release                          :     Colt_Pinkerton_Revolver_Handling-05 (00000204D83C62F8)
+[LOG] SoundI::release                          :  (00000199D52A5EB8)
+[LOG] SoundI::release                          :     Smith_Wesson_Model_686_Revolver_Gunshot-01 (00000199B0376A98)
+[LOG] SoundI::release                          :  (00000199D52A4368)
+[LOG] SoundI::release                          :     Smith_Wesson_Model_686_Revolver_Gunshot-02 (000001995D19EFF8)
+[LOG] SoundI::release                          :  (00000199D52A30B8)
+[LOG] SoundI::release                          :     Smith_Wesson_Model_686_Revolver_Gunshot-03 (00000199B0376C38)
+[LOG] SoundI::release                          :  (00000199D52A3508)
+[LOG] SoundI::release                          :     Smith_Wesson_Model_686_Revolver_Gunshot-04 (00000199B0376DD8)
+[LOG] SoundI::release                          :  (00000199D52A5338)
+[LOG] SoundI::release                          :     Smith_Wesson_Model_686_Revolver_Gunshot-05 (000001995D19F9B8)
+[LOG] SoundI::release                          :  (00000199D52A6BA8)
+[LOG] SoundI::release                          :     Colt_Pinkerton_Revolver_Handling-04 (000001995D19F4D8)
+[LOG] SoundI::release                          :  (00000199D52A54A8)
+[LOG] SoundI::release                          :     Colt_Pinkerton_Revolver_Handling-06 (000001995D19F338)
+[LOG] SoundI::release                          :  (00000199D52A4EE8)
+[LOG] SoundI::release                          :     Colt_Pinkerton_Revolver_Handling-05 (000001995D19F198)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
