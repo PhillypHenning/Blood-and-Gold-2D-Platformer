@@ -221,6 +221,12 @@ namespace FMODUnity
             return attributes;
         }
 
+        public static FMOD.ATTRIBUTES_3D To3DAttributes(this GameObject go)
+        {
+            return go.transform.To3DAttributes();
+        }
+
+        #if UNITY_PHYSICS_EXIST || !UNITY_2019_1_OR_NEWER
         public static FMOD.ATTRIBUTES_3D To3DAttributes(Transform transform, Rigidbody rigidbody = null)
         {
             FMOD.ATTRIBUTES_3D attributes = transform.To3DAttributes();
@@ -233,7 +239,7 @@ namespace FMODUnity
             return attributes;
         }
 
-        public static FMOD.ATTRIBUTES_3D To3DAttributes(GameObject go, Rigidbody rigidbody = null)
+        public static FMOD.ATTRIBUTES_3D To3DAttributes(GameObject go, Rigidbody rigidbody)
         {
             FMOD.ATTRIBUTES_3D attributes = go.transform.To3DAttributes();
 
@@ -244,7 +250,9 @@ namespace FMODUnity
 
             return attributes;
         }
+        #endif
 
+        #if UNITY_PHYSICS2D_EXIST || !UNITY_2019_1_OR_NEWER
         public static FMOD.ATTRIBUTES_3D To3DAttributes(Transform transform, Rigidbody2D rigidbody)
         {
             FMOD.ATTRIBUTES_3D attributes = transform.To3DAttributes();
@@ -261,6 +269,7 @@ namespace FMODUnity
             return attributes;
         }
 
+
         public static FMOD.ATTRIBUTES_3D To3DAttributes(GameObject go, Rigidbody2D rigidbody)
         {
             FMOD.ATTRIBUTES_3D attributes = go.transform.To3DAttributes();
@@ -276,6 +285,7 @@ namespace FMODUnity
 
             return attributes;
         }
+        #endif
 
         public static FMOD.THREAD_TYPE ToFMODThreadType(ThreadType threadType)
         {
@@ -352,13 +362,13 @@ namespace FMODUnity
 
         public static void EnforceLibraryOrder()
         {
-            #if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_ANDROID && !UNITY_EDITOR
 
             AndroidJavaClass jSystem = new AndroidJavaClass("java.lang.System");
             jSystem.CallStatic("loadLibrary", FMOD.VERSION.dll);
             jSystem.CallStatic("loadLibrary", FMOD.Studio.STUDIO_VERSION.dll);
 
-            #endif
+#endif
 
             // Call a function in fmod.dll to make sure it's loaded before fmodstudio.dll
             int temp1, temp2;

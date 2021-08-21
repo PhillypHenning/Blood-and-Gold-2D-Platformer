@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -58,7 +59,7 @@ namespace FMODUnity
             string bankFolder = globalSettings.SourceBankPath;
             if (globalSettings.HasPlatforms)
             {
-                bankFolder = System.IO.Path.Combine(bankFolder, BuildDirectory);
+                bankFolder = RuntimeUtils.GetCommonPlatformPath(Path.Combine(bankFolder, BuildDirectory));
             } 
 
             return bankFolder;

@@ -19,7 +19,7 @@ namespace FMOD
     */
     public partial class VERSION
     {
-        public const int    number = 0x00020109;
+        public const int    number = 0x00020111;
 #if !UNITY_2017_4_OR_NEWER
         public const string dll    = "fmod";
 #endif
@@ -783,7 +783,7 @@ namespace FMOD
         MIXER               = 80  * 1024,
         FEEDER              = 16  * 1024,
         STREAM              = 96  * 1024,
-        FILE                = 48  * 1024,
+        FILE                = 64  * 1024,
         NONBLOCKING         = 112 * 1024,
         RECORD              = 16  * 1024,
         GEOMETRY            = 48  * 1024,

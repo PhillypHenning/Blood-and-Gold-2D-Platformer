@@ -691,14 +691,19 @@ namespace FMODUnity
         {
             get
             {
-                if (PlatformForBuildTarget.ContainsKey(EditorUserBuildSettings.activeBuildTarget))
-                {
-                    return PlatformForBuildTarget[EditorUserBuildSettings.activeBuildTarget];
-                }
-                else
-                {
-                    return defaultPlatform;
-                }
+                return GetPlatform(EditorUserBuildSettings.activeBuildTarget);
+            }
+        }
+
+        public Platform GetPlatform(BuildTarget buildTarget)
+        {
+            if (PlatformForBuildTarget.ContainsKey(buildTarget))
+            {
+                return PlatformForBuildTarget[buildTarget];
+            }
+            else
+            {
+                return defaultPlatform;
             }
         }
 #endif
@@ -854,8 +859,19 @@ namespace FMODUnity
             return platform;
         }
 
+        [NonSerialized]
+        private bool hasLoaded = false;
+
         private void OnEnable()
         {
+            if (hasLoaded)
+            {
+                // Already loaded
+                return;
+            }
+
+            hasLoaded = true;
+
             PopulatePlatformsFromAsset();
 
             defaultPlatform = Platforms.FirstOrDefault(platform => platform is PlatformDefault);
@@ -1027,9 +1043,16 @@ namespace FMODUnity
             return true;
         }
 
-        public const string RegisterStaticPluginsFile = "RegisterStaticPlugins.cs";
-        public const string RegisterStaticPluginsAssetPathRelative = "/Plugins/FMOD/Cache/" + RegisterStaticPluginsFile;
-        public const string RegisterStaticPluginsAssetPathFull = "Assets" + RegisterStaticPluginsAssetPathRelative;
+        const string FMODFolderRelative = "Plugins/FMOD";
+        const string FMODFolderFull = "Assets/" + FMODFolderRelative;
+
+        const string CacheFolderName = "Cache";
+        const string CacheFolderRelative = FMODFolderRelative + "/" + CacheFolderName;
+        const string CacheFolderFull = FMODFolderFull + "/" + CacheFolderName;
+
+        const string RegisterStaticPluginsFile = "RegisterStaticPlugins.cs";
+        const string RegisterStaticPluginsAssetPathRelative = CacheFolderRelative + "/" + RegisterStaticPluginsFile;
+        const string RegisterStaticPluginsAssetPathFull = CacheFolderFull + "/" + RegisterStaticPluginsFile;
 
         private void PreprocessBuild(BuildTarget target, Platform.BinaryType binaryType)
         {
@@ -1044,30 +1067,55 @@ namespace FMODUnity
         private static void PreprocessStaticPlugins(Platform platform, BuildTarget target)
         {
             // Ensure we don't have leftover temporary changes from a previous build.
-            CleanTemporaryChanges();
+            CleanTemporaryFiles();
 
             BuildTargetGroup buildTargetGroup = BuildPipeline.GetBuildTargetGroup(target);
             ScriptingImplementation scriptingBackend = PlayerSettings.GetScriptingBackend(buildTargetGroup);
 
-            if (scriptingBackend == ScriptingImplementation.IL2CPP)
+            if (platform.StaticPlugins.Count > 0)
             {
-                Action<string> reportError = message => {
-                    Debug.LogWarningFormat("FMOD: Error processing static plugins for platform {0}: {1}",
-                        platform.DisplayName, message);
-                };
+                if (scriptingBackend == ScriptingImplementation.IL2CPP)
+                {
+                    Action<string> reportError = message => {
+                        Debug.LogWarningFormat("FMOD: Error processing static plugins for platform {0}: {1}",
+                            platform.DisplayName, message);
+                    };
 
-                // Generate registration code and import it so it's included in the build.
-                Debug.LogFormat("FMOD: Generating static plugin registration code in {0}", RegisterStaticPluginsAssetPathFull);
-                string filePath = Application.dataPath + RegisterStaticPluginsAssetPathRelative;
-                CodeGeneration.GenerateStaticPluginRegistration(filePath, platform, reportError);
-                AssetDatabase.ImportAsset(RegisterStaticPluginsAssetPathFull);
+                    if (!AssetDatabase.IsValidFolder(CacheFolderFull))
+                    {
+                        Debug.LogFormat("Creating {0}", CacheFolderFull);
+                        AssetDatabase.CreateFolder(FMODFolderFull, CacheFolderName);
+                    }
+
+                    // Generate registration code and import it so it's included in the build.
+                    Debug.LogFormat("FMOD: Generating static plugin registration code in {0}", RegisterStaticPluginsAssetPathFull);
+
+                    string filePath = Application.dataPath + "/" + RegisterStaticPluginsAssetPathRelative;
+                    CodeGeneration.GenerateStaticPluginRegistration(filePath, platform, reportError);
+                    AssetDatabase.ImportAsset(RegisterStaticPluginsAssetPathFull);
+                }
+                else
+                {
+                    Debug.LogWarningFormat(
+                        "FMOD: Platform {0} has {1} static plugins specified, " +
+                        "but static plugins are only supported on the IL2CPP scripting backend",
+                        platform.DisplayName, platform.StaticPlugins.Count);
+                }
             }
-            else if (platform.StaticPlugins.Count > 0)
+        }
+
+        private static void CleanTemporaryFiles()
+        {
+            DeleteTemporaryFile(RegisterStaticPluginsAssetPathFull);
+        }
+
+        public static void DeleteTemporaryFile(string assetPath)
+        {
+            bool assetExists = !string.IsNullOrEmpty(AssetDatabase.AssetPathToGUID(assetPath));
+
+            if (assetExists && AssetDatabase.DeleteAsset(assetPath))
             {
-                Debug.LogWarningFormat(
-                    "FMOD: Platform {0} has {1} static plugins specified, " +
-                    "but static plugins are only supported on the IL2CPP scripting backend",
-                    platform.DisplayName, platform.StaticPlugins.Count);
+                Debug.LogFormat("FMOD: Removed temporary file {0}", assetPath);
             }
         }
 
@@ -1112,36 +1160,11 @@ namespace FMODUnity
         }
 #endif
 
-        [InitializeOnLoadMethod]
-        private static void CleanTemporaryChanges()
-        {
-            Legacy.CleanIl2CppArgs();
-            CleanTemporaryFiles();
-        }
-
-        private static void CleanTemporaryFiles()
-        {
-            if (EditorApplication.isPlayingOrWillChangePlaymode)
-            {
-                // Messing with the asset database while entering play mode causes a NullReferenceException
-                return;
-            }
-
-            string[] TemporaryFiles = {
-                RegisterStaticPluginsAssetPathFull,
-            };
-
-            foreach (string path in TemporaryFiles.Concat(Legacy.TemporaryFiles()))
-            {
-                if (AssetDatabase.DeleteAsset(path))
-                {
-                    Debug.LogFormat("FMOD: Removed temporary file {0}", path);
-                }
-            }
-        }
+        [NonSerialized]
+        public bool ForceLoggingBinaries = false;
 
 #if UNITY_2018_1_OR_NEWER
-        public class BuildProcessor : IPreprocessBuildWithReport, IPostprocessBuildWithReport
+        public class BuildProcessor : IPreprocessBuildWithReport
         {
             public int callbackOrder { get { return 0; } }
 
@@ -1149,7 +1172,8 @@ namespace FMODUnity
             {
                 Platform.BinaryType binaryType;
 
-                if (EditorUserBuildSettings.activeScriptCompilationDefines.Contains("DEVELOPMENT_BUILD"))
+                if ((report.summary.options & BuildOptions.Development) == BuildOptions.Development
+                    || Settings.Instance.ForceLoggingBinaries)
                 {
                     binaryType = Platform.BinaryType.Logging;
                 }
@@ -1166,14 +1190,9 @@ namespace FMODUnity
 
                 Settings.Instance.PreprocessBuild(report.summary.platform, binaryType);
             }
-
-            public void OnPostprocessBuild(BuildReport report)
-            {
-                Settings.CleanTemporaryChanges();
-            }
         }
 #else
-        public class BuildProcessor : IPreprocessBuild, IPostprocessBuild
+        public class BuildProcessor : IPreprocessBuild
         {
             public int callbackOrder { get { return 0; } }
 
@@ -1189,11 +1208,6 @@ namespace FMODUnity
 
                 Settings.Instance.PreprocessBuild(target, binaryType);
             }
-
-            public void OnPostprocessBuild(BuildTarget target, string path)
-            {
-                Settings.CleanTemporaryChanges();
-            }
         }
 #endif
 
@@ -1203,6 +1217,8 @@ namespace FMODUnity
 
             public void OnActiveBuildTargetChanged(BuildTarget previous, BuildTarget current)
             {
+                CleanTemporaryFiles();
+
                 Platform.BinaryType binaryType = EditorUserBuildSettings.development
                     ? Platform.BinaryType.Logging
                     : Platform.BinaryType.Release;
@@ -1230,6 +1246,13 @@ namespace FMODUnity
     public static class Legacy
     {
 #if UNITY_EDITOR
+        [InitializeOnLoadMethod]
+        private static void CleanTemporaryChanges()
+        {
+            CleanIl2CppArgs();
+            CleanTemporaryFiles();
+        }
+
         private const string RegisterStaticPluginsAssetPathRelative =
             "/Plugins/FMOD/Cache/fmod_register_static_plugins.cpp";
         private const string RegisterStaticPluginsAssetPathFull = "Assets" + RegisterStaticPluginsAssetPathRelative;
@@ -1288,9 +1311,22 @@ namespace FMODUnity
             }
         }
 
-        public static IEnumerable<string> TemporaryFiles()
+        public static void CleanTemporaryFiles()
         {
-            yield return RegisterStaticPluginsAssetPathFull;
+            if (EditorApplication.isPlayingOrWillChangePlaymode)
+            {
+                // Messing with the asset database while entering play mode causes a NullReferenceException
+                return;
+            }
+
+            string[] TemporaryFiles = {
+                RegisterStaticPluginsAssetPathFull,
+            };
+
+            foreach (string path in TemporaryFiles)
+            {
+                Settings.DeleteTemporaryFile(path);
+            }
         }
 #endif
 

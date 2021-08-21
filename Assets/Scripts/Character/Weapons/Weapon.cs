@@ -50,7 +50,8 @@ public class Weapon : MonoBehaviour
     virtual protected void RequestShot(){
         ConsumeAmmo();
         SpawnProjectile(ProjectileSpawnPosition);
-        // SFX to be added here
+        // Revolver SFX
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Revolver_Shoot");
     }
 
     // Private \\
@@ -116,6 +117,7 @@ public class Weapon : MonoBehaviour
     // -------- \\
     public void Reload(){
         RefillAmmo();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Revolver_Reload");
     }
 
     public void StartShooting(){
