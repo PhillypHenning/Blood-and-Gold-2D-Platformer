@@ -83,6 +83,10 @@ public class CharacterWeapon : CharacterComponent
     {
         if (_CurrentWeapon != null)
         {
+            // If the player switches weapons, while there are bullets out, those bullets are deleted from this. 
+            // I can think of two solutions;
+            //  1. Create a Destory method in ObjectPooler that waits until all bullets are deleted before destorying itself
+            //  2. Add a "switch weapons" timer that doesn't allow the player to shoot his wepaon until the weapon swap is complete. (lasting longer then the bullet life.) 
             Destroy(GameObject.Find(_CurrentWeapon.GetComponent<ObjectPooler>()._ObjectPooledFullName));
             Destroy(_CurrentWeapon.gameObject);
             Destroy(_CurrentWeapon);

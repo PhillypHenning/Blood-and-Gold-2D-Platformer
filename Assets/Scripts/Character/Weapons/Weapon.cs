@@ -85,14 +85,14 @@ public class Weapon : MonoBehaviour
     //     }
     // }
 
-    // private void WeaponCanReload(){
-    //     if(Time.time > _NextReloadTime){
-    //         _CanReload = true;
-    //         _NextReloadTime = Time.time + _TimeBetweenReloads;
-    //     }else{
-    //         _CanReload = false;
-    //     }
-    // }
+    private void WeaponCanReload(){
+        if(Time.time > _NextReloadTime){
+            _CanReload = true;
+            _NextReloadTime = Time.time + _TimeBetweenReloads;
+        }else{
+            _CanReload = false;
+        }
+    }
 
     private void EvaluateProjectileSpawn()
     {
@@ -142,6 +142,8 @@ public class Weapon : MonoBehaviour
         {
             return;
         }
+
+
         RefillAmmo();
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Revolver_Reload");
     }
