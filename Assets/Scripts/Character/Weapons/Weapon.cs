@@ -149,20 +149,26 @@ public class Weapon : MonoBehaviour
 
         projectile.SetDirection(newDirection, transform.rotation, _WeaponOwner.FacingRight);
     }
-    /*
-   //\\
-  //  \\
- //    \\
-//      \\
-// PUBLIC \\
-// -------- \\
-|| ( .) ( .)|| 
-||      >   ||
-||      _   ||
-\\ ________//
-    | |
-    |*/
+     /*
+    //\\
+   //  \\
+  //    \\          
+ //      \\       /                     \
+ // PUBLIC \\    /                       \
+ // -------- \\  |                       |
+ || ( .) ( .)||  |                       |
+<||      >   ||> |                       |
+ ||      _   ||  |                       |
+ \\ ________//   |                       |_
+    | |          |                         \
+    | |__________|                        _ \____
+    |____________________________________/ |_____\   
+    */
 
+
+    // Dis is our frend Dunceboiiu 
+    // He dis good at finding bod cude
+    // HI smels bad cuase my socks r unawashhhhed
 
 
     public void Reload()

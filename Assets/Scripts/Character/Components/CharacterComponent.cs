@@ -7,7 +7,6 @@ public class CharacterComponent : MonoBehaviour
 {
     // Character Components add basic "character" functionality.
     protected Character _Character;
-    protected CharacterController _CharacterController;
     protected CharacterMovement _CharacterMovement;
     protected CharacterJump _CharacterJump;
     protected CharacterHealth _CharacterHealth;
@@ -21,7 +20,6 @@ public class CharacterComponent : MonoBehaviour
     {
         // You may feel tempted to remove the base. series of template functions, but be warned; if you do it, you will loose your references to these components. 
         _Character = GetComponent<Character>();
-        _CharacterController = GetComponent<CharacterController>();
         _CharacterMovement = GetComponent<CharacterMovement>();
         _CharacterJump = GetComponent<CharacterJump>();
         _CharacterHealth = GetComponent<CharacterHealth>();

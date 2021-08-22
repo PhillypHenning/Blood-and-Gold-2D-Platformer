@@ -9,7 +9,15 @@ public class CharacterFlip : CharacterComponent
     protected override void Start()
     {
         base.Start();
-        _WeaponHolder = GameObject.Find("WeaponHolder");
+        //_WeaponHolder = GameObject.Find("WeaponHolder");
+        
+        SingletonExtendedGameObject ExtendedGameObjSingleton = new SingletonExtendedGameObject();
+        
+
+        var findItem = ExtendedGameObjSingleton.GetChildWithName(this.gameObject, "WeaponHolder");
+        if(findItem != null){
+           _WeaponHolder = findItem;
+        }
     }
 
     // Used to flip the Weapon Holder
