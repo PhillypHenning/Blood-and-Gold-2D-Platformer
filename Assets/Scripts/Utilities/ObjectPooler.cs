@@ -23,7 +23,6 @@ public class ObjectPooler : MonoBehaviour
         _ObjectPooledFullName = _Weapon._WeaponOwner.CharacterType + " " + _Weapon.WeaponName + " " + _NameOfPooledObject + " pool";
         
         _ParentPool = new GameObject(_ObjectPooledFullName);
-            
         
         Refill();
     }
