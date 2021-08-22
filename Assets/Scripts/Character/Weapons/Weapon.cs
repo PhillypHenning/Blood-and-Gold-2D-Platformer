@@ -54,7 +54,23 @@ public class Weapon : MonoBehaviour
         ConsumeAmmo();
         SpawnProjectile(ProjectileSpawnPosition);
         // Revolver SFX
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Revolver_Shoot");
+        PlayShootingSFX();
+        // ^ We place the template function here ^ 
+        // When another class specializes using this template, the child script will also run this function.
+        // So all we need to do now is take your below code and add it to Play<_>SFX!
+        // FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Revolver_Shoot");
+        // But wait before you do that, Let's open the RevolverWeapon script
+    }
+
+    virtual protected void PlayShootingSFX(){
+        // Cas - Lesson 1
+        // We create these little bad bois. 
+        // These functions act as templates that we can later specialize. 
+        // Read RequestShot or Reload functions for the next part. 
+    }
+
+    virtual protected void PlayReloadSFX(){
+
     }
 
     // Private \\
