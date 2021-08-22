@@ -22,16 +22,28 @@ public class ObjectPooler : MonoBehaviour
         _Weapon = GetComponent<Weapon>();
         _ObjectPooledFullName = _Weapon.WeaponName + " " + _NameOfPooledObject + " pool";
 
-        _ParentPool = new GameObject(_ObjectPooledFullName);
+        var objExists = GameObject.Find(_ObjectPooledFullName);
+        if (objExists)
+        {
+            _ParentPool = objExists;
+        }
+        else
+        {
+            _ParentPool = new GameObject(_ObjectPooledFullName);
+        }
+        
         Refill();
     }
 
     public void Refill()
-    {
+    {   
+        if(_PooledObjects == null){
+        Debug.Log("Check");
         _PooledObjects = new List<GameObject>();
         for (int i = 0; i < _PoolSize; i++)
         {
             AddGameObjectToPool();
+        }
         }
     }
 
@@ -39,6 +51,7 @@ public class ObjectPooler : MonoBehaviour
     {
         for (int i = 0; i < _PooledObjects.Count; i++)
         {
+            Debug.Log(_PooledObjects.Count);
             // Check if the pooledObject is already active, if it isn't;
             if (!_PooledObjects[i].activeInHierarchy)
             {
@@ -47,11 +60,12 @@ public class ObjectPooler : MonoBehaviour
             }
             if (i == _PooledObjects.Count)
             {
+                Debug.Log("Made it to the end");
                 if (_PoolCanExpand)
                 {
                     AddGameObjectToPool();
                 }
-                
+
             }
         }
 

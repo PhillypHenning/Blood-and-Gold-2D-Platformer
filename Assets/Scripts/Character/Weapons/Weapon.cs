@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float _TimeBetweenReloads = 0.5f;
     [SerializeField] private int _MaxMagazineSize;
     private Vector3 _ProjectileSpawnPosition;
-    private GameObject newG;
+    private Transform _BulletSpawnPos;
     private bool _CanReload = true;
     private float _NextShotTime = 0;
     private float _NextReloadTime = 0;
@@ -33,9 +33,15 @@ public class Weapon : MonoBehaviour
         ObjectPooler = GetComponent<ObjectPooler>();
         // Bad Phil. That is a bad Phil. No. You make things scalable.
         // newG = GameObject.Find("Revolver Bullet Spawn Point");
-        newG = GameObject.Find(_WeaponName + " Bullet Spawn Point");
-        _ProjectileSpawnPosition = newG.transform.position;
 
+        _BulletSpawnPos = this.transform.Find(_WeaponName + " Bullet Spawn Point");
+        Debug.Log(this.gameObject.name);
+
+        // Because of the Generic naming, the spawn point is being misreferenced. 
+        // This needs to find the component that is already attached to this weapon this
+        // class is instantiated on. 
+
+        _ProjectileSpawnPosition = _BulletSpawnPos.position;
         //_ProjectileSpawnPosition = GameObject.Find("Bullet Spawn Point")
     }
 
@@ -62,14 +68,16 @@ public class Weapon : MonoBehaviour
         // But wait before you do that, Let's open the RevolverWeapon script
     }
 
-    virtual protected void PlayShootingSFX(){
+    virtual protected void PlayShootingSFX()
+    {
         // Cas - Lesson 1
         // We create these little bad bois. 
         // These functions act as templates that we can later specialize. 
         // Read RequestShot or Reload functions for the next part. 
     }
 
-    virtual protected void PlayReloadSFX(){
+    virtual protected void PlayReloadSFX()
+    {
 
     }
 
@@ -101,20 +109,24 @@ public class Weapon : MonoBehaviour
     //     }
     // }
 
-    private void WeaponCanReload(){
-        if(Time.time > _NextReloadTime){
+    private void WeaponCanReload()
+    {
+        if (Time.time > _NextReloadTime)
+        {
             _CanReload = true;
             _NextReloadTime = Time.time + _TimeBetweenReloads;
-        }else{
+        }
+        else
+        {
             _CanReload = false;
         }
     }
 
     private void EvaluateProjectileSpawn()
     {
-        if (newG != null)
+        if (_BulletSpawnPos != null)
         {
-            ProjectileSpawnPosition = newG.transform.position;
+            ProjectileSpawnPosition = _BulletSpawnPos.position;
         }
     }
 
@@ -185,15 +197,18 @@ public class Weapon : MonoBehaviour
         return false;
     }
 
-    public void ResetProjectileSpawn()
+    public void ResetProjectileSpawn()  
     {
-        newG = GameObject.Find(_WeaponName + " Bullet Spawn Point");
-        _ProjectileSpawnPosition = newG.transform.position;
+        _BulletSpawnPos = this.transform.Find(_WeaponName + " Bullet Spawn Point");
+        //newG = GameObject.Find(_WeaponName + " Bullet Spawn Point");
+        _ProjectileSpawnPosition = _BulletSpawnPos.position;
     }
 
     public void Destroy()
     {
         Destroy(this);
     }
+
+
 
 }
