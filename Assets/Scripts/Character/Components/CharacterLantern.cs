@@ -54,6 +54,7 @@ public class CharacterLantern : CharacterComponent
     protected override void HandleInput()
     {
         base.HandleInput();
+        if(!_HandleInput){return;}
         if (_Character.IsLocked) return;
         if (Input.GetKeyDown(KeyCode.X))
         {

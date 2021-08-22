@@ -10,7 +10,6 @@ public class Projectile : MonoBehaviour
     private Rigidbody2D _RigidBody2D;
     private SpriteRenderer _SpriteRenderer;
     private Vector2 _Movement;
-    private ObjectPooler _ProjectileObjectPooler;
     private ReturnToPool _ProjectileReturnToPool;
 
     public Vector2 Direction { get; set; }
@@ -22,7 +21,6 @@ public class Projectile : MonoBehaviour
     {
         _RigidBody2D = GetComponent<Rigidbody2D>();
         _SpriteRenderer = GetComponent<SpriteRenderer>();
-        _ProjectileObjectPooler = GetComponent<ObjectPooler>();
         _ProjectileReturnToPool = GetComponent<ReturnToPool>();
 
         FacingRight = true;

@@ -38,6 +38,10 @@ public class CharacterMovement : CharacterComponent
     
     protected override void HandleInput()
     {
+        base.HandleInput();
+        if(!_HandleInput){return;}
+        if(!_HandleInput){return;}
+        
         if (CanMove())
         {
             _HorizontalMovement = Input.GetAxisRaw("Horizontal");

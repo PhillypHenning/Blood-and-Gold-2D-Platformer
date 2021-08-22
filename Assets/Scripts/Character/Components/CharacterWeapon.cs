@@ -24,6 +24,7 @@ public class CharacterWeapon : CharacterComponent
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
+        if (_CurrentWeapon == null) { return; }
         if (_Character.FacingRight)
         {
             _CurrentWeapon.transform.localScale = new Vector3(1, 1, 1);
@@ -36,6 +37,9 @@ public class CharacterWeapon : CharacterComponent
 
     protected override void HandleInput()
     {
+        base.HandleInput();
+        if (!_HandleInput) { return; }
+
         if (Input.GetKey(KeyCode.LeftControl))
         {
             Aim();
@@ -81,17 +85,19 @@ public class CharacterWeapon : CharacterComponent
 
     public void EquipWeapon(Weapon weapon, Transform weaponPosition)
     {
+        if(weaponPosition == null){return;}
+        
         if (_CurrentWeapon != null)
         {
             // If the player switches weapons, while there are bullets out, those bullets are deleted from this. 
             // I can think of two solutions;
             //  1. Create a Destory method in ObjectPooler that waits until all bullets are deleted before destorying itself
             //  2. Add a "switch weapons" timer that doesn't allow the player to shoot his wepaon until the weapon swap is complete. (lasting longer then the bullet life.) 
-            Destroy(GameObject.Find(_CurrentWeapon.GetComponent<ObjectPooler>()._ObjectPooledFullName));
+            //Destroy(GameObject.Find(_CurrentWeapon.GetComponent<ObjectPooler>()._ObjectPooledFullName));
             Destroy(_CurrentWeapon.gameObject);
             Destroy(_CurrentWeapon);
         }
-       
+
         // Instantiates the Weapon that is set in the Unity settings.
         // By default it has been set to the Revolver.
         _CurrentWeapon = Instantiate(weapon, weaponPosition.position, weaponPosition.rotation);
@@ -102,11 +108,19 @@ public class CharacterWeapon : CharacterComponent
         _CurrentWeapon.transform.parent = weaponPosition;
 
         // Find the gameobject by the Serialized Weapon Name variable (Weapon script)
-        GameObject SearchingForWeaponSprite = GameObject.Find(_CurrentWeapon.WeaponName + " Model");
-      
-        // Disable the sprite until it's being used. 
-        _CurrentWeaponsSprite = SearchingForWeaponSprite.GetComponent<SpriteRenderer>();
+        // AI Naming pattern thoughts; <CharacterType>_<GameObjectName>
+        // In this case the player model would need to be;
+        // Player_Player_Model
+        // An AI character would look like;
+        // AI_BasicEnemy1
+        Debug.Log("Item: " + _CurrentWeapon.name + " | Character type: " + _Character.CharacterType);
+
+        //GameObject SearchingForWeaponSprite = GameObject.Find(name);
+        _CurrentWeaponsSprite = _CurrentWeapon.GetComponentInChildren<SpriteRenderer>();
         _CurrentWeaponsSprite.enabled = false;
+        // Disable the sprite until it's being used. 
+        //_CurrentWeaponsSprite = SearchingForWeaponSprite.GetComponent<SpriteRenderer>();
+        //_CurrentWeaponsSprite.enabled = false;
     }
 
     private void Aim()

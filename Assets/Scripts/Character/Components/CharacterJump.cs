@@ -39,6 +39,7 @@ public class CharacterJump : CharacterComponent
     protected override void HandleInput()
     {
         base.HandleInput();
+        if(!_HandleInput){return;}
         if (Input.GetKeyDown(KeyCode.Space) && _CharacterCanJump && !_Character.IsLocked)
         {
             Jump();
