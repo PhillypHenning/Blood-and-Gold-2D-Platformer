@@ -12,6 +12,7 @@ public class CharacterComponent : MonoBehaviour
     protected CharacterJump _CharacterJump;
     protected CharacterHealth _CharacterHealth;
     protected CharacterAnimation _CharacterAnimation;
+    protected InventoryManager _InventoryManager;
 
     // Gameobject Unity components
     
@@ -25,6 +26,7 @@ public class CharacterComponent : MonoBehaviour
         _CharacterJump = GetComponent<CharacterJump>();
         _CharacterHealth = GetComponent<CharacterHealth>();
         _CharacterAnimation = GetComponent<CharacterAnimation>();
+        _InventoryManager = GetComponent<InventoryManager>();
     }
 
     // Update is called once per frame

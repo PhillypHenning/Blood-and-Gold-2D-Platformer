@@ -44,6 +44,7 @@ public class CharacterDodge : CharacterComponent
     {
         if (_IsDodging)
         {
+            // TODO: Lerp it up?
             // total % how far along the dodge is in % multiplied by the distance of dodge
             // this will apply more force at the start and less near its completion
             float dodgeForce = (1 - (_DodgeTimer / _DodgeDuration)) * _DodgeDistance;
