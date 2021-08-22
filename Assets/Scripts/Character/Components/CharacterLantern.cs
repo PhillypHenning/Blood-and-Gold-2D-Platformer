@@ -16,20 +16,27 @@ public class CharacterLantern : CharacterComponent
     //    - This will allow the player to use the scroll wheel to add/reduce oil usage
     //      - more fuel = more light + faster drain rate
 
+    [SerializeField] private LanternDial _LanternDial;
     private bool _IsLanternOn;
     private bool _AdjustmentMode;
     private float _DrainRate;
     private float _IsEnabled;
     private Light2D _Light;
 
-    public float DrainRate => _DrainRate;
+    private float _OilDrainPool = 0f;
 
-    // MIN / MAX threshholds for light radius (inner/outer)
+    // MIN / MAX / OFF threshholds for light radius (inner/outer)
+    // logic assumes that inner min/max is 1/4 outer min/max
     private const float MIN_INNER_RADIUS = 0.5f;
     private const float MAX_INNER_RADIUS = 3f;
 
     private const float MIN_OUTER_RADIUS = 4f;
     private const float MAX_OUTER_RADIUS = 12f;
+
+    private const float OUTER_RADIUS_OFF = 2f;
+    private const float INNER_RADIUS_OFF = 0.3f;
+
+    private const float MAX_DRAIN_RATE = .1f;
 
     // tracks player-set threshold for lantern brightness
     private float _InnerRadiusThreshold;
@@ -48,6 +55,8 @@ public class CharacterLantern : CharacterComponent
         SetToDefault();
         _Light = GetComponentInChildren<Light2D>();
 
+        SetLanternDial();
+
         if (_Light == null) Debug.LogWarning("CharacterLantern was unable to locate a Light2D component.");
     }
 
@@ -63,7 +72,6 @@ public class CharacterLantern : CharacterComponent
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
             SwitchAdjustmentMode();
-            _IsLanternOn = true;
         }
         if (_IsLanternOn && _AdjustmentMode)
         {
@@ -110,43 +118,91 @@ public class CharacterLantern : CharacterComponent
                 }
             }
 
-            // TODO: figure out best use case for player interacting with lantern 
-            // should it automatically turn off when at min threshold? 
-            // should the min threshold be higher when lantern is off?
-            // what feels the most natural?
-            // check to see if lantern should be turned on or off
-            if (IsAtThreshold(MIN_INNER_RADIUS, MIN_OUTER_RADIUS))
-            {
-                _IsLanternOn = false;
-                _AdjustmentMode = false;
-            }
-            else
-            {
-                _IsLanternOn = true;
-            }
+            SetLanternDial();
         }
-    }
-
-    private void SwitchAdjustmentMode()
-    {
-        _AdjustmentMode = !_AdjustmentMode;
-    }
-
-    private void SwitchLanternOnOff()
-    {
-        _IsLanternOn = !_IsLanternOn;
     }
 
     protected override void HandleAbility()
     {
         base.HandleAbility();
+        DrainOil();
         AdjustLantern();
-        //Flicker();
     }
+
+    protected override void SetToDefault()
+    {
+        _IsLanternOn = true;
+        _InnerRadiusThreshold = MAX_INNER_RADIUS;
+        _OuterRadiusThreshold = MAX_OUTER_RADIUS;
+        _FlickerMax = MAX_INTENSITY;
+        _FlickerMin = MIN_INTENSITY;
+    }
+
+    private void DrainOil()
+    {
+        if (_InventoryManager.GetQuantity(ItemType.Oil) == 0)
+        {
+            _IsLanternOn = false;
+            SetLanternDial();
+            return;
+        }
+
+        _OilDrainPool += DrainRate();
+        if (_OilDrainPool < 100f) return;
+
+        _OilDrainPool = 0f;
+        _InventoryManager.RemoveFromInventory(ItemType.Oil, 1);
+        Debug.Log("Oil remaining: " + _InventoryManager.GetQuantity(ItemType.Oil) + "%");
+    }
+
+    private float DrainRate()
+    {
+        if (_Light.pointLightInnerRadius <= INNER_RADIUS_OFF)
+        {
+            return 0;
+        }
+
+        return (MAX_DRAIN_RATE * (_Light.pointLightInnerRadius / MAX_INNER_RADIUS));
+    }
+
+    private void SwitchAdjustmentMode()
+    {
+        _AdjustmentMode = !_AdjustmentMode;
+        if (_AdjustmentMode)
+        {
+            _LanternDial.AdjustmentModeOn();
+        }
+        else
+        {
+            _LanternDial.AdjustmentModeOff();
+        }
+    }
+
+    private void SwitchLanternOnOff()
+    {
+        // white B7B7B7
+        // orange F3C08B
+        _IsLanternOn = !_IsLanternOn;
+        if (_IsLanternOn)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Lantern/Lantern_Light");
+        }
+        else
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Lantern/Lantern_Extinguish");
+        }
+
+        SetLanternDial();
+    }
+
 
     private void Flicker()
     {
         // TODO: Flicker needs to be based on something either than intensity (doesn't look good)
+
+
+        // Lerp from  Min/Max Radius -5, to Min/Max Radius + 5
+        // -5, Min/Max Radius, +5
         _Light.intensity = Mathf.Lerp(_FlickerMin, _FlickerMax, _FlickerFactor);
         _FlickerFactor += Time.deltaTime;
 
@@ -159,22 +215,18 @@ public class CharacterLantern : CharacterComponent
         }
     }
 
-    protected override void SetToDefault()
-    {
-        _IsLanternOn = true;
-        _InnerRadiusThreshold = MAX_INNER_RADIUS;
-        _OuterRadiusThreshold = MAX_OUTER_RADIUS;
-        _FlickerMax = MAX_INTENSITY;
-        _FlickerMin = MIN_INTENSITY;
-    }
-
     private void AdjustLantern()
     {
         var timeFactor = Time.deltaTime * 10;
 
         if (_IsLanternOn)
         {
-            if (IsAtThreshold(_InnerRadiusThreshold, _OuterRadiusThreshold)) return;
+            if (IsAtThreshold(_InnerRadiusThreshold, _OuterRadiusThreshold))
+            {
+                // flicker 
+                Flicker();
+                return;
+            }
 
             if (_Light.pointLightInnerRadius < _InnerRadiusThreshold)
             {
@@ -196,16 +248,33 @@ public class CharacterLantern : CharacterComponent
         }
         else
         {
-            if (IsAtThreshold(MIN_INNER_RADIUS, MIN_OUTER_RADIUS)) return;
+            if (IsAtThreshold(MIN_INNER_RADIUS, OUTER_RADIUS_OFF)) return;
 
-            if (_Light.pointLightInnerRadius > MIN_INNER_RADIUS)
+            if (_Light.pointLightInnerRadius > INNER_RADIUS_OFF)
             {
-                DecreaseInnerRadius(timeFactor, MIN_INNER_RADIUS);
+                DecreaseInnerRadius(timeFactor, INNER_RADIUS_OFF);
             }
-            if (_Light.pointLightOuterRadius > MIN_OUTER_RADIUS)
+            if (_Light.pointLightOuterRadius > OUTER_RADIUS_OFF)
             {
-                DecreaseOuterRadius(timeFactor, MIN_OUTER_RADIUS);
+                DecreaseOuterRadius(timeFactor, OUTER_RADIUS_OFF);
             }
+        }
+    }
+
+    private float ThresholdPercentage()
+    {
+        return ((_InnerRadiusThreshold - MIN_INNER_RADIUS) / (MAX_INNER_RADIUS - MIN_INNER_RADIUS));
+    }
+
+    private void SetLanternDial()
+    {
+        if (_IsLanternOn)
+        {
+            _LanternDial.SetDialPosition(ThresholdPercentage());
+        }
+        else
+        {
+            _LanternDial.SetDialPositionOff();
         }
     }
 

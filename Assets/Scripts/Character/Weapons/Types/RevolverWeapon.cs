@@ -6,6 +6,7 @@ public class RevolverWeapon : Weapon
 {
     protected override void PlayShootingSFX()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Revolver_Shoot");
         // So finally!
         // This is an override, here we are going to specialize the sound we want to use by "overriding" 
         // the template code.
@@ -15,6 +16,7 @@ public class RevolverWeapon : Weapon
 
     protected override void PlayReloadSFX()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Revolver_Reload");
         // base.PlayReloadSFX(); <-- This would have called our templates PlayReloadSFX function
         // What this allows you to do is have some sort of normalized work in the template class
         // then specializing what you need here. You will see this is many CharacterComponents.

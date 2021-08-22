@@ -159,5 +159,7 @@ public class CharacterWeapon : CharacterComponent
             //_CurrentWeapon = _WeaponToUse;
             EquipWeapon(_PrimaryWeapon, _WeaponHolderPosition);
         }
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Weapon_Switch");
     }
 }
