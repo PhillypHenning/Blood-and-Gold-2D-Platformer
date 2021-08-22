@@ -1,7 +1,145 @@
 fileFormatVersion: 2
 guid: b6f088bb9dd31f44aa39e33f7bce4dfa
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3117968997666731803
+    second: SET2_Main_bckgrdlev_build_0
+  - first:
+      213: 1472060928950422025
+    second: SET2_Main_bckgrdlev_build_1
+  - first:
+      213: -8836984525797800835
+    second: SET2_Main_bckgrdlev_build_2
+  - first:
+      213: 7156274758659547613
+    second: SET2_Main_bckgrdlev_build_3
+  - first:
+      213: -8068304551487518446
+    second: SET2_Main_bckgrdlev_build_4
+  - first:
+      213: 5059021396195968805
+    second: SET2_Main_bckgrdlev_build_5
+  - first:
+      213: 7005305714677104824
+    second: SET2_Main_bckgrdlev_build_6
+  - first:
+      213: 6233079054549670005
+    second: SET2_Main_bckgrdlev_build_7
+  - first:
+      213: 8369340678962551963
+    second: SET2_Main_bckgrdlev_build_8
+  - first:
+      213: -3237604372792063813
+    second: SET2_Main_bckgrdlev_build_9
+  - first:
+      213: -2133063278556658884
+    second: SET2_Main_bckgrdlev_build_10
+  - first:
+      213: -6600039881265335859
+    second: SET2_Main_bckgrdlev_build_11
+  - first:
+      213: 734797862645279260
+    second: SET2_Main_bckgrdlev_build_12
+  - first:
+      213: 3099684964286632287
+    second: SET2_Main_bckgrdlev_build_13
+  - first:
+      213: -3955059984844329123
+    second: SET2_Main_bckgrdlev_build_14
+  - first:
+      213: -5510339494507892751
+    second: SET2_Main_bckgrdlev_build_15
+  - first:
+      213: 8414958525839454718
+    second: SET2_Main_bckgrdlev_build_16
+  - first:
+      213: -4682955582168107387
+    second: SET2_Main_bckgrdlev_build_17
+  - first:
+      213: 4323318585057262895
+    second: SET2_Main_bckgrdlev_build_18
+  - first:
+      213: 3177808155554180572
+    second: SET2_Main_bckgrdlev_build_19
+  - first:
+      213: 8611338513675604461
+    second: SET2_Main_bckgrdlev_build_20
+  - first:
+      213: -8609780281416779989
+    second: SET2_Main_bckgrdlev_build_21
+  - first:
+      213: 1302640376744700002
+    second: SET2_Main_bckgrdlev_build_22
+  - first:
+      213: -7933976516829135861
+    second: SET2_Main_bckgrdlev_build_23
+  - first:
+      213: 6983168007515532979
+    second: SET2_Main_bckgrdlev_build_24
+  - first:
+      213: -8650725960307496898
+    second: SET2_Main_bckgrdlev_build_25
+  - first:
+      213: -2657018311385412329
+    second: SET2_Main_bckgrdlev_build_26
+  - first:
+      213: 6694434385938143150
+    second: SET2_Main_bckgrdlev_build_27
+  - first:
+      213: -6735947933366742073
+    second: SET2_Main_bckgrdlev_build_28
+  - first:
+      213: 5316540739235134686
+    second: SET2_Main_bckgrdlev_build_29
+  - first:
+      213: -4783724963094319815
+    second: SET2_Main_bckgrdlev_build_30
+  - first:
+      213: -2360993858566372640
+    second: SET2_Main_bckgrdlev_build_31
+  - first:
+      213: -6448733548681208939
+    second: SET2_Main_bckgrdlev_build_32
+  - first:
+      213: -3242652083571130218
+    second: SET2_Main_bckgrdlev_build_33
+  - first:
+      213: 8449925278423201142
+    second: SET2_Main_bckgrdlev_build_34
+  - first:
+      213: -800906737182846130
+    second: SET2_Main_bckgrdlev_build_35
+  - first:
+      213: 4706324522305188768
+    second: SET2_Main_bckgrdlev_build_36
+  - first:
+      213: -4746064745855772602
+    second: SET2_Main_bckgrdlev_build_37
+  - first:
+      213: 6172661708600783903
+    second: SET2_Main_bckgrdlev_build_38
+  - first:
+      213: -4614836940711607524
+    second: SET2_Main_bckgrdlev_build_39
+  - first:
+      213: 1356076730466106032
+    second: SET2_Main_bckgrdlev_build_40
+  - first:
+      213: 9152912988451231906
+    second: SET2_Main_bckgrdlev_build_41
+  - first:
+      213: -5639026441571972510
+    second: SET2_Main_bckgrdlev_build_42
+  - first:
+      213: -5424183427532171022
+    second: SET2_Main_bckgrdlev_build_43
+  - first:
+      213: -829609772459023920
+    second: SET2_Main_bckgrdlev_build_44
+  - first:
+      213: -5362519507256901670
+    second: SET2_Main_bckgrdlev_build_45
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +170,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -41,12 +179,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,9 +213,987 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 413
+        width: 128
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b173b9e9840454b20800000000000000
+      internalID: 3117968997666731803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_1
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 416
+        width: 80
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90a42d59d9fcd6410800000000000000
+      internalID: 1472060928950422025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_2
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 412
+        width: 50
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d74c236e469bc5580800000000000000
+      internalID: -8836984525797800835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 398
+        width: 104
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd12ff83af1305360800000000000000
+      internalID: 7156274758659547613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_4
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 412
+        width: 50
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2194be412cf970090800000000000000
+      internalID: -8068304551487518446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 413
+        width: 128
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5278c5fe721453640800000000000000
+      internalID: 5059021396195968805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_6
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 416
+        width: 80
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b0c75a8e68d73160800000000000000
+      internalID: 7005305714677104824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_7
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 412
+        width: 50
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5785c573068508650800000000000000
+      internalID: 6233079054549670005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_8
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 398
+        width: 104
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c1acd310fd52470800000000000000
+      internalID: 8369340678962551963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_9
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 412
+        width: 50
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb84a7cf9f7b113d0800000000000000
+      internalID: -3237604372792063813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_10
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 272
+        width: 102
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c334336ef36d562e0800000000000000
+      internalID: -2133063278556658884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 96
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc1b4cd42b2f764a0800000000000000
+      internalID: -6600039881265335859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_12
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 270
+        width: 64
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1a20b053c6823a00800000000000000
+      internalID: 734797862645279260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_13
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 293
+        width: 32
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f519ceb5d0b440b20800000000000000
+      internalID: 3099684964286632287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_14
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 320
+        width: 132
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5fedf906edcc19c0800000000000000
+      internalID: -3955059984844329123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_15
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 272
+        width: 102
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ff2d0ebc675783b0800000000000000
+      internalID: -5510339494507892751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_16
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 96
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef13e44e130f7c470800000000000000
+      internalID: 8414958525839454718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_17
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 270
+        width: 64
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 586ffe995bcc20fb0800000000000000
+      internalID: -4682955582168107387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_18
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 293
+        width: 32
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2dbe21e8538ffb30800000000000000
+      internalID: 4323318585057262895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_19
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 320
+        width: 132
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdd65244ea7d91c20800000000000000
+      internalID: 3177808155554180572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_20
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 272
+        width: 86
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de1564cd0ce918770800000000000000
+      internalID: 8611338513675604461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_21
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 272
+        width: 86
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b277dfb537ae38880800000000000000
+      internalID: -8609780281416779989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 154
+        width: 128
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 268e2fd5588e31210800000000000000
+      internalID: 1302640376744700002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_23
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 160
+        width: 80
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0cbb1ad46ad4e190800000000000000
+      internalID: -7933976516829135861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_24
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 93
+        width: 102
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bee5deed4239e060800000000000000
+      internalID: 6983168007515532979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_25
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 192
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e382f96929272f780800000000000000
+      internalID: -8650725960307496898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_26
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 240
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71d0a2c5cef502bd0800000000000000
+      internalID: -2657018311385412329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_27
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 154
+        width: 128
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea7d00afa9867ec50800000000000000
+      internalID: 6694434385938143150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_28
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 160
+        width: 80
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c3162e0b0b1582a0800000000000000
+      internalID: -6735947933366742073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_29
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 93
+        width: 102
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edcb00452a528c940800000000000000
+      internalID: 5316540739235134686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_30
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 192
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93d2897cd7bcc9db0800000000000000
+      internalID: -4783724963094319815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_31
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 240
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e2c54f38901c3fd0800000000000000
+      internalID: -2360993858566372640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_32
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 192
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b56bb110f7186a0800000000000000
+      internalID: -6448733548681208939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_33
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 192
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 690009c3c19cff2d0800000000000000
+      internalID: -3242652083571130218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_34
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 80
+        width: 32
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6753207654a244570800000000000000
+      internalID: 8449925278423201142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_35
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 144
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e43dfffd09b92e4f0800000000000000
+      internalID: -800906737182846130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_36
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 80
+        width: 32
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a3f5b5c739305140800000000000000
+      internalID: 4706324522305188768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_37
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 144
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64813466247922eb0800000000000000
+      internalID: -4746064745855772602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_38
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 16
+        width: 108
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f143ecbae13b9a550800000000000000
+      internalID: 6172661708600783903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_39
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 11
+        width: 165
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c13c88cb04ec4ffb0800000000000000
+      internalID: -4614836940711607524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_40
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 80
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bafa9ff990c1d210800000000000000
+      internalID: 1356076730466106032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_41
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 16
+        width: 108
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a8d1b86edda50f70800000000000000
+      internalID: 9152912988451231906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_42
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 11
+        width: 165
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a411704572eb1b0800000000000000
+      internalID: -5639026441571972510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_43
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 80
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f8526549ed69b4b0800000000000000
+      internalID: -5424183427532171022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_44
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 32
+        width: 64
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d12362be42ac74f0800000000000000
+      internalID: -829609772459023920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_Main_bckgrdlev_build_45
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 32
+        width: 64
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adf79d48be08495b0800000000000000
+      internalID: -5362519507256901670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

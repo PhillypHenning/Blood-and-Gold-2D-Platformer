@@ -1,7 +1,133 @@
 fileFormatVersion: 2
 guid: 76cb62e463f8d1e4291b78d9a3e76581
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1524726241210428343
+    second: SET2_decorative_obj_0
+  - first:
+      213: 1778755502289571030
+    second: SET2_decorative_obj_1
+  - first:
+      213: -7173270543790414067
+    second: SET2_decorative_obj_2
+  - first:
+      213: -6449033801294027251
+    second: SET2_decorative_obj_3
+  - first:
+      213: 8253619027154626321
+    second: SET2_decorative_obj_4
+  - first:
+      213: 5661587667732038340
+    second: SET2_decorative_obj_5
+  - first:
+      213: 5208949385251905874
+    second: SET2_decorative_obj_6
+  - first:
+      213: 4472284842240658424
+    second: SET2_decorative_obj_7
+  - first:
+      213: 2857901898843576321
+    second: SET2_decorative_obj_8
+  - first:
+      213: -6053533393120726610
+    second: SET2_decorative_obj_9
+  - first:
+      213: -5147677884604128911
+    second: SET2_decorative_obj_10
+  - first:
+      213: 8722221668867604122
+    second: SET2_decorative_obj_11
+  - first:
+      213: 8967140884311396883
+    second: SET2_decorative_obj_12
+  - first:
+      213: -6306406357438062259
+    second: SET2_decorative_obj_13
+  - first:
+      213: -2128613400819697013
+    second: SET2_decorative_obj_14
+  - first:
+      213: 5768541927591860726
+    second: SET2_decorative_obj_15
+  - first:
+      213: 5171424570123251608
+    second: SET2_decorative_obj_16
+  - first:
+      213: -6559636651650700634
+    second: SET2_decorative_obj_17
+  - first:
+      213: 6976866731703055766
+    second: SET2_decorative_obj_18
+  - first:
+      213: 1088170624221480994
+    second: SET2_decorative_obj_19
+  - first:
+      213: 104285853673162034
+    second: SET2_decorative_obj_20
+  - first:
+      213: 8486509795685354865
+    second: SET2_decorative_obj_21
+  - first:
+      213: 6140716231643549280
+    second: SET2_decorative_obj_22
+  - first:
+      213: 4532056683528972771
+    second: SET2_decorative_obj_23
+  - first:
+      213: 7277050402179046981
+    second: SET2_decorative_obj_24
+  - first:
+      213: -135267880800568837
+    second: SET2_decorative_obj_25
+  - first:
+      213: -1906134076825174702
+    second: SET2_decorative_obj_26
+  - first:
+      213: 6712234187385712825
+    second: SET2_decorative_obj_27
+  - first:
+      213: 4367992394544287893
+    second: SET2_decorative_obj_28
+  - first:
+      213: -8395077927190872789
+    second: SET2_decorative_obj_29
+  - first:
+      213: 8480093024418288798
+    second: SET2_decorative_obj_30
+  - first:
+      213: 2126723511218845611
+    second: SET2_decorative_obj_31
+  - first:
+      213: -1458408872476145731
+    second: SET2_decorative_obj_32
+  - first:
+      213: 3905349601890033141
+    second: SET2_decorative_obj_33
+  - first:
+      213: 189245153345732372
+    second: SET2_decorative_obj_34
+  - first:
+      213: 3617617562801826814
+    second: SET2_decorative_obj_35
+  - first:
+      213: 9165686711599596021
+    second: SET2_decorative_obj_36
+  - first:
+      213: -2760485355523590922
+    second: SET2_decorative_obj_37
+  - first:
+      213: -2389896552491266008
+    second: SET2_decorative_obj_38
+  - first:
+      213: -1752680475899022308
+    second: SET2_decorative_obj_39
+  - first:
+      213: -6918172722480329462
+    second: SET2_decorative_obj_40
+  - first:
+      213: -6525087102367123455
+    second: SET2_decorative_obj_41
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +158,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -41,12 +167,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,9 +201,903 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SET2_decorative_obj_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 368
+        width: 186
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9449fecdf8517dae0800000000000000
+      internalID: -1524726241210428343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_1
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 368
+        width: 147
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dccd3084b86fa810800000000000000
+      internalID: 1778755502289571030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_2
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 368
+        width: 172
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d07699f227c637c90800000000000000
+      internalID: -7173270543790414067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_3
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 496
+        width: 70
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d06e1691ded6086a0800000000000000
+      internalID: -6449033801294027251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_4
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 496
+        width: 64
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 117e4f096ceba8270800000000000000
+      internalID: 8253619027154626321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_5
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 368
+        width: 77
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c286e7ccfff19e40800000000000000
+      internalID: 5661587667732038340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 320
+        width: 48
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 251ede02ed7e94840800000000000000
+      internalID: 5208949385251905874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_7
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 320
+        width: 64
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb4e1c6e5fb01e30800000000000000
+      internalID: 4472284842240658424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_8
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 320
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1085c7b92ae49a720800000000000000
+      internalID: 2857901898843576321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_9
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 304
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea1f213b3778dfba0800000000000000
+      internalID: -6053533393120726610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_10
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 240
+        width: 32
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 171690ecc36cf88b0800000000000000
+      internalID: -5147677884604128911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_11
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 256
+        width: 36
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9e7111456e8b0970800000000000000
+      internalID: 8722221668867604122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_12
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 240
+        width: 33
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3125344df1fa17c70800000000000000
+      internalID: 8967140884311396883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_13
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 304
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d41a3a7a4d42b78a0800000000000000
+      internalID: -6306406357438062259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_14
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 288
+        width: 70
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8a710cc365a572e0800000000000000
+      internalID: -2128613400819697013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_15
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 288
+        width: 87
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f95f02f15afd0050800000000000000
+      internalID: 5768541927591860726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_16
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 272
+        width: 112
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f6ce44f3794c740800000000000000
+      internalID: 5171424570123251608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_17
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 272
+        width: 96
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aa2ab2483d77f4a0800000000000000
+      internalID: -6559636651650700634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_18
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 288
+        width: 87
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 695b664d35fc2d060800000000000000
+      internalID: 6976866731703055766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_19
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 224
+        width: 96
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2288cb7da65f91f00800000000000000
+      internalID: 1088170624221480994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_20
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 220
+        width: 96
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 235894f6e6f727100800000000000000
+      internalID: 104285853673162034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_21
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 224
+        width: 24
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17dc2ba12b326c570800000000000000
+      internalID: 8486509795685354865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_22
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 224
+        width: 24
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06ec695b0e4383550800000000000000
+      internalID: 6140716231643549280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_23
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 192
+        width: 70
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e9eda3ba8915ee30800000000000000
+      internalID: 4532056683528972771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_24
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 192
+        width: 87
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54ede7a09c64df460800000000000000
+      internalID: 7277050402179046981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_25
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 176
+        width: 112
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf9bc5f349e6f1ef0800000000000000
+      internalID: -135267880800568837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_26
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 180
+        width: 96
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25d7190082d0c85e0800000000000000
+      internalID: -1906134076825174702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_27
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 144
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b0bb543e65a62d50800000000000000
+      internalID: 6712234187385712825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_28
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 128
+        width: 28
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5909b62b0f93e9c30800000000000000
+      internalID: 4367992394544287893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_29
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 128
+        width: 36
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2db010ba11be7b80800000000000000
+      internalID: -8395077927190872789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_30
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 128
+        width: 28
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9458be1da75fa570800000000000000
+      internalID: 8480093024418288798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_31
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 144
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba7bbadf3c3a38d10800000000000000
+      internalID: 2126723511218845611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_32
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 192
+        width: 87
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db708c28bd0b2cbe0800000000000000
+      internalID: -1458408872476145731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_33
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 132
+        width: 48
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fd5e5085c6923630800000000000000
+      internalID: 3905349601890033141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_34
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 136
+        width: 64
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41ff2acd67550a200800000000000000
+      internalID: 189245153345732372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_35
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efb6404a10c543230800000000000000
+      internalID: 3617617562801826814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_36
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 80
+        width: 147
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f18967908f033f70800000000000000
+      internalID: 9165686711599596021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_37
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 80
+        width: 147
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f43950e139c0b9d0800000000000000
+      internalID: -2760485355523590922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_38
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 64
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 820d3da6fb165ded0800000000000000
+      internalID: -2389896552491266008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_39
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 64
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c14b64da46a3da7e0800000000000000
+      internalID: -1752680475899022308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0d43cd1096bdff90800000000000000
+      internalID: -6918172722480329462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SET2_decorative_obj_41
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 0
+        width: 256
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 108bcee0adb3275a0800000000000000
+      internalID: -6525087102367123455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

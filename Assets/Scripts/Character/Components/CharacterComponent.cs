@@ -7,7 +7,6 @@ public class CharacterComponent : MonoBehaviour
 {
     // Character Components add basic "character" functionality.
     protected Character _Character;
-    protected CharacterController _CharacterController;
     protected CharacterMovement _CharacterMovement;
     protected CharacterJump _CharacterJump;
     protected CharacterHealth _CharacterHealth;
@@ -15,13 +14,13 @@ public class CharacterComponent : MonoBehaviour
     protected InventoryManager _InventoryManager;
 
     // Gameobject Unity components
+    protected bool _HandleInput = true;
     
     // Start is called before the first frame update
     protected virtual void Start()
     {
         // You may feel tempted to remove the base. series of template functions, but be warned; if you do it, you will loose your references to these components. 
         _Character = GetComponent<Character>();
-        _CharacterController = GetComponent<CharacterController>();
         _CharacterMovement = GetComponent<CharacterMovement>();
         _CharacterJump = GetComponent<CharacterJump>();
         _CharacterHealth = GetComponent<CharacterHealth>();
@@ -58,8 +57,10 @@ public class CharacterComponent : MonoBehaviour
     }
 
     protected virtual void HandleInput()
-    {
-        if (_Character.CharacterType != Character.CharacterTypes.Player) return;
+    {   
+        if (_Character.CharacterType != Character.CharacterTypes.Player){
+            _HandleInput = false;
+        }
         // Handles Player Inputs and Actions on them
         // For an easy example please review the Dash component.
     }

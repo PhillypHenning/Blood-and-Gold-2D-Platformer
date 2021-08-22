@@ -63,6 +63,7 @@ public class CharacterLantern : CharacterComponent
     protected override void HandleInput()
     {
         base.HandleInput();
+        if(!_HandleInput){return;}
         if (_Character.IsLocked) return;
         if (Input.GetKeyDown(KeyCode.X))
         {
@@ -183,6 +184,16 @@ public class CharacterLantern : CharacterComponent
         // orange F3C08B
         //_Light.color = Color.hex
         _IsLanternOn = !_IsLanternOn;
+	if (_IsLanternOn)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Lantern/Lantern_Light");
+        }
+
+        else
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Lantern/Lantern_Extinguish");
+        }
+    }
 
         SetLanternDial();
     }

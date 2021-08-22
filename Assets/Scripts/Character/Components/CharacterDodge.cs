@@ -20,6 +20,7 @@ public class CharacterDodge : CharacterComponent
     protected override void HandleInput()
     {
         base.HandleInput();
+        if(!_HandleInput){return;}
         if (Input.GetKeyDown(KeyCode.LeftShift) && CanDodge())
         {
             Dodge();
