@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TestState
   m_EditorClassIdentifier: 
   _AIActions:
-  - {fileID: 11400000, guid: 36c3bc09339a325468cc0753acf97733, type: 2}
+  - {fileID: 11400000, guid: 87879a6461f41b34f8dfdbeeeabe23b1, type: 2}
   _AITransitions: []
