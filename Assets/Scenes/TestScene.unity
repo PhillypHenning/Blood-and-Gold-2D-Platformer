@@ -16388,7 +16388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6637521038764994342}
   m_Layer: 0
-  m_Name: Enemy WeaponHolder
+  m_Name: WeaponHolder
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -16539,6 +16539,7 @@ GameObject:
   - component: {fileID: 6637521039899232295}
   - component: {fileID: 6637521039899232293}
   - component: {fileID: 6637521039899232340}
+  - component: {fileID: 6637521039899232341}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Player
@@ -16559,7 +16560,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _PrimaryWeapon: {fileID: -5452773183673280733, guid: 36517eaa30fcfff41b3bce410a70bc16, type: 3}
-  _WeaponHolderPosition: {fileID: 6637521038764994342}
+  _WeaponHolderPosition: {fileID: 0}
+--- !u!114 &6637521039899232341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6637521039899232339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e5af15c6f339945b448d364e9b59b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: {fileID: 11400000, guid: 3d5761c7e32a82a428808e5a4e997f2b, type: 2}
+  remainState: {fileID: 0}
 --- !u!114 &6637521039899232346
 MonoBehaviour:
   m_ObjectHideFlags: 0
