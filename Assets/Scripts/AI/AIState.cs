@@ -44,7 +44,7 @@ public class AIState : ScriptableObject
         {
             foreach (AIAction action in _AIActions)
             {
-                action.Act(controller);
+                //action.Act(controller);
             }
         }
     }

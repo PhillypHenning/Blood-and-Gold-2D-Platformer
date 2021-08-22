@@ -19,7 +19,7 @@ public class InventoryManager : MonoBehaviour
         _Items = new Dictionary<ItemType, int>();
 
         // TODO: use data table to access item data
-        AddToInventory(ItemType.Oil, 75);
+        AddToInventory(ItemType.Oil, 100);
     }
 
     void Update()

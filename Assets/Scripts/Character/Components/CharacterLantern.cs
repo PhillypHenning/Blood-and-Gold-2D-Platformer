@@ -152,7 +152,7 @@ public class CharacterLantern : CharacterComponent
 
         _OilDrainPool = 0f;
         _InventoryManager.RemoveFromInventory(ItemType.Oil, 1);
-        print(_InventoryManager.GetQuantity(ItemType.Oil) + "%");
+        Debug.Log("Oil remaining: " + _InventoryManager.GetQuantity(ItemType.Oil) + "%");
     }
 
     private float DrainRate()
@@ -182,18 +182,15 @@ public class CharacterLantern : CharacterComponent
     {
         // white B7B7B7
         // orange F3C08B
-        //_Light.color = Color.hex
         _IsLanternOn = !_IsLanternOn;
-	if (_IsLanternOn)
+        if (_IsLanternOn)
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Lantern/Lantern_Light");
         }
-
         else
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Lantern/Lantern_Extinguish");
         }
-    }
 
         SetLanternDial();
     }
