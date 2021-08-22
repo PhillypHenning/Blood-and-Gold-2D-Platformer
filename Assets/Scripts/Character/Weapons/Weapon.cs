@@ -84,6 +84,8 @@ public class Weapon : MonoBehaviour
     private void RefillAmmo()
     {
         _CurrentAmmo = _MaxMagazineSize;
+
+        PlayReloadSFX();
     }
 
     private void ConsumeAmmo()
@@ -161,7 +163,6 @@ public class Weapon : MonoBehaviour
 
 
         RefillAmmo();
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Revolver_Reload");
     }
 
     public void StartShooting()

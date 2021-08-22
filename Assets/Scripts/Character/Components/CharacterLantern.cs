@@ -134,6 +134,16 @@ public class CharacterLantern : CharacterComponent
     private void SwitchLanternOnOff()
     {
         _IsLanternOn = !_IsLanternOn;
+
+        if (_IsLanternOn)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Lantern/Lantern_Light");
+        }
+
+        else
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Lantern/Lantern_Extinguish");
+        }
     }
 
     protected override void HandleAbility()
