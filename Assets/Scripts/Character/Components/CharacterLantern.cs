@@ -17,6 +17,7 @@ public class CharacterLantern : CharacterComponent
     //      - more fuel = more light + faster drain rate
 
     [SerializeField] private LanternDial _LanternDial;
+    [SerializeField] private OilFlask _OilFlask;
     private bool _IsLanternOn;
     private bool _AdjustmentMode;
     private float _DrainRate;
@@ -158,7 +159,8 @@ public class CharacterLantern : CharacterComponent
 
         _OilDrainPool = 0f;
         _InventoryManager.RemoveFromInventory(ItemType.Oil, 1);
-        Debug.Log("Oil remaining: " + _InventoryManager.GetQuantity(ItemType.Oil) + "%");
+
+        _OilFlask.SetSlider(_InventoryManager.GetQuantity(ItemType.Oil));
     }
 
     private float DrainRate()
