@@ -2,12 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ItemType
-{
-    Oil,
-    AmmoHangun,
-    AmmoShotgun
-}
 
 public class InventoryManager : MonoBehaviour
 {
@@ -16,15 +10,12 @@ public class InventoryManager : MonoBehaviour
 
     void Start()
     {
-        _Items = new Dictionary<ItemType, int>();
-
-        // TODO: use data table to access item data
-        AddToInventory(ItemType.Oil, 100);
-    }
-
-    void Update()
-    {
-
+        _Items = new Dictionary<ItemType, int>
+        {
+            // adds starting items to inventory
+            { ItemType.Oil, 100 },
+            { ItemType.AmmoHandgun, 12 }
+        };
     }
 
     public bool HasItem(ItemType item)
@@ -38,24 +29,23 @@ public class InventoryManager : MonoBehaviour
         return _Items[item];
     }
 
-    public bool AddToInventory(ItemType item, int quantity)
+    public bool AddToInventory(ItemData item, int quantity)
     {
         int currentStock = 0;
-        if (HasItem(item))
+        if (HasItem(item.Type))
         {
-            currentStock = _Items[item];
+            currentStock = _Items[item.Type];
         }
         else
         {
-            _Items.Add(item, currentStock);
+            _Items.Add(item.Type, currentStock);
         }
 
         // no room left, item was NOT added to inventory
         // use this logic to determine whether an item pickup should disappear
-        /*
-        if (currentStock == item.MaxQuantity) return false;
+        if (currentStock == item.MaxStack) return false;
 
-        if (currentStock + quantity >= item.MaxQuantity)
+        if (currentStock + quantity >= item.MaxStack)
         {
             _Items[item.Type] = quantity;
         }
@@ -63,12 +53,8 @@ public class InventoryManager : MonoBehaviour
         {
             _Items[item.Type] += quantity;
         }
-        */
 
-        // temporary, until item data is sorted out.
-        _Items[item] += quantity;
-
-        // item was added to inventory
+        // item successfully added to inventory
         return true;
     }
 

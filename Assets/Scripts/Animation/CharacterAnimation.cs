@@ -97,13 +97,13 @@ public class CharacterAnimation : MonoBehaviour
                 _IsFalling = false;
                 Landing();
             }
+            else if (_Character.IsLocked)
+            {
+                ChangeAnimationState(AnimationState.Idle);
+            }
             else if (_Character.IsMoving)
             {
                 ChangeAnimationState(AnimationState.Run);
-            }
-            else
-            {
-                ChangeAnimationState(AnimationState.Idle);
             }
         }
         else if (_Character.RigidBody2D.velocity.y < 0)

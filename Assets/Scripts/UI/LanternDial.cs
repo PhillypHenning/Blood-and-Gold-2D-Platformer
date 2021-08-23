@@ -16,10 +16,10 @@ public class LanternDial : MonoBehaviour
     private const float MAX_ROTATION = -30f;
     private const float MIN_ROTATION = 30f;
 
-    private const float OFF_ROTATION = 50f;
+    private const float OFF_ROTATION = 40f;
 
     // y position for dial while adjustment mode is on/off
-    private const float ADJUSTMENT_MODE_ON = 90f;
+    private const float ADJUSTMENT_MODE_ON = 15f;
     private const float ADJUSTMENT_MODE_OFF = -15f;
 
 

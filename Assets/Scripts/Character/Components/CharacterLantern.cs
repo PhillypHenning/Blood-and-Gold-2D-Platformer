@@ -27,11 +27,13 @@ public class CharacterLantern : CharacterComponent
 
     // MIN / MAX / OFF threshholds for light radius (inner/outer)
     // logic assumes that inner min/max is 1/4 outer min/max
+    private const float DEFAULT_INNER_RADIUS = 3f;
     private const float MIN_INNER_RADIUS = 0.5f;
-    private const float MAX_INNER_RADIUS = 3f;
+    private const float MAX_INNER_RADIUS = 4f;
 
+    private const float DEFAULT_OUTER_RADIUS = 12f;
     private const float MIN_OUTER_RADIUS = 4f;
-    private const float MAX_OUTER_RADIUS = 12f;
+    private const float MAX_OUTER_RADIUS = 16f;
 
     private const float OUTER_RADIUS_OFF = 2f;
     private const float INNER_RADIUS_OFF = 0.3f;
@@ -126,14 +128,14 @@ public class CharacterLantern : CharacterComponent
     {
         base.HandleAbility();
         DrainOil();
-        AdjustLantern();
+        UpdateLantern(); 
     }
 
     protected override void SetToDefault()
     {
         _IsLanternOn = true;
-        _InnerRadiusThreshold = MAX_INNER_RADIUS;
-        _OuterRadiusThreshold = MAX_OUTER_RADIUS;
+        _InnerRadiusThreshold = DEFAULT_INNER_RADIUS;
+        _OuterRadiusThreshold = DEFAULT_OUTER_RADIUS;
         _FlickerMax = MAX_INTENSITY;
         _FlickerMin = MIN_INTENSITY;
     }
@@ -215,17 +217,22 @@ public class CharacterLantern : CharacterComponent
         }
     }
 
-    private void AdjustLantern()
+    private void UpdateLantern()
     {
         var timeFactor = Time.deltaTime * 10;
 
         if (_IsLanternOn)
         {
-            if (IsAtThreshold(_InnerRadiusThreshold, _OuterRadiusThreshold))
+            var innerRadiusThreshold = _InnerRadiusThreshold;
+            var outerRadiusThreshold = _OuterRadiusThreshold;
+
+            if (IsAtThreshold(innerRadiusThreshold, outerRadiusThreshold))
             {
+                // goes into flicker mode until threshold is adjusted or 
+                // flicker will bounce between two values and overrite the checks 
+                // that are based on the radius threshold
                 // flicker 
-                Flicker();
-                return;
+                 Flicker();
             }
 
             if (_Light.pointLightInnerRadius < _InnerRadiusThreshold)
