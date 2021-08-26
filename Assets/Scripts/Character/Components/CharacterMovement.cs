@@ -48,7 +48,7 @@ public class CharacterMovement : CharacterComponent
 
         if (_Character.CharacterType == Character.CharacterTypes.AI)
         {
-            Debug.Log(_HorizontalMovement);
+            //Debug.Log(_HorizontalMovement);
         }
 
 
