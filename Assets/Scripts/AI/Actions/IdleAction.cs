@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/Actions/Test")]
-public class ActionTest : AIAction
+[CreateAssetMenu(menuName = "AI/Actions/Idle")]
+public class IdleAction : AIAction
 {
     public override void Act(StateController controller)
     {
-        Debug.Log("Acting");
+        controller._CharacterMovement.SetHorizontal(0);
     }
 }
