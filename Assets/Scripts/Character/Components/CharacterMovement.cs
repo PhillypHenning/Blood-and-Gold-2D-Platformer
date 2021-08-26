@@ -5,7 +5,8 @@ using UnityEngine;
 public class CharacterMovement : CharacterComponent
 {
     public float _MovementSpeed;
-    
+    public float _DefaultMovementSpeed = 200f;
+
     private float _HorizontalMovement;
 
     public float HorizontalMovement => _HorizontalMovement;
@@ -22,7 +23,7 @@ public class CharacterMovement : CharacterComponent
     }
 
     protected override void HandlePhysicsAbility()
-    {   
+    {
         // Technique #1: Most Basic Movement
         // _CharacterRigidBody2D.velocity = new Vector2(_MovementSpeed * _HorizontalInput, 0);
 
@@ -35,16 +36,24 @@ public class CharacterMovement : CharacterComponent
             _Character.RigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalMovement, 0), ForceMode2D.Impulse); // <-- Specified, Immediate force applied        
         }
     }
-    
+
     protected override void HandleInput()
     {
         base.HandleInput();
-        if(!_HandleInput){return;}
-        if(!_HandleInput){return;}
-        
-        if (CanMove())
+
+        if (_Character.CharacterType == Character.CharacterTypes.Player)
         {
             _HorizontalMovement = Input.GetAxisRaw("Horizontal");
+        }
+
+        if (_Character.CharacterType == Character.CharacterTypes.AI)
+        {
+            Debug.Log(_HorizontalMovement);
+        }
+
+
+        if (CanMove())
+        {
             _Character.IsMoving = _HorizontalMovement != 0;
             if (_Character.IsMoving)
             {
@@ -58,9 +67,16 @@ public class CharacterMovement : CharacterComponent
         }
     }
 
+    protected override void InternalInput()
+    {
+        base.InternalInput();
+        // Horizontal and Vertical control is handled by the StateController
+    }
+
     protected override void SetToDefault()
     {
-        _MovementSpeed = 200f;
+        // NOTE: Be aware that the AI has had its value changed in the Unity editor.
+        _MovementSpeed = _DefaultMovementSpeed;
     }
 
     private void FlipCharacter()
@@ -71,11 +87,13 @@ public class CharacterMovement : CharacterComponent
         character.localRotation = Quaternion.Euler(character.rotation.x, _Character.FacingRight ? 0 : -180, character.rotation.z);
     }
 
-    public void IncreaseMovementSpeed(float amount, float abilitylength,  bool lockout = true){
-       // TODO: Might not need. 
+    public void IncreaseMovementSpeed(float amount, float abilitylength, bool lockout = true)
+    {
+        // TODO: Might not need. 
     }
 
-    public void MovePosition(Vector2 newPosition){
+    public void MovePosition(Vector2 newPosition)
+    {
         // TODO: (Potentially) add option to disable animations while position is being moved 
         Debug.Log(newPosition);
         _Character.RigidBody2D.MovePosition(newPosition);
@@ -86,15 +104,28 @@ public class CharacterMovement : CharacterComponent
         return !_Character.IsLocked;
     }
 
-    public void Stop(){
+    public void Stop()
+    {
 
     }
 
-    public void LockMovement(){
+    public void LockMovement()
+    {
 
     }
 
-    public void UnlockMovement(){
-        
+    public void UnlockMovement()
+    {
+
+    }
+
+    public void SetHorizontal(float value)
+    {
+        _HorizontalMovement = value;
+    }
+
+    public void SetVertical(float value)
+    {
+
     }
 }

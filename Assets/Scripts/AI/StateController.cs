@@ -10,6 +10,14 @@ public class StateController : MonoBehaviour
     [SerializeField] private AIState currentState;
     [SerializeField] private AIState remainState;
 
+    public CharacterMovement _CharacterMovement { get; set; }
+
+    public Transform _Target { get; set; }
+
+    private void Awake() {
+        _CharacterMovement = GetComponent<CharacterMovement>();
+    }
+
     private void Update() {
         currentState.EvaluateState(this);
     }
