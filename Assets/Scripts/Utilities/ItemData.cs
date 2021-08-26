@@ -1,12 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "item/Weapon", fileName = "Item Weapon")]
+public enum ItemType
+{
+    Oil,
+    AmmoHandgun,
+    AmmoShotgun
+}
 
+[CreateAssetMenu(fileName = "InventoryItem", menuName = "Item/InventoryItem", order = 0)]
 public class ItemData : ScriptableObject
 {
-    public Weapon _WeaponToEquip;
-    public Sprite _WeaponSprite;
-
+    public ItemType Type;
+    public int MaxStack;
+    public bool IsStackable;
 }

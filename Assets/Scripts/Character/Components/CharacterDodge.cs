@@ -35,7 +35,7 @@ public class CharacterDodge : CharacterComponent
         {
             _DodgeTimer += Time.deltaTime;
         } 
-        else
+        else if (_IsDodging)
         {
             StopDodge();
         }

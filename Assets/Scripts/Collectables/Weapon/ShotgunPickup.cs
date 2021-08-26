@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShotgunPickup : Collectable
 {
-    [SerializeField] ItemData _WeaponItemData;
+    [SerializeField] WeaponData _WeaponItemData;
 
     protected override void PickUp()
     {

@@ -17,6 +17,7 @@ public class CharacterLantern : CharacterComponent
     //      - more fuel = more light + faster drain rate
 
     [SerializeField] private LanternDial _LanternDial;
+    [SerializeField] private OilFlask _OilFlask;
     private bool _IsLanternOn;
     private bool _AdjustmentMode;
     private float _DrainRate;
@@ -25,16 +26,22 @@ public class CharacterLantern : CharacterComponent
 
     private float _OilDrainPool = 0f;
 
+    private const float OUTER_RADIUS_FACTOR = 4f;
+
     // MIN / MAX / OFF threshholds for light radius (inner/outer)
     // logic assumes that inner min/max is 1/4 outer min/max
-    private const float MIN_INNER_RADIUS = 0.5f;
-    private const float MAX_INNER_RADIUS = 3f;
+    private const float DEFAULT_INNER_RADIUS = 3f;
+    private const float MIN_INNER_RADIUS = 1f;
+    private const float MAX_INNER_RADIUS = 4f;
 
-    private const float MIN_OUTER_RADIUS = 4f;
-    private const float MAX_OUTER_RADIUS = 12f;
+    private const float DEFAULT_OUTER_RADIUS = DEFAULT_INNER_RADIUS * OUTER_RADIUS_FACTOR;
+    private const float MIN_OUTER_RADIUS = MIN_INNER_RADIUS * OUTER_RADIUS_FACTOR;
+    private const float MAX_OUTER_RADIUS = MAX_INNER_RADIUS * OUTER_RADIUS_FACTOR;
 
-    private const float OUTER_RADIUS_OFF = 2f;
-    private const float INNER_RADIUS_OFF = 0.3f;
+    //private const float OUTER_RADIUS_OFF = 2f;
+    //private const float INNER_RADIUS_OFF = 0.3f;
+    private const float INNER_RADIUS_OFF = 0.5f;
+    private const float OUTER_RADIUS_OFF = INNER_RADIUS_OFF * OUTER_RADIUS_FACTOR;
 
     private const float MAX_DRAIN_RATE = .1f;
 
@@ -43,8 +50,8 @@ public class CharacterLantern : CharacterComponent
     private float _OuterRadiusThreshold;
 
     // tracks flicker effect animation
-    private const float MAX_INTENSITY = 0.8f;
-    private const float MIN_INTENSITY = 0.7f;
+    private const float MAX_INTENSITY = 0.85f;
+    private const float MIN_INTENSITY = 0.65f;
     private static float _FlickerFactor = 0.0f;
     private float _FlickerMax;
     private float _FlickerMin;
@@ -69,7 +76,7 @@ public class CharacterLantern : CharacterComponent
         {
             SwitchLanternOnOff();
         }
-        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyUp(KeyCode.LeftAlt))
         {
             SwitchAdjustmentMode();
         }
@@ -126,14 +133,14 @@ public class CharacterLantern : CharacterComponent
     {
         base.HandleAbility();
         DrainOil();
-        AdjustLantern();
+        UpdateLantern(); 
     }
 
     protected override void SetToDefault()
     {
         _IsLanternOn = true;
-        _InnerRadiusThreshold = MAX_INNER_RADIUS;
-        _OuterRadiusThreshold = MAX_OUTER_RADIUS;
+        _InnerRadiusThreshold = DEFAULT_INNER_RADIUS;
+        _OuterRadiusThreshold = DEFAULT_OUTER_RADIUS;
         _FlickerMax = MAX_INTENSITY;
         _FlickerMin = MIN_INTENSITY;
     }
@@ -152,7 +159,8 @@ public class CharacterLantern : CharacterComponent
 
         _OilDrainPool = 0f;
         _InventoryManager.RemoveFromInventory(ItemType.Oil, 1);
-        Debug.Log("Oil remaining: " + _InventoryManager.GetQuantity(ItemType.Oil) + "%");
+
+        _OilFlask.SetSlider(_InventoryManager.GetQuantity(ItemType.Oil));
     }
 
     private float DrainRate()
@@ -198,11 +206,11 @@ public class CharacterLantern : CharacterComponent
 
     private void Flicker()
     {
-        // TODO: Flicker needs to be based on something either than intensity (doesn't look good)
-
+        // TODO (maybe): Flicker needs to be based on something either than intensity (doesn't look good)
 
         // Lerp from  Min/Max Radius -5, to Min/Max Radius + 5
         // -5, Min/Max Radius, +5
+        if (!_IsLanternOn) return;
         _Light.intensity = Mathf.Lerp(_FlickerMin, _FlickerMax, _FlickerFactor);
         _FlickerFactor += Time.deltaTime;
 
@@ -215,14 +223,26 @@ public class CharacterLantern : CharacterComponent
         }
     }
 
-    private void AdjustLantern()
+    private void ResetFlicker()
     {
-        var timeFactor = Time.deltaTime * 10;
+        _Light.intensity = MIN_INTENSITY;
+        _FlickerMax = MAX_INTENSITY;
+        _FlickerMin = MIN_INTENSITY;
+        _FlickerFactor = 0.0f;
+    }
+
+    private void UpdateLantern()
+    {
+        var outerFactor = Time.deltaTime * 10;
+        var innerFactor = outerFactor / OUTER_RADIUS_FACTOR;
 
         if (_IsLanternOn)
         {
             if (IsAtThreshold(_InnerRadiusThreshold, _OuterRadiusThreshold))
             {
+                // goes into flicker mode until threshold is adjusted or 
+                // flicker will bounce between two values and overrite the checks 
+                // that are based on the radius threshold
                 // flicker 
                 Flicker();
                 return;
@@ -230,33 +250,37 @@ public class CharacterLantern : CharacterComponent
 
             if (_Light.pointLightInnerRadius < _InnerRadiusThreshold)
             {
-                IncreaseInnerRadius(timeFactor);
+                IncreaseInnerRadius(innerFactor);
             }
             else if (_Light.pointLightInnerRadius > _InnerRadiusThreshold)
             {
-                DecreaseInnerRadius(timeFactor, _InnerRadiusThreshold);
+                DecreaseInnerRadius(innerFactor, _InnerRadiusThreshold);
             }
 
             if (_Light.pointLightOuterRadius < _OuterRadiusThreshold)
             {
-                IncreaseOuterRadius(timeFactor);
+                IncreaseOuterRadius(outerFactor);
             }
             else if (_Light.pointLightOuterRadius > _OuterRadiusThreshold)
             {
-                DecreaseOuterRadius(timeFactor, _InnerRadiusThreshold);
+                DecreaseOuterRadius(outerFactor, _InnerRadiusThreshold);
             }
         }
         else
         {
-            if (IsAtThreshold(MIN_INNER_RADIUS, OUTER_RADIUS_OFF)) return;
+            if (IsAtThreshold(INNER_RADIUS_OFF, OUTER_RADIUS_OFF))
+            {
+                ResetFlicker();
+                return;
+            }
 
             if (_Light.pointLightInnerRadius > INNER_RADIUS_OFF)
             {
-                DecreaseInnerRadius(timeFactor, INNER_RADIUS_OFF);
+                DecreaseInnerRadius(innerFactor, INNER_RADIUS_OFF);
             }
             if (_Light.pointLightOuterRadius > OUTER_RADIUS_OFF)
             {
-                DecreaseOuterRadius(timeFactor, OUTER_RADIUS_OFF);
+                DecreaseOuterRadius(outerFactor, OUTER_RADIUS_OFF);
             }
         }
     }

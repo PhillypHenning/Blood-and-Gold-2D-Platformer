@@ -97,7 +97,7 @@ public class CharacterAnimation : MonoBehaviour
                 _IsFalling = false;
                 Landing();
             }
-            else if (_Character.IsMoving)
+            else if (_IsRunning && !_Character.IsLocked)
             {
                 ChangeAnimationState(AnimationState.Run);
             }
