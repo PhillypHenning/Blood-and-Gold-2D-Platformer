@@ -18,10 +18,10 @@ public class WanderAction : AIAction
     }
 
     private void Wander(StateController controller){
-        Debug.Log("Wandering..");
-        Debug.Log("Time:" + Time.time + " _WanderCheckTime: " + _WanderCheckTime);
+        //Debug.Log("Wandering..");
+        //Debug.Log("Time:" + Time.time + " _WanderCheckTime: " + _WanderCheckTime);
         if(Time.time > _WanderCheckTime){
-            Debug.Log("Moving in random direction");
+            //Debug.Log("Moving in random direction");
             _WanderDirection.x = Random.Range(-_WanderArea, _WanderArea);
 
             controller._CharacterMovement.SetHorizontal(_WanderDirection.x);

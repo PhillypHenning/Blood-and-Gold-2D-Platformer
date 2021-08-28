@@ -50,11 +50,7 @@ public class CharacterHealth : Health
         _Damagable = false;
 
         // Disable collision
-        gameObject.layer = 9; // Changes layer to "Dead Body"
-
-        //_Character.RigidBody2D.bodyType = RigidbodyType2D.Kinematic;
-        //_Character.Collider2D.enabled = false;
-        
+        gameObject.layer = 9; // Changes layer to "Dead Body"        
 
 
         if (_CharacterAnimation == null) return;
