@@ -67,7 +67,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: AE_Footstep
+    functionName: PlayerJump
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
