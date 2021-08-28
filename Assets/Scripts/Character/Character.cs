@@ -29,13 +29,16 @@ public class Character : MonoBehaviour
     [SerializeField] private CharacterTypes _CharacterType;
     [SerializeField] private GameObject _CharacterSprite;
     private Rigidbody2D _RigidBody2D;
+    private Collider2D _Collider2D;
 
     public CharacterTypes CharacterType => _CharacterType;
     public GameObject CharacterSprite => _CharacterSprite;
     public Rigidbody2D RigidBody2D => _RigidBody2D;
+    public Collider2D Collider2D => _Collider2D;
 
     private void Start()
     {
         _RigidBody2D = GetComponent<Rigidbody2D>();
+        _Collider2D = GetComponent<Collider2D>();
     }
 }

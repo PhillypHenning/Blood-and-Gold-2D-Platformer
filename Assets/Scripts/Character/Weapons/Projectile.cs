@@ -58,16 +58,19 @@ public class Projectile : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.tag == "Platform"){
-            _ProjectileReturnToPool.DestroyObject();
+        if(other.tag == "Enemy"){
+            CharacterHealth characterHealth = other.GetComponent<CharacterHealth>();
+            if(characterHealth._Damagable){
+                characterHealth.Damage(_BulletDamage);
+            }
         }
         if(other.tag == "Interactable"){
             Interactable interactable = other.GetComponent<Interactable>();
             if(interactable._Breakable){
                 interactable.DamageInteractable(_BulletDamage);
-                _ProjectileReturnToPool.DestroyObject();
             }
         }
+        _ProjectileReturnToPool.DestroyObject();
         
     }
 }
