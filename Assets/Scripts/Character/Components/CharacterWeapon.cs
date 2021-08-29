@@ -70,7 +70,7 @@ public class CharacterWeapon : CharacterComponent
         {
             return;
         }
-        _CurrentWeapon.StartShooting();
+        _CurrentWeapon.UseWeapon();
     }
 
     public void Reload()
@@ -85,8 +85,8 @@ public class CharacterWeapon : CharacterComponent
 
     public void EquipWeapon(Weapon weapon, Transform weaponPosition)
     {
-        if(weaponPosition == null){return;}
-        
+        if (weaponPosition == null) { return; }
+
         if (_CurrentWeapon != null)
         {
             // If the player switches weapons, while there are bullets out, those bullets are deleted from this. 
@@ -113,11 +113,13 @@ public class CharacterWeapon : CharacterComponent
         // Player_Player_Model
         // An AI character would look like;
         // AI_BasicEnemy1
-        Debug.Log("Item: " + _CurrentWeapon.name + " | Character type: " + _Character.CharacterType);
 
         //GameObject SearchingForWeaponSprite = GameObject.Find(name);
         _CurrentWeaponsSprite = _CurrentWeapon.GetComponentInChildren<SpriteRenderer>();
-        _CurrentWeaponsSprite.enabled = false;
+        if (_CurrentWeaponsSprite)
+        {
+            _CurrentWeaponsSprite.enabled = false;
+        }
         // Disable the sprite until it's being used. 
         //_CurrentWeaponsSprite = SearchingForWeaponSprite.GetComponent<SpriteRenderer>();
         //_CurrentWeaponsSprite.enabled = false;

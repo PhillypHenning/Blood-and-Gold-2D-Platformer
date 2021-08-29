@@ -23,8 +23,8 @@ TagManager:
   - Player
   - Enemies
   - Dead Body
-  - 
-  - 
+  - Not Hitable
+  - Bullet
   - 
   - 
   - 

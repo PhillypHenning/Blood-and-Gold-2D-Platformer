@@ -9,13 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ad1e3d4a39ea9b41b447acceef61f70, type: 3}
-  m_Name: WanderAction
+  m_Script: {fileID: 11500000, guid: c0a62e8dfdb2b26448e600335b631ffe, type: 3}
+  m_Name: MeleeAttackAction
   m_EditorClassIdentifier: 
-  _WanderArea: 2
-  _WanderTime: 2
-  _WanderAreaNoMoveZone: 0.5
-  _ObstacleBoxCheckSize: {x: 2, y: 2}
-  _ObstacleMask:
-    serializedVersion: 2
-    m_Bits: 64

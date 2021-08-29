@@ -22,7 +22,7 @@ public class MeleeAttack : Weapon
         }
     }
 
-    public override void StartShooting()
+    public override void UseWeapon()
     {
         StartCoroutine((Attack()));
     }

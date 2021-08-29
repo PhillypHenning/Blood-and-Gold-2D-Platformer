@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float _TimeBetweenShots = 0.5f;
     [SerializeField] private float _TimeBetweenReloads = 0.5f;
     [SerializeField] private int _MaxMagazineSize;
+    [SerializeField] private bool _UsesBullets = true;
     private Vector3 _ProjectileSpawnPosition;
     private Transform _BulletSpawnPos;
     private bool _CanReload = true;
@@ -30,19 +31,22 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     virtual protected void Start()
     {
-        ObjectPooler = GetComponent<ObjectPooler>();
-        // Bad Phil. That is a bad Phil. No. You make things scalable.
-        // newG = GameObject.Find("Revolver Bullet Spawn Point");
 
-        _BulletSpawnPos = this.transform.Find(_WeaponName + " Bullet Spawn Point");
-        Debug.Log(this.gameObject.name);
+        if (_UsesBullets)
+        {
+            ObjectPooler = GetComponent<ObjectPooler>();
+            // Bad Phil. That is a bad Phil. No. You make things scalable.
+            // newG = GameObject.Find("Revolver Bullet Spawn Point");
 
-        // Because of the Generic naming, the spawn point is being misreferenced. 
-        // This needs to find the component that is already attached to this weapon this
-        // class is instantiated on. 
+            _BulletSpawnPos = this.transform.Find(_WeaponName + " Bullet Spawn Point");
 
-        _ProjectileSpawnPosition = _BulletSpawnPos.position;
-        //_ProjectileSpawnPosition = GameObject.Find("Bullet Spawn Point")
+            // Because of the Generic naming, the spawn point is being misreferenced. 
+            // This needs to find the component that is already attached to this weapon this
+            // class is instantiated on. 
+
+            _ProjectileSpawnPosition = _BulletSpawnPos.position;
+            //_ProjectileSpawnPosition = GameObject.Find("Bullet Spawn Point")
+        }
     }
 
     virtual protected void Awake()
@@ -149,21 +153,21 @@ public class Weapon : MonoBehaviour
 
         projectile.SetDirection(newDirection, transform.rotation, _WeaponOwner.FacingRight);
     }
-     /*
-    //\\
-   //  \\
-  //    \\          
- //      \\       /                     \
- // PUBLIC \\    /                       \
- // -------- \\  |                       |
- || ( .) ( .)||  |                       |
+    /*
+   //\\
+  //  \\
+ //    \\          
+//      \\       /                     \
+// PUBLIC \\    /                       \
+// -------- \\  |                       |
+|| ( .) ( .)||  |                       |
 <||      >   ||> |                       |
- ||      _   ||  |                       |
- \\ ________//   |                       |_
-    | |          |                         \
-    | |__________|                        _ \____
-    |____________________________________/ |_____\   
-    */
+||      _   ||  |                       |
+\\ ________//   |                       |_
+   | |          |                         \
+   | |__________|                        _ \____
+   |____________________________________/ |_____\   
+   */
 
 
     // Dis is our frend Dunceboiiu 
@@ -183,7 +187,7 @@ public class Weapon : MonoBehaviour
         RefillAmmo();
     }
 
-    public virtual void StartShooting()
+    public virtual void UseWeapon()
     {
         if (CanUseWeapon())
         {
@@ -204,11 +208,13 @@ public class Weapon : MonoBehaviour
         return false;
     }
 
-    public void ResetProjectileSpawn()  
+    public void ResetProjectileSpawn()
     {
-        _BulletSpawnPos = this.transform.Find(_WeaponName + " Bullet Spawn Point");
-        //newG = GameObject.Find(_WeaponName + " Bullet Spawn Point");
-        _ProjectileSpawnPosition = _BulletSpawnPos.position;
+        if (_UsesBullets)
+        {
+            _BulletSpawnPos = this.transform.Find(_WeaponName + " Bullet Spawn Point");
+            _ProjectileSpawnPosition = _BulletSpawnPos.position;
+        }
     }
 
     public void Destroy()

@@ -45,9 +45,7 @@ public class CharacterHealth : Health
 
     protected override void Die()
     {
-        base.Die();
         _Character.IsLocked = true;
-        _Damagable = false;
 
         // Disable collision
         gameObject.layer = 9; // Changes layer to "Dead Body"        
@@ -55,5 +53,7 @@ public class CharacterHealth : Health
 
         if (_CharacterAnimation == null) return;
         _CharacterAnimation.Die();
+        base.Die();
+        _Damagable = false;
     }
 }

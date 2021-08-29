@@ -27,6 +27,11 @@ public class Projectile : MonoBehaviour
         Speed = _Speed;
     }
 
+    void Start()
+    {
+        Physics2D.IgnoreLayerCollision(10, 11); // <-- Projectile ignore collision with "Not Hitables"
+    }
+
     void FixedUpdate()
     {
         MoveProjectile();
