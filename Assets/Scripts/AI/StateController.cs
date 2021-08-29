@@ -15,9 +15,12 @@ public class StateController : MonoBehaviour
     public Transform _Target { get; set; }
     public Path _Path { get; set; }
 
+    public Collider2D _Collider2D { get; set; }
+
     private void Awake() {
         _CharacterMovement = GetComponent<CharacterMovement>();
         _Path = GetComponent<Path>();
+        _Collider2D = GetComponent<Collider2D>();
     }
 
     private void Update() {
