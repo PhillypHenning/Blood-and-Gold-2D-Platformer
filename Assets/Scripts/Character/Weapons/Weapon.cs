@@ -183,7 +183,7 @@ public class Weapon : MonoBehaviour
         RefillAmmo();
     }
 
-    public void StartShooting()
+    public virtual void StartShooting()
     {
         if (CanUseWeapon())
         {
