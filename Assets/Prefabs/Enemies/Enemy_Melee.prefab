@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bdeefb8fc173a24bb3cea072ae83ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _PrimaryWeapon: {fileID: 7966076813000991964, guid: 0bb88edddbc8354428bbdb6d1960692b, type: 3}
+  _PrimaryWeapon: {fileID: 327549857153840921, guid: 0bb88edddbc8354428bbdb6d1960692b, type: 3}
   _WeaponHolderPosition: {fileID: 2261823339313329528}
 --- !u!114 &2261823339602748789
 MonoBehaviour:

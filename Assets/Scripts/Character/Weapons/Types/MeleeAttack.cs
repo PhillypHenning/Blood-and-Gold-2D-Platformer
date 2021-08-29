@@ -7,7 +7,7 @@ public class MeleeAttack : Weapon
     [SerializeField] private float _AttackDelay = 0.5f;
     [SerializeField] private int _DamageToDeal;
     private BoxCollider2D _BoxCollider;
-    private bool _IsAttacking;
+
 
     protected override void Start()
     {

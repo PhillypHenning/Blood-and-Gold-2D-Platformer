@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
     private bool _CanReload = true;
     private float _NextShotTime = 0;
     private float _NextReloadTime = 0;
+    protected bool _IsAttacking;
 
     // Properties
     public Character _WeaponOwner { get; set; }
@@ -27,6 +28,7 @@ public class Weapon : MonoBehaviour
     public int MagazineSize => _MaxMagazineSize;
     public string WeaponName => _WeaponName;
     public bool CanReload => _CanReload;
+    public bool IsAttacking => _IsAttacking;
 
     // Start is called before the first frame update
     virtual protected void Start()
