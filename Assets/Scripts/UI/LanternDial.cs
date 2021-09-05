@@ -22,12 +22,6 @@ public class LanternDial : MonoBehaviour
     private const float ADJUSTMENT_MODE_ON = 15f;
     private const float ADJUSTMENT_MODE_OFF = -15f;
 
-
-    private void Start()
-    {
-        
-    }
-
     public void AdjustmentModeOn()
     {
         AnimateDial(ADJUSTMENT_MODE_ON);
@@ -56,11 +50,5 @@ public class LanternDial : MonoBehaviour
         newRotation.z = OFF_ROTATION;
 
         transform.rotation = Quaternion.Euler(newRotation);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

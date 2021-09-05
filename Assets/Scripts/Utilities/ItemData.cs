@@ -2,9 +2,11 @@
 
 public enum ItemType
 {
+    None,
     Oil,
     AmmoHandgun,
-    AmmoShotgun
+    AmmoShotgun,
+    Key
 }
 
 [CreateAssetMenu(fileName = "InventoryItem", menuName = "Item/InventoryItem", order = 0)]

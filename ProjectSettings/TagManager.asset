@@ -11,6 +11,7 @@ TagManager:
   - Collectable
   - Interactable
   - Breakable
+  - Text_Interaction
   layers:
   - Default
   - TransparentFX
