@@ -54,11 +54,17 @@ public class Weapon : MonoBehaviour
     virtual protected void Awake()
     {
         RefillAmmo();
+        _CanShoot = true;
     }
 
     virtual protected void FixedUpdate()
     {
         EvaluateProjectileSpawn();
+    }
+
+    virtual protected void Update()
+    {
+        WeaponCanShoot();
     }
 
     virtual protected void RequestShot()
@@ -92,7 +98,16 @@ public class Weapon : MonoBehaviour
     private void TriggerShot()
     {
         // Add timer between shots here
-        RequestShot();
+        if (_CanShoot)
+        {
+            _CanShoot = false;
+            _NextShotTime = Time.time + _TimeBetweenShots;
+            RequestShot();
+        }
+        else
+        {
+            return;
+        }
     }
 
     private void RefillAmmo()
@@ -107,26 +122,17 @@ public class Weapon : MonoBehaviour
         _CurrentAmmo -= 1;
     }
 
-    // I dislike how these work.. 
-    // private void WeaponCanShoot(){
-    //     if(Time.time > _NextShotTime){
-    //         _CanShoot = true;
-    //         _NextShotTime = Time.time + _TimeBetweenShots;
-    //     }else{
-    //         _CanShoot = false;
-    //     }
-    // }
-
-    private void WeaponCanReload()
+    private void WeaponCanShoot()
     {
-        if (Time.time > _NextReloadTime)
+        if(_CanShoot){return;}
+
+        if (Time.time > _NextShotTime)
         {
-            _CanReload = true;
-            _NextReloadTime = Time.time + _TimeBetweenReloads;
+            _CanShoot = true;
         }
         else
         {
-            _CanReload = false;
+            _CanShoot = false;
         }
     }
 

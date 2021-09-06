@@ -64,6 +64,12 @@ public class CharacterWeapon : CharacterComponent
         }
     }
 
+    protected override void InternalInput()
+    {
+        base.InternalInput();
+        Aim();
+    }
+
     public void Shoot()
     {
         if (_CurrentWeapon == null)
@@ -127,15 +133,15 @@ public class CharacterWeapon : CharacterComponent
 
     private void Aim()
     {
-        // Lock the character's movement
-
-        // Put character into aiming animation
-
         // Enable the gameobject
         if (_CurrentWeaponsSprite != null)
         {
             _CurrentWeaponsSprite.enabled = true;
         }
+
+
+        // Change the direction of the shot based on additional keys held
+        
     }
 
     private void StopAim()

@@ -62,8 +62,8 @@ public class Projectile : MonoBehaviour
         _SpriteRenderer.flipX = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.tag == "Enemy"){
+    private void OnTriggerEnter2D(Collider2D other) {    
+        if(other.tag == "Enemy" || other.tag == "Player"){
             CharacterHealth characterHealth = other.GetComponent<CharacterHealth>();
             if(characterHealth._Damagable){
                 characterHealth.Damage(_BulletDamage);
