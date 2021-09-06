@@ -16,7 +16,7 @@ public class FollowAction : AIAction
     [SerializeField] private AIState _CurrentState;
 
     public Transform _Target {get; set;}
-    public float _MinDistanceToFollow = 3;
+    public float _MinDistanceToFollow = 1; // Set by Unity settings.
 
     public override void Act(StateController controller)
     {

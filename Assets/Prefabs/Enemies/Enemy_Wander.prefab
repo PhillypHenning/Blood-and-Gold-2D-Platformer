@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1199518691993023701}
   - component: {fileID: 1199518691993023700}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lantern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 1199518692345965291}
   - component: {fileID: 1199518692345965292}
   - component: {fileID: 1199518692345965293}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,9 +206,9 @@ GameObject:
   - component: {fileID: 1199518693095704001}
   - component: {fileID: 1199518693095704002}
   - component: {fileID: 1199518693095704003}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_Wander
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321,6 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf70055bf4672d419816a6a5d33c355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _CharacterMaxHealth: 100
 --- !u!114 &1199518693095704000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,7 +383,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1199518693351609806}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WeaponHolder
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
