@@ -22,7 +22,8 @@ public class Character : MonoBehaviour
     public enum CharacterTypes
     {
         Player, 
-        AI
+        AI,
+        Inactive
     }
 
     // Class to contain other "Character" GameObjects
@@ -31,14 +32,24 @@ public class Character : MonoBehaviour
     private Rigidbody2D _RigidBody2D;
     private Collider2D _Collider2D;
 
-    public CharacterTypes CharacterType => _CharacterType;
+    public CharacterTypes CharacterType {get; set;}
     public GameObject CharacterSprite => _CharacterSprite;
     public Rigidbody2D RigidBody2D => _RigidBody2D;
     public Collider2D Collider2D => _Collider2D;
 
     private void Start()
     {
+        CharacterType = _CharacterType;
         _RigidBody2D = GetComponent<Rigidbody2D>();
         _Collider2D = GetComponent<Collider2D>();
     }
+
+    public void DeactivateCharacter(){
+        CharacterType = CharacterTypes.Inactive;
+    }
+
+    public void ReactivateCharacter(){
+        CharacterType = _CharacterType;
+    }
+
 }
