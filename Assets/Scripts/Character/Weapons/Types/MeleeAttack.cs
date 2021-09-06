@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeAttack : Weapon
-{   
+{
     [SerializeField] private float _AttackDelay = 0.5f;
     [SerializeField] private int _DamageToDeal;
     private BoxCollider2D _BoxCollider;
@@ -13,22 +13,29 @@ public class MeleeAttack : Weapon
     {
         base.Start();
         _BoxCollider = GetComponent<BoxCollider2D>();
+        _BoxCollider.enabled = false;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player")){
+        if (other.CompareTag("Player"))
+        {
             other.GetComponent<CharacterHealth>().Damage(_DamageToDeal);
         }
     }
 
     public override void UseWeapon()
     {
-        StartCoroutine((Attack()));
+        if (_CanShoot)
+        {
+            StartCoroutine((Attack()));
+        }
     }
 
-    private IEnumerator Attack(){
-        if(_IsAttacking){
+    private IEnumerator Attack()
+    {
+        if (_IsAttacking)
+        {
             yield break;
         }
 

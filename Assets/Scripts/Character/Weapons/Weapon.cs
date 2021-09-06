@@ -230,6 +230,12 @@ public class Weapon : MonoBehaviour
         Destroy(this);
     }
 
+    public void Disable(){
+        _CanShoot = false;
+    }
 
+    public void Enable(){
+        _CanShoot = true;
+    }
 
 }

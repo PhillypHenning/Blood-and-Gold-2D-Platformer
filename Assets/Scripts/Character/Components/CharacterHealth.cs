@@ -26,10 +26,6 @@ public class CharacterHealth : Health
     protected override void HandleInput()
     {
         base.HandleInput();
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            Damage(10);
-        }
     }
 
     public override void Damage(float amount)

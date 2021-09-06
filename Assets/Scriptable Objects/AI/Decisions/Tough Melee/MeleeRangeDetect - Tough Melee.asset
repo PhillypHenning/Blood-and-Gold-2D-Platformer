@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 932fd6f4fa95f4a45938efde54fd4db8, type: 3}
-  m_Name: FollowAction
+  m_Script: {fileID: 11500000, guid: f89ea9f81b4201a45b1f62acaf369f3a, type: 3}
+  m_Name: MeleeRangeDetect - Tough Melee
   m_EditorClassIdentifier: 
-  _RemainState: {fileID: 0}
-  _CurrentState: {fileID: 0}
-  _MinDistanceToFollow: 2.5
+  _MinDistanceToAttack: 5
