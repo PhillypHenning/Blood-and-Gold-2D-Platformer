@@ -9,6 +9,8 @@ public class ShootShotgunAction : AIAction
 
     public override void Act(StateController controller)
     {
+        // Could increase time per shot here
+
         ShootPlayer(controller);
     }
 
