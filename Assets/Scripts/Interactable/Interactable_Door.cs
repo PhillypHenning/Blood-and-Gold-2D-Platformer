@@ -25,7 +25,6 @@ public class Interactable_Door : Interactable
     {
         if (_IsLocked && !CheckForKeyItem())
         {
-            // TODO: add a prompt for the player so they know the door is locked
             UpdateMessage("Door is locked. Obtain " + _RequiredItem.ToString() + " to proceed.");
             return;
         }

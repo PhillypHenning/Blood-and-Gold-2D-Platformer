@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6637521038356793043}
   - component: {fileID: 6637521038356793041}
-  m_Layer: 0
-  m_Name: PlayerLight
+  m_Layer: 7
+  m_Name: Lantern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,10 +46,10 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.797
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9339623, g: 0.5977601, b: 0.3480331, a: 1}
   m_Intensity: 0.81
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 000000008d7d86c933ed00d47b061313
+  m_ApplyToSortingLayers: 000000008d7d86c933ed00d47b061313a59e13ecf7825131a1cd080b
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -84,17 +84,16 @@ GameObject:
   - component: {fileID: 6637521038669645972}
   - component: {fileID: 6637521038669645973}
   - component: {fileID: 6637521038669645977}
-  - component: {fileID: 6637521038669645969}
   - component: {fileID: 6637521038669645974}
   - component: {fileID: 6637521038669645975}
   - component: {fileID: 6637521038669645970}
   - component: {fileID: 6637521038669645971}
-  - component: {fileID: 6637521038669645968}
-  - component: {fileID: 6637521038669646062}
   - component: {fileID: 6637521038669646063}
   - component: {fileID: 6637521038669646060}
   - component: {fileID: 6637521038669646061}
-  m_Layer: 0
+  - component: {fileID: 2131411091}
+  - component: {fileID: 2131411099}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -170,18 +169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CharacterType: 0
   _CharacterSprite: {fileID: 6637521039904681884}
---- !u!114 &6637521038669645969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6637521038669645979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4df9036cabf5e54e918d749ed2c1fca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6637521038669645974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c19581ba206b74f84ef7c174117546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _MovementSpeed: 0
+  _DefaultMovementSpeed: 200
   _MovementSurpressed: 0
 --- !u!114 &6637521038669645975
 MonoBehaviour:
@@ -233,30 +222,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _DodgeDistance: 1000
---- !u!114 &6637521038669645968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6637521038669645979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22cb8f400dc3e614cb902875941d7309, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6637521038669646062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6637521038669645979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9369421f9b81aff4cb0c45d7d8cb71d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6637521038669646063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bdeefb8fc173a24bb3cea072ae83ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _WeaponToUse: {fileID: -5452773183673280733, guid: 36517eaa30fcfff41b3bce410a70bc16, type: 3}
+  _PrimaryWeapon: {fileID: -5452773183673280733, guid: 36517eaa30fcfff41b3bce410a70bc16, type: 3}
   _WeaponHolderPosition: {fileID: 6637521039820779502}
 --- !u!114 &6637521038669646061
 MonoBehaviour:
@@ -293,6 +258,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1b4f56e05fd49c4dac7c651c796057a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2131411091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6637521038669645979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56a85c537ae1c746a5f044e8e92940f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _LanternDial: {fileID: 0}
+--- !u!114 &2131411099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6637521038669645979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876feee102c33384993054cd6b308071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6637521039261540490
@@ -307,7 +297,7 @@ GameObject:
   - component: {fileID: 6637521039261540486}
   - component: {fileID: 6637521039261540488}
   - component: {fileID: 6637521039261540489}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6637521039820779502}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WeaponHolder
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -459,7 +449,7 @@ GameObject:
   - component: {fileID: 6637521039904681883}
   - component: {fileID: 6637521039904681880}
   - component: {fileID: 6637521039904681882}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class CharacterHealth : Health
 {
-    private float _CharacterMaxHealth = 100f;
+    private float _CharacterMaxHealth = 50f;
     private CharacterAnimation _CharacterAnimation;
     private Character _Character;
+    [SerializeField] private Lives _PlayerLives;
 
     protected override void SetToDefault()
     {
@@ -31,6 +32,8 @@ public class CharacterHealth : Health
     {
         base.Damage(amount);
 
+        UpdateLivesUI();
+
         if (_CharacterAnimation == null) return;
         _CharacterAnimation.Hurt();
     }
@@ -42,5 +45,11 @@ public class CharacterHealth : Health
 
         if (_CharacterAnimation == null) return;
         _CharacterAnimation.Die();
+    }
+
+    private void UpdateLivesUI()
+    {
+        if (_Character.CharacterType == Character.CharacterTypes.AI || _PlayerLives == null) return;
+        _PlayerLives.UpdateLives((int)_CurrentHealth / 10);
     }
 }
