@@ -6,6 +6,9 @@ public class Interactable_Door : Interactable
     [SerializeField] protected Transform _Target;
     protected Fader _Fader;
 
+    [SerializeField] private bool _IsLocked;
+    [SerializeField] private ItemType _RequiredItem;
+
     protected override void Start()
     {
         base.Start();
@@ -20,8 +23,22 @@ public class Interactable_Door : Interactable
 
     protected override void Reward()
     {
-        // we don't call the base because the door can be used more than once
+        if (_IsLocked && !CheckForKeyItem())
+        {
+            UpdateMessage("Door is locked. Obtain " + _RequiredItem.ToString() + " to proceed.");
+            return;
+        }
+        RemoveVisualQue();
         StartCoroutine(RelocatePlayer());
+    }
+
+    private bool CheckForKeyItem()
+    {
+        var playerInventory = _Character.GetComponent<InventoryManager>();
+        if (_RequiredItem == ItemType.None) Debug.LogError("Locked door is missing key item reference");
+        if (playerInventory == null) Debug.LogError("Player inventory not found.");
+
+        return playerInventory.HasItem(_RequiredItem);
     }
 
     protected IEnumerator RelocatePlayer()
@@ -40,4 +57,9 @@ public class Interactable_Door : Interactable
         player.IsLocked = false;
     }
 
+    protected override void SetToDefault()
+    {
+        base.SetToDefault();
+        _DefaultMessage = "Press 'F' to open.";
+    }
 }

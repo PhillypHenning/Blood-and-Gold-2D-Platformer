@@ -1,0 +1,660 @@
+fileFormatVersion: 2
+guid: 5c1411ceff969ce4cad480eebeacb139
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4917158113778325811
+    second: RevolverFiring_0
+  - first:
+      213: -8098935412939932206
+    second: RevolverFiring_1
+  - first:
+      213: -4026830928987000326
+    second: RevolverFiring_2
+  - first:
+      213: -6843948736999998180
+    second: RevolverFiring_3
+  - first:
+      213: -1127945204756655016
+    second: RevolverFiring_4
+  - first:
+      213: 8103742977186493997
+    second: RevolverFiring_5
+  - first:
+      213: -6547058399818258324
+    second: RevolverFiring_6
+  - first:
+      213: 3289319168948369760
+    second: RevolverFiring_7
+  - first:
+      213: 1597568315306664068
+    second: RevolverFiring_8
+  - first:
+      213: 5150082490675433216
+    second: RevolverFiring_9
+  - first:
+      213: 8402044834145813760
+    second: RevolverFiring_10
+  - first:
+      213: 3217476843384207305
+    second: RevolverFiring_11
+  - first:
+      213: -6242934588216494456
+    second: RevolverFiring_12
+  - first:
+      213: -2108450855292889465
+    second: RevolverFiring_13
+  - first:
+      213: -8612491570973796663
+    second: RevolverFiring_14
+  - first:
+      213: -6501213717878075127
+    second: RevolverFiring_15
+  - first:
+      213: 8334978816784966648
+    second: RevolverFiring_16
+  - first:
+      213: -5168951107765065881
+    second: RevolverFiring_17
+  - first:
+      213: 4384356201144365880
+    second: RevolverFiring_18
+  - first:
+      213: -5832675000429910391
+    second: RevolverFiring_19
+  - first:
+      213: 5548366378408943150
+    second: RevolverFiring_20
+  - first:
+      213: 7581428973455783714
+    second: RevolverFiring_21
+  - first:
+      213: -1785378304222682228
+    second: RevolverFiring_22
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RevolverFiring_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 6
+        width: 124
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 339df2490414d3440800000000000000
+      internalID: 4917158113778325811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_1
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 6
+        width: 124
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dd32e4e62dca9f80800000000000000
+      internalID: -8098935412939932206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_2
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 9
+        width: 128
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af17c2bea92dd18c0800000000000000
+      internalID: -4026830928987000326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_3
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 6
+        width: 127
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1db12e62e86501a0800000000000000
+      internalID: -6843948736999998180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_4
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 6
+        width: 124
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 854df58ffcbb850f0800000000000000
+      internalID: -1127945204756655016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_5
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 6
+        width: 124
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2674426d47467070800000000000000
+      internalID: 8103742977186493997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_6
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 9
+        width: 126
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c68681bb21d2425a0800000000000000
+      internalID: -6547058399818258324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_7
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 9
+        width: 126
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 069fc0a4b5206ad20800000000000000
+      internalID: 3289319168948369760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_8
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 6
+        width: 125
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 480e5422be3bb2610800000000000000
+      internalID: 1597568315306664068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_9
+      rect:
+        serializedVersion: 2
+        x: 1267
+        y: 6
+        width: 124
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00f0bac2db4c87740800000000000000
+      internalID: 5150082490675433216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_10
+      rect:
+        serializedVersion: 2
+        x: 1406
+        y: 6
+        width: 127
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 005ca2eb24f0a9470800000000000000
+      internalID: 8402044834145813760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_11
+      rect:
+        serializedVersion: 2
+        x: 1546
+        y: 6
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c7f5f26426c6ac20800000000000000
+      internalID: 3217476843384207305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_12
+      rect:
+        serializedVersion: 2
+        x: 1689
+        y: 6
+        width: 124
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8863b598114ac59a0800000000000000
+      internalID: -6242934588216494456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_13
+      rect:
+        serializedVersion: 2
+        x: 1829
+        y: 6
+        width: 124
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78616ef3e174db2e0800000000000000
+      internalID: -2108450855292889465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_14
+      rect:
+        serializedVersion: 2
+        x: 1965
+        y: 6
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c69f011c884a7880800000000000000
+      internalID: -8612491570973796663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_15
+      rect:
+        serializedVersion: 2
+        x: 2107
+        y: 8
+        width: 126
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9011bf8819c07c5a0800000000000000
+      internalID: -6501213717878075127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_16
+      rect:
+        serializedVersion: 2
+        x: 2248
+        y: 6
+        width: 125
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f3afd0c21bcba370800000000000000
+      internalID: 8334978816784966648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_17
+      rect:
+        serializedVersion: 2
+        x: 2388
+        y: 6
+        width: 124
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7672d409a523448b0800000000000000
+      internalID: -5168951107765065881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_18
+      rect:
+        serializedVersion: 2
+        x: 2527
+        y: 8
+        width: 127
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 833bdf15cbc58dc30800000000000000
+      internalID: 4384356201144365880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_19
+      rect:
+        serializedVersion: 2
+        x: 2667
+        y: 6
+        width: 127
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 986e21d6dfc2e0fa0800000000000000
+      internalID: -5832675000429910391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_20
+      rect:
+        serializedVersion: 2
+        x: 2808
+        y: 6
+        width: 124
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2e19cc13d1cffc40800000000000000
+      internalID: 5548366378408943150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_21
+      rect:
+        serializedVersion: 2
+        x: 2948
+        y: 6
+        width: 124
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 227bfa4bb75a63960800000000000000
+      internalID: 7581428973455783714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevolverFiring_22
+      rect:
+        serializedVersion: 2
+        x: 3088
+        y: 6
+        width: 124
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c832e1344ef0937e0800000000000000
+      internalID: -1785378304222682228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

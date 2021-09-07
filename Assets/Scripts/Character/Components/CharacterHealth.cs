@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class CharacterHealth : Health
 {
-    public float _CharacterMaxHealth = 100f;
+    public float _CharacterMaxHealth = 50f;
     private CharacterAnimation _CharacterAnimation;
     private Character _Character;
+    [SerializeField] private Lives _PlayerLives;
     
     public bool _Damagable { get; set; }
 
@@ -26,6 +27,10 @@ public class CharacterHealth : Health
     protected override void HandleInput()
     {
         base.HandleInput();
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            Damage(10);
+        }
     }
 
     public override void Damage(float amount)
@@ -35,12 +40,15 @@ public class CharacterHealth : Health
 
         base.Damage(amount);
 
+        UpdateLivesUI();
+
         if (_CharacterAnimation == null) return;
         _CharacterAnimation.Hurt();
     }
 
     protected override void Die()
     {
+        base.Die();
         _Character.IsLocked = true;
 
         // Disable collision
@@ -51,5 +59,11 @@ public class CharacterHealth : Health
         _CharacterAnimation.Die();
         base.Die();
         _Damagable = false;
+    }
+
+    private void UpdateLivesUI()
+    {
+        if (_Character.CharacterType == Character.CharacterTypes.AI || _PlayerLives == null) return;
+        _PlayerLives.UpdateLives((int)_CurrentHealth / 10);
     }
 }

@@ -12,6 +12,7 @@ TagManager:
   - Interactable
   - Breakable
   - Enemy
+  - Text_Interaction
   layers:
   - Default
   - TransparentFX

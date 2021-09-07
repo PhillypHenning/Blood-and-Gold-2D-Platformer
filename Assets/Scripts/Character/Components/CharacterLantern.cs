@@ -10,18 +10,13 @@ public class CharacterLantern : CharacterComponent
     // Functionality TODO:
     //  - Enable / Disable (hotkey "x")
     //    - Disable should not reduce the light to 0, rather, it should emit very little light
-    //  - Reference to Player oil resource (TODO)
-    //    - Drains oil while Player is "holding" lantern
     //  - Adjust threshold (hotkey "LEFT ALT")
     //    - This will allow the player to use the scroll wheel to add/reduce oil usage
     //      - more fuel = more light + faster drain rate
 
     [SerializeField] private LanternDial _LanternDial;
-    [SerializeField] private OilFlask _OilFlask;
     private bool _IsLanternOn;
     private bool _AdjustmentMode;
-    private float _DrainRate;
-    private float _IsEnabled;
     private Light2D _Light;
 
     private float _OilDrainPool = 0f;
@@ -38,8 +33,6 @@ public class CharacterLantern : CharacterComponent
     private const float MIN_OUTER_RADIUS = MIN_INNER_RADIUS * OUTER_RADIUS_FACTOR;
     private const float MAX_OUTER_RADIUS = MAX_INNER_RADIUS * OUTER_RADIUS_FACTOR;
 
-    //private const float OUTER_RADIUS_OFF = 2f;
-    //private const float INNER_RADIUS_OFF = 0.3f;
     private const float INNER_RADIUS_OFF = 0.5f;
     private const float OUTER_RADIUS_OFF = INNER_RADIUS_OFF * OUTER_RADIUS_FACTOR;
 
@@ -70,8 +63,7 @@ public class CharacterLantern : CharacterComponent
     protected override void HandleInput()
     {
         base.HandleInput();
-        if(!_HandleInput){return;}
-        if (_Character.IsLocked) return;
+        if (!_HandleInput || _Character.IsLocked) return;
         if (Input.GetKeyDown(KeyCode.X))
         {
             SwitchLanternOnOff();
@@ -159,8 +151,6 @@ public class CharacterLantern : CharacterComponent
 
         _OilDrainPool = 0f;
         _InventoryManager.RemoveFromInventory(ItemType.Oil, 1);
-
-        _OilFlask.SetSlider(_InventoryManager.GetQuantity(ItemType.Oil));
     }
 
     private float DrainRate()

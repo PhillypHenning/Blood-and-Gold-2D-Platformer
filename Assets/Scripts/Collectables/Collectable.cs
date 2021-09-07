@@ -23,6 +23,8 @@ public class Collectable : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        // if item is a belt item, then check if belt has slots before adding
+
         _CollidingGameObject = other.gameObject;
 
         if(IsUsableByPlayer()){
