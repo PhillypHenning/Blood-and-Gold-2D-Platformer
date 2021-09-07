@@ -1,0 +1,26 @@
+
+Thank you for downloading this asset. 
+The following information is useful when importing the sprite sheets:
+----------------
+
+Cultist.png
+61 frames, frame resolution: 120x64px 
+
+Cultist_DeathNoBlood.png
+11 frames, frame resolution: 120x64px 
+
+CultistCrossbow.png
+60 frames, frame resolution: 64x64px
+
+CultistCrossbow_DeathNoBlood.png
+11 frames, frame resolution: 64x64px
+
+Bolt.png
+4 frames, frame resolution: 16x16px
+
+----------------
+Check out the Preview files for more info.
+I want to thank you for supporting my work and for making it possible for me to continue doing what I love. 
+
+Best regards,
+ Sven

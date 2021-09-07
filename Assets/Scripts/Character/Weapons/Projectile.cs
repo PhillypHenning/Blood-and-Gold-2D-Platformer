@@ -27,6 +27,11 @@ public class Projectile : MonoBehaviour
         Speed = _Speed;
     }
 
+    void Start()
+    {
+        Physics2D.IgnoreLayerCollision(10, 11); // <-- Projectile ignore collision with "Not Hitables"
+    }
+
     void FixedUpdate()
     {
         MoveProjectile();
@@ -57,17 +62,20 @@ public class Projectile : MonoBehaviour
         _SpriteRenderer.flipX = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.tag == "Platform"){
-            _ProjectileReturnToPool.DestroyObject();
+    private void OnTriggerEnter2D(Collider2D other) {    
+        if(other.tag == "Enemy" || other.tag == "Player"){
+            CharacterHealth characterHealth = other.GetComponent<CharacterHealth>();
+            if(characterHealth._Damagable){
+                characterHealth.Damage(_BulletDamage);
+            }
         }
         if(other.tag == "Interactable"){
             Interactable interactable = other.GetComponent<Interactable>();
             if(interactable._Breakable){
                 interactable.DamageInteractable(_BulletDamage);
-                _ProjectileReturnToPool.DestroyObject();
             }
         }
+        _ProjectileReturnToPool.DestroyObject();
         
     }
 }

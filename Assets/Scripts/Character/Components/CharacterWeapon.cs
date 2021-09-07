@@ -64,13 +64,19 @@ public class CharacterWeapon : CharacterComponent
         }
     }
 
+    protected override void InternalInput()
+    {
+        base.InternalInput();
+        Aim();
+    }
+
     public void Shoot()
     {
         if (_CurrentWeapon == null)
         {
             return;
         }
-        _CurrentWeapon.StartShooting();
+        _CurrentWeapon.UseWeapon();
     }
 
     public void Reload()
@@ -85,8 +91,8 @@ public class CharacterWeapon : CharacterComponent
 
     public void EquipWeapon(Weapon weapon, Transform weaponPosition)
     {
-        if(weaponPosition == null){return;}
-        
+        if (weaponPosition == null) { return; }
+
         if (_CurrentWeapon != null)
         {
             // If the player switches weapons, while there are bullets out, those bullets are deleted from this. 
@@ -113,11 +119,13 @@ public class CharacterWeapon : CharacterComponent
         // Player_Player_Model
         // An AI character would look like;
         // AI_BasicEnemy1
-        Debug.Log("Item: " + _CurrentWeapon.name + " | Character type: " + _Character.CharacterType);
 
         //GameObject SearchingForWeaponSprite = GameObject.Find(name);
         _CurrentWeaponsSprite = _CurrentWeapon.GetComponentInChildren<SpriteRenderer>();
-        _CurrentWeaponsSprite.enabled = false;
+        if (_CurrentWeaponsSprite)
+        {
+            _CurrentWeaponsSprite.enabled = false;
+        }
         // Disable the sprite until it's being used. 
         //_CurrentWeaponsSprite = SearchingForWeaponSprite.GetComponent<SpriteRenderer>();
         //_CurrentWeaponsSprite.enabled = false;
@@ -125,15 +133,15 @@ public class CharacterWeapon : CharacterComponent
 
     private void Aim()
     {
-        // Lock the character's movement
-
-        // Put character into aiming animation
-
         // Enable the gameobject
         if (_CurrentWeaponsSprite != null)
         {
             _CurrentWeaponsSprite.enabled = true;
         }
+
+
+        // Change the direction of the shot based on additional keys held
+        
     }
 
     private void StopAim()

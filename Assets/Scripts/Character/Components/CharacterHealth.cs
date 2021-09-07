@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class CharacterHealth : Health
 {
-    private float _CharacterMaxHealth = 50f;
+    public float _CharacterMaxHealth = 50f;
     private CharacterAnimation _CharacterAnimation;
     private Character _Character;
     [SerializeField] private Lives _PlayerLives;
+    
+    public bool _Damagable { get; set; }
 
     protected override void SetToDefault()
     {
@@ -16,6 +18,9 @@ public class CharacterHealth : Health
         if (_Character == null) Debug.LogError("CharacterHealth was unable to find 'Character' component.");
         if (_CharacterAnimation == null) Debug.LogWarning("CharacterHealth was unable to find 'CharacterAnimation' component.");
         _DefaultMaxHealth = _CharacterMaxHealth;
+        _Damagable = true;
+        Physics2D.IgnoreLayerCollision(7, 9);  // "Player" layer ignores "Dead Body" layer
+        Physics2D.IgnoreLayerCollision(8, 9);  // "Enemy" layer ignores "Dead Body" layer
         base.SetToDefault();
     }
     
@@ -30,6 +35,9 @@ public class CharacterHealth : Health
 
     public override void Damage(float amount)
     {
+        
+        if(!_Damagable){ return; }
+
         base.Damage(amount);
 
         UpdateLivesUI();
@@ -43,8 +51,14 @@ public class CharacterHealth : Health
         base.Die();
         _Character.IsLocked = true;
 
+        // Disable collision
+        gameObject.layer = 9; // Changes layer to "Dead Body"        
+
+
         if (_CharacterAnimation == null) return;
         _CharacterAnimation.Die();
+        base.Die();
+        _Damagable = false;
     }
 
     private void UpdateLivesUI()

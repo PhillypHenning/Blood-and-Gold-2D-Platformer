@@ -11,13 +11,18 @@ public class StateController : MonoBehaviour
     [SerializeField] private AIState remainState;
 
     public CharacterMovement _CharacterMovement { get; set; }
+    public CharacterWeapon _CharacterWeapon { get; set; }
 
     public Transform _Target { get; set; }
     public Path _Path { get; set; }
 
+    public Collider2D _Collider2D { get; set; }
+
     private void Awake() {
         _CharacterMovement = GetComponent<CharacterMovement>();
+        _CharacterWeapon = GetComponent<CharacterWeapon>();
         _Path = GetComponent<Path>();
+        _Collider2D = GetComponent<Collider2D>();
     }
 
     private void Update() {

@@ -11,6 +11,7 @@ TagManager:
   - Collectable
   - Interactable
   - Breakable
+  - Enemy
   - Text_Interaction
   layers:
   - Default
@@ -22,10 +23,10 @@ TagManager:
   - Platforms
   - Player
   - Enemies
-  - 
-  - 
-  - 
-  - 
+  - Dead Body
+  - Not Hitable
+  - Bullet
+  - Shield
   - 
   - 
   - 
