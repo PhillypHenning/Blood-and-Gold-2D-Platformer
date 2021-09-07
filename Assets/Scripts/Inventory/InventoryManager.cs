@@ -20,7 +20,7 @@ public class InventoryManager : MonoBehaviour
 
     public bool HasItem(ItemType item)
     {
-        return _Items.ContainsKey(item);
+        return _Items != null ? _Items.ContainsKey(item) : false;
     }
 
     public int GetQuantity(ItemType item)
