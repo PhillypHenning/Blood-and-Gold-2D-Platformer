@@ -43,9 +43,6 @@ public class CharacterAnimation : MonoBehaviour
         Fall,
         Landing,
         Dodge,
-        Attack1,
-        Attack2,
-        Attack3,
         Hurt,
         Death
     }
@@ -116,7 +113,6 @@ public class CharacterAnimation : MonoBehaviour
             {
                 _IsFalling = true;
                 ChangeAnimationState(AnimationState.JumpToFall);
-                SetStaticAnimationDelay(_AnimationTimes[AnimationState.JumpToFall]);
             }
         }
     }
@@ -144,6 +140,8 @@ public class CharacterAnimation : MonoBehaviour
         _Animator.Play(newState.ToString());
 
         _CurrentAnimation = newState;
+
+        if (!_AnimationTimes.ContainsKey(newState)) return;
 
         switch (animationType)
         {

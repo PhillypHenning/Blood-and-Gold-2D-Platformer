@@ -15,6 +15,7 @@ public class CharacterComponent : MonoBehaviour
 
     // Gameobject Unity components
     protected bool _HandleInput = true;
+    protected bool _HandleInternalInput = true;
     
     // Start is called before the first frame update
     protected virtual void Start()
@@ -58,8 +59,8 @@ public class CharacterComponent : MonoBehaviour
 
     protected virtual void HandleInput()
     {   
-        if (_Character.CharacterType != Character.CharacterTypes.Player){
-            _HandleInput = false;
+        if (_Character.CharacterType == Character.CharacterTypes.Player){
+            _HandleInternalInput = false;
         }
         // Handles Player Inputs and Actions on them
         // For an easy example please review the Dash component.
@@ -67,7 +68,9 @@ public class CharacterComponent : MonoBehaviour
 
     protected virtual void InternalInput()
     {
-        if (_Character.CharacterType != Character.CharacterTypes.AI) return;
+        if (_Character.CharacterType == Character.CharacterTypes.AI){ 
+            _HandleInput = false;
+         };
         // Handles "Game Engine" Inputs (AI)
         
     }

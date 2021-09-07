@@ -39,7 +39,7 @@ public class Parallax : MonoBehaviour
     private bool _NextZoneLoaded;
 
     private void Awake() {
-        _Subject = GameObject.Find("Player");
+        _Subject = GameObject.FindWithTag("Player");
         _Camera = _Subject.GetComponentInChildren<Camera>();
         _SubjectTransform = _Subject.transform;
     }

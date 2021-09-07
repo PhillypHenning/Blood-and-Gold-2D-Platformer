@@ -74,6 +74,7 @@ public class Health : MonoBehaviour
 
         if (newHealth <= 0)
         {
+            _CurrentHealth = 0;
             Die();
         }
         else

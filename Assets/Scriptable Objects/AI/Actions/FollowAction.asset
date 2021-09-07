@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _RemainState: {fileID: 0}
   _CurrentState: {fileID: 0}
+  _MinDistanceToFollow: 2.5

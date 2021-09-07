@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Interactable : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class Interactable : MonoBehaviour
 
     protected bool _EnableRewardable;
     protected bool _RewardIssued = false;
+
+    protected string _DefaultMessage = "Press 'F' to interact.";
+
+    protected Text _TextUI;
 
 
     [SerializeField] public bool _Breakable = false;
@@ -43,6 +48,7 @@ public class Interactable : MonoBehaviour
     }
 
     protected virtual void OnTriggerExit2D(Collider2D other) {
+        RemoveVisualQue();
         _CollidingGameObject = null;
         _Character = null;
         _EnableRewardable = false;
@@ -60,7 +66,21 @@ public class Interactable : MonoBehaviour
     }
 
     protected virtual void DisplayVisualQue(){
-        // --- TODO
+        if (_TextUI == null || _RewardIssued) return;
+        _TextUI.enabled = true;
+        UpdateMessage(_DefaultMessage);
+    }
+
+    protected virtual void RemoveVisualQue(){
+        if (_TextUI == null) return;
+        _TextUI.enabled = false;
+        UpdateMessage(string.Empty);
+    }
+
+    protected virtual void UpdateMessage(string message)
+    {
+        if (_TextUI == null) return;
+        _TextUI.text = message;
     }
 
     protected virtual bool InputEnabled(){
@@ -80,7 +100,7 @@ public class Interactable : MonoBehaviour
     }
 
     protected virtual void SetToDefault(){
-        
+        _TextUI = GameObject.Find("Interaction_Text").GetComponent<Text>();
     }
 
     public void DamageInteractable(float damage){
