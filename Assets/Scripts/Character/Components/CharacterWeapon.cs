@@ -38,7 +38,7 @@ public class CharacterWeapon : CharacterComponent
     protected override void HandleInput()
     {
         base.HandleInput();
-        if (!_HandleInput) { return; }
+        if (!_HandleInput) { return;}
 
         if (Input.GetKey(KeyCode.LeftControl))
         {
@@ -67,6 +67,7 @@ public class CharacterWeapon : CharacterComponent
     protected override void InternalInput()
     {
         base.InternalInput();
+        if (!_HandleInternalInput) { return; }
         Aim();
     }
 
@@ -124,6 +125,7 @@ public class CharacterWeapon : CharacterComponent
         _CurrentWeaponsSprite = _CurrentWeapon.GetComponentInChildren<SpriteRenderer>();
         if (_CurrentWeaponsSprite)
         {
+            Debug.Log("Check");
             _CurrentWeaponsSprite.enabled = false;
         }
         // Disable the sprite until it's being used. 
