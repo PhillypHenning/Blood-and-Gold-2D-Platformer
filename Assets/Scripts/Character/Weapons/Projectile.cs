@@ -62,12 +62,14 @@ public class Projectile : MonoBehaviour
         _SpriteRenderer.flipX = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {    
-        if(other.tag == "Enemy" || other.tag == "Player"){
+    private void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log(other.tag);
+        if(other.tag == "Enemy" || other.tag == "Player" || other.tag == "Shield"){
             CharacterHealth characterHealth = other.GetComponent<CharacterHealth>();
             if(characterHealth._Damagable){
                 characterHealth.Damage(_BulletDamage);
             }
+            _ProjectileReturnToPool.DestroyObject();
         }
         if(other.tag == "Interactable"){
             Interactable interactable = other.GetComponent<Interactable>();

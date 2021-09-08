@@ -125,7 +125,6 @@ public class CharacterWeapon : CharacterComponent
         _CurrentWeaponsSprite = _CurrentWeapon.GetComponentInChildren<SpriteRenderer>();
         if (_CurrentWeaponsSprite)
         {
-            Debug.Log("Check");
             _CurrentWeaponsSprite.enabled = false;
         }
         // Disable the sprite until it's being used. 
