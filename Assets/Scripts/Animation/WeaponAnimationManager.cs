@@ -7,12 +7,16 @@ public class WeaponAnimationManager : MonoBehaviour
     protected Animator _Animator;
     protected int _ClipSize;
 
+    FMOD.Studio.EventInstance ReloadClick;
+
     // Use this for initialization
     protected virtual void Start()
     {
         _Animator = GetComponent<Animator>();
         // TODO: inherit from weapon manager and set in child
         _ClipSize = 6;
+
+        ReloadClick = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Player_Character/Revolver/Revolver_Reload_Click");
 
         if (_Animator == null) print("WeaponAnimationManager couldn't find Animator Component.");
     }
@@ -63,5 +67,15 @@ public class WeaponAnimationManager : MonoBehaviour
 
         _ClipSize = 6;
         _Animator.Play("Revolver_Reload", -1, (offset / 24));
+    }
+
+    void Click()
+    {
+        ReloadClick.start();
+    }
+
+    void OnDestroy()
+    {
+        ReloadClick.release();
     }
 }

@@ -49,6 +49,8 @@ public class Interactable_Sconce : Interactable
     private void LightSconce()
     {
         _Light = GetComponentInChildren<Light2D>();
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Interactables/Torch/Torch_Light");
         if (_Light == null) Debug.LogError("Sconce could not find Light2D component");
         _Light.enabled = true;
         _IsLit = true;
