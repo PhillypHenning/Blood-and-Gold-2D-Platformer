@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MeleeAttack : Weapon
 {
-    [SerializeField] private float _AttackDelay = 0.5f;
+    [SerializeField] private float _AttackDelay = 1f;
     [SerializeField] private int _DamageToDeal;
     private BoxCollider2D _BoxCollider;
 
