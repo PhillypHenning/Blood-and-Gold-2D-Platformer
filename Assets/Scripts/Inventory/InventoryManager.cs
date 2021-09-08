@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class InventoryManager : MonoBehaviour
 {
     // tracks items and their quantity
