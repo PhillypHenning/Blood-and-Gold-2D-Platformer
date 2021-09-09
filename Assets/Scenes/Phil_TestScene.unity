@@ -11259,8 +11259,8 @@ MonoBehaviour:
   - {x: -162.94884, y: -51.39965, z: 0}
   - {x: -283.02536, y: -51.390434, z: 0}
   m_ShapePathHash: 824467897
-  m_Mesh: {fileID: 1347587263}
-  m_InstanceId: 18298
+  m_Mesh: {fileID: 1686558814}
+  m_InstanceId: 22126
 --- !u!4 &211576514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8648945880362708553, guid: be104228cb1a42542af0cca5259c6a3e,
