@@ -9,12 +9,14 @@ public class Character : MonoBehaviour
     private bool _IsLocked;
     private bool _IsMoving;
     private bool _FacingRight = true;
+    private bool _Actionable = true;
 
     // public property accessors
     public bool IsLocked { get => _IsLocked; set => _IsLocked = value; }
     public bool IsGrounded { get => _IsGrounded; set => _IsGrounded = value; }
     public bool IsMoving { get => _IsMoving; set => _IsMoving = value; }
     public bool FacingRight { get => _FacingRight; set => _FacingRight = value; }
+    public bool Actionable { get => _Actionable; set => _Actionable = value; }
 
 
     // TODO: use character types to determine default stats (like movementspeed)
@@ -46,10 +48,12 @@ public class Character : MonoBehaviour
 
     public void DeactivateCharacter(){
         CharacterType = CharacterTypes.Inactive;
+        Actionable = false;
     }
 
     public void ReactivateCharacter(){
         CharacterType = _CharacterType;
+        Actionable = true;
     }
 
 }
