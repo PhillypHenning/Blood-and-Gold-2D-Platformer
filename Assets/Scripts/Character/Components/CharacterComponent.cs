@@ -59,7 +59,7 @@ public class CharacterComponent : MonoBehaviour
 
     protected virtual void HandleInput()
     {   
-        if (_Character.CharacterType == Character.CharacterTypes.Player){
+        if (_Character.CharacterType == Character.CharacterTypes.Player && _Character.Actionable){
             _HandleInternalInput = false;
         }
         // Handles Player Inputs and Actions on them
@@ -68,7 +68,7 @@ public class CharacterComponent : MonoBehaviour
 
     protected virtual void InternalInput()
     {
-        if (_Character.CharacterType == Character.CharacterTypes.AI){ 
+        if (_Character.CharacterType == Character.CharacterTypes.AI && _Character.Actionable){ 
             _HandleInput = false;
          };
         // Handles "Game Engine" Inputs (AI)

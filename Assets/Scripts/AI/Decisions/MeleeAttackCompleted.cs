@@ -13,7 +13,7 @@ public class MeleeAttackCompleted : AIDecision
     private bool MeleeAttackComplete(StateController controller){
         // In the tutorial the way this was determined was by checking if the Animation was complete
         if(controller._CharacterWeapon._CurrentWeapon.IsAttacking){
-d            Debug.Log("Attacking");
+            
             return false;
         }
         return true;
