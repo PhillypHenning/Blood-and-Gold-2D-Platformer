@@ -23,6 +23,7 @@ public class Weapon : MonoBehaviour
     public ObjectPooler ObjectPooler { get; set; }
     public int _CurrentAmmo { get; set; }
     public bool _CanShoot { get; set; }
+    public bool _Actionable = true; 
     //public bool _CanReload { get; set; }
 
     public int MagazineSize => _MaxMagazineSize;
@@ -60,6 +61,9 @@ public class Weapon : MonoBehaviour
     virtual protected void FixedUpdate()
     {
         EvaluateProjectileSpawn();
+        if(!_Actionable){
+            _CanShoot = false;
+        }
     }
 
     virtual protected void Update()
@@ -98,7 +102,7 @@ public class Weapon : MonoBehaviour
     private void TriggerShot()
     {
         // Add timer between shots here
-        if (_CanShoot)
+        if (_CanShoot && _Actionable)
         {
             _CanShoot = false;
             _NextShotTime = Time.time + _TimeBetweenShots;
@@ -235,6 +239,7 @@ public class Weapon : MonoBehaviour
     }
 
     public void Enable(){
+        if(!_Actionable){return;}
         _CanShoot = true;
     }
 

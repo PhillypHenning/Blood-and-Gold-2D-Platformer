@@ -36,7 +36,7 @@ public class MeleeAttack : Weapon
 
     public override void UseWeapon()
     {
-        if (_CanShoot && !IsAttacking)
+        if (_CanShoot && !IsAttacking && _Actionable)
         {
             Attack();
         }
