@@ -15,6 +15,7 @@ TagManager:
   - Text_Interaction
   - Shield
   - Dead Body
+  - Enemy Wall
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Not Hitable
   - Bullet
   - Shield
-  - 
+  - Enemy Wall
   - 
   - 
   - 

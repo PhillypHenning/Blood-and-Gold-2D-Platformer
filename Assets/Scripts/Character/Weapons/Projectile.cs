@@ -77,6 +77,10 @@ public class Projectile : MonoBehaviour
                 interactable.DamageInteractable(_BulletDamage);
             }
         }
+
+        if(other.tag == "Enemy Wall"){
+            return;
+        }
         _ProjectileReturnToPool.DestroyObject();
         
     }

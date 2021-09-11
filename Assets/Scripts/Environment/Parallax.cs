@@ -20,7 +20,7 @@ public class Parallax : MonoBehaviour
     private Transform _SubjectTransform;
 
     private Vector2 Travel => (Vector2)_Camera.transform.position - _StartPosition;
-    private float _DistanceFromSubject => transform.position.z - _SubjectTransform.position.z; 
+    private float _DistanceFromSubject => transform.position.z - _SubjectTransform.position.z;
     private float _ClippingPlane => (_Camera.transform.position.z + (_DistanceFromSubject > 0 ? _Camera.farClipPlane : _Camera.nearClipPlane));
 
     private float _ParallaxFactor => Mathf.Abs(_DistanceFromSubject / _ClippingPlane);
@@ -35,30 +35,40 @@ public class Parallax : MonoBehaviour
     private GameObject _AltMapBucket;
     private Transform _AltMapLayer;
     private Parallax _AltParallaxScript;
+    private int _AltNum;
     private string _AltBucketName;
     private bool _NextZoneLoaded;
+    private bool _LoadLeftZoneOff = false;
 
-    private void Awake() {
+    private void Awake()
+    {
         _Subject = GameObject.FindWithTag("Player");
         _Camera = _Subject.GetComponentInChildren<Camera>();
         _SubjectTransform = _Subject.transform;
     }
 
-    private void Start() {
+    private void Start()
+    {
 
         _SpriteRenderer = GetComponent<SpriteRenderer>();
-        
+
         // Get current Map bucket
         _MapBucket = this.transform.parent.gameObject;
-        if(_MapBucket.name == "Background Set 1"){
+        if (_MapBucket.name == "Background Set 1")
+        {
             _AltBucketName = "Background Set 2";
+            _AltNum = 2;
         }
-        else if(_MapBucket.name == "Background Set 2"){
+        else if (_MapBucket.name == "Background Set 2")
+        {
             this.gameObject.SetActive(false);
             _AltBucketName = "Background Set 1";
+            _AltNum = 1;
         }
         _AltMapBucket = GameObject.Find(_AltBucketName);
-        _AltMapLayer = _AltMapBucket.transform.Find(this.name);
+        var goname = this.name.Remove(this.name.Length - 1);
+        
+        _AltMapLayer = _AltMapBucket.transform.Find(goname + _AltNum);
         _AltParallaxScript = _AltMapLayer.GetComponent<Parallax>();
 
         SetDefaults();
@@ -67,24 +77,29 @@ public class Parallax : MonoBehaviour
     private void Update()
     {
 
-    }   
+    }
 
     private void FixedUpdate()
     {
-        StartParallaxEffect();
-        DetermineBackgroundLoadDirection();
+        if (!_LoadLeftZoneOff)
+        {
+            StartParallaxEffect();
+            DetermineBackgroundLoadDirection();
+        }
     }
 
-    private void StartParallaxEffect(){
+    private void StartParallaxEffect()
+    {
         Vector2 newPosX = _StartPosition + Travel * _ParallaxFactor;
 
         // Increase y axis range, but makes the camera far more jumpy
         Vector2 newPosY = ((Vector2)_Subject.transform.position + Travel * _ParallaxFactor);
-        
+
         transform.position = new Vector3(newPosX.x, newPosX.y, _ZPosStart);
     }
 
-    private void DetermineBackgroundLoadDirection(){
+    private void DetermineBackgroundLoadDirection()
+    {
         // Determine where the subject is relative to the position between either side and the half way point
         //float cur = 
         //Debug.Log(_Rect);
@@ -93,33 +108,39 @@ public class Parallax : MonoBehaviour
         // Cut that in half = Middle
         // Cut that in half = Load position
 
-        Vector3 LeftLoadZone = new Vector3(_MiddlePos.x - _Radius /2, 0, 0);
-        Vector3 RightLoadZone = new Vector3(_MiddlePos.x + _Radius/2, 0, 0);
+        Vector3 LeftLoadZone = new Vector3(_MiddlePos.x - _Radius / 2, 0, 0);
+        Vector3 RightLoadZone = new Vector3(_MiddlePos.x + _Radius / 2, 0, 0);
 
         Vector3 LeftMapEdge = new Vector3(_MiddlePos.x - _Radius, 0, 0);
         Vector3 RightMapEdge = new Vector3(_MiddlePos.x + _Radius, 0, 0);
 
         // Load Zones
-        if(_Subject.transform.position.x < LeftLoadZone.x){
+        if (_Subject.transform.position.x < LeftLoadZone.x)
+        {
             //Debug.Log("Player entered left loading zone for " + this.name);
             // Load next map set on left hand size of screen
             LoadNextZone(LeftMapEdge, true);
-        }else if(_Subject.transform.position.x > RightLoadZone.x)
+        }
+        else if (_Subject.transform.position.x > RightLoadZone.x)
         {
             LoadNextZone(RightMapEdge);
-        }        
-        else{
+        }
+        else
+        {
             // Debug.Log("No loading zone reached");
             // Unload next map until needed
         }
     }
 
-    private void LoadNextZone(Vector3 newMapPos, bool loadLeft = false){
+    private void LoadNextZone(Vector3 newMapPos, bool loadLeft = false)
+    {
         // newMapPos = the very edge of the current map
         // Summary
         //  1. Determine which way the next map needs to load in from
+        if (_LoadLeftZoneOff) { return; }
         float TotalLength = (_Radius * 2) - 15;
-        if(loadLeft && !_NextZoneLoaded){
+        if (loadLeft && !_NextZoneLoaded)
+        {
             // Snap the right side of the next map to the left side of the current map
             //Debug.Log("Loading next zone for: " + this.name);
             // This part of the script will need to know about;
@@ -139,7 +160,8 @@ public class Parallax : MonoBehaviour
             _AltParallaxScript.SetActive(true);
             _NextZoneLoaded = true;
         }
-        else if(!loadLeft && !_NextZoneLoaded){
+        else if (!loadLeft && !_NextZoneLoaded)
+        {
             // Snap the left side of the next map to the right side of the current map
             Vector3 newPos = new Vector3(_StartPosition.x + TotalLength, _StartPosition.y, _ZPosStart);
 
@@ -150,7 +172,8 @@ public class Parallax : MonoBehaviour
 
     }
 
-    private void SetDefaults(){
+    private void SetDefaults()
+    {
         _StartPosition = transform.position;
         _ZPosStart = transform.position.z;
 
@@ -159,12 +182,22 @@ public class Parallax : MonoBehaviour
         _NextZoneLoaded = false;
     }
 
-    public void ResetMapStartPosition(Vector3 newPos){
+    public void ResetMapStartPosition(Vector3 newPos)
+    {
         this.transform.position = newPos;
         SetDefaults();
     }
 
-    public void SetActive(bool flag=false){
+    public void SetActive(bool flag = false)
+    {
         this.gameObject.SetActive(flag);
+    }
+
+    public void ResetMapPosition(Transform transform)
+    {
+        _LoadLeftZoneOff = true;
+        this.transform.position = transform.position;
+        SetDefaults();
+        _LoadLeftZoneOff = false;
     }
 }
