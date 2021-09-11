@@ -199,6 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _HeightestJumpReached: 0
   VerticalTakeoff: 15
+  JumpIfAble: 0
 --- !u!114 &8995608706561558841
 MonoBehaviour:
   m_ObjectHideFlags: 0
