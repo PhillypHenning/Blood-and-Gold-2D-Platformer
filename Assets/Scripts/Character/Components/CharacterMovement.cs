@@ -9,7 +9,7 @@ public class CharacterMovement : CharacterComponent
 
     private float _HorizontalMovement;
 
-    public float HorizontalMovement => _HorizontalMovement;
+    public float HorizontalMovement {get; set;}
 
     public bool _MovementSurpressed;
     public bool _SlidingMovement = false;
@@ -21,9 +21,17 @@ public class CharacterMovement : CharacterComponent
     {
         base.Start();
         SetToDefault();
+        HorizontalMovement = _HorizontalMovement;
 
         if(_Character.CharacterType == Character.CharacterTypes.Player){
-            Physics2D.IgnoreLayerCollision(7, 13); // <-- Projectile ignore collision with "Enemy Wall"
+            Physics2D.IgnoreLayerCollision(7, 13); // <--  ignore collision with "Enemy Wall"
+            Physics2D.IgnoreLayerCollision(7, 8); // <--  ignore collision with "Enemies"
+        }
+
+        else if(_Character.CharacterType == Character.CharacterTypes.AI){
+            Physics2D.IgnoreLayerCollision(8, 8);
+            Physics2D.IgnoreLayerCollision(8, 10); // <--  ignore collision with "Enemy Shield"
+            Physics2D.IgnoreLayerCollision(8, 12);
         }
     }
 
@@ -38,7 +46,12 @@ public class CharacterMovement : CharacterComponent
         //_CharacterRigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalInput, 0), ForceMode2D.Force); // <-- Default, gradual force build up applied
         if (CanMove())
         {
-            _Character.RigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalMovement, 0), ForceMode2D.Impulse); // <-- Specified, Immediate force applied        
+            if(!_SlidingMovement){
+                _Character.RigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalMovement, 0), ForceMode2D.Impulse); // <-- Specified, Immediate force applied        
+            }else{
+                _Character.RigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalMovement, 0), ForceMode2D.Force); // <-- Specified, Immediate force applied        
+            }
+        
         }
     }
 

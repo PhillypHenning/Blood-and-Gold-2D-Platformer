@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 9133458079465300134}
   - component: {fileID: 9133458079465300142}
   m_Layer: 8
-  m_Name: Enemy_Melee_Small
+  m_Name: Enemy_Melee_Small_Jump
   m_TagString: Enemy
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

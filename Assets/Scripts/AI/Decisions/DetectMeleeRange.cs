@@ -14,7 +14,7 @@ public class DetectMeleeRange : AIDecision
 
     private bool PlayerInRangeToAttack(StateController controller){
         if(controller._Target != null){
-            controller._CharacterWeapon._CurrentWeapon.Enable();
+            //controller._CharacterWeapon._CurrentWeapon.Enable();
             float distanceToPlayer = (controller._Target.position - controller.transform.position).sqrMagnitude;
             return distanceToPlayer < _MinDistanceToAttack;
         }

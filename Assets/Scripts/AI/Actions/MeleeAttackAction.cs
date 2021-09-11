@@ -11,7 +11,7 @@ public class MeleeAttackAction : AIAction
     }
 
     private void MeleeAttack(StateController controller){
-        controller._CharacterMovement.SetHorizontal(0);
+        //controller._CharacterMovement.SetHorizontal(0);
         controller._CharacterWeapon._CurrentWeapon.UseWeapon();
     }
 }
