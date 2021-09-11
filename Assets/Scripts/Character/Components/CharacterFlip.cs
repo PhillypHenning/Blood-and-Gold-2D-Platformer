@@ -25,9 +25,9 @@ public class CharacterFlip : CharacterComponent
     {
         base.HandleAbility();
         if(_Character.FacingRight){
-            _WeaponHolder.transform.localPosition = new Vector3(0.8f,1.7f,1);
+            _WeaponHolder.transform.localPosition = new Vector3(0.4f,0.8f,1);
         }else{
-            _WeaponHolder.transform.localPosition = new Vector3(-0.8f,1.7f,1);
+            _WeaponHolder.transform.localPosition = new Vector3(-0.4f,0.8f,1);
         }
     }
 }
