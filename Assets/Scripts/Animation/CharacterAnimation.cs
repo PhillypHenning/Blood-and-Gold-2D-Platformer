@@ -45,6 +45,7 @@ public class CharacterAnimation : MonoBehaviour
         Dodge,
         Hurt,
         Death,
+        DeathNoShadow,
         ShieldHurt,
         ShieldBreak
     }
@@ -211,6 +212,24 @@ public class CharacterAnimation : MonoBehaviour
     public void Die()
     {
         _IsDead = true;
+        // if character is player and IsGround = false, play death with no shadow
+        if (_Character.CharacterType == Character.CharacterTypes.Player && !_Character.IsGrounded)
+        {
+            ChangeAnimationState(AnimationState.DeathNoShadow, AnimationType.Priority); 
+        }
+        else
+        {
+            ChangeAnimationState(AnimationState.Death, AnimationType.Priority); 
+        }
+    }
+
+    public void ShieldHurt()
+    {
+        ChangeAnimationState(AnimationState.ShieldHurt, AnimationType.Priority); 
+    }
+
+    public void ShieldBreak()
+    {
         ChangeAnimationState(AnimationState.Death, AnimationType.Priority); 
     }
 
