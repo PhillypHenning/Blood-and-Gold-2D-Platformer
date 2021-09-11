@@ -91,4 +91,8 @@ public class Interactable_Sconce : Interactable
 
         return false;
     }
+
+    public void TurnOffLight(){
+        _IsLit = false;
+    }
 }

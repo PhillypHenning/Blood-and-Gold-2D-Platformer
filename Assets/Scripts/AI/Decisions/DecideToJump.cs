@@ -21,7 +21,6 @@ public class DecideToJump : AIDecision
         _TargetCollider = Physics2D.OverlapCircle(controller.transform.position, _DetectArea, _TargetMask);
         if (_TargetCollider != null && controller._CharacterJump.CharacterCanJump)
         {   
-            Debug.Log("Jumping");
             controller._Target = _TargetCollider.transform;
             controller._CharacterJump.TriggerJump();
             return true;

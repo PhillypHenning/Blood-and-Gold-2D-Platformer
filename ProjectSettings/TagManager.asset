@@ -16,6 +16,8 @@ TagManager:
   - Shield
   - Dead Body
   - Enemy Wall
+  - Sconce
+  - Enemy Shield
   layers:
   - Default
   - TransparentFX
@@ -29,7 +31,7 @@ TagManager:
   - Dead Body
   - Not Hitable
   - Bullet
-  - Shield
+  - Enemy Shield
   - Enemy Wall
   - 
   - 
