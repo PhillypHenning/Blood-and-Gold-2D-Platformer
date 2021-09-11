@@ -136,9 +136,9 @@ public class CharacterAnimation : MonoBehaviour
 
     private void ChangeAnimationState(AnimationState newState, AnimationType animationType = AnimationType.Dynamic)
     {
+        if (!_AnimationTimes.ContainsKey(newState)) return;
         if (_CurrentAnimation == newState || PriorityAnimationPlaying()) return;
 
-        //print(newState.ToString());
         _Animator.Play(newState.ToString());
 
         _CurrentAnimation = newState;
