@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3271340344699568616}
   - component: {fileID: 3271340344699568623}
   - component: {fileID: 3271340344699568622}
+  - component: {fileID: 8254775486440729212}
   m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
@@ -113,6 +114,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03279f2f50c33854f83b778489607875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8254775486440729212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3271340344699568621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56fb14d5a52d20242950722c73006163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3271340345800592576
@@ -296,6 +309,7 @@ MonoBehaviour:
   _MovementSpeed: 0
   _DefaultMovementSpeed: 150
   _MovementSurpressed: 0
+  _SlidingMovement: 0
 --- !u!114 &3271340346234227262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,6 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _HeightestJumpReached: 0
+  VerticalTakeoff: 20
 --- !u!114 &3271340346234227261
 MonoBehaviour:
   m_ObjectHideFlags: 0
