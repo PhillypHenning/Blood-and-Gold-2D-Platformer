@@ -184,6 +184,7 @@ MonoBehaviour:
   _MovementSpeed: 0
   _DefaultMovementSpeed: 200
   _MovementSurpressed: 0
+  _SlidingMovement: 0
 --- !u!114 &8995608706561558844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _HeightestJumpReached: 0
+  VerticalTakeoff: 20
 --- !u!114 &8995608706561558841
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -140,7 +140,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3355357245220865526, guid: 9a368d8d266393a4099fa8040e841bda, type: 3}
       propertyPath: m_Name
-      value: Revolver
+      value: RevolverClip
       objectReference: {fileID: 0}
     - target: {fileID: 3355357245220865527, guid: 9a368d8d266393a4099fa8040e841bda, type: 3}
       propertyPath: m_Pivot.x

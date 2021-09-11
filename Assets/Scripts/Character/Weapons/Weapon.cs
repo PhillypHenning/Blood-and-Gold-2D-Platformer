@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float _TimeBetweenReloads = 0.5f;
     [SerializeField] private int _MaxMagazineSize;
     [SerializeField] private bool _UsesBullets = true;
+    [SerializeField] protected WeaponAnimationManager _WeaponAnimationManager;
     private Vector3 _ProjectileSpawnPosition;
     private Transform _BulletSpawnPos;
     private bool _CanReload = true;
@@ -77,11 +78,21 @@ public class Weapon : MonoBehaviour
         SpawnProjectile(ProjectileSpawnPosition);
         // Revolver SFX
         PlayShootingSFX();
+        PlayUIAnimationShoot();
         // ^ We place the template function here ^ 
         // When another class specializes using this template, the child script will also run this function.
         // So all we need to do now is take your below code and add it to Play<_>SFX!
         // FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Revolver_Shoot");
         // But wait before you do that, Let's open the RevolverWeapon script
+    }
+
+    virtual protected void PlayUIAnimationShoot()
+    {
+
+    }
+    virtual protected void PlayUIAnimationReload()
+    {
+
     }
 
     virtual protected void PlayShootingSFX()
@@ -119,6 +130,7 @@ public class Weapon : MonoBehaviour
         _CurrentAmmo = _MaxMagazineSize;
 
         PlayReloadSFX();
+        PlayUIAnimationReload();
     }
 
     private void ConsumeAmmo()
