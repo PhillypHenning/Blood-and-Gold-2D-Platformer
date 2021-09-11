@@ -30,6 +30,7 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         Physics2D.IgnoreLayerCollision(10, 11); // <-- Projectile ignore collision with "Not Hitables"
+        Physics2D.IgnoreLayerCollision(11, 11);
     }
 
     void FixedUpdate()
