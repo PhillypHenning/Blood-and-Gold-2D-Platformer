@@ -193,7 +193,6 @@ GameObject:
   - component: {fileID: 8395546920189046271}
   - component: {fileID: 8395546920189046270}
   - component: {fileID: 8395546920189046269}
-  - component: {fileID: 8395546920189046261}
   m_Layer: 8
   m_Name: Enemy_Melee_Small_Jump
   m_TagString: Enemy
@@ -296,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf70055bf4672d419816a6a5d33c355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CharacterMaxHealth: 10
+  _CharacterMaxHealth: 20
   _PlayerLives: {fileID: 0}
 --- !u!114 &8395546920189046256
 MonoBehaviour:
@@ -350,32 +349,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: a9654288bf85f4b40a0587a19cc972f3, type: 2}
   remainState: {fileID: 11400000, guid: 4e3600b7d70eb944fa903eb6dbd89920, type: 2}
---- !u!61 &8395546920189046261
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8395546920189046268}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.023712158, y: 0.078920364}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.3755493, y: 1.2469826}
-  m_EdgeRadius: 0
 --- !u!1 &8395546920524500641
 GameObject:
   m_ObjectHideFlags: 0

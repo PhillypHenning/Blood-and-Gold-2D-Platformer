@@ -6,12 +6,13 @@ public class BreakableWall : MonoBehaviour
 {   
     private CharacterHealth _WallHealth;
     private GameObject _FakeWalls;
+    public int _Num;
 
     // Start is called before the first frame update
     void Start()
     {
         _WallHealth = GetComponent<CharacterHealth>();
-        _FakeWalls = GameObject.Find("Fake Walls");
+        _FakeWalls = GameObject.Find("Fake Walls " + _Num);
     }
 
     // Update is called once per frame

@@ -45,7 +45,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5438614, y: -0.43859863}
+  m_Offset: {x: 0.57393646, y: -0.4285717}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -56,7 +56,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0877228, y: 3.0701752}
+  m_Size: {x: 2.147873, y: 1.0449181}
   m_EdgeRadius: 0
 --- !u!114 &327549857153840921
 MonoBehaviour:
@@ -75,5 +75,7 @@ MonoBehaviour:
   _TimeBetweenReloads: 0
   _MaxMagazineSize: 0
   _UsesBullets: 0
-  _AttackDelay: 0.25
+  _WeaponAnimationManager: {fileID: 0}
+  _Actionable: 1
+  _TimeBetweenHits: 1
   _DamageToDeal: 5

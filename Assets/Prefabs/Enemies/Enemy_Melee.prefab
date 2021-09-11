@@ -139,6 +139,7 @@ MonoBehaviour:
   _MovementSpeed: 0
   _DefaultMovementSpeed: 150
   _MovementSurpressed: 0
+  _SlidingMovement: 0
 --- !u!114 &450325300713534260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _HeightestJumpReached: 0
+  VerticalTakeoff: 20
 --- !u!114 &450325300713534263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf70055bf4672d419816a6a5d33c355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CharacterMaxHealth: 100
+  _CharacterMaxHealth: 50
   _PlayerLives: {fileID: 0}
 --- !u!114 &450325300713534262
 MonoBehaviour:
@@ -202,8 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bdeefb8fc173a24bb3cea072ae83ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _PrimaryWeapon: {fileID: 327549857153840921, guid: 0bb88edddbc8354428bbdb6d1960692b,
-    type: 3}
+  _PrimaryWeapon: {fileID: 327549857153840921, guid: 0bb88edddbc8354428bbdb6d1960692b, type: 3}
   _WeaponHolderPosition: {fileID: 450325300377833572}
 --- !u!114 &450325300713534267
 MonoBehaviour:
@@ -364,8 +365,7 @@ SpriteRenderer:
   m_SortingLayerID: 320013947
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1724219066864166220, guid: da7ecaefa736e7a46852efb6de6d8e66,
-    type: 3}
+  m_Sprite: {fileID: 1724219066864166220, guid: da7ecaefa736e7a46852efb6de6d8e66, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -405,37 +405,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03279f2f50c33854f83b778489607875, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &2261823338171353688
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2261823338171353692}
-  - component: {fileID: 2261823338171353693}
-  - component: {fileID: 2261823338171353690}
-  - component: {fileID: 2261823338171353691}
-  - component: {fileID: 3076469709600034355}
-  m_Layer: 8
-  m_Name: Sprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &3076469709600034355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2261823338171353688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56fb14d5a52d20242950722c73006163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
