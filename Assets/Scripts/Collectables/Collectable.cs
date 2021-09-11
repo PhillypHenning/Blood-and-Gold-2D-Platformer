@@ -17,7 +17,7 @@ public class Collectable : MonoBehaviour
     
     private void Start() {
         
-        _SpriteRenderer = GetComponent<SpriteRenderer>();
+        _SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _Collider2D = GetComponent<Collider2D>();
 
     }
@@ -33,7 +33,7 @@ public class Collectable : MonoBehaviour
             PickUp();
 
             if(_DestroyItemOnPickUp){
-                Destroy(gameObject);
+                DestroySelf();
             }
             else{
                 // TODO: This may need to be tweaked. 
@@ -41,6 +41,11 @@ public class Collectable : MonoBehaviour
                 _Collider2D.enabled = false;
             }
         }        
+    }
+
+    protected virtual void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 
     protected virtual bool IsUsableByPlayer(){

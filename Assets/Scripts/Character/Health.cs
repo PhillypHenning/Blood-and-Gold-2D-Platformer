@@ -56,18 +56,19 @@ public class Health : MonoBehaviour
         }
     }
 
-    public virtual void Heal(float amount)
+    public virtual bool Heal(float amount)
     {
         float newHealth = _CurrentHealth + amount;
 
         if (newHealth > _MaxHealth)
         {
-            return;
+            return false;
         }
         else
         {
             _CurrentHealth += amount;
         }
+        return true;
     }
 
     public virtual void Damage(float amount)
