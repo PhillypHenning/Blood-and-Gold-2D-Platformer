@@ -20,6 +20,7 @@ public class CharacterFlip : CharacterComponent
         }
     }
 
+    /*
     // Used to flip the Weapon Holder
     protected override void HandleAbility()
     {
@@ -29,5 +30,16 @@ public class CharacterFlip : CharacterComponent
         }else{
             _WeaponHolder.transform.localPosition = new Vector3(-0.4f,0.8f,1);
         }
+    }
+    */
+
+    public void FlipCharacter()
+    {
+        var character = _Character.CharacterSprite.transform;
+        _Character.FacingRight = !_Character.FacingRight;
+        character.localRotation = Quaternion.Euler(character.rotation.x, _Character.FacingRight ? 0 : -180, character.rotation.z);
+
+        var weaponHolderPos = _WeaponHolder.transform.localPosition;
+        _WeaponHolder.transform.localPosition = new Vector3(weaponHolderPos.x * -1, weaponHolderPos.y, weaponHolderPos.z);
     }
 }

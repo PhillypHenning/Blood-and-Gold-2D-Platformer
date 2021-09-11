@@ -12,6 +12,7 @@ public class CharacterComponent : MonoBehaviour
     protected CharacterHealth _CharacterHealth;
     protected CharacterAnimation _CharacterAnimation;
     protected InventoryManager _InventoryManager;
+    protected CharacterFlip _CharacterFlip;
 
     // Gameobject Unity components
     protected bool _HandleInput = true;
@@ -27,6 +28,7 @@ public class CharacterComponent : MonoBehaviour
         _CharacterHealth = GetComponent<CharacterHealth>();
         _CharacterAnimation = GetComponent<CharacterAnimation>();
         _InventoryManager = GetComponent<InventoryManager>();
+        _CharacterFlip = GetComponent<CharacterFlip>();
     }
 
     // Update is called once per frame

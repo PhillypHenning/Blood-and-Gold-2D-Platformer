@@ -99,10 +99,7 @@ public class CharacterMovement : CharacterComponent
 
     private void FlipCharacter()
     {
-        // TODO: flip entire character instead of just the sprite
-        var character = _Character.CharacterSprite.transform;
-        _Character.FacingRight = !_Character.FacingRight;
-        character.localRotation = Quaternion.Euler(character.rotation.x, _Character.FacingRight ? 0 : -180, character.rotation.z);
+        _CharacterFlip.FlipCharacter();
     }
 
     public void IncreaseMovementSpeed(float amount, float abilitylength, bool lockout = true)
