@@ -91,11 +91,13 @@ public class CharacterAnimation : MonoBehaviour
         {
             if (_IsFalling)
             {
+                print("do we hit IsFalling within IsGrounded??");
                 _IsFalling = false;
                 Landing();
             }
             else if (_IsRunning && !_Character.IsLocked)
             {
+                print("run");
                 ChangeAnimationState(AnimationState.Run);
             }
             else
@@ -137,6 +139,7 @@ public class CharacterAnimation : MonoBehaviour
     {
         if (_CurrentAnimation == newState || PriorityAnimationPlaying()) return;
 
+        print(newState.ToString());
         _Animator.Play(newState.ToString());
 
         _CurrentAnimation = newState;

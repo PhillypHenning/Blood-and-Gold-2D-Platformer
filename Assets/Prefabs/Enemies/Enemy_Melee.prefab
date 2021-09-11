@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2261823338171353688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.46, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2261823339602748783}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 320013947
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 300ea1a5869382b43bf6149aba92c4db, type: 3}
+  m_Sprite: {fileID: 1724219066864166220, guid: da7ecaefa736e7a46852efb6de6d8e66, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,7 +94,7 @@ Animator:
   m_GameObject: {fileID: 2261823338171353688}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 048e9cf7c698e9c478066350e58e74a6, type: 2}
+  m_Controller: {fileID: 9100000, guid: a585366c71681ba4a8e9e487d7fc3cd5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -131,7 +131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2261823338558248035
 Transform:
   m_ObjectHideFlags: 0
@@ -250,7 +250,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2261823339602748786}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -154.1, y: -79.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -294,8 +294,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.027463317, y: 1.3553925}
-  m_Size: {x: 1.0635378, y: 2.5736294}
+  m_Offset: {x: -0.06, y: 1.02}
+  m_Size: {x: 1, y: 1.9}
   m_Direction: 0
 --- !u!114 &2261823339602748778
 MonoBehaviour:
@@ -352,6 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CharacterMaxHealth: 100
+  _PlayerLives: {fileID: 0}
 --- !u!114 &2261823339602748790
 MonoBehaviour:
   m_ObjectHideFlags: 0

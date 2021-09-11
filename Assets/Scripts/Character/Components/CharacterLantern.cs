@@ -25,15 +25,15 @@ public class CharacterLantern : CharacterComponent
 
     // MIN / MAX / OFF threshholds for light radius (inner/outer)
     // logic assumes that inner min/max is 1/4 outer min/max
-    private const float DEFAULT_INNER_RADIUS = 3f;
-    private const float MIN_INNER_RADIUS = 1f;
-    private const float MAX_INNER_RADIUS = 4f;
+    private const float DEFAULT_INNER_RADIUS = 1.5f;
+    private const float MIN_INNER_RADIUS = 0.5f;
+    private const float MAX_INNER_RADIUS = 2f;
 
     private const float DEFAULT_OUTER_RADIUS = DEFAULT_INNER_RADIUS * OUTER_RADIUS_FACTOR;
     private const float MIN_OUTER_RADIUS = MIN_INNER_RADIUS * OUTER_RADIUS_FACTOR;
     private const float MAX_OUTER_RADIUS = MAX_INNER_RADIUS * OUTER_RADIUS_FACTOR;
 
-    private const float INNER_RADIUS_OFF = 0.5f;
+    private const float INNER_RADIUS_OFF = 0.3f;
     private const float OUTER_RADIUS_OFF = INNER_RADIUS_OFF * OUTER_RADIUS_FACTOR;
 
     private const float MAX_DRAIN_RATE = .1f;
