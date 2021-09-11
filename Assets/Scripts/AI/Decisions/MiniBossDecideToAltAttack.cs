@@ -12,7 +12,7 @@ public class MiniBossDecideToAltAttack : AIDecision
 
     private bool TimeForAltAttack(StateController controller){
         // if IsAttacking = false && _CanShoot = false
-        if(!controller._CharacterWeapon._CurrentWeapon.IsAttacking && !controller._CharacterWeapon._CurrentWeapon._CanShoot){
+        if(controller._MiniBossAltAttack.Actionable && controller._CharacterWeapon._CurrentWeapon._IsEmpty && !controller._MiniBossAltAttack.Attacking){
             return true;
         }
         return false;

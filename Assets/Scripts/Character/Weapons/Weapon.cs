@@ -24,7 +24,8 @@ public class Weapon : MonoBehaviour
     public ObjectPooler ObjectPooler { get; set; }
     public int _CurrentAmmo { get; set; }
     public bool _CanShoot { get; set; }
-    public bool _Actionable = true; 
+    public bool _Actionable = true;
+    public bool _IsEmpty; 
     public float _TimeModifier = 1.0f;
     //public bool _CanReload { get; set; }
 
@@ -70,6 +71,11 @@ public class Weapon : MonoBehaviour
 
     virtual protected void Update()
     {
+        if(_CurrentAmmo == 0){
+            _IsEmpty = true;
+        }else{
+            _IsEmpty = false;
+        }
         WeaponCanShoot();
     }
 
