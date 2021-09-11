@@ -19,6 +19,7 @@ public class Interactable_MineCart : Interactable
 
         _Character.transform.SetParent(transform);
         _Character.IsLocked = true;
+        RelocatePlayer();
         RemoveVisualQue();
     }
 
@@ -39,26 +40,16 @@ public class Interactable_MineCart : Interactable
         // TODO: BUG: forces player out of lock, could be bad
         _Character.IsLocked = false;
     }
-    protected IEnumerator RelocatePlayer()
+
+    protected void RelocatePlayer()
     {
-        /*
         // holds _Character in case reference is lost when player leaves collision 
         var player = _Character;
         // var characterMovement = _Character.GetComponent<CharacterMovement>();
         player.IsLocked = true;
 
-        yield return _Fader.FadeOut();
-        // TODO: fix "MovePosition" call (player is being moved to wrong position when running commented code below)
-        // characterMovement.MovePosition(new Vector2(_Target.position.x, _Target.position.y));
-        player.transform.position = _Target.position;
+        player.transform.position = transform.position;
 
-        // Reset the background to the players position
-        _EnvironmentManager.ResetParallaxToNewPosition(player.transform);
-
-        yield return _Fader.FadeWait();
-        yield return _Fader.FadeIn();
         player.IsLocked = false;
-        */
-        yield return null;
     }
 }
