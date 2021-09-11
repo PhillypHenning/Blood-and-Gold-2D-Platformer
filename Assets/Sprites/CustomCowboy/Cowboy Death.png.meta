@@ -1,28 +1,34 @@
 fileFormatVersion: 2
-guid: 1899c1e49956e6a4fad76d471305c732
+guid: 48394b05451234a48b2d33ce53f14020
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 139903682388900259
-    second: sMineCart_v002_0
+      213: 53511662606250629
+    second: Cowboy Death_0
   - first:
-      213: 8341780474915394174
-    second: sMineCart_v002_1
+      213: 2503603943265900509
+    second: Cowboy Death_1
   - first:
-      213: -8668115852037891269
-    second: sMineCart_v002_2
+      213: -8655155385304576020
+    second: Cowboy Death_2
   - first:
-      213: -5024467810714233399
-    second: sMineCart_v002_3
+      213: -5810601171765568407
+    second: Cowboy Death_3
   - first:
-      213: 7703458177852950193
-    second: sMineCart_v002_4
+      213: -5758231663139617539
+    second: Cowboy Death_4
   - first:
-      213: -4834557311119173287
-    second: sMineCart_v002_5
+      213: -5526740325566487874
+    second: Cowboy Death_5
   - first:
-      213: 860823893182931501
-    second: sMineCart_v002_6
+      213: -6278066516999730927
+    second: Cowboy Death_6
+  - first:
+      213: 924695867278775948
+    second: Cowboy Death_7
+  - first:
+      213: -3821215112014993375
+    second: Cowboy Death_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -67,7 +73,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -112,148 +118,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sMineCart_v002_0
+      name: Cowboy Death_0
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 384
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5827cf8d29c1eb000800000000000000
+      internalID: 53511662606250629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowboy Death_1
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 320
+        width: 66
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd791a095869eb220800000000000000
+      internalID: 2503603943265900509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowboy Death_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 256
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cef8c17b806b2e780800000000000000
+      internalID: -8655155385304576020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowboy Death_3
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 192
+        width: 110
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96cd17925099c5fa0800000000000000
+      internalID: -5810601171765568407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowboy Death_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df408209fc6a610b0800000000000000
+      internalID: -5758231663139617539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowboy Death_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb268c0b4f21d43b0800000000000000
+      internalID: -5526740325566487874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cowboy Death_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 128
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a93f8b68a901f100800000000000000
-      internalID: 139903682388900259
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sMineCart_v002_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e721f913525f3c370800000000000000
-      internalID: 8341780474915394174
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sMineCart_v002_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3b5957ee8aa4b780800000000000000
-      internalID: -8668115852037891269
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sMineCart_v002_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c55efc9521854ab0800000000000000
-      internalID: -5024467810714233399
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sMineCart_v002_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1b6c009e56e28ea60800000000000000
-      internalID: 7703458177852950193
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sMineCart_v002_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 95959787db338ecb0800000000000000
-      internalID: -4834557311119173287
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sMineCart_v002_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d22665f15c242fb00800000000000000
-      internalID: 860823893182931501
+      spriteID: 11905f1f3c3dfd8a0800000000000000
+      internalID: -6278066516999730927
       vertices: []
       indices: 
       edges: []

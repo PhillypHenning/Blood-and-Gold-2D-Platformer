@@ -214,6 +214,16 @@ public class CharacterAnimation : MonoBehaviour
         ChangeAnimationState(AnimationState.Death, AnimationType.Priority); 
     }
 
+    public void ShieldHurt()
+    {
+        ChangeAnimationState(AnimationState.ShieldHurt, AnimationType.Priority); 
+    }
+
+    public void ShieldBreak()
+    {
+        ChangeAnimationState(AnimationState.Death, AnimationType.Priority); 
+    }
+
     private void SetStaticAnimationDelay(float delay)
     {
         _StaticAnimationTime = delay;
