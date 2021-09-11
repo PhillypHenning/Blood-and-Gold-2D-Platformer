@@ -4,6 +4,77 @@ using UnityEngine;
 
 public class ParallaxManager : MonoBehaviour
 {
+    public int _SetNumber = 0;
+
+    // Get the children of the background set
+    private GameObject _Background; 
+    private GameObject _MiddleBackground; 
+    private GameObject _MiddleForeground; 
+    private GameObject _Foreground; 
+
+    private Parallax _BackgroundParallax;
+    private Parallax _MiddleBackgroundParallax;
+    private Parallax _MiddleForegroundParallax;
+    private Parallax _ForegroundParallax;
+
+    private void Start() {
+        _Background = GameObject.Find("Background " + _SetNumber);
+        _MiddleBackground = GameObject.Find("BackMidGround " + _SetNumber);
+        _MiddleForeground = GameObject.Find("FrontMidGround " + _SetNumber);
+        _Foreground = GameObject.Find("Foreground " + _SetNumber);
+
+        _BackgroundParallax = _Background.GetComponent<Parallax>();
+        _MiddleBackgroundParallax = _MiddleBackground.GetComponent<Parallax>();
+        _MiddleForegroundParallax = _MiddleForeground.GetComponent<Parallax>();
+        _ForegroundParallax = _Foreground.GetComponent<Parallax>();
+    }
+
+
+    public void ResetParallaxSetLocation(Transform transform){
+        _BackgroundParallax.ResetMapPosition(transform);
+        _MiddleBackgroundParallax.ResetMapPosition(transform);
+        _MiddleForegroundParallax.ResetMapPosition(transform);
+        _ForegroundParallax.ResetMapPosition(transform);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*
         Notes for later
 
@@ -34,7 +105,7 @@ public class ParallaxManager : MonoBehaviour
     // Let's get one layer working then expand
     /*
         Needs to know 
-    */
+    
 
     public Camera _Camera;
     public Transform _Subject;
@@ -162,4 +233,5 @@ public class ParallaxManager : MonoBehaviour
     public float MiddleOfBackground(){
         return _Background1HorizontalSize / 2;
     }
+    */
 }

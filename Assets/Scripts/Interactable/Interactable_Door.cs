@@ -5,15 +5,22 @@ public class Interactable_Door : Interactable
 {
     [SerializeField] protected Transform _Target;
     protected Fader _Fader;
+     
 
     [SerializeField] private bool _IsLocked;
     [SerializeField] private ItemType _RequiredItem;
+
+    private EnvironmentManager _EnvironmentManager;
+    private GameObject _EnvironmentManagerGameObject;
 
     protected override void Start()
     {
         base.Start();
         _Fader = FindObjectOfType<Fader>();
         if (_Fader == null) Debug.LogError("Door was unable to locate Fader");
+
+        _EnvironmentManagerGameObject = GameObject.Find("Parallax_Background");
+        _EnvironmentManager = _EnvironmentManagerGameObject.GetComponent<EnvironmentManager>();
     }
 
     protected override bool InputEnabled()
@@ -52,6 +59,10 @@ public class Interactable_Door : Interactable
         // TODO: fix "MovePosition" call (player is being moved to wrong position when running commented code below)
         // characterMovement.MovePosition(new Vector2(_Target.position.x, _Target.position.y));
         player.transform.position = _Target.position;
+
+        // Reset the background to the players position
+        _EnvironmentManager.ResetParallaxToNewPosition(player.transform);
+
         yield return _Fader.FadeWait();
         yield return _Fader.FadeIn();
         player.IsLocked = false;
