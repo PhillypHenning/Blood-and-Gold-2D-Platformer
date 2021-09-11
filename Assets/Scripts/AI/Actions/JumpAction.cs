@@ -11,7 +11,6 @@ public class JumpAction : AIAction
     }
 
     private void Jump(StateController controller){
-        Debug.Log("Jumping");
         controller._CharacterJump.TriggerJump();
     }
 }

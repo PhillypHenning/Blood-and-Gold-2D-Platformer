@@ -23,7 +23,7 @@ public class AIState : ScriptableObject
     {
         if (_AITransitions != null || _AITransitions.Length > 1)
         {
-            for (int i = 0; i < _AITransitions.Length; i++)
+            for (int i = 0; i < _AITransitions.Length; i++) 
             {
                 bool decisionResult = _AITransitions[i]._Decision.Decide(controller);
                 if (decisionResult)
