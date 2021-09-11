@@ -22,15 +22,15 @@ public class CharacterBelt : CharacterComponent
             // sets or unsets selected item
             _SelectedItem = _SelectedItem != 0 ? 0 : -1;
 
-            print("select item 0 : " + _SelectedItem);
+            //print("select item 0 : " + _SelectedItem);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && _ItemSlots[1] != null)
         {
-            print("select item 1 : " + _SelectedItem);
+            //print("select item 1 : " + _SelectedItem);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3) && _ItemSlots[2] != null)
         {
-            print("select item 2 : " + _SelectedItem);
+            //print("select item 2 : " + _SelectedItem);
         }
     }
 
@@ -55,7 +55,7 @@ public class CharacterBelt : CharacterComponent
             if (_ItemSlots[i] == null)
             {
                 // add item to this slot and break loop
-                print("add item to slot " + i);
+                //print("add item to slot " + i);
                 return true;
             }
         }

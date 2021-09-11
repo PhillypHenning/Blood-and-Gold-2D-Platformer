@@ -69,9 +69,6 @@ public class MeleeAttack : Weapon
         _CanShoot = false;
         _BoxCollider.enabled = true;
         _NextShotTime = Time.time + _TimeBetweenHits;
-        Debug.Log("Time: " + Time.time);
-        Debug.Log("NextShotTime" + _NextShotTime);
-        
 
         // TODO: Animation added here
     }
