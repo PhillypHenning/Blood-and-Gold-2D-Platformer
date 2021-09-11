@@ -13,6 +13,8 @@ TagManager:
   - Breakable
   - Enemy
   - Text_Interaction
+  - Shield
+  - Dead Body
   layers:
   - Default
   - TransparentFX

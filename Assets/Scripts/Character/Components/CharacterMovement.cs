@@ -12,6 +12,7 @@ public class CharacterMovement : CharacterComponent
     public float HorizontalMovement => _HorizontalMovement;
 
     public bool _MovementSurpressed;
+    public bool _SlidingMovement = false;
 
 
     // TODO: This component will need to know which way the sprite is facing

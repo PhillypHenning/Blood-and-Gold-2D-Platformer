@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     protected float _MaxHealth;
     protected float _CurrentHealth;
     protected float _DefaultMaxHealth { get; set;}
+    protected Collider2D _Collider2D;
 
     protected bool _IsAlive;
 
@@ -18,6 +19,7 @@ public class Health : MonoBehaviour
     {
         // Set Default values
         SetToDefault();
+        _Collider2D = GetComponent<Collider2D>();
     }
 
     protected virtual void Update()

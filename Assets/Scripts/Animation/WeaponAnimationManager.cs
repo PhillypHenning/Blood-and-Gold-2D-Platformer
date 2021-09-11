@@ -21,20 +21,6 @@ public class WeaponAnimationManager : MonoBehaviour
         if (_Animator == null) print("WeaponAnimationManager couldn't find Animator Component.");
     }
 
-    // Update is called once per frame
-    protected virtual void Update()
-    {
-        // TODO: implement with weapon components
-        if (Input.GetKeyDown(KeyCode.RightControl))
-        {
-            FireShot();
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Reload();
-        }
-    }
-
     public virtual void FireShot()
     {
         if (_ClipSize == 0) return;

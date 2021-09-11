@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float _TimeBetweenReloads = 0.5f;
     [SerializeField] private int _MaxMagazineSize;
     [SerializeField] private bool _UsesBullets = true;
+    [SerializeField] protected WeaponAnimationManager _WeaponAnimationManager;
     private Vector3 _ProjectileSpawnPosition;
     private Transform _BulletSpawnPos;
     private bool _CanReload = true;
@@ -23,6 +24,7 @@ public class Weapon : MonoBehaviour
     public ObjectPooler ObjectPooler { get; set; }
     public int _CurrentAmmo { get; set; }
     public bool _CanShoot { get; set; }
+    public bool _Actionable = true; 
     //public bool _CanReload { get; set; }
 
     public int MagazineSize => _MaxMagazineSize;
@@ -60,6 +62,9 @@ public class Weapon : MonoBehaviour
     virtual protected void FixedUpdate()
     {
         EvaluateProjectileSpawn();
+        if(!_Actionable){
+            _CanShoot = false;
+        }
     }
 
     virtual protected void Update()
@@ -73,11 +78,21 @@ public class Weapon : MonoBehaviour
         SpawnProjectile(ProjectileSpawnPosition);
         // Revolver SFX
         PlayShootingSFX();
+        PlayUIAnimationShoot();
         // ^ We place the template function here ^ 
         // When another class specializes using this template, the child script will also run this function.
         // So all we need to do now is take your below code and add it to Play<_>SFX!
         // FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Revolver_Shoot");
         // But wait before you do that, Let's open the RevolverWeapon script
+    }
+
+    virtual protected void PlayUIAnimationShoot()
+    {
+
+    }
+    virtual protected void PlayUIAnimationReload()
+    {
+
     }
 
     virtual protected void PlayShootingSFX()
@@ -98,7 +113,7 @@ public class Weapon : MonoBehaviour
     private void TriggerShot()
     {
         // Add timer between shots here
-        if (_CanShoot)
+        if (_CanShoot && _Actionable)
         {
             _CanShoot = false;
             _NextShotTime = Time.time + _TimeBetweenShots;
@@ -115,6 +130,7 @@ public class Weapon : MonoBehaviour
         _CurrentAmmo = _MaxMagazineSize;
 
         PlayReloadSFX();
+        PlayUIAnimationReload();
     }
 
     private void ConsumeAmmo()
@@ -235,6 +251,7 @@ public class Weapon : MonoBehaviour
     }
 
     public void Enable(){
+        if(!_Actionable){return;}
         _CanShoot = true;
     }
 
