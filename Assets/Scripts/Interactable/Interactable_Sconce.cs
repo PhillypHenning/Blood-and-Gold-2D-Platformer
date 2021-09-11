@@ -44,16 +44,20 @@ public class Interactable_Sconce : Interactable
         }
         RemoveVisualQue();
         LightSconce();
+        TorchAudio();
     }
 
     private void LightSconce()
     {
         _Light = GetComponentInChildren<Light2D>();
-
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Interactables/Torch/Torch_Light");
         if (_Light == null) Debug.LogError("Sconce could not find Light2D component");
         _Light.enabled = true;
         _IsLit = true;
+    }
+
+    private void TorchAudio()
+    {
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/Interactables/Torch/Torch_Light", gameObject);
     }
 
     private void Flicker()
