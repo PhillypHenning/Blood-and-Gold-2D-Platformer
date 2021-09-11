@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4129262746678688916}
   - component: {fileID: 4129262746678688917}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 4129262746807940148}
   - component: {fileID: 4129262746807940170}
   - component: {fileID: 4129262746807940169}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,6 +129,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Breakable: 0
   _Target: {fileID: 0}
+  _IsLocked: 0
+  _RequiredItem: 0
+  _ForcedEntry: 0
+  _ExitOnly: 0
 --- !u!61 &4129262746807940169
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WanderingMeleeIdle
   m_EditorClassIdentifier: 
   _AIActions:
-  - {fileID: 11400000, guid: d6e663cc7399037488f85b68b45bbade, type: 2}
+  - {fileID: 11400000, guid: 2f562c30f51323941b192975483bccf0, type: 2}
   _AITransitions:
   - _Decision: {fileID: 11400000, guid: 175713aa623409943bd457fb957d4714, type: 2}
     _TrueState: {fileID: 11400000, guid: 928ed48976732f747b8a4d3f600457f4, type: 2}

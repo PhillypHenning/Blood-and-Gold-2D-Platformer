@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b4f9a166eaf4ab478ceac2cab3e5283, type: 3}
-  m_Name: WanderingMeleeSMIdle
+  m_Name: WanderingMeleeFastSmallIdle
   m_EditorClassIdentifier: 
   _AIActions:
-  - {fileID: 11400000, guid: d6e663cc7399037488f85b68b45bbade, type: 2}
+  - {fileID: 11400000, guid: 2f562c30f51323941b192975483bccf0, type: 2}
   _AITransitions:
   - _Decision: {fileID: 11400000, guid: 175713aa623409943bd457fb957d4714, type: 2}
     _TrueState: {fileID: 11400000, guid: 1d629fd3ceb246441940b1442a7f9384, type: 2}
