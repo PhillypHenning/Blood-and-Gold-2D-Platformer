@@ -9,6 +9,8 @@ public class CharacterWeapon : CharacterComponent
     [SerializeField] private Weapon _PrimaryWeapon;
     [SerializeField] private Transform _WeaponHolderPosition;
 
+    private WeaponHolder _WeaponHolder;
+
     public Weapon _CurrentWeapon { get; set; }
     public SpriteRenderer _CurrentWeaponsSprite { get; set; }
 
@@ -20,6 +22,7 @@ public class CharacterWeapon : CharacterComponent
     {
         base.Start();
         EquipWeapon(_PrimaryWeapon, _WeaponHolderPosition);
+        _WeaponHolder = GetComponentInChildren<WeaponHolder>();
     }
 
     protected override void FixedUpdate()
@@ -37,6 +40,12 @@ public class CharacterWeapon : CharacterComponent
         if(!_CharacterHealth.IsAlive){
             _Actionable = false;
             _CurrentWeapon._Actionable = false;
+
+            if(_Character.CharacterType == Character.CharacterTypes.AI){
+                //_CurrentWeapon.Destroy();
+                // Find GameObject "Weapon Holder" 
+                _WeaponHolder.DestroyWeaponsHeld();
+            }
         }
     }
 

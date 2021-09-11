@@ -25,6 +25,7 @@ public class Weapon : MonoBehaviour
     public int _CurrentAmmo { get; set; }
     public bool _CanShoot { get; set; }
     public bool _Actionable = true; 
+    public float _TimeModifier = 1.0f;
     //public bool _CanReload { get; set; }
 
     public int MagazineSize => _MaxMagazineSize;
@@ -128,7 +129,7 @@ public class Weapon : MonoBehaviour
     private void RefillAmmo()
     {
         _CurrentAmmo = _MaxMagazineSize;
-
+        _NextShotTime = Time.time + _TimeBetweenShots * _TimeModifier;
         PlayReloadSFX();
         PlayUIAnimationReload();
     }
@@ -241,18 +242,18 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void Destroy()
-    {
-        Destroy(this);
-    }
-
     public void Disable(){
         _CanShoot = false;
+        this.enabled = false;
     }
 
     public void Enable(){
         if(!_Actionable){return;}
         _CanShoot = true;
+    }
+
+    public void SetWeaponSpeedMod(float newMod){
+        _TimeModifier = newMod;
     }
 
 }
