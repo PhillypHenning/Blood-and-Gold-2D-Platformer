@@ -6,6 +6,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class Interactable_Sconce : Interactable 
 {
     private Light2D _Light;
+    private Animator _Animator;
     private bool _IsLit;
 
     private const float MAX_INTENSITY = 0.85f;
@@ -50,9 +51,12 @@ public class Interactable_Sconce : Interactable
     private void LightSconce()
     {
         _Light = GetComponentInChildren<Light2D>();
+        _Animator = GetComponent<Animator>();
         if (_Light == null) Debug.LogError("Sconce could not find Light2D component");
+        if (_Animator == null) Debug.LogError("Sconce could not find Animator component");
         _Light.enabled = true;
         _IsLit = true;
+        _Animator.SetTrigger("Light");
     }
 
     private void TorchAudio()

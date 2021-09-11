@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24dbe81358550b6439708497302c0416, type: 3}
   m_Name: AmmoHandgun
   m_EditorClassIdentifier: 
-  Type: 1
+  Type: 2
   MaxStack: 30
   IsStackable: 1
