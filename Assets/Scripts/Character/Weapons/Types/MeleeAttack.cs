@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class MeleeAttack : Weapon
 {
-    [SerializeField] private float _AttackDelay = 1f;
+    [SerializeField] private float _TimeBetweenHits = 1f;
     [SerializeField] private int _DamageToDeal;
     private BoxCollider2D _BoxCollider;
-
+    private float _NextShotTime = 0;
 
     protected override void Start()
     {
         base.Start();
         _BoxCollider = GetComponent<BoxCollider2D>();
         _BoxCollider.enabled = false;
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if(Time.time > _NextShotTime){
+            _CanShoot = true;
+            _IsAttacking = false;
+            _BoxCollider.enabled = false;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -26,27 +36,39 @@ public class MeleeAttack : Weapon
 
     public override void UseWeapon()
     {
-        if (_CanShoot)
+        if (_CanShoot && !IsAttacking && _Actionable)
         {
-            StartCoroutine((Attack()));
+            Attack();
         }
+
     }
 
-    private IEnumerator Attack()
+    private void Attack()
     {
-        if (_IsAttacking)
-        {
-            yield break;
-        }
+        /*
+            Though this method does work, I believe the coroutine is fucking up the timing and states. 
+        
+        // if (_IsAttacking)
+        // {
+        //     yield break;
+        // }
 
-        // Disables melee box collider after hit is registered
-        _BoxCollider.enabled = false;
+        // // Disables melee box collider after hit is registered
+        // _BoxCollider.enabled = false;
+        // _IsAttacking = true;
+
+        // yield return new WaitForSeconds(_AttackDelay);
+
+        // _BoxCollider.enabled = true;
+        // _IsAttacking = false;
+        */
+
+        // _NextShotTime == 0 == first calc
+        
         _IsAttacking = true;
-
-        yield return new WaitForSeconds(_AttackDelay);
-
+        _CanShoot = false;
         _BoxCollider.enabled = true;
-        _IsAttacking = false;
+        _NextShotTime = Time.time + _TimeBetweenHits;
 
         // TODO: Animation added here
     }

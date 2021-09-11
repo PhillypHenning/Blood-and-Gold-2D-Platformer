@@ -49,10 +49,15 @@ public class CharacterHealth : Health
     protected override void Die()
     {
         base.Die();
-        _Character.IsLocked = true;
+        if(_Character != null){
+            _Character.IsLocked = true;
+        }
 
         // Disable collision
-        gameObject.layer = 9; // Changes layer to "Dead Body"        
+        gameObject.layer = 9; // Changes layer to "Dead Body"
+        if(gameObject.tag == "Shield"){
+            _Collider2D.enabled = false;   
+        }  
 
 
         if (_CharacterAnimation == null) return;
@@ -63,7 +68,8 @@ public class CharacterHealth : Health
 
     private void UpdateLivesUI()
     {
-        if (_Character.CharacterType == Character.CharacterTypes.AI || _PlayerLives == null) return;
+        if(_Character == null){return;}
+        if (_Character.CharacterType == Character.CharacterTypes.AI || _PlayerLives == null) {return;}
         _PlayerLives.UpdateLives((int)_CurrentHealth / 10);
     }
 }

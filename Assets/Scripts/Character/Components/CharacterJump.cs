@@ -8,13 +8,15 @@ public class CharacterJump : CharacterComponent
     private bool _CharacterCanJump;
     private bool _IsGrounded;
     public bool IsGrounded => _IsGrounded;
+    public bool CharacterCanJump => _CharacterCanJump;
 
-    private float _VerticalTakeoff = 20f;
     private float _Fallmultiplier = 2.5f;
     private float _LowJumpModifier = 2.5f;
     private float _GravityScaled = .5f; // Lower = More gravity applied.
 
     public float _HeightestJumpReached; // TODO: Stretch goal, but may be interesting?
+
+    public float VerticalTakeoff = 20f;
 
     // Jumping should disable all other CharacterAbilities.. unfortunately I'm not sure if there is a reliable way of knowing when a jump is complete..
     // If we make the variable based on simply standing on the ground that will effect every other ability since the character will likely be standing on the ground. 
@@ -39,7 +41,7 @@ public class CharacterJump : CharacterComponent
     protected override void HandleInput()
     {
         base.HandleInput();
-        if(!_HandleInput){return;}
+        if (!_HandleInput) { return; }
         if (Input.GetKeyDown(KeyCode.Space) && _CharacterCanJump && !_Character.IsLocked)
         {
             Jump();
@@ -70,9 +72,9 @@ public class CharacterJump : CharacterComponent
     {
         //_CharacterRigidBody2D.velocity = new Vector2(0, _JumpHeight);
         //_CharacterRigidBody2D.AddForce(new Vector2(0, _JumpHeight), ForceMode2D.Impulse);
-        
-        
-        _Character.RigidBody2D.velocity = Vector2.up * _VerticalTakeoff;
+
+
+        _Character.RigidBody2D.velocity = Vector2.up * VerticalTakeoff;
 
         // animate the jump
         _CharacterAnimation.Jump();
@@ -92,7 +94,7 @@ public class CharacterJump : CharacterComponent
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other) 
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Platform-Slide")
         {
@@ -117,6 +119,14 @@ public class CharacterJump : CharacterComponent
         {
             _CharacterCanJump = true;
             //_CharacterAnimation.Landing();
+        }
+    }
+
+    public void TriggerJump()
+    {
+        if (_CharacterCanJump && !_Character.IsLocked)
+        {
+            Jump();
         }
     }
 }

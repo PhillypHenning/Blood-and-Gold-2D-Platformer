@@ -1,7 +1,25 @@
 fileFormatVersion: 2
 guid: b4a4c26bf693f16428fa7077378761ae
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7866394953887510506
+    second: fast-Sheet_0
+  - first:
+      213: 3494605916514621006
+    second: fast-Sheet_1
+  - first:
+      213: -2323552891161067379
+    second: fast-Sheet_2
+  - first:
+      213: 3586860888833519512
+    second: fast-Sheet_3
+  - first:
+      213: -5919860279562176831
+    second: fast-Sheet_4
+  - first:
+      213: -1865218494225743021
+    second: fast-Sheet_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,7 +107,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: fast-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 47
+        width: 81
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6101c96a773f4d290800000000000000
+      internalID: -7866394953887510506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fast-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 49
+        width: 65
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4615dbd0955f7030800000000000000
+      internalID: 3494605916514621006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fast-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 48
+        width: 62
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d804389c4f411cfd0800000000000000
+      internalID: -2323552891161067379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fast-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 49
+        width: 52
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89fe9a179f617c130800000000000000
+      internalID: 3586860888833519512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fast-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 47
+        width: 56
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c670c4c07e68dda0800000000000000
+      internalID: -5919860279562176831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fast-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 49
+        width: 65
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3538f2f69a96d16e0800000000000000
+      internalID: -1865218494225743021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

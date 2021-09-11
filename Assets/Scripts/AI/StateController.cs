@@ -12,6 +12,7 @@ public class StateController : MonoBehaviour
 
     public CharacterMovement _CharacterMovement { get; set; }
     public CharacterWeapon _CharacterWeapon { get; set; }
+    public CharacterJump _CharacterJump { get; set; }
 
     public Transform _Target { get; set; }
     public Path _Path { get; set; }
@@ -21,6 +22,8 @@ public class StateController : MonoBehaviour
     private void Awake() {
         _CharacterMovement = GetComponent<CharacterMovement>();
         _CharacterWeapon = GetComponent<CharacterWeapon>();
+        _CharacterJump = GetComponent<CharacterJump>();
+        
         _Path = GetComponent<Path>();
         _Collider2D = GetComponent<Collider2D>();
     }

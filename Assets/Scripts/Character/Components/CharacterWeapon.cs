@@ -13,6 +13,7 @@ public class CharacterWeapon : CharacterComponent
     public SpriteRenderer _CurrentWeaponsSprite { get; set; }
 
     public Weapon _SecondaryWeapon { get; set; }
+    private bool _Actionable = true;
 
 
     protected override void Start()
@@ -33,12 +34,17 @@ public class CharacterWeapon : CharacterComponent
         {
             _CurrentWeapon.transform.localScale = new Vector3(-1, 1, 1);
         }
+        if(!_CharacterHealth.IsAlive){
+            _Actionable = false;
+            _CurrentWeapon._Actionable = false;
+        }
     }
 
     protected override void HandleInput()
     {
         base.HandleInput();
         if (!_HandleInput) { return;}
+        if(!_Actionable){ return;}
 
         if (Input.GetKey(KeyCode.LeftControl))
         {
@@ -68,11 +74,13 @@ public class CharacterWeapon : CharacterComponent
     {
         base.InternalInput();
         if (!_HandleInternalInput) { return; }
+        if(!_Actionable){ return;}
         Aim();
     }
 
     public void Shoot()
     {
+        if(!_Actionable){return;}
         if (_CurrentWeapon == null)
         {
             return;
