@@ -44,7 +44,9 @@ public class CharacterAnimation : MonoBehaviour
         Landing,
         Dodge,
         Hurt,
-        Death
+        Death,
+        ShieldHurt,
+        ShieldBreak
     }
 
     void Start()
@@ -91,7 +93,6 @@ public class CharacterAnimation : MonoBehaviour
         {
             if (_IsFalling)
             {
-                //print("do we hit IsFalling within IsGrounded??");
                 _IsFalling = false;
                 Landing();
             }
