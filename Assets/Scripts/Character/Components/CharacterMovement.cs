@@ -21,6 +21,10 @@ public class CharacterMovement : CharacterComponent
     {
         base.Start();
         SetToDefault();
+
+        if(_Character.CharacterType == Character.CharacterTypes.Player){
+            Physics2D.IgnoreLayerCollision(7, 13); // <-- Projectile ignore collision with "Enemy Wall"
+        }
     }
 
     protected override void HandlePhysicsAbility()
