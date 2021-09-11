@@ -46,6 +46,13 @@ public class CharacterHealth : Health
         _CharacterAnimation.Hurt();
     }
 
+    public override bool Heal(float amount)
+    {
+        if (!base.Heal(amount)) return false;
+        UpdateLivesUI();
+        return true;
+    }
+
     protected override void Die()
     {
         base.Die();
