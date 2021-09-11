@@ -62,7 +62,7 @@ public class CharacterHealth : Health
 
         // Disable collision
         gameObject.layer = 9; // Changes layer to "Dead Body"
-        if(gameObject.tag == "Shield"){
+        if(gameObject.tag == "Enemy Shield"){
             _Collider2D.enabled = false;   
         }  
 

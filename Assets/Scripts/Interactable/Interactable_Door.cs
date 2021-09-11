@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Interactable_Door : Interactable 
+public class Interactable_Door : Interactable
 {
     [SerializeField] protected Transform _Target;
     protected Fader _Fader;
-     
+
 
     [SerializeField] private bool _IsLocked;
     [SerializeField] private ItemType _RequiredItem;
 
     private EnvironmentManager _EnvironmentManager;
     private GameObject _EnvironmentManagerGameObject;
+    [SerializeField] private bool _ForcedEntry = false;
+    [SerializeField] private bool _ExitOnly = false;
 
     protected override void Start()
     {
@@ -25,6 +27,8 @@ public class Interactable_Door : Interactable
 
     protected override bool InputEnabled()
     {
+        if(_ExitOnly){ return false;}
+        if (_ForcedEntry) { return true; }
         return Input.GetKeyDown(KeyCode.F);
     }
 
@@ -71,6 +75,18 @@ public class Interactable_Door : Interactable
     protected override void SetToDefault()
     {
         base.SetToDefault();
-        _DefaultMessage = "Press 'F' to open.";
+        if (_ForcedEntry || _ExitOnly)
+        {
+            _DefaultMessage = "";
+        }
+        else
+        {
+            _DefaultMessage = "Press 'F' to open.";
+        }
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D other)
+    {
+        base.OnTriggerEnter2D(other);
     }
 }
