@@ -26,6 +26,7 @@ public class CharacterMovement : CharacterComponent
         if(_Character.CharacterType == Character.CharacterTypes.Player){
             Physics2D.IgnoreLayerCollision(7, 13); // <--  ignore collision with "Enemy Wall"
             Physics2D.IgnoreLayerCollision(7, 8); // <--  ignore collision with "Enemies"
+            Physics2D.IgnoreLayerCollision(7, 12);
         }
 
         else if(_Character.CharacterType == Character.CharacterTypes.AI){ // TODO ADD OTHER AI ENEMIES

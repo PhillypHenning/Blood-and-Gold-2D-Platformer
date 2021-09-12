@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterDodge : CharacterComponent
-{   
+{
     public float _DodgeDistance;
-    private float _DodgeDuration = 0.5f;
+    private float _DodgeDuration = 10f;
     private float _DodgeTimer;
     private bool _IsDodging;
+    private bool _DodgeDone = false;
+
+    private float _TimeUntilInvunIsDone = 0f;
+    private float _TimeOfInvun = .25f;
+    private bool _InvunActivate = false;
+    private int _OriginalLayer;
 
     // Ensure this component is the second in the character gameobject hierarchy (Scripts; 1. Character, 2. CharacterComponents) 
 
@@ -15,12 +21,25 @@ public class CharacterDodge : CharacterComponent
     {
         base.Start();
         SetToDefault();
+        _OriginalLayer = gameObject.layer;
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if (Time.time > _TimeUntilInvunIsDone){
+            if(_InvunActivate){
+                _InvunActivate = false;
+                //_CharacterHealth.TurnOffMakeInvun();
+                ChangeBackToOriginalLayer();
+            }
+        }
     }
 
     protected override void HandleInput()
     {
         base.HandleInput();
-        if(!_HandleInput){return;}
+        if (!_HandleInput) { return; }
         if (Input.GetKeyDown(KeyCode.LeftShift) && CanDodge())
         {
             Dodge();
@@ -34,7 +53,7 @@ public class CharacterDodge : CharacterComponent
         if (_IsDodging && _DodgeTimer <= _DodgeDuration)
         {
             _DodgeTimer += Time.deltaTime;
-        } 
+        }
         else if (_IsDodging)
         {
             StopDodge();
@@ -60,8 +79,12 @@ public class CharacterDodge : CharacterComponent
         _Character.IsLocked = true;
         _DodgeTimer = 0f;
         _CharacterAnimation.Dodge();
+        _TimeUntilInvunIsDone = Time.time + _TimeOfInvun;
+        _InvunActivate = true;
+        //_CharacterHealth.MakeInvun();
+        ChangeToRollLayer();
     }
-    
+
     private void StopDodge()
     {
         _Character.IsLocked = false;
@@ -75,16 +98,25 @@ public class CharacterDodge : CharacterComponent
 
     protected override void SetToDefault()
     {
-        _DodgeDistance = 500f;
+        //_DodgeDistance = 500f;
         _IsDodging = false;
 
         // matches dodge duration to length of dodge animation
         if (_CharacterAnimation.AnimationTimes.ContainsKey(CharacterAnimation.AnimationState.Dodge))
         {
             _DodgeDuration = _CharacterAnimation.AnimationTimes[CharacterAnimation.AnimationState.Dodge];
-        } else
+        }
+        else
         {
             Debug.LogWarning("CharacterDodge was unable to find Dodge Animation, default 0.5 Dodge Length assigned.");
         }
+    }
+
+    private void ChangeToRollLayer(){
+        gameObject.layer = 9;
+    }
+
+    private void ChangeBackToOriginalLayer(){
+        gameObject.layer = _OriginalLayer;
     }
 }

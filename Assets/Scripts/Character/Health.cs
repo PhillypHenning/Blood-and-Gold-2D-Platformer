@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     protected Collider2D _Collider2D;
 
     protected bool _IsAlive;
+    protected bool _Hitable = true;
 
     public bool IsAlive => _IsAlive;
     public float CurrentHealth => _CurrentHealth;
@@ -73,6 +74,8 @@ public class Health : MonoBehaviour
 
     public virtual void Damage(float amount)
     {
+        if(!_Hitable){ return; }
+
         float newHealth = _CurrentHealth - amount;
 
         if (newHealth <= 0)
@@ -99,5 +102,13 @@ public class Health : MonoBehaviour
     public virtual void TimedIncreaseHealth(float amount, float time)
     {
 
+    }
+
+    public virtual void MakeInvun(){
+        _Hitable = false;
+    }
+
+    public virtual void TurnOffMakeInvun(){
+        _Hitable = true;
     }
 }

@@ -52,7 +52,7 @@ public class CharacterHealth : Health
 
     public override void Damage(float amount)
     {
-
+        if(!_Hitable) { return; }
         if (!_Damagable) { return; }
 
         base.Damage(amount);
@@ -95,4 +95,5 @@ public class CharacterHealth : Health
         if (_Character.CharacterType == Character.CharacterTypes.AI || _PlayerLives == null) { return; }
         _PlayerLives.UpdateLives((int)_CurrentHealth / 10);
     }
+    
 }
