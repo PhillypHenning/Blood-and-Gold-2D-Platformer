@@ -7,17 +7,21 @@ public class ParallaxManager : MonoBehaviour
     public int _SetNumber = 0;
 
     // Get the children of the background set
-    private GameObject _Background; 
-    private GameObject _MiddleBackground; 
-    private GameObject _MiddleForeground; 
-    private GameObject _Foreground; 
+    private GameObject _Background;
+    private GameObject _MiddleBackground;
+    private GameObject _MiddleForeground;
+    private GameObject _Foreground;
 
     private Parallax _BackgroundParallax;
     private Parallax _MiddleBackgroundParallax;
     private Parallax _MiddleForegroundParallax;
     private Parallax _ForegroundParallax;
 
-    private void Start() {
+    private GameObject _TargetGameObject;
+    private Character _Target;
+
+    private void Start()
+    {
         _Background = GameObject.Find("Background " + _SetNumber);
         _MiddleBackground = GameObject.Find("BackMidGround " + _SetNumber);
         _MiddleForeground = GameObject.Find("FrontMidGround " + _SetNumber);
@@ -29,8 +33,20 @@ public class ParallaxManager : MonoBehaviour
         _ForegroundParallax = _Foreground.GetComponent<Parallax>();
     }
 
+    void Update()
+    {
+        if (_Target != null)
+        {
+            if (!_Target.IsIntro)
+            {
+                Debug.Log("Intro Over");
+            }
+        }
+    }
 
-    public void ResetParallaxSetLocation(Transform transform){
+
+    public void ResetParallaxSetLocation(Transform transform)
+    {
         _BackgroundParallax.ResetMapPosition(transform);
         _MiddleBackgroundParallax.ResetMapPosition(transform);
         _MiddleForegroundParallax.ResetMapPosition(transform);

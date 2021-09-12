@@ -65,6 +65,12 @@ public class Parallax : MonoBehaviour
             _AltBucketName = "Background Set 1";
             _AltNum = 1;
         }
+        else if (_MapBucket.name == "Background Set 3")
+        {
+            Debug.Log("check23");
+            _AltBucketName = "Background Set 1";
+            _AltNum = 1;
+        }
         _AltMapBucket = GameObject.Find(_AltBucketName);
         var goname = this.name.Remove(this.name.Length - 1);
         

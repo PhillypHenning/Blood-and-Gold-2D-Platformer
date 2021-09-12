@@ -11,6 +11,6 @@ public class ShotgunAltAttack : AIAction
     }
 
     private void AltAttack(StateController controller){
-        controller._MiniBossAltAttack.MinibossAltAttackAction();
+        controller._MiniBossAltAttack.MinibossAltAttackAction(controller._Target);
     }
 }

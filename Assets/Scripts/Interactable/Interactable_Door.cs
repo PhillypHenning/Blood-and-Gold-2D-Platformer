@@ -14,6 +14,8 @@ public class Interactable_Door : Interactable
     private GameObject _EnvironmentManagerGameObject;
     [SerializeField] private bool _ForcedEntry = false;
     [SerializeField] private bool _ExitOnly = false;
+    [SerializeField] private bool _IsIntroDoor = false;
+    
 
     protected override void Start()
     {
@@ -39,6 +41,13 @@ public class Interactable_Door : Interactable
             UpdateMessage("Door is locked. Obtain " + _RequiredItem.ToString() + " to proceed.");
             return;
         }
+
+        if(_IsIntroDoor){
+            // 
+            _Character.IsIntro = false;
+            _EnvironmentManager.ActivateBuckets();
+        }
+
         RemoveVisualQue();
         StartCoroutine(RelocatePlayer());
     }

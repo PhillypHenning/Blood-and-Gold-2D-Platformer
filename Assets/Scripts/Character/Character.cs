@@ -17,6 +17,7 @@ public class Character : MonoBehaviour
     public bool IsMoving { get => _IsMoving; set => _IsMoving = value; }
     public bool FacingRight { get => _FacingRight; set => _FacingRight = value; }
     public bool Actionable { get => _Actionable; set => _Actionable = value; }
+    public bool IsIntro = true;
 
 
     // TODO: use character types to determine default stats (like movementspeed)

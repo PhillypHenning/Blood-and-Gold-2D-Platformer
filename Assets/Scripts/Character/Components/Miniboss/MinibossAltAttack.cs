@@ -9,57 +9,71 @@ public class MinibossAltAttack : CharacterComponent
     private float _TimeUntilNextAltAttack = 0;
     private float _TimeBetweenAttacks = 10f;
 
+    private float _TimeToCompleteAttack = 5f;
+    private float _TimeUntilAttackIsComplete = 0;
+
+    private Transform _Target;
+
     protected override void Start()
     {
         base.Start();
         Actionable = true;
         Attacking = false;
-       //_TimeUntilNextAttack = 0;
+        //_TimeUntilNextAttack = 0;
     }
 
     protected override void Update()
     {
         base.Update();
-        if(Time.time > _TimeUntilNextAltAttack){
-            
+        if (Time.time > _TimeUntilNextAltAttack)
+        {
+
             Actionable = true;
         }
 
     }
 
-    public void MinibossAltAttackAction(){
+    public void MinibossAltAttackAction(Transform target)
+    {
         // Start animation?
 
         // Start Coroutine to keep character in spot while attacking
         //StartCoroutine(AltAttack());
         //_CharacterMovement.SetHorizontal(0);
         //_CharacterJump.TriggerJump();
+        
+        // Target player
+        if(_Target == null){
+            _Target = target;
+        }
 
-        _Character.IsLocked = true;
-        Attacking = true;
-        Actionable = false;
+        if(!Attacking){
+            _Character.IsLocked = true;
+            Attacking = true;
+            Actionable = false;
 
-        _TimeUntilNextAltAttack = Time.time + _TimeBetweenAttacks;
-        // Whatever actions go here
-        Debug.Log("Alt attack");
+            _TimeUntilNextAltAttack = Time.time + _TimeBetweenAttacks;
+            _TimeUntilAttackIsComplete = Time.time + _TimeToCompleteAttack;
+            
+            
+            // Cas and Weston place effects here
+            //Debug.Log("Alt attack Started");
+            
+            // Put crosshair on character
+            
 
 
-        _Character.IsLocked = false;
-        Attacking = false;
+            // wait "first length time"
+            // Initiate attack
+            // Finish attack
+        }
+        Debug.Log("Alt attacking");
+        if (Time.time > _TimeUntilAttackIsComplete)
+        {
+            _Character.IsLocked = false;
+            Attacking = false;
+            Debug.Log("Alt attack complete");
+        }
 
-    }
-
-    IEnumerator AltAttack(){
-        _Character.IsLocked = true;
-        Attacking = true;
-        Actionable = false;
-        Debug.Log("Alt Attack");
-        yield return new WaitForSeconds(5);
-        _Character.IsLocked = false;
-        Attacking = false;
-        Debug.Log("Alt Attack Done");
-        yield return new WaitForSeconds(15);
-        Actionable = true;
-        Debug.Log("Alt Attack Useable again");
     }
 }
