@@ -42,7 +42,7 @@ public class CharacterHealth : Health
 
         UpdateLivesUI();
 
-        if (_CharacterAnimation == null) return;
+        if (_CharacterAnimation == null || !_Character.IsAlive) return;
         _CharacterAnimation.Hurt();
     }
 
