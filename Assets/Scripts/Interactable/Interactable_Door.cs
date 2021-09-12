@@ -81,7 +81,7 @@ public class Interactable_Door : Interactable
         player.transform.position = _Target.position;
 
         // Reset the background to the players position
-        _EnvironmentManager.ResetParallaxToNewPosition(player.transform);
+        //_EnvironmentManager.ResetParallaxToNewPosition(player.transform);
 
         // Add music here Cas
 
