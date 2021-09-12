@@ -7,6 +7,7 @@ public class CharacterWeapon : CharacterComponent
     [Header("Weapon Settings")]
     // TODO: Update to use programmatic solution over Unity setting. [_WeaponToUse]
     [SerializeField] private Weapon _PrimaryWeapon;
+    //[SerializeField] private Weapon _AltAttackWeapon;
     [SerializeField] private Transform _WeaponHolderPosition;
 
     private WeaponHolder _WeaponHolder;
@@ -23,6 +24,9 @@ public class CharacterWeapon : CharacterComponent
         base.Start();
         EquipWeapon(_PrimaryWeapon, _WeaponHolderPosition);
         _WeaponHolder = GetComponentInChildren<WeaponHolder>();
+        //if(_AltAttackWeapon != null){
+        //    _SecondaryWeapon = _AltAttackWeapon;
+        // }
     }
 
     protected override void FixedUpdate()
@@ -171,7 +175,7 @@ public class CharacterWeapon : CharacterComponent
         }
     }
 
-    private void SwapWeapons()
+    public void SwapWeapons()
     {
         if (_CurrentWeapon.WeaponName == _PrimaryWeapon.WeaponName)
         {

@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf70055bf4672d419816a6a5d33c355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CharacterMaxHealth: 15
+  _CharacterMaxHealth: 10
   _PlayerLives: {fileID: 0}
 --- !u!114 &2785896071529441798
 MonoBehaviour:

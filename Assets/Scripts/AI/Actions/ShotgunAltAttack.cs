@@ -11,6 +11,14 @@ public class ShotgunAltAttack : AIAction
     }
 
     private void AltAttack(StateController controller){
+        // Look towards Player
+        if(controller._Character.FacingRight && controller.transform.position.x > controller._Target.position.x){
+            controller._CharacterFlip.FlipCharacter();
+        }
+        else if(!controller._Character.FacingRight && controller.transform.position.x < controller._Target.position.x){
+            controller._CharacterFlip.FlipCharacter();
+        }
+        
         controller._MiniBossAltAttack.MinibossAltAttackAction(controller._Target);
     }
 }

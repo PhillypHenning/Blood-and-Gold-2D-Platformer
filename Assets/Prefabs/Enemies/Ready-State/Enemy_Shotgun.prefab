@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3345af1cdea05a242b56f47a89a3f196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsAlive: 1
   IsIntro: 1
   _CharacterType: 1
   _CharacterSprite: {fileID: 6986989797633577208}
@@ -139,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf70055bf4672d419816a6a5d33c355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CharacterMaxHealth: 120
+  _CharacterMaxHealth: 80
   _PlayerLives: {fileID: 0}
 --- !u!114 &6986989796918211621
 MonoBehaviour:
@@ -207,6 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Actionable: 0
   Attacking: 0
+  _WeaponToUse: {fileID: 6199886841864414671, guid: 8715dd1cd35f71349867d759a9ae0f65, type: 3}
 --- !u!1 &6986989797631204213
 GameObject:
   m_ObjectHideFlags: 0

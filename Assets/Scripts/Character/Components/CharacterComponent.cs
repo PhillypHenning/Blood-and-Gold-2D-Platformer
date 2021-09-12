@@ -13,6 +13,7 @@ public class CharacterComponent : MonoBehaviour
     protected CharacterAnimation _CharacterAnimation;
     protected InventoryManager _InventoryManager;
     protected CharacterFlip _CharacterFlip;
+    protected CharacterWeapon _CharacterWeapon;
 
     // Gameobject Unity components
     protected bool _HandleInput = true;
@@ -29,6 +30,7 @@ public class CharacterComponent : MonoBehaviour
         _CharacterAnimation = GetComponent<CharacterAnimation>();
         _InventoryManager = GetComponent<InventoryManager>();
         _CharacterFlip = GetComponent<CharacterFlip>();
+        _CharacterWeapon = GetComponent<CharacterWeapon>();
     }
 
     // Update is called once per frame
