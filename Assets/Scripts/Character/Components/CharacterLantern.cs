@@ -130,7 +130,7 @@ public class CharacterLantern : CharacterComponent
 
     protected override void SetToDefault()
     {
-        _IsLanternOn = true;
+        _IsLanternOn = false;
         _InnerRadiusThreshold = DEFAULT_INNER_RADIUS;
         _OuterRadiusThreshold = DEFAULT_OUTER_RADIUS;
         _FlickerMax = MAX_INTENSITY;

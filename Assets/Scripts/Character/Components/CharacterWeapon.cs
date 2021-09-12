@@ -44,6 +44,7 @@ public class CharacterWeapon : CharacterComponent
             if(_Character.CharacterType == Character.CharacterTypes.AI){
                 //_CurrentWeapon.Destroy();
                 // Find GameObject "Weapon Holder" 
+                if (_WeaponHolder == null) return;
                 _WeaponHolder.DestroyWeaponsHeld();
             }
         }

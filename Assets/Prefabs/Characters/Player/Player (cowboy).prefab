@@ -58,8 +58,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 2
-  m_PointLightOuterRadius: 8
+  m_PointLightInnerRadius: 0.5
+  m_PointLightOuterRadius: 2
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3345af1cdea05a242b56f47a89a3f196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsIntro: 1
   _CharacterType: 0
   _CharacterSprite: {fileID: 8995608707729878583}
 --- !u!114 &8995608706561558845
@@ -421,6 +422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8995608707578965573}
+  - component: {fileID: 426343314}
   m_Layer: 7
   m_Name: WeaponHolder
   m_TagString: Untagged
@@ -442,6 +444,18 @@ Transform:
   m_Father: {fileID: 8995608706561558835}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &426343314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8995608707578965562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e86a9c79a42c044a6c7c6f032db52b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8995608707729878583
 GameObject:
   m_ObjectHideFlags: 0

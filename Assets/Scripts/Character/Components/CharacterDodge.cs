@@ -49,7 +49,7 @@ public class CharacterDodge : CharacterComponent
             // total % how far along the dodge is in % multiplied by the distance of dodge
             // this will apply more force at the start and less near its completion
             float dodgeForce = (1 - (_DodgeTimer / _DodgeDuration)) * _DodgeDistance;
-            _Character.RigidBody2D.AddForce(new Vector2(dodgeForce * _CharacterMovement.HorizontalMovement, 0), ForceMode2D.Impulse);
+            _Character.RigidBody2D.AddForce(new Vector2(dodgeForce * (_Character.FacingRight ? 1 : -1), 0), ForceMode2D.Impulse);
         }
     }
 
@@ -75,7 +75,7 @@ public class CharacterDodge : CharacterComponent
 
     protected override void SetToDefault()
     {
-        _DodgeDistance = 200f;
+        _DodgeDistance = 500f;
         _IsDodging = false;
 
         // matches dodge duration to length of dodge animation
