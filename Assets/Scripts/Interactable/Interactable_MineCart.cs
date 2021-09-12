@@ -49,7 +49,7 @@ public class Interactable_MineCart : Interactable
         //player.IsLocked = true;
 
         player.transform.position = _Target.transform.position;
-        player.IsLocked = false;
+        player.IsLocked = true;
         _Target.LockPlayerIn();
     }
 
