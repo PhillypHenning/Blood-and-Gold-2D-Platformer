@@ -37,7 +37,6 @@ public class EnvironmentManager : MonoBehaviour
     }
 
     public void ActivateBuckets(){
-        Debug.Log("Check");
         _BackgroundSet1.SetActive(true);
         _BackgroundSet2.SetActive(true);
     }

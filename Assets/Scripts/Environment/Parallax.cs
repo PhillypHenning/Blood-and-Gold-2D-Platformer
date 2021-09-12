@@ -67,7 +67,6 @@ public class Parallax : MonoBehaviour
         }
         else if (_MapBucket.name == "Background Set 3")
         {
-            Debug.Log("check23");
             _AltBucketName = "Background Set 1";
             _AltNum = 1;
         }
