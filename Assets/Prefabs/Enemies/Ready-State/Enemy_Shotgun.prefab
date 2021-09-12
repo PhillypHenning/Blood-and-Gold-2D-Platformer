@@ -94,7 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3345af1cdea05a242b56f47a89a3f196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _StartDirectionRight: 1
   IsAlive: 1
   IsIntro: 1
   _HasIntro: 0
@@ -144,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf70055bf4672d419816a6a5d33c355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CharacterMaxHealth: 80
+  _CharacterMaxHealth: 10
   _PlayerLives: {fileID: 0}
 --- !u!114 &6986989796918211621
 MonoBehaviour:
