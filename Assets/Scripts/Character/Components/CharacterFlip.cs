@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterFlip : CharacterComponent
 {
     private GameObject _WeaponHolder;
+    [SerializeField] private bool _StartsRight = true;
 
     protected override void Start()
     {
@@ -17,6 +18,10 @@ public class CharacterFlip : CharacterComponent
         var findItem = ExtendedGameObjSingleton.GetChildWithName(this.gameObject, "WeaponHolder");
         if(findItem != null){
            _WeaponHolder = findItem;
+        }
+
+        if(!_StartsRight){
+            FlipCharacter();
         }
     }
 
