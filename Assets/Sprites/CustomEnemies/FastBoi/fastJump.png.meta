@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: cc8e0b74ed927ec438589760a6d10083
+guid: f20b19d30d8c66847a72a76c86180346
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2922424895111597659
-    second: fastIdle_0
+      213: 4778673292187209655
+    second: fastJump_0
   - first:
-      213: 5674327198419882475
-    second: fastIdle_1
+      213: 7745030258639131736
+    second: fastJump_1
   - first:
-      213: 5141857613839879150
-    second: fastIdle_2
+      213: -2034751760295407886
+    second: fastJump_2
   - first:
-      213: 1624017346101317716
-    second: fastIdle_3
+      213: 5543168064024561851
+    second: fastJump_3
   - first:
-      213: 1193931979615102682
-    second: fastIdle_4
+      213: 5089298619468171156
+    second: fastJump_4
   - first:
-      213: -4406940824361138257
-    second: fastIdle_5
+      213: 8605860919325324349
+    second: fastJump_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fastIdle_0
+      name: fastJump_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 25
+        y: 47
+        width: 87
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,20 +123,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5e82eb55f98e8820800000000000000
-      internalID: 2922424895111597659
+      spriteID: 7bf077e6a02415240800000000000000
+      internalID: 4778673292187209655
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fastIdle_1
+      name: fastJump_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
+        x: 162
+        y: 47
+        width: 68
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,20 +144,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be19729e5824fbe40800000000000000
-      internalID: 5674327198419882475
+      spriteID: 85456dc3cffdb7b60800000000000000
+      internalID: 7745030258639131736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fastIdle_2
+      name: fastJump_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
+        x: 291
+        y: 46
+        width: 76
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,20 +165,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eeb409ec14c8b5740800000000000000
-      internalID: 5141857613839879150
+      spriteID: 2fecd79fd0c13c3e0800000000000000
+      internalID: -2034751760295407886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fastIdle_3
+      name: fastJump_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
+        x: 424
+        y: 47
+        width: 59
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,20 +186,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 450117ffb2ba98610800000000000000
-      internalID: 1624017346101317716
+      spriteID: bb8497a3cf94dec40800000000000000
+      internalID: 5543168064024561851
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fastIdle_4
+      name: fastJump_4
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
+        x: 547
+        y: 46
+        width: 76
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,20 +207,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad6efea4fc2b19010800000000000000
-      internalID: 1193931979615102682
+      spriteID: 49749415122d0a640800000000000000
+      internalID: 5089298619468171156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fastIdle_5
+      name: fastJump_5
       rect:
         serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 64
+        x: 674
+        y: 47
+        width: 68
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,8 +228,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa789c15ba667d2c0800000000000000
-      internalID: -4406940824361138257
+      spriteID: d347dca09e82e6770800000000000000
+      internalID: 8605860919325324349
       vertices: []
       indices: 
       edges: []
