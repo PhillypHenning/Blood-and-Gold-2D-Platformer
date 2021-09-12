@@ -11,8 +11,8 @@ public class DecideMeleeAttackAgain : AIDecision
     }
 
     private bool MeleeAttackAgain(StateController controller){
+        // TODO: (maybe) check if character is alive 
         if(!controller._CharacterWeapon._CurrentWeapon.IsAttacking){
-            Debug.Log("I am Attacking");
 
             return true;
         }

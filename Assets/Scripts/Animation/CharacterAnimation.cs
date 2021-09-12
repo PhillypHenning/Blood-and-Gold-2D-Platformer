@@ -212,7 +212,7 @@ public class CharacterAnimation : MonoBehaviour
     public void Die()
     {
         _IsDead = true;
-        // if character is player and IsGround = false, play death with no shadow
+
         if (_Character.CharacterType == Character.CharacterTypes.Player && !_Character.IsGrounded)
         {
             ChangeAnimationState(AnimationState.DeathNoShadow, AnimationType.Priority); 

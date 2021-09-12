@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 6986989796918211618}
   - component: {fileID: 6986989796918211619}
   - component: {fileID: 6986989796918211616}
+  - component: {fileID: 1202181807}
   m_Layer: 8
   m_Name: Enemy_Shotgun
   m_TagString: Enemy
@@ -77,7 +78,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2, y: 1.25}
+  m_Offset: {x: -0.08, y: 1.25}
   m_Size: {x: 1.4, y: 2.4}
   m_Direction: 0
 --- !u!114 &6986989796918211625
@@ -92,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3345af1cdea05a242b56f47a89a3f196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsIntro: 1
   _CharacterType: 1
   _CharacterSprite: {fileID: 6986989797633577208}
 --- !u!114 &6986989796918211622
@@ -191,6 +193,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: ca162cb801b9f1046b68a61c04617d99, type: 2}
   remainState: {fileID: 11400000, guid: 4e3600b7d70eb944fa903eb6dbd89920, type: 2}
+--- !u!114 &1202181807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6986989796918211617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ee0ce0821b9054fa606b13d0225ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Actionable: 0
+  Attacking: 0
 --- !u!1 &6986989797631204213
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,6 +403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6986989797767746777}
+  - component: {fileID: 1557753419}
   m_Layer: 8
   m_Name: WeaponHolder
   m_TagString: Untagged
@@ -408,3 +425,15 @@ Transform:
   m_Father: {fileID: 6986989796918211626}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1557753419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6986989797767746774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e86a9c79a42c044a6c7c6f032db52b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
