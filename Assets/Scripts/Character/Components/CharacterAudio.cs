@@ -8,6 +8,7 @@ public class CharacterAudio : MonoBehaviour
     FMOD.Studio.EventInstance Jump;
     FMOD.Studio.EventInstance Land;
     FMOD.Studio.EventInstance Hurt;
+    FMOD.Studio.EventInstance Die;
 
     void Start()
     {
@@ -15,6 +16,7 @@ public class CharacterAudio : MonoBehaviour
         Jump = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Player_Character/Player_Jump");
         Land = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Player_Character/Player_Land");
         Hurt = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Player_Character/Player_Take_Damage");
+        Die = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Player_Character/Player_Death");
     }
     void PlayerFootsteps()
     {
@@ -36,11 +38,18 @@ public class CharacterAudio : MonoBehaviour
         Hurt.start();
     }
 
+    void PlayerDie()
+    {
+        Die.start();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Music/Death_Sting");
+    }
+
     void OnDestroy()
     {
         Footsteps.release();
         Jump.release();
         Land.release();
         Hurt.release();
+        Die.release();
     }
 }
