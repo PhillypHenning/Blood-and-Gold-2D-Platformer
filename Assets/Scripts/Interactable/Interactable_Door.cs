@@ -50,7 +50,7 @@ public class Interactable_Door : Interactable
         if(_IsIntroDoor){
             // 
             _Character.IsIntro = false;
-            _EnvironmentManager.ActivateBuckets();
+            //_EnvironmentManager.ActivateBuckets();
         }
 
         RemoveVisualQue();
