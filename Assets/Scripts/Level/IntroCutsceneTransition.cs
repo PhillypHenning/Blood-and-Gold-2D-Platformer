@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class IntroCutsceneTransition : MonoBehaviour
 {
-
+    FMOD.Studio.EventInstance Reverb;
+    FMOD.Studio.EventInstance BGAudio;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Reverb = FMODUnity.RuntimeManager.CreateInstance("snapshot:/Cave_Verb");
+        BGAudio = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Environment/BGAudio");
+        BGAudio.start();
+        BGAudio.release();
     }
 
     // Update is called once per frame
@@ -22,6 +26,8 @@ public class IntroCutsceneTransition : MonoBehaviour
     {
         if(other.tag == "Player"){
             other.GetComponent<Character>().IsIntro = false;
+            Reverb.start();
+            BGAudio.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
 }
