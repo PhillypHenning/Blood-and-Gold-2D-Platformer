@@ -22,8 +22,10 @@ public class DecideToJump : AIDecision
         if (_TargetCollider != null && controller._CharacterJump.CharacterCanJump)
         {   
             controller._Target = _TargetCollider.transform;
-            controller._CharacterJump.TriggerJump();
+            //controller._CharacterJump.TriggerJump();
             return true;
+        }else if(_TargetCollider != null){
+            controller._Target = _TargetCollider.transform;
         }
         return false;
     }

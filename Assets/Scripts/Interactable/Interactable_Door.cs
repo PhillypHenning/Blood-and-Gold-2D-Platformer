@@ -69,6 +69,8 @@ public class Interactable_Door : Interactable
         // Reset the background to the players position
         _EnvironmentManager.ResetParallaxToNewPosition(player.transform);
 
+        // Add music here Cas
+
         yield return _Fader.FadeWait();
         yield return _Fader.FadeIn();
         player.IsLocked = false;

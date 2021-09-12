@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f89ea9f81b4201a45b1f62acaf369f3a, type: 3}
-  m_Name: WanderingMelee- MeleeRangeDetect
+  m_Script: {fileID: 11500000, guid: e9ffee5cacacce741b1539e7841c5704, type: 3}
+  m_Name: MinibossAltAttack
   m_EditorClassIdentifier: 
-  _MinDistanceToAttack: 10

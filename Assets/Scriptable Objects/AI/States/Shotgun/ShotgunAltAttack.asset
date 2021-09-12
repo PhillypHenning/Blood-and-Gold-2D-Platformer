@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4f9a166eaf4ab478ceac2cab3e5283, type: 3}
+  m_Name: ShotgunAltAttack
+  m_EditorClassIdentifier: 
+  _AIActions:
+  - {fileID: 11400000, guid: 23740ad6d4a35384092526f78e99cb89, type: 2}
+  _AITransitions:
+  - _Decision: {fileID: 11400000, guid: a3e5984cfe846f04b9734f971f211ab5, type: 2}
+    _TrueState: {fileID: 11400000, guid: ca162cb801b9f1046b68a61c04617d99, type: 2}
+    _FalseState: {fileID: 11400000, guid: 4e3600b7d70eb944fa903eb6dbd89920, type: 2}

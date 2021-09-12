@@ -61,6 +61,7 @@ public class CharacterHealth : Health
         }
 
         // Disable collision
+        // TODO: this tag does not exist, shield will still have collision..
         gameObject.layer = 9; // Changes layer to "Dead Body"
         if(gameObject.tag == "Enemy Shield"){
             _Collider2D.enabled = false;   

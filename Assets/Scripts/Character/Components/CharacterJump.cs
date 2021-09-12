@@ -18,6 +18,8 @@ public class CharacterJump : CharacterComponent
 
     public float VerticalTakeoff = 20f;
 
+    public bool JumpIfAble = false;
+
     // Jumping should disable all other CharacterAbilities.. unfortunately I'm not sure if there is a reliable way of knowing when a jump is complete..
     // If we make the variable based on simply standing on the ground that will effect every other ability since the character will likely be standing on the ground. 
     // TODO: Find a reliable way to know when the character is moving? I was thinking by having a floating y value, if it's moving then count the character in a jump motion?
@@ -44,6 +46,14 @@ public class CharacterJump : CharacterComponent
         if (!_HandleInput) { return; }
         if (Input.GetKeyDown(KeyCode.Space) && _CharacterCanJump && !_Character.IsLocked)
         {
+            Jump();
+        }
+    }
+
+    protected override void InternalInput()
+    {
+        base.InternalInput();
+        if(JumpIfAble && _CharacterCanJump && !_Character.IsLocked){
             Jump();
         }
     }

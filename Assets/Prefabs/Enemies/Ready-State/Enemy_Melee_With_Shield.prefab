@@ -227,6 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _HeightestJumpReached: 0
   VerticalTakeoff: 0
+  JumpIfAble: 0
 --- !u!114 &8938013466788285369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf70055bf4672d419816a6a5d33c355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CharacterMaxHealth: 50
+  _CharacterMaxHealth: 45
   _PlayerLives: {fileID: 0}
 --- !u!114 &8938013466788285368
 MonoBehaviour:
@@ -435,7 +436,7 @@ GameObject:
   - component: {fileID: 8938013466899152036}
   m_Layer: 12
   m_Name: Shield
-  m_TagString: Shield
+  m_TagString: Enemy Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -504,5 +505,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf70055bf4672d419816a6a5d33c355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CharacterMaxHealth: 50
+  _CharacterMaxHealth: 45
   _PlayerLives: {fileID: 0}
