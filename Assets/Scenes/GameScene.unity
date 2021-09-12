@@ -38064,6 +38064,10 @@ PrefabInstance:
       value: Door2_Room2
       objectReference: {fileID: 0}
     - target: {fileID: 4129262746807940170, guid: 23ea42bde08271d4fb2b230ccacbffae, type: 3}
+      propertyPath: _Target
+      value: 
+      objectReference: {fileID: 2029124114}
+    - target: {fileID: 4129262746807940170, guid: 23ea42bde08271d4fb2b230ccacbffae, type: 3}
       propertyPath: _IsLocked
       value: 1
       objectReference: {fileID: 0}
@@ -40046,6 +40050,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door1_BossRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 4129262746807940170, guid: 23ea42bde08271d4fb2b230ccacbffae, type: 3}
+      propertyPath: _Target
+      value: 
+      objectReference: {fileID: 1480614340}
     - target: {fileID: 4129262746807940170, guid: 23ea42bde08271d4fb2b230ccacbffae, type: 3}
       propertyPath: _ExitOnly
       value: 1

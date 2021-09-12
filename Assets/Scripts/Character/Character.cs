@@ -20,6 +20,7 @@ public class Character : MonoBehaviour
     public bool IsAlive = true;
     public bool IsIntro = true;
     public bool _HasIntro = false;
+    public bool _HasBossKey = false;
 
 
     // TODO: use character types to determine default stats (like movementspeed)

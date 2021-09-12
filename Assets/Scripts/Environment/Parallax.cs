@@ -182,8 +182,8 @@ public class Parallax : MonoBehaviour
         _StartPosition = transform.position;
         _ZPosStart = transform.position.z;
 
-        _MiddlePos = _SpriteRenderer.bounds.center;
-        _Radius = _SpriteRenderer.bounds.extents.magnitude;
+        //_MiddlePos = _SpriteRenderer.bounds.center;
+        //_Radius = _SpriteRenderer.bounds.extents.magnitude;
         _NextZoneLoaded = false;
     }
 

@@ -42,6 +42,11 @@ public class Interactable_Door : Interactable
             return;
         }
 
+        // if(!_Character._HasBossKey && _IsLocked){
+        //     UpdateMessage("Door is locked. Obtain " + _RequiredItem.ToString() + " to proceed.");
+        //     return;
+        // }
+
         if(_IsIntroDoor){
             // 
             _Character.IsIntro = false;
