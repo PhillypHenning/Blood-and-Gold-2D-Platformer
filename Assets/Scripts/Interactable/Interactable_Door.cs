@@ -50,6 +50,8 @@ public class Interactable_Door : Interactable
 
         RemoveVisualQue();
         StartCoroutine(RelocatePlayer());
+
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/Interactables/Door/Door_Open", gameObject);
     }
 
     private bool CheckForKeyItem()
