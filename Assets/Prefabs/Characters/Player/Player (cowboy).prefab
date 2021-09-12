@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 8995608706561558854}
   - component: {fileID: 2363233405784523064}
   - component: {fileID: 2363233405784523056}
+  - component: {fileID: 4363418999001675366}
   m_Layer: 7
   m_Name: Player (cowboy)
   m_TagString: Player
@@ -170,6 +171,7 @@ MonoBehaviour:
   IsAlive: 1
   IsIntro: 1
   _HasIntro: 0
+  _HasBossKey: 0
   _CharacterType: 0
   _CharacterSprite: {fileID: 8995608707729878583}
 --- !u!114 &8995608706561558845
@@ -295,6 +297,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876feee102c33384993054cd6b308071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4363418999001675366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8995608706561558832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b7c5069c95bbd4085e3d39692d53a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicEvent: event:/Music/Level_Music
 --- !u!1 &8995608707019104545
 GameObject:
   m_ObjectHideFlags: 0
