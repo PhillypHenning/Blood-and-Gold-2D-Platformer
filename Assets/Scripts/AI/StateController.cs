@@ -17,14 +17,15 @@ public class StateController : MonoBehaviour
     public Character _Character { get; set; }
     public MinibossAltAttack _MiniBossAltAttack  { get; set; }
 
-
-
     public Transform _Target { get; set; }
     public Path _Path { get; set; }
 
     public Collider2D _Collider2D { get; set; }
 
+    public bool Actionable { get; set; }
+
     private void Awake() {
+        Actionable = true;
         _CharacterMovement = GetComponent<CharacterMovement>();
         _CharacterWeapon = GetComponent<CharacterWeapon>();
         _CharacterJump = GetComponent<CharacterJump>();
@@ -37,7 +38,9 @@ public class StateController : MonoBehaviour
     }
 
     private void Update() {
-        currentState.EvaluateState(this);
+        if(Actionable){
+            currentState.EvaluateState(this);
+        }
     }
 
     public void TransitionToState(AIState nextState){

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4f9a166eaf4ab478ceac2cab3e5283, type: 3}
+  m_Name: WanderingMeleeDeathState
+  m_EditorClassIdentifier: 
+  _AIActions:
+  - {fileID: 11400000, guid: 6377f497d0f2c4249a1de83c88a99dfd, type: 2}
+  _AITransitions:
+  - _Decision: {fileID: 11400000, guid: a6f82a46b77a0264fbf68e2b24d3375f, type: 2}
+    _TrueState: {fileID: 11400000, guid: ad87781a3eecf04439b9a83f2f0948e8, type: 2}
+    _FalseState: {fileID: 11400000, guid: 4e3600b7d70eb944fa903eb6dbd89920, type: 2}

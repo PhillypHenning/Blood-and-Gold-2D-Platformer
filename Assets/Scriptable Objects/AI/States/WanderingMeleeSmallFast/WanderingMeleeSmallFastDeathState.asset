@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b4f9a166eaf4ab478ceac2cab3e5283, type: 3}
-  m_Name: WanderingMeleeIdle
+  m_Name: WanderingMeleeSmallFastDeathState
   m_EditorClassIdentifier: 
   _AIActions:
-  - {fileID: 11400000, guid: 2f562c30f51323941b192975483bccf0, type: 2}
+  - {fileID: 11400000, guid: 6377f497d0f2c4249a1de83c88a99dfd, type: 2}
   _AITransitions:
-  - _Decision: {fileID: 11400000, guid: 175713aa623409943bd457fb957d4714, type: 2}
-    _TrueState: {fileID: 11400000, guid: 928ed48976732f747b8a4d3f600457f4, type: 2}
-    _FalseState: {fileID: 11400000, guid: 4e3600b7d70eb944fa903eb6dbd89920, type: 2}
   - _Decision: {fileID: 11400000, guid: a6f82a46b77a0264fbf68e2b24d3375f, type: 2}
     _TrueState: {fileID: 11400000, guid: 4e3600b7d70eb944fa903eb6dbd89920, type: 2}
-    _FalseState: {fileID: 11400000, guid: 60ff2de73f938ee4fb093b2886db08c3, type: 2}
+    _FalseState: {fileID: 11400000, guid: a9654288bf85f4b40a0587a19cc972f3, type: 2}

@@ -119,9 +119,7 @@ public class CharacterJump : CharacterComponent
 
         if (other.tag == "Platform-Jump")
         {
-            Debug.Log("Jump = " + _CharacterCanJump);
             _CharacterCanJump = true;
-            Debug.Log("Jump = " + _CharacterCanJump);
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Player_Land");
         }
 

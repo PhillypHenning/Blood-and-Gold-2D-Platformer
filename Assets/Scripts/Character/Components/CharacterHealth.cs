@@ -58,14 +58,15 @@ public class CharacterHealth : Health
         base.Die();
         if(_Character != null){
             _Character.IsLocked = true;
+            _Character.IsAlive = false;
+            _Character.Actionable = false;
         }
-
         gameObject.layer = 9; // Changes layer to "Dead Body"
+        _Damagable = false;
 
         if (_CharacterAnimation == null) return;
         _CharacterAnimation.Die();
         base.Die();
-        _Damagable = false;
     }
 
     private void UpdateLivesUI()

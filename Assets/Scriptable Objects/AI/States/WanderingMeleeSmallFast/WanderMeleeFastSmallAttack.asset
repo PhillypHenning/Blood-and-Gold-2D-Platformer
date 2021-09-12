@@ -21,3 +21,6 @@ MonoBehaviour:
   - _Decision: {fileID: 11400000, guid: 4c37f37d8dd727043bc3dce0cd5b4df8, type: 2}
     _TrueState: {fileID: 11400000, guid: 4e3600b7d70eb944fa903eb6dbd89920, type: 2}
     _FalseState: {fileID: 11400000, guid: a9654288bf85f4b40a0587a19cc972f3, type: 2}
+  - _Decision: {fileID: 11400000, guid: a6f82a46b77a0264fbf68e2b24d3375f, type: 2}
+    _TrueState: {fileID: 11400000, guid: 4e3600b7d70eb944fa903eb6dbd89920, type: 2}
+    _FalseState: {fileID: 11400000, guid: 10e2f19e44f272448893c645ea356de4, type: 2}

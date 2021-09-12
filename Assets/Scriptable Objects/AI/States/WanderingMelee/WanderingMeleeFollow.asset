@@ -15,9 +15,12 @@ MonoBehaviour:
   _AIActions:
   - {fileID: 11400000, guid: e40bb112334bba342a500b85fb91a723, type: 2}
   _AITransitions:
-  - _Decision: {fileID: 11400000, guid: ba77acdb8fe82ea429069bd2cf7c3cf1, type: 2}
+  - _Decision: {fileID: 11400000, guid: 175713aa623409943bd457fb957d4714, type: 2}
     _TrueState: {fileID: 11400000, guid: 4e3600b7d70eb944fa903eb6dbd89920, type: 2}
     _FalseState: {fileID: 11400000, guid: ad87781a3eecf04439b9a83f2f0948e8, type: 2}
   - _Decision: {fileID: 11400000, guid: 4c37f37d8dd727043bc3dce0cd5b4df8, type: 2}
     _TrueState: {fileID: 11400000, guid: 9b486d627c234e746956b2157ff85fe5, type: 2}
     _FalseState: {fileID: 11400000, guid: 4e3600b7d70eb944fa903eb6dbd89920, type: 2}
+  - _Decision: {fileID: 11400000, guid: a6f82a46b77a0264fbf68e2b24d3375f, type: 2}
+    _TrueState: {fileID: 11400000, guid: 4e3600b7d70eb944fa903eb6dbd89920, type: 2}
+    _FalseState: {fileID: 11400000, guid: 60ff2de73f938ee4fb093b2886db08c3, type: 2}
