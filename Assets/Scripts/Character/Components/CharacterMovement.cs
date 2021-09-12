@@ -28,10 +28,11 @@ public class CharacterMovement : CharacterComponent
             Physics2D.IgnoreLayerCollision(7, 8); // <--  ignore collision with "Enemies"
         }
 
-        else if(_Character.CharacterType == Character.CharacterTypes.AI){
+        else if(_Character.CharacterType == Character.CharacterTypes.AI){ // TODO ADD OTHER AI ENEMIES
             Physics2D.IgnoreLayerCollision(8, 8);
             Physics2D.IgnoreLayerCollision(8, 10); // <--  ignore collision with "Enemy Shield"
             Physics2D.IgnoreLayerCollision(8, 12);
+            Physics2D.IgnoreLayerCollision(8, 14);
         }
     }
 

@@ -8,7 +8,10 @@ public class CharacterHealth : Health
     private CharacterAnimation _CharacterAnimation;
     private Character _Character;
     [SerializeField] private Lives _PlayerLives;
-    
+    private float _TimeUntilDespawn = 0;
+    private float _TimeBetweenDespawn = 3f;
+    private bool _Despawn = false;
+
     public bool _Damagable { get; set; }
 
     protected override void SetToDefault()
@@ -23,7 +26,21 @@ public class CharacterHealth : Health
         Physics2D.IgnoreLayerCollision(8, 9);  // "Enemy" layer ignores "Dead Body" layer
         base.SetToDefault();
     }
-    
+
+    protected override void Update()
+    {
+        base.Update();
+        if(_Despawn && Time.time > _TimeUntilDespawn){
+            // Disable all child objects
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                var child = transform.GetChild(i).gameObject;
+                if (child != null)
+                    child.SetActive(false);
+            }
+        }
+    }
+
     protected override void HandleInput()
     {
         base.HandleInput();
@@ -35,8 +52,8 @@ public class CharacterHealth : Health
 
     public override void Damage(float amount)
     {
-        
-        if(!_Damagable){ return; }
+
+        if (!_Damagable) { return; }
 
         base.Damage(amount);
 
@@ -56,10 +73,13 @@ public class CharacterHealth : Health
     protected override void Die()
     {
         base.Die();
-        if(_Character != null){
+        if (_Character != null)
+        {
             _Character.IsLocked = true;
             _Character.IsAlive = false;
             _Character.Actionable = false;
+            _TimeUntilDespawn = Time.time + _TimeBetweenDespawn;
+            _Despawn = true;
         }
         gameObject.layer = 9; // Changes layer to "Dead Body"
         _Damagable = false;
@@ -71,8 +91,8 @@ public class CharacterHealth : Health
 
     private void UpdateLivesUI()
     {
-        if(_Character == null){return;}
-        if (_Character.CharacterType == Character.CharacterTypes.AI || _PlayerLives == null) {return;}
+        if (_Character == null) { return; }
+        if (_Character.CharacterType == Character.CharacterTypes.AI || _PlayerLives == null) { return; }
         _PlayerLives.UpdateLives((int)_CurrentHealth / 10);
     }
 }

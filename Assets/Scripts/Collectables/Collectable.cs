@@ -11,6 +11,7 @@ public class Collectable : MonoBehaviour
     // GameObject Colliding
     protected Character _Character;
     protected GameObject _CollidingGameObject;
+    protected CharacterLantern _CharacterLantern;
 
     [Header("Settings")]
     [SerializeField] private bool _DestroyItemOnPickUp = true;
@@ -19,6 +20,7 @@ public class Collectable : MonoBehaviour
         
         _SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _Collider2D = GetComponent<Collider2D>();
+        _CharacterLantern = GetComponent<CharacterLantern>();
 
     }
 
@@ -40,7 +42,7 @@ public class Collectable : MonoBehaviour
                 _SpriteRenderer.enabled = false;
                 _Collider2D.enabled = false;
             }
-        }        
+        }      
     }
 
     protected virtual void DestroySelf()

@@ -29,7 +29,8 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
-        Physics2D.IgnoreLayerCollision(10, 11); // <-- Projectile ignore collision with "Not Hitables"
+        Physics2D.IgnoreLayerCollision(11, 9);
+        Physics2D.IgnoreLayerCollision(11, 10); // <-- Projectile ignore collision with "Not Hitables"
         Physics2D.IgnoreLayerCollision(11, 11);
     }
 
