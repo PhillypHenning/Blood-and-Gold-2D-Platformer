@@ -18,6 +18,7 @@ TagManager:
   - Enemy Wall
   - Sconce
   - Enemy Shield
+  - IntroDoor
   - Enemy  Ignore
   - DodgeRoll
   layers:
