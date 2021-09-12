@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4430191700488058706}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.066, y: 0.185, z: 0}
+  m_LocalPosition: {x: 1.819, y: 0.178, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3444428115995217870}
@@ -80,6 +80,11 @@ MonoBehaviour:
   _TimeBetweenShots: 0.5
   _TimeBetweenReloads: 0.5
   _MaxMagazineSize: 2
+  _UsesBullets: 1
+  _WeaponAnimationManager: {fileID: 0}
+  _Actionable: 1
+  _IsEmpty: 0
+  _TimeModifier: 1
 --- !u!114 &3220438544648302066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8322733785164123350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.155, y: 0.005, z: 0}
+  m_LocalPosition: {x: 0.93, y: 0.005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3444428115995217870}

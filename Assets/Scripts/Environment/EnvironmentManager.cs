@@ -20,6 +20,9 @@ public class EnvironmentManager : MonoBehaviour
 
         _BackgroundSet1ParallaxManager = _BackgroundSet1.GetComponent<ParallaxManager>();
         _BackgroundSet2ParallaxManager = _BackgroundSet2.GetComponent<ParallaxManager>();
+
+        _BackgroundSet1.SetActive(false);
+        _BackgroundSet2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,5 +34,11 @@ public class EnvironmentManager : MonoBehaviour
     public void ResetParallaxToNewPosition(Transform transform){
         _BackgroundSet1ParallaxManager.ResetParallaxSetLocation(transform);
         _BackgroundSet2ParallaxManager.ResetParallaxSetLocation(transform);
+    }
+
+    public void ActivateBuckets(){
+        Debug.Log("Check");
+        _BackgroundSet1.SetActive(true);
+        _BackgroundSet2.SetActive(true);
     }
 }
