@@ -63,7 +63,7 @@ public class Collectable : MonoBehaviour
 
     protected virtual void PickUp(){
         // --- Basic Empty Function -- \\
-
+        
     }
 
     protected virtual void SetReferences(GameObject gameObject){
