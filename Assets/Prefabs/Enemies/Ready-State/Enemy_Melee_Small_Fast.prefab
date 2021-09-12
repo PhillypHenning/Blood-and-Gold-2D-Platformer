@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _MovementSpeed: 0
-  _DefaultMovementSpeed: 350
+  _DefaultMovementSpeed: 175
   _MovementSurpressed: 0
   _SlidingMovement: 0
 --- !u!114 &2785896071529441816

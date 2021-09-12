@@ -355,6 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3345af1cdea05a242b56f47a89a3f196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _StartDirectionRight: 1
   IsAlive: 1
   IsIntro: 1
   _CharacterType: 1
@@ -372,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _MovementSpeed: 0
-  _DefaultMovementSpeed: 350
+  _DefaultMovementSpeed: 175
   _MovementSurpressed: 0
   _SlidingMovement: 0
 --- !u!114 &2785896071529441816
