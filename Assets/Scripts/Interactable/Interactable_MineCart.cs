@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Interactable_MineCart : Interactable
 {
+    [SerializeField] protected Interactable_MineCart _Target;
+    protected Fader _Fader;
+
     protected override void Start()
     {
         base.Start();
@@ -17,8 +20,6 @@ public class Interactable_MineCart : Interactable
     {
         if (_Character == null) return;
 
-        _Character.transform.SetParent(transform);
-        _Character.IsLocked = true;
         RelocatePlayer();
         RemoveVisualQue();
     }
@@ -38,7 +39,6 @@ public class Interactable_MineCart : Interactable
     {
         base.OnTriggerExit2D(other);
         // TODO: BUG: forces player out of lock, could be bad
-        _Character.IsLocked = false;
     }
 
     protected void RelocatePlayer()
@@ -46,10 +46,17 @@ public class Interactable_MineCart : Interactable
         // holds _Character in case reference is lost when player leaves collision 
         var player = _Character;
         // var characterMovement = _Character.GetComponent<CharacterMovement>();
-        player.IsLocked = true;
+        //player.IsLocked = true;
 
-        player.transform.position = transform.position;
-
+        player.transform.position = _Target.transform.position;
         player.IsLocked = false;
+        _Target.LockPlayerIn();
     }
+
+    private void LockPlayerIn()
+    {
+        print("lock me in capn");
+        _Character.transform.SetParent(transform);
+    }
+
 }

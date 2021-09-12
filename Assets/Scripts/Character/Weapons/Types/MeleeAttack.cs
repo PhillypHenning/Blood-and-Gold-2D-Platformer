@@ -7,7 +7,7 @@ public class MeleeAttack : Weapon
     [SerializeField] private float _TimeBetweenHits = 1f;
     [SerializeField] private int _DamageToDeal;
     private BoxCollider2D _BoxCollider;
-    private float _NextShotTime = 0;
+    private float _NextHitTime = 0;
 
     protected override void Start()
     {
@@ -19,7 +19,7 @@ public class MeleeAttack : Weapon
     protected override void Update()
     {
         base.Update();
-        if(Time.time > _NextShotTime){
+        if(Time.time > _NextHitTime){
             _CanShoot = true;
             _IsAttacking = false;
             _BoxCollider.enabled = false;
@@ -68,7 +68,7 @@ public class MeleeAttack : Weapon
         _IsAttacking = true;
         _CanShoot = false;
         _BoxCollider.enabled = true;
-        _NextShotTime = Time.time + _TimeBetweenHits;
+        _NextHitTime = Time.time + _TimeBetweenHits;
 
         // TODO: Animation added here
     }
