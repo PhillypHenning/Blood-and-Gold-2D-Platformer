@@ -57,7 +57,7 @@ public class MinibossAltAttack : CharacterComponent
             
             
             // Cas and Weston place effects here
-            //Debug.Log("Alt attack Started");
+            Debug.Log("Alt attack Started");
             
             // Put crosshair on character
             
