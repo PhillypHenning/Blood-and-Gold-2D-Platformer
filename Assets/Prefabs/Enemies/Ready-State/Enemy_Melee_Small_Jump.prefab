@@ -105,7 +105,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -7866394953887510506, guid: b4a4c26bf693f16428fa7077378761ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 6.25, y: 3.4375}
@@ -124,7 +124,7 @@ Animator:
   m_GameObject: {fileID: 2785896069849538951}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1e71e70041e19f24ba7858be46668f39, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -355,7 +355,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3345af1cdea05a242b56f47a89a3f196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _StartDirectionRight: 1
   IsAlive: 1
   IsIntro: 1
   _CharacterType: 1
@@ -391,6 +390,7 @@ MonoBehaviour:
   _HeightestJumpReached: 0
   VerticalTakeoff: 12.5
   JumpIfAble: 1
+  JumpIfAbleCD: 1
 --- !u!114 &2785896071529441817
 MonoBehaviour:
   m_ObjectHideFlags: 0

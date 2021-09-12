@@ -19,6 +19,7 @@ public class CharacterJump : CharacterComponent
     public float VerticalTakeoff = 20f;
 
     public bool JumpIfAble = false;
+    public float JumpIfAbleCD = 1f;
 
     // Jumping should disable all other CharacterAbilities.. unfortunately I'm not sure if there is a reliable way of knowing when a jump is complete..
     // If we make the variable based on simply standing on the ground that will effect every other ability since the character will likely be standing on the ground. 
@@ -36,8 +37,14 @@ public class CharacterJump : CharacterComponent
         base.HandleAbility();
         DecideCharacterCanJump();
         ApplyGameGravity();
+        if (JumpIfAble) HandleJumpCD();
 
         _HeightestJumpReached = 0;
+    }
+
+    private void HandleJumpCD()
+    {
+        JumpIfAbleCD -= Time.deltaTime;
     }
 
     protected override void HandleInput()
@@ -53,7 +60,8 @@ public class CharacterJump : CharacterComponent
     protected override void InternalInput()
     {
         base.InternalInput();
-        if(JumpIfAble && _CharacterCanJump && !_Character.IsLocked){
+        if((JumpIfAble && JumpIfAbleCD <= 0) && _CharacterCanJump && !_Character.IsLocked){
+            if (JumpIfAble) JumpIfAbleCD = 1f;
             Jump();
         }
     }

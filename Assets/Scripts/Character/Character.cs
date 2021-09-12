@@ -9,8 +9,7 @@ public class Character : MonoBehaviour
     private bool _IsLocked;
     private bool _IsMoving;
     private bool _Actionable = true;
-    [SerializeField] private bool _StartDirectionRight = true;
-    private bool _FacingRight;
+    private bool _FacingRight = true;
 
     // public property accessors
     public bool IsLocked { get => _IsLocked; set => _IsLocked = value; }
@@ -47,7 +46,6 @@ public class Character : MonoBehaviour
         CharacterType = _CharacterType;
         _RigidBody2D = GetComponent<Rigidbody2D>();
         _Collider2D = GetComponent<Collider2D>();
-        _FacingRight = _StartDirectionRight;
     }
 
     public void DeactivateCharacter(){
