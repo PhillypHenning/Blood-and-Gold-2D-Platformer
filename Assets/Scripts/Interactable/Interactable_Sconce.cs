@@ -5,6 +5,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class Interactable_Sconce : Interactable 
 {
+    [SerializeField] private bool _StartOn = false;
     private Light2D _Light;
     private Animator _Animator;
     private bool _IsLit;
@@ -25,7 +26,11 @@ public class Interactable_Sconce : Interactable
     {
         base.SetToDefault();
         _DefaultMessage = "Press 'F' to light.";
-        _IsLit = false;
+        _IsLit = _StartOn;
+        if(_IsLit){
+            _RewardIssued = true;
+            LightSconce();
+        }
         _FlickerMin = MIN_INTENSITY;
         _FlickerMax = MAX_INTENSITY;
     }
