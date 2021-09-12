@@ -23,6 +23,6 @@ public class ShootShotgunAction : AIAction
         
         // Stop Enemy while shooting
         controller._CharacterMovement.SetHorizontal(0);
-        controller._CharacterWeapon._CurrentWeapon.UseWeapon();
+        controller._CharacterWeapon._CurrentWeapon.UseWeapon(true);
     }
 }

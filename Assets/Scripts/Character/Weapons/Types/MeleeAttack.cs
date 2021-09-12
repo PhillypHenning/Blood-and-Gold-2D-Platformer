@@ -34,7 +34,7 @@ public class MeleeAttack : Weapon
         }
     }
 
-    public override void UseWeapon()
+    public override void UseWeapon(bool doAnimation = false)
     {
         if (_CanShoot && !IsAttacking && _Actionable)
         {

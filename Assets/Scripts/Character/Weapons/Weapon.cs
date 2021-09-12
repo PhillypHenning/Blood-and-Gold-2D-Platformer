@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private string _WeaponName;
     [SerializeField] private float _TimeBetweenShots = 0.5f;
+    [SerializeField] private float _ShotDelay = 0f;
     [SerializeField] private float _TimeBetweenReloads = 0.5f;
     [SerializeField] private int _MaxMagazineSize;
     [SerializeField] private bool _UsesBullets = true;
@@ -15,8 +16,9 @@ public class Weapon : MonoBehaviour
     private Transform _BulletSpawnPos;
     private bool _CanReload = true;
     private float _NextShotTime = 0;
-    private float _NextReloadTime = 0;
+    private float _NextShotAnimationTime = 0;
     protected bool _IsAttacking;
+    private bool _delayedShot = false;
 
     // Properties
     public Character _WeaponOwner { get; set; }
@@ -92,6 +94,13 @@ public class Weapon : MonoBehaviour
         // FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Revolver_Shoot");
         // But wait before you do that, Let's open the RevolverWeapon script
     }
+    private IEnumerator RequestShotWithDelay()
+    {
+        _delayedShot = true;
+        yield return new WaitForSeconds(_ShotDelay);
+        RequestShot();
+        _delayedShot = false;
+    }
 
     virtual protected void PlayUIAnimationShoot()
     {
@@ -117,18 +126,29 @@ public class Weapon : MonoBehaviour
 
     // Private \\
     // -------- \\
-    private void TriggerShot()
+    private void TriggerShot(bool doAnimation)
     {
         // Add timer between shots here
         if (_CanShoot && _Actionable)
         {
             _CanShoot = false;
             _NextShotTime = Time.time + _TimeBetweenShots;
-            RequestShot();
-        }
-        else
-        {
-            return;
+
+            if (doAnimation)
+            {
+                var animator = _WeaponOwner.GetComponent<CharacterAnimation>();
+                animator.Attack1();
+            }
+
+            if (_ShotDelay > 0)
+            {
+                if (_delayedShot) return;
+                StartCoroutine("RequestShotWithDelay");
+            }
+            else
+            {
+                RequestShot();
+            }
         }
     }
 
@@ -218,11 +238,11 @@ public class Weapon : MonoBehaviour
         RefillAmmo();
     }
 
-    public virtual void UseWeapon()
+    public virtual void UseWeapon(bool doAnimation = false)
     {
         if (CanUseWeapon())
         {
-            TriggerShot();
+            TriggerShot(doAnimation);
         }
     }
     public void SetOwner(Character character)
