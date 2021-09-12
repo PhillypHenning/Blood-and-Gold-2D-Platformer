@@ -19,6 +19,7 @@ public class Character : MonoBehaviour
     public bool Actionable { get => _Actionable; set => _Actionable = value; }
     public bool IsAlive = true;
     public bool IsIntro = true;
+    public bool _HasIntro = false;
 
 
     // TODO: use character types to determine default stats (like movementspeed)

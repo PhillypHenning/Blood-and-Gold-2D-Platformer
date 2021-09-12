@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7928506658036310142}
   - component: {fileID: 8325873288911312235}
   m_Layer: 11
-  m_Name: Shotgun Pellet - Miniboss
+  m_Name: Shotgun Pellet Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 32314885218741627}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 6820856509940793013, guid: da0cf739a0645814289f69e756c98d21, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.6745283, a: 0.72156864}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.972549}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -145,9 +145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a741f416cfb444b982fcfa775c8e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Speed: 10
+  _Speed: 15
   _Acceleration: 0
-  _BulletDamage: 20
+  _BulletDamage: 10
 --- !u!114 &8325873288911312235
 MonoBehaviour:
   m_ObjectHideFlags: 0

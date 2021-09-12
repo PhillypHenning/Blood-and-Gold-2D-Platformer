@@ -18,6 +18,7 @@ TagManager:
   - Enemy Wall
   - Sconce
   - Enemy Shield
+  - Enemy  Ignore
   layers:
   - Default
   - TransparentFX

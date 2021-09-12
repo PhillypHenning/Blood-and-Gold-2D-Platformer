@@ -344,4 +344,8 @@ public class CharacterLantern : CharacterComponent
             _Light.pointLightOuterRadius -= timeFactor;
         }
     }
+
+    public void AddOil(float amount){
+        _OilDrainPool += amount;
+    }
 }

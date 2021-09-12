@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 3271340346234227251}
   - component: {fileID: 3271340346234227250}
   - component: {fileID: 3271340346234227249}
+  - component: {fileID: -8181599771480794591}
   m_Layer: 8
   m_Name: Enemy_Melee
   m_TagString: Enemy
@@ -294,6 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAlive: 1
   IsIntro: 1
+  _HasIntro: 0
   _CharacterType: 1
   _CharacterSprite: {fileID: 3271340344699568621}
 --- !u!114 &3271340346234227263
@@ -327,6 +329,7 @@ MonoBehaviour:
   _HeightestJumpReached: 0
   VerticalTakeoff: 20
   JumpIfAble: 0
+  JumpIfAbleCD: 1
 --- !u!114 &3271340346234227261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b4f56e05fd49c4dac7c651c796057a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _StartsRight: 1
 --- !u!114 &3271340346234227250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,6 +397,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: ad87781a3eecf04439b9a83f2f0948e8, type: 2}
   remainState: {fileID: 11400000, guid: 4e3600b7d70eb944fa903eb6dbd89920, type: 2}
+--- !u!114 &-8181599771480794591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3271340346234227248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a63e881e827aa42ad4efa740a63eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RewardsList:
+  - {fileID: 4220237654818276251, guid: e259971c56678e547a2c48fc28afe4f2, type: 3}
+  - {fileID: 4220237654818276251, guid: d91300674bc76794594fdc7287d492ff, type: 3}
 --- !u!1 &3271340346435643757
 GameObject:
   m_ObjectHideFlags: 0

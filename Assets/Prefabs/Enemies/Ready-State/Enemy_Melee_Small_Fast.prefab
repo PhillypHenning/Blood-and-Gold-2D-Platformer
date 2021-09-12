@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 2785896071529441797}
   - component: {fileID: 2785896071529441794}
   - component: {fileID: -5845934837156759868}
+  - component: {fileID: -402121974535512619}
   m_Layer: 8
   m_Name: Enemy_Melee_Small_Fast
   m_TagString: Enemy
@@ -368,9 +369,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3345af1cdea05a242b56f47a89a3f196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _StartDirectionRight: 1
   IsAlive: 1
   IsIntro: 1
+  _HasIntro: 0
   _CharacterType: 1
   _CharacterSprite: {fileID: 2785896069849538951}
 --- !u!114 &2785896071529441819
@@ -404,6 +405,7 @@ MonoBehaviour:
   _HeightestJumpReached: 0
   VerticalTakeoff: 0
   JumpIfAble: 0
+  JumpIfAbleCD: 1
 --- !u!114 &2785896071529441817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,6 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b4f56e05fd49c4dac7c651c796057a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _StartsRight: 1
 --- !u!114 &2785896071529441796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,3 +515,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 1
+--- !u!114 &-402121974535512619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2785896071529441795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a63e881e827aa42ad4efa740a63eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RewardsList:
+  - {fileID: 4220237654818276251, guid: e259971c56678e547a2c48fc28afe4f2, type: 3}
+  - {fileID: 4220237654818276251, guid: d91300674bc76794594fdc7287d492ff, type: 3}

@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 6986989796918211619}
   - component: {fileID: 6986989796918211616}
   - component: {fileID: 1202181807}
+  - component: {fileID: -7939443300831317131}
   m_Layer: 8
   m_Name: Enemy_Shotgun
   m_TagString: Enemy
@@ -96,6 +97,7 @@ MonoBehaviour:
   _StartDirectionRight: 1
   IsAlive: 1
   IsIntro: 1
+  _HasIntro: 0
   _CharacterType: 1
   _CharacterSprite: {fileID: 6986989797633577208}
 --- !u!114 &6986989796918211622
@@ -168,6 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b4f56e05fd49c4dac7c651c796057a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _StartsRight: 1
 --- !u!114 &6986989796918211619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +214,20 @@ MonoBehaviour:
   Actionable: 0
   Attacking: 0
   _WeaponToUse: {fileID: 6199886841864414671, guid: 8715dd1cd35f71349867d759a9ae0f65, type: 3}
+--- !u!114 &-7939443300831317131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6986989796918211617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a63e881e827aa42ad4efa740a63eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RewardsList:
+  - {fileID: 5462868216086393175, guid: b8ffba4f979d2c74c92b61a1bfbba2ce, type: 3}
 --- !u!1 &6986989797631204213
 GameObject:
   m_ObjectHideFlags: 0
