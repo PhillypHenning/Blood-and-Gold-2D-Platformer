@@ -31,6 +31,11 @@ public class MinibossAltAttack : CharacterComponent
         Actionable = true;
         Attacking = false;
         //_TimeUntilNextAttack = 0;
+
+        /*
+        var shootTime = _CharacterAnimation.AnimationTimes[CharacterAnimation.AnimationState.Attack1];
+        var altShootTime = _CharacterAnimation.AnimationTimes[CharacterAnimation.AnimationState.Attack2];
+        */
     }
 
     protected override void Update()
@@ -65,9 +70,10 @@ public class MinibossAltAttack : CharacterComponent
             _TimeUntilNextAltAttack = Time.time + _TimeBetweenAttacks;
             _TimeUntilAttackIsComplete = Time.time + _TimeToCompleteAttack;
             _TimeUntilAttackStarts = Time.time + _TimeToStart;
-            
+
             // Cas and Weston place effects here
             _ChargingAttack = true;
+            _CharacterAnimation.Attack2();
             if(_CharacterWeapon._SecondaryWeapon != _WeaponToUse){
                 _CharacterWeapon._SecondaryWeapon = _WeaponToUse;     
             }    

@@ -47,7 +47,9 @@ public class CharacterAnimation : MonoBehaviour
         Death,
         DeathNoShadow,
         ShieldHurt,
-        ShieldBreak
+        ShieldBreak,
+        Attack1,
+        Attack2
     }
 
     void Start()
@@ -231,6 +233,15 @@ public class CharacterAnimation : MonoBehaviour
     public void ShieldBreak()
     {
         ChangeAnimationState(AnimationState.Death, AnimationType.Priority); 
+    }
+
+    public void Attack1()
+    {
+        ChangeAnimationState(AnimationState.Attack1, AnimationType.Static); 
+    }
+    public void Attack2()
+    {
+        ChangeAnimationState(AnimationState.Attack2, AnimationType.Static); 
     }
 
     private void SetStaticAnimationDelay(float delay)
