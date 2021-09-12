@@ -1,0 +1,552 @@
+fileFormatVersion: 2
+guid: 4400a09d2c39e6340b63820018155ab3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1821112493861688547
+    second: mineShaft_v003_0
+  - first:
+      213: -7511021668291252069
+    second: mineShaft_v003_1
+  - first:
+      213: -805058186071594070
+    second: mineShaft_v003_2
+  - first:
+      213: 4513110007993440046
+    second: mineShaft_v003_3
+  - first:
+      213: -7661518245299376473
+    second: mineShaft_v003_4
+  - first:
+      213: -3494113716828879840
+    second: mineShaft_v003_5
+  - first:
+      213: 3040600255599859384
+    second: mineShaft_v003_6
+  - first:
+      213: 176233424848808082
+    second: mineShaft_v003_7
+  - first:
+      213: -9178767810645951517
+    second: mineShaft_v003_8
+  - first:
+      213: 5721194601709372944
+    second: mineShaft_v003_9
+  - first:
+      213: 7970989480385167861
+    second: mineShaft_v003_10
+  - first:
+      213: 1837491433864018074
+    second: mineShaft_v003_11
+  - first:
+      213: 1174398180434300979
+    second: mineShaft_v003_12
+  - first:
+      213: -3230346421924329865
+    second: mineShaft_v003_13
+  - first:
+      213: -76161557853930638
+    second: mineShaft_v003_14
+  - first:
+      213: 7624411829790251193
+    second: mineShaft_v003_15
+  - first:
+      213: 8324939832600099702
+    second: mineShaft_v003_16
+  - first:
+      213: -4919397864979047796
+    second: mineShaft_v003_17
+  - first:
+      213: -8448416657280019530
+    second: mineShaft_v003_18
+  - first:
+      213: -604291942007704823
+    second: mineShaft_v003_19
+  - first:
+      213: -2586563761992632512
+    second: mineShaft_v003_20
+  - first:
+      213: -602121155503511872
+    second: mineShaft_v003_21
+  - first:
+      213: -3852843413861381126
+    second: mineShaft_v003_22
+  - first:
+      213: -1995464183010708555
+    second: mineShaft_v003_23
+  - first:
+      213: 7408158559312771386
+    second: mineShaft_v003_24
+  - first:
+      213: 8460601933236283090
+    second: mineShaft_v003_25
+  - first:
+      213: 645545149749353420
+    second: mineShaft_v003_26
+  - first:
+      213: -854876743055365506
+    second: mineShaft_v003_27
+  - first:
+      213: 4555550224926873745
+    second: mineShaft_v003_28
+  - first:
+      213: 8189553708820562368
+    second: mineShaft_v003_29
+  - first:
+      213: -3767311205876699212
+    second: mineShaft_v003_30
+  - first:
+      213: 7609198795169551933
+    second: mineShaft_v003_31
+  - first:
+      213: -1308940012881083082
+    second: mineShaft_v003_32
+  - first:
+      213: 1238484730777981853
+    second: mineShaft_v003_33
+  - first:
+      213: -8785655306670669523
+    second: mineShaft_v003_34
+  - first:
+      213: 4579043735882912585
+    second: mineShaft_v003_35
+  - first:
+      213: -4379597715452106538
+    second: mineShaft_v003_36
+  - first:
+      213: 7723487027620251236
+    second: mineShaft_v003_37
+  - first:
+      213: 8387853888527575662
+    second: mineShaft_v003_38
+  - first:
+      213: 3664501553265584725
+    second: mineShaft_v003_39
+  - first:
+      213: 8437125306133013786
+    second: mineShaft_v003_40
+  - first:
+      213: -3229219141830243969
+    second: mineShaft_v003_41
+  - first:
+      213: 5073830616633485892
+    second: mineShaft_v003_42
+  - first:
+      213: -1096877453126160357
+    second: mineShaft_v003_43
+  - first:
+      213: 383254687757938213
+    second: mineShaft_v003_44
+  - first:
+      213: 6250739623671856344
+    second: mineShaft_v003_45
+  - first:
+      213: 785332220607740645
+    second: mineShaft_v003_46
+  - first:
+      213: -9001415283574075039
+    second: mineShaft_v003_47
+  - first:
+      213: -2832043431343473397
+    second: mineShaft_v003_48
+  - first:
+      213: -3615304303432442128
+    second: mineShaft_v003_49
+  - first:
+      213: -7341828174847906392
+    second: mineShaft_v003_50
+  - first:
+      213: 4541533793844094214
+    second: mineShaft_v003_51
+  - first:
+      213: 3462481347347774951
+    second: mineShaft_v003_52
+  - first:
+      213: -7598067006543965243
+    second: mineShaft_v003_53
+  - first:
+      213: -4094826986644805953
+    second: mineShaft_v003_54
+  - first:
+      213: 7992627068119805903
+    second: mineShaft_v003_55
+  - first:
+      213: 3196576133382632464
+    second: mineShaft_v003_56
+  - first:
+      213: -940964867189650455
+    second: mineShaft_v003_57
+  - first:
+      213: 106336217288758330
+    second: mineShaft_v003_58
+  - first:
+      213: 75693399999064776
+    second: mineShaft_v003_59
+  - first:
+      213: 5780935221109519030
+    second: mineShaft_v003_60
+  - first:
+      213: 2492544363082051969
+    second: mineShaft_v003_61
+  - first:
+      213: -9050057136194838527
+    second: mineShaft_v003_62
+  - first:
+      213: -4420762892903471320
+    second: mineShaft_v003_63
+  - first:
+      213: 8894902203055924527
+    second: mineShaft_v003_64
+  - first:
+      213: 9150321713164587828
+    second: mineShaft_v003_65
+  - first:
+      213: 4360111607397048807
+    second: mineShaft_v003_66
+  - first:
+      213: -5612386814310011806
+    second: mineShaft_v003_67
+  - first:
+      213: -5692106138452066617
+    second: mineShaft_v003_68
+  - first:
+      213: 5653065576590840272
+    second: mineShaft_v003_69
+  - first:
+      213: -5944096009533920283
+    second: mineShaft_v003_70
+  - first:
+      213: 1512909529299566125
+    second: mineShaft_v003_71
+  - first:
+      213: -2089734816806277765
+    second: mineShaft_v003_72
+  - first:
+      213: 2321439176014243399
+    second: mineShaft_v003_73
+  - first:
+      213: -2113749737943484726
+    second: mineShaft_v003_74
+  - first:
+      213: -5252029883556213382
+    second: mineShaft_v003_75
+  - first:
+      213: -5568007975400343119
+    second: mineShaft_v003_76
+  - first:
+      213: 4767861002604403175
+    second: mineShaft_v003_77
+  - first:
+      213: -2666610865079905664
+    second: mineShaft_v003_78
+  - first:
+      213: -4702676492660932665
+    second: mineShaft_v003_79
+  - first:
+      213: -4836809691914201860
+    second: mineShaft_v003_80
+  - first:
+      213: 737522268779582641
+    second: mineShaft_v003_81
+  - first:
+      213: 8459954718250737470
+    second: mineShaft_v003_82
+  - first:
+      213: -3556158449117232451
+    second: mineShaft_v003_83
+  - first:
+      213: 4633994899451915486
+    second: mineShaft_v003_84
+  - first:
+      213: -1952595387033395512
+    second: mineShaft_v003_85
+  - first:
+      213: -8107214793149399306
+    second: mineShaft_v003_86
+  - first:
+      213: 169525262029557877
+    second: mineShaft_v003_87
+  - first:
+      213: 5367261015404861184
+    second: mineShaft_v003_88
+  - first:
+      213: -6607914742006114000
+    second: mineShaft_v003_89
+  - first:
+      213: -899301519248224228
+    second: mineShaft_v003_90
+  - first:
+      213: -1228346909465470095
+    second: mineShaft_v003_91
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mineShaft_v003_0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e4d6ac1a24e54910800000000000000
+      internalID: 1821112493861688547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mineShaft_v003_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b90fc39769d73c790800000000000000
+      internalID: -7511021668291252069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mineShaft_v003_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aabaeab58dbd3d4f0800000000000000
+      internalID: -805058186071594070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mineShaft_v003_3
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2795ba04a9c1ae30800000000000000
+      internalID: 4513110007993440046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mineShaft_v003_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aea1c49fb1dca590800000000000000
+      internalID: -7661518245299376473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mineShaft_v003_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 024489f461a628fc0800000000000000
+      internalID: -3494113716828879840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mineShaft_v003_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b6ddfa92d1623a20800000000000000
+      internalID: 3040600255599859384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mineShaft_v003_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 298e9adbd5b127200800000000000000
+      internalID: 176233424848808082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
