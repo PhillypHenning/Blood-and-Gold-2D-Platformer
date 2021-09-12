@@ -133,6 +133,7 @@ MonoBehaviour:
   _RequiredItem: 0
   _ForcedEntry: 0
   _ExitOnly: 0
+  _IsIntroDoor: 0
 --- !u!61 &4129262746807940169
 BoxCollider2D:
   m_ObjectHideFlags: 0
