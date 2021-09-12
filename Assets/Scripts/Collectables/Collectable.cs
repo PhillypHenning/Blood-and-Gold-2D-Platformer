@@ -20,8 +20,6 @@ public class Collectable : MonoBehaviour
         
         _SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _Collider2D = GetComponent<Collider2D>();
-        _CharacterLantern = GetComponent<CharacterLantern>();
-
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -31,6 +29,7 @@ public class Collectable : MonoBehaviour
 
         if(IsUsableByPlayer()){
             // Pick up Object
+            _CharacterLantern = other.GetComponent<CharacterLantern>();
             SetReferences(_CollidingGameObject);
             PickUp();
 
