@@ -51,7 +51,9 @@ public class CharacterAnimation : MonoBehaviour
         ShieldBreak,
         Attack1,
         Attack2,
-        MineCart
+        Attack3,
+        MineCart,
+
     }
 
     void Start()
@@ -250,6 +252,11 @@ public class CharacterAnimation : MonoBehaviour
     public void Attack2()
     {
         ChangeAnimationState(AnimationState.Attack2, AnimationType.Static); 
+    }
+
+    public void Attack3()
+    {
+        ChangeAnimationState(AnimationState.Attack3, AnimationType.Static);
     }
 
     public void EnterMineCart()
