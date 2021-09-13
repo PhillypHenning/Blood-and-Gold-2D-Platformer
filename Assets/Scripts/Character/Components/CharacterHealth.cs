@@ -95,7 +95,7 @@ public class CharacterHealth : Health
     {
         if (_Character == null) { return; }
         if (_Character.CharacterType == Character.CharacterTypes.AI || _PlayerLives == null) { return; }
-        _PlayerLives.UpdateLives((int)_CurrentHealth / 10);
+        _PlayerLives.UpdateLives((int)_CurrentHealth / 5);
     }
     
 }
