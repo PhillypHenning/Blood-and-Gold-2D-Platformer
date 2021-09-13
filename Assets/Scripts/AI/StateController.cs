@@ -66,4 +66,11 @@ public class StateController : MonoBehaviour
             currentState = nextState;
         }
     }
+
+    public void SetLayerToEnemy(){
+        gameObject.layer = 8;
+    }
+    public void ResetLayer(){
+        gameObject.layer = 10;
+    }
 }

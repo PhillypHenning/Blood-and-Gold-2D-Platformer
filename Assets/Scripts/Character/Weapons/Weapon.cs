@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float _TimeBetweenReloads = 0.5f;
     [SerializeField] private int _MaxMagazineSize;
     [SerializeField] private bool _UsesBullets = true;
+    [SerializeField] private bool _TrackingBullets = false;
     [SerializeField] protected WeaponAnimationManager _WeaponAnimationManager;
     private Vector3 _ProjectileSpawnPosition;
     private Transform _BulletSpawnPos;
@@ -27,7 +28,7 @@ public class Weapon : MonoBehaviour
     public int _CurrentAmmo { get; set; }
     public bool _CanShoot { get; set; }
     public bool _Actionable = true;
-    public bool _IsEmpty; 
+    public bool _IsEmpty;
     public float _TimeModifier = 1.0f;
     //public bool _CanReload { get; set; }
 
@@ -66,16 +67,20 @@ public class Weapon : MonoBehaviour
     virtual protected void FixedUpdate()
     {
         EvaluateProjectileSpawn();
-        if(!_Actionable){
+        if (!_Actionable)
+        {
             _CanShoot = false;
         }
     }
 
     virtual protected void Update()
     {
-        if(_CurrentAmmo == 0){
+        if (_CurrentAmmo == 0)
+        {
             _IsEmpty = true;
-        }else{
+        }
+        else
+        {
             _IsEmpty = false;
         }
         WeaponCanShoot();
@@ -167,7 +172,7 @@ public class Weapon : MonoBehaviour
 
     private void WeaponCanShoot()
     {
-        if(_CanShoot){return;}
+        if (_CanShoot) { return; }
 
         if (Time.time > _NextShotTime)
         {
@@ -200,9 +205,17 @@ public class Weapon : MonoBehaviour
         // TODO: MOVE THE "FACING RIGHT" out of the fucking animation component.
         // PHILTODO: no more swears </3
         Projectile projectile = pooledProjectile.GetComponent<Projectile>();
-        Vector2 newDirection = _WeaponOwner.FacingRight ? transform.right : transform.right * -1;
+        var directional = _WeaponOwner.FacingRight ? transform.right : transform.right * - 1;
+        Vector2 newDirection = _WeaponOwner.FacingRight ? transform.right : transform.right * - 1;
 
-        projectile.SetDirection(newDirection, transform.rotation, _WeaponOwner.FacingRight);
+        if (!_TrackingBullets)
+        {
+            projectile.SetDirection(newDirection, transform.rotation, _WeaponOwner.FacingRight);
+        }
+        else{
+            Debug.Log(newDirection);
+            projectile.SetDirection(newDirection, transform.rotation, _WeaponOwner.FacingRight);
+        }
     }
     /*
    //\\
@@ -268,17 +281,20 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void Disable(){
+    public void Disable()
+    {
         _CanShoot = false;
         this.enabled = false;
     }
 
-    public void Enable(){
-        if(!_Actionable){return;}
+    public void Enable()
+    {
+        if (!_Actionable) { return; }
         _CanShoot = true;
     }
 
-    public void SetWeaponSpeedMod(float newMod){
+    public void SetWeaponSpeedMod(float newMod)
+    {
         _TimeModifier = newMod;
     }
 
