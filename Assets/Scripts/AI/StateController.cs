@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StateController : MonoBehaviour
-{   
+{
     // Brain of the AI
 
     [Header("State")]
@@ -14,17 +14,23 @@ public class StateController : MonoBehaviour
     public CharacterWeapon _CharacterWeapon { get; set; }
     public CharacterJump _CharacterJump { get; set; }
     public CharacterFlip _CharacterFlip { get; set; }
+    public CharacterAnimation _CharacterAnimator { get; set; }
     public Character _Character { get; set; }
-    public MinibossAltAttack _MiniBossAltAttack  { get; set; }
+    public MinibossAltAttack _MiniBossAltAttack { get; set; }
 
     public Transform _Target { get; set; }
     public Path _Path { get; set; }
+    public Paths _Paths { get; set; }
+    public BossFlags _BossFlags { get; set; }
 
     public Collider2D _Collider2D { get; set; }
 
     public bool Actionable { get; set; }
 
-    private void Awake() {
+    public bool _IntroDone = false;
+
+    private void Awake()
+    {
         Actionable = true;
         _CharacterMovement = GetComponent<CharacterMovement>();
         _CharacterWeapon = GetComponent<CharacterWeapon>();
@@ -32,19 +38,31 @@ public class StateController : MonoBehaviour
         _MiniBossAltAttack = GetComponent<MinibossAltAttack>();
         _CharacterFlip = GetComponent<CharacterFlip>();
         _Character = GetComponent<Character>();
-        
-        _Path = GetComponent<Path>();
         _Collider2D = GetComponent<Collider2D>();
+        _CharacterAnimator = GetComponent<CharacterAnimation>();
+
+
+        // Try and break these up?
+        if (_Character.AIType == Character.AITypes.Boss)
+        {
+            var go = GameObject.Find("BossRoomPath");
+            _Paths = go.GetComponent<Paths>();
+            _BossFlags = GetComponent<BossFlags>();
+        }
     }
 
-    private void Update() {
-        if(Actionable){
+    private void Update()
+    {
+        if (Actionable)
+        {
             currentState.EvaluateState(this);
         }
     }
 
-    public void TransitionToState(AIState nextState){
-        if(nextState != remainState){
+    public void TransitionToState(AIState nextState)
+    {
+        if (nextState != remainState)
+        {
             currentState = nextState;
         }
     }

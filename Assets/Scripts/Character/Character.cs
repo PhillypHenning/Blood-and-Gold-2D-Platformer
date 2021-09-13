@@ -29,16 +29,26 @@ public class Character : MonoBehaviour
     {
         Player, 
         AI,
-        Inactive
+        Inactive,
+    }
+
+    public enum AITypes
+    {
+        None,
+        Regular, 
+        Miniboss,
+        Boss,
     }
 
     // Class to contain other "Character" GameObjects
     [SerializeField] private CharacterTypes _CharacterType;
+    [SerializeField] private AITypes _AIType;
     [SerializeField] private GameObject _CharacterSprite;
     private Rigidbody2D _RigidBody2D;
     private Collider2D _Collider2D;
 
     public CharacterTypes CharacterType {get; set;}
+    public AITypes AIType => _AIType;
     public GameObject CharacterSprite => _CharacterSprite;
     public Rigidbody2D RigidBody2D => _RigidBody2D;
     public Collider2D Collider2D => _Collider2D;
@@ -46,6 +56,7 @@ public class Character : MonoBehaviour
     private void Start()
     {
         CharacterType = _CharacterType;
+        //AIType = _AIType;
         _RigidBody2D = GetComponent<Rigidbody2D>();
         _Collider2D = GetComponent<Collider2D>();
     }

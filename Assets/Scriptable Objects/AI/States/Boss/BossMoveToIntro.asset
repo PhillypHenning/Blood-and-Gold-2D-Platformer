@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4f9a166eaf4ab478ceac2cab3e5283, type: 3}
+  m_Name: BossMoveToIntro
+  m_EditorClassIdentifier: 
+  _AIActions:
+  - {fileID: 11400000, guid: 8b7bf6c282d939f49bcb7fea1575b109, type: 2}
+  _AITransitions:
+  - _Decision: {fileID: 11400000, guid: bbcd396ad21e1214981e3b124e8a0a55, type: 2}
+    _TrueState: {fileID: 11400000, guid: 787dbfdeb64f04345b1496a82737c8fb, type: 2}
+    _FalseState: {fileID: 11400000, guid: 4e3600b7d70eb944fa903eb6dbd89920, type: 2}

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4f9a166eaf4ab478ceac2cab3e5283, type: 3}
+  m_Name: BossStartState
+  m_EditorClassIdentifier: 
+  _AIActions:
+  - {fileID: 11400000, guid: d249b3c46e1dc514cb58af9d3ea992bd, type: 2}
+  _AITransitions:
+  - _Decision: {fileID: 11400000, guid: d20b9424457aa184c88cc3555d9dc015, type: 2}
+    _TrueState: {fileID: 11400000, guid: ce5881979886f444da519061f1b4a43a, type: 2}
+    _FalseState: {fileID: 11400000, guid: 4e3600b7d70eb944fa903eb6dbd89920, type: 2}

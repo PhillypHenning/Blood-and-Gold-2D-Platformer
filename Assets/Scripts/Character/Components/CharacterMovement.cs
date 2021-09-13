@@ -8,8 +8,10 @@ public class CharacterMovement : CharacterComponent
     public float _DefaultMovementSpeed = 200f;
 
     private float _HorizontalMovement;
+    private float _VerticalMovement;
 
     public float HorizontalMovement {get; set;}
+    public float VerticalMovement {get; set;}
 
     public bool _MovementSurpressed;
     public bool _SlidingMovement = false;
@@ -22,6 +24,7 @@ public class CharacterMovement : CharacterComponent
         base.Start();
         SetToDefault();
         HorizontalMovement = _HorizontalMovement;
+        VerticalMovement = _VerticalMovement;
 
         if(_Character.CharacterType == Character.CharacterTypes.Player){
             Physics2D.IgnoreLayerCollision(7, 13); // <--  ignore collision with "Enemy Wall"
@@ -46,6 +49,10 @@ public class CharacterMovement : CharacterComponent
         // It can feel like sliding on ice. Be cognitive that the Rigidbody mass is weighed in to the function.
         //_CharacterRigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalInput, 0));
         //_CharacterRigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalInput, 0), ForceMode2D.Force); // <-- Default, gradual force build up applied
+        if(_Character.AIType == Character.AITypes.Boss){
+            _Character.RigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalMovement, _MovementSpeed * _VerticalMovement), ForceMode2D.Force); // <-- Specified, Immediate force applied        
+        }
+        
         if (CanMove())
         {
             if(!_SlidingMovement){
@@ -54,6 +61,10 @@ public class CharacterMovement : CharacterComponent
                 _Character.RigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalMovement, 0), ForceMode2D.Force); // <-- Specified, Immediate force applied        
             }
         
+        }
+
+        if(_Character.AIType == Character.AITypes.Boss){
+            _Character.RigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalMovement, _MovementSpeed * _VerticalMovement), ForceMode2D.Force); // <-- Specified, Immediate force applied        
         }
     }
 
@@ -143,6 +154,6 @@ public class CharacterMovement : CharacterComponent
 
     public void SetVertical(float value)
     {
-
+        _VerticalMovement = value;
     }
 }

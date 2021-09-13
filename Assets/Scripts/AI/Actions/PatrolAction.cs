@@ -17,5 +17,6 @@ public class PatrolAction : AIAction
         _newDirection = _newDirection.normalized;
 
         controller._CharacterMovement.SetHorizontal(_newDirection.x);
+        controller._CharacterMovement.SetVertical(_newDirection.y);
     }
 }

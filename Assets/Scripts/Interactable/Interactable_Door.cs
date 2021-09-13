@@ -27,8 +27,8 @@ public class Interactable_Door : Interactable
         _Fader = FindObjectOfType<Fader>();
         if (_Fader == null) Debug.LogError("Door was unable to locate Fader");
 
-        _EnvironmentManagerGameObject = GameObject.Find("Parallax_Background");
-        _EnvironmentManager = _EnvironmentManagerGameObject.GetComponent<EnvironmentManager>();
+        //_EnvironmentManagerGameObject = GameObject.Find("Parallax_Background");
+        //_EnvironmentManager = _EnvironmentManagerGameObject.GetComponent<EnvironmentManager>();
     }
 
     protected override bool InputEnabled()
