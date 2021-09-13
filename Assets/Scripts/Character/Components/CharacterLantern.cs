@@ -63,7 +63,7 @@ public class CharacterLantern : CharacterComponent
     protected override void HandleInput()
     {
         base.HandleInput();
-        if (!_HandleInput || _Character.IsLocked) return;
+        if (!_HandleInput) return;
         if (Input.GetKeyDown(KeyCode.X))
         {
             SwitchLanternOnOff();

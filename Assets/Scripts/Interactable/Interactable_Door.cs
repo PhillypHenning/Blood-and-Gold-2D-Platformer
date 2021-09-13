@@ -3,7 +3,11 @@ using UnityEngine;
 
 public class Interactable_Door : Interactable
 {
+    [SerializeField] protected string _CustomDefaultMessage = null;
+    [SerializeField] protected string _CustomLockedMessage = null;
     [SerializeField] protected Transform _Target;
+    [SerializeField] protected Transform _TargetAlternate;
+    protected bool _UseAlternateTarget = false;
     protected Fader _Fader;
 
 
@@ -38,23 +42,26 @@ public class Interactable_Door : Interactable
     {
         if (_IsLocked && !CheckForKeyItem())
         {
-            UpdateMessage("Door is locked. Obtain " + _RequiredItem.ToString() + " to proceed.");
+            if (_CustomLockedMessage != null)
+            {
+                UpdateMessage(_CustomLockedMessage);
+            }
+            else
+            {
+                UpdateMessage("Door is locked. Obtain " + _RequiredItem.ToString() + " to proceed.");
+            }
             return;
         }
 
-        // if(!_Character._HasBossKey && _IsLocked){
-        //     UpdateMessage("Door is locked. Obtain " + _RequiredItem.ToString() + " to proceed.");
-        //     return;
-        // }
-
         if(_IsIntroDoor){
-            // 
             _Character.IsIntro = false;
-            //_EnvironmentManager.ActivateBuckets();
         }
 
         RemoveVisualQue();
-        StartCoroutine(RelocatePlayer());
+        if (_Target != null)
+        {
+            StartCoroutine(RelocatePlayer());
+        }
 
         FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/Interactables/Door/Door_Open", gameObject);
     }
@@ -93,7 +100,12 @@ public class Interactable_Door : Interactable
     protected override void SetToDefault()
     {
         base.SetToDefault();
-        if (_ForcedEntry || _ExitOnly)
+        if (_CustomDefaultMessage != null)
+        {
+            _DefaultMessage = _CustomDefaultMessage;
+
+        }
+        else if (_ForcedEntry || _ExitOnly)
         {
             _DefaultMessage = "";
         }
@@ -106,5 +118,10 @@ public class Interactable_Door : Interactable
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         base.OnTriggerEnter2D(other);
+    }
+    
+    public void SetTarget(Transform target)
+    {
+        _Target = target;
     }
 }
