@@ -72,7 +72,6 @@ public class Interactable_MineCart : Interactable
     {
         ExitCart();
         base.OnTriggerExit2D(other);
-        // TODO: BUG: forces player out of lock, could be bad
     }
 
     protected IEnumerator RelocatePlayer()
@@ -84,8 +83,6 @@ public class Interactable_MineCart : Interactable
         player.IsLocked = true;
 
         yield return _Fader.FadeOut();
-        // var characterMovement = _Character.GetComponent<CharacterMovement>();
-        //player.IsLocked = true;
 
         player.transform.position = _Target.transform.position;
         _Target.LockPlayerIn(player);
