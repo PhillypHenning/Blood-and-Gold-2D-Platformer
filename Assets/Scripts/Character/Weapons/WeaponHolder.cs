@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour
 {
+    // TODO: make dodge work vs melee attacks
+    //Physics2D.IgnoreLayerCollision(10, 9);
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
