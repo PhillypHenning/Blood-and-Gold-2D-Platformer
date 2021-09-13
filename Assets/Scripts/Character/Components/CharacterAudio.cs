@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class CharacterAudio : MonoBehaviour
 {
+    public MusicManager end;
+
     FMOD.Studio.EventInstance Footsteps;
     FMOD.Studio.EventInstance Jump;
     FMOD.Studio.EventInstance Land;
     FMOD.Studio.EventInstance Hurt;
     FMOD.Studio.EventInstance Die;
+    FMOD.Studio.EventInstance Dodge;
 
     void Start()
     {
@@ -17,6 +20,7 @@ public class CharacterAudio : MonoBehaviour
         Land = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Player_Character/Player_Land");
         Hurt = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Player_Character/Player_Take_Damage");
         Die = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Player_Character/Player_Death");
+        Dodge = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Player_Character/Player_Dodge");
     }
     void PlayerFootsteps()
     {
@@ -38,10 +42,16 @@ public class CharacterAudio : MonoBehaviour
         Hurt.start();
     }
 
+    void PlayerDodge()
+    {
+        Dodge.start();
+    }
+
     void PlayerDie()
     {
         Die.start();
         FMODUnity.RuntimeManager.PlayOneShot("event:/Music/Death_Sting");
+        end.StopMusic();
     }
 
     void OnDestroy()
@@ -51,5 +61,6 @@ public class CharacterAudio : MonoBehaviour
         Land.release();
         Hurt.release();
         Die.release();
+        Dodge.release();
     }
 }

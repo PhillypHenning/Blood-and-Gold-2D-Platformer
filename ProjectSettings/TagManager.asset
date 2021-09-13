@@ -21,6 +21,9 @@ TagManager:
   - IntroDoor
   - Enemy  Ignore
   - DodgeRoll
+  - MiniBossRoom
+  - Area2
+  - BossRoom
   layers:
   - Default
   - TransparentFX
