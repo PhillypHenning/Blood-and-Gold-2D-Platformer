@@ -30,6 +30,8 @@ public class MeleeAttack : Weapon
     {
         if (other.CompareTag("Player"))
         {
+            // player is dodging
+            if (other.gameObject.layer == 9) return;
             other.GetComponent<CharacterHealth>().Damage(_DamageToDeal);
         }
     }
