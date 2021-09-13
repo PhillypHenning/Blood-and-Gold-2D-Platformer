@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -54,6 +55,7 @@ public class InventoryManager : MonoBehaviour
         }
 
         // item successfully added to inventory
+        UpdateUI(item);
         return true;
     }
 
@@ -68,6 +70,22 @@ public class InventoryManager : MonoBehaviour
         else
         {
             _Items[item] -= quantity;
+        }
+    }
+
+    // TODO: add UI manager to deal with this
+    public void UpdateUI(ItemData item)
+    {
+        switch (item.Type)
+        {
+            case ItemType.Key:
+                GameObject.Find("BossKeyUI").transform.GetChild(0).gameObject.SetActive(true);
+                break;
+            case ItemType.Lever:
+                GameObject.Find("BrakeUI").transform.GetChild(0).gameObject.SetActive(true);
+                break;
+            default:
+                return;
         }
     }
 }
