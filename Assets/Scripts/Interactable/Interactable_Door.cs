@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Interactable_Door : Interactable
 {
-    [SerializeField] protected string _CustomDefaultMessage = null;
     [SerializeField] protected string _CustomLockedMessage = null;
     [SerializeField] protected Transform _Target;
     [SerializeField] protected Transform _TargetAlternate;
@@ -100,18 +99,9 @@ public class Interactable_Door : Interactable
     protected override void SetToDefault()
     {
         base.SetToDefault();
-        if (_CustomDefaultMessage != null)
-        {
-            _DefaultMessage = _CustomDefaultMessage;
-
-        }
-        else if (_ForcedEntry || _ExitOnly)
+        if (_ForcedEntry || _ExitOnly)
         {
             _DefaultMessage = "";
-        }
-        else
-        {
-            _DefaultMessage = "Press 'F' to open.";
         }
     }
 
