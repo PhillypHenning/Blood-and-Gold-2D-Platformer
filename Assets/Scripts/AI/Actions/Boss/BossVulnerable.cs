@@ -42,6 +42,8 @@ public class BossVulnerable : AIAction
         if(controller._BossFlags.VulnerableStarted && Time.time > controller._BossFlags.TimeUntilVulnerableStarts){
             //Debug.Log("Boss is Vulnerable");
             controller._BossFlags.MoveBossHeadDown = false;
+
+            // Vulnerable active
         }
 
 
@@ -65,6 +67,8 @@ public class BossVulnerable : AIAction
             controller._BossFlags.VulnerableStarted = false;
             controller._BossFlags.VulnerableFinished = true;
             controller._CharacterMovement.SetVertical(0);
+
+            // Vulnerable deactivated
         }
     }
 }
