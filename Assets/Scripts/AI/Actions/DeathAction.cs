@@ -13,6 +13,7 @@ public class DeathAction : AIAction
     private void Death(StateController controller){
         controller._CharacterMovement.LockMovement();
         controller._CharacterMovement.SetHorizontal(0);
+        controller._CharacterMovement.SetVertical(-1);
         controller._Character.IsMoving = false;
         controller.Actionable = false;
     }

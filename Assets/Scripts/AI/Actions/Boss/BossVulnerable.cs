@@ -29,6 +29,8 @@ public class BossVulnerable : AIAction
 
             // Move head position down
             HeadPos = controller.transform.position + new Vector3(0, -10, 0);
+
+            controller.SetLayerToEnemy();
         }
 
         if(controller._BossFlags.MoveBossHeadDown){
@@ -54,7 +56,7 @@ public class BossVulnerable : AIAction
 
         if(controller._BossFlags.MoveBossHeadUp){
             if(controller.transform.position.y < controller._BossFlags._StartPosition.y){ 
-                controller._CharacterMovement.SetVertical(150);
+                controller._CharacterMovement.SetVertical(100);
             }
 
             if(controller.transform.position.y >= controller._BossFlags._StartPosition.y){ 
@@ -67,7 +69,9 @@ public class BossVulnerable : AIAction
             controller._BossFlags.VulnerableStarted = false;
             controller._BossFlags.VulnerableFinished = true;
             controller._CharacterMovement.SetVertical(0);
-
+            controller._BossFlags.MoveBossHeadUp = false;
+            controller._BossFlags.VulnerableActive = false;
+            controller.ResetLayer();
             // Vulnerable deactivated
         }
     }

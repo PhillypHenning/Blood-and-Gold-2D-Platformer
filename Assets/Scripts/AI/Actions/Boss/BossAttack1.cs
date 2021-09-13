@@ -7,6 +7,10 @@ public class BossAttack1 : AIAction
 {
     //private float TimeUntilAttackIsDone = 0;
     private float TimeOfAttack = 5f;
+    private float TimeUntilAttack = 0;
+    private float TimeBetweenAttacks = 3f;
+    private bool Actionable = false;
+
 
     public override void Act(StateController controller)
     {
@@ -20,13 +24,17 @@ public class BossAttack1 : AIAction
             controller._BossFlags.Attack1Active = true;
             controller._BossFlags.TimeUntilAttackIsDone = Time.time + TimeOfAttack;
             Debug.Log("Attack 1 Started");
+            TimeUntilAttack = Time.time - 1; // Set it up to always happen the first time
+            Actionable = true;
         }
 
-        if(controller._BossFlags.Attack1Active){
-            //Debug.Log("Using Attack1");
+        if(controller._BossFlags.Attack1Active && Time.time > TimeUntilAttack){
+            TimeUntilAttack = Time.time + TimeBetweenAttacks;
+            Debug.Log("Using Attack1"); 
+            controller._CharacterWeapon._CurrentWeapon.UseWeapon();
         }
 
-        
+
         if(controller._BossFlags.Attack1Active && Time.time > controller._BossFlags.TimeUntilAttackIsDone){
             Debug.Log("Attack 1 Finished");
             controller._BossFlags.IsAttacking = false;
