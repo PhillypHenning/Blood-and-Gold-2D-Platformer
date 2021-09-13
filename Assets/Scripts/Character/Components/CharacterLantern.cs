@@ -5,18 +5,8 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class CharacterLantern : CharacterComponent
 {
-    // lantern is usable by player only.
-
-    // Functionality TODO:
-    //  - Enable / Disable (hotkey "x")
-    //    - Disable should not reduce the light to 0, rather, it should emit very little light
-    //  - Adjust threshold (hotkey "LEFT ALT")
-    //    - This will allow the player to use the scroll wheel to add/reduce oil usage
-    //      - more fuel = more light + faster drain rate
-
     [SerializeField] private LanternDial _LanternDial;
     private bool _IsLanternOn;
-    private bool _AdjustmentMode;
     private Light2D _Light;
 
     private float _OilDrainPool = 0f;
@@ -64,52 +54,46 @@ public class CharacterLantern : CharacterComponent
     {
         base.HandleInput();
         if (!_HandleInput) return;
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             SwitchLanternOnOff();
         }
-        if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyUp(KeyCode.LeftAlt))
+        if (_IsLanternOn)
         {
-            SwitchAdjustmentMode();
-        }
-        if (_IsLanternOn && _AdjustmentMode)
-        {
-            var scrollWheelY = Input.mouseScrollDelta.y;
-            if (scrollWheelY == 0) return;
-            if (scrollWheelY > 0)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                if (_InnerRadiusThreshold + .25f <= MAX_INNER_RADIUS)
+                if (_InnerRadiusThreshold + .2f <= MAX_INNER_RADIUS)
                 {
-                    _InnerRadiusThreshold += .25f;
+                    _InnerRadiusThreshold += .2f;
                 }
                 else
                 {
                     _InnerRadiusThreshold = MAX_INNER_RADIUS;
                 }
 
-                if (_OuterRadiusThreshold + 1f <= MAX_OUTER_RADIUS)
+                if (_OuterRadiusThreshold + .8f <= MAX_OUTER_RADIUS)
                 {
-                    _OuterRadiusThreshold += 1f;
+                    _OuterRadiusThreshold += .8f;
                 }
                 else
                 {
                     _OuterRadiusThreshold = MAX_OUTER_RADIUS;
                 }
             }
-            else
+            else if (Input.GetKeyDown(KeyCode.Q))
             {
-                if (_InnerRadiusThreshold - .25f >= MIN_INNER_RADIUS)
+                if (_InnerRadiusThreshold - .2f >= MIN_INNER_RADIUS)
                 {
-                    _InnerRadiusThreshold -= .25f;
+                    _InnerRadiusThreshold -= .2f;
                 }
                 else
                 {
                     _InnerRadiusThreshold = MIN_INNER_RADIUS;
                 }
 
-                if (_OuterRadiusThreshold - 1f >= MIN_OUTER_RADIUS)
+                if (_OuterRadiusThreshold - .8f >= MIN_OUTER_RADIUS)
                 {
-                    _OuterRadiusThreshold -= 1f;
+                    _OuterRadiusThreshold -= .8f;
                 }
                 else
                 {
@@ -163,23 +147,8 @@ public class CharacterLantern : CharacterComponent
         return (MAX_DRAIN_RATE * (_Light.pointLightInnerRadius / MAX_INNER_RADIUS));
     }
 
-    private void SwitchAdjustmentMode()
-    {
-        _AdjustmentMode = !_AdjustmentMode;
-        if (_AdjustmentMode)
-        {
-            _LanternDial.AdjustmentModeOn();
-        }
-        else
-        {
-            _LanternDial.AdjustmentModeOff();
-        }
-    }
-
     private void SwitchLanternOnOff()
     {
-        // white B7B7B7
-        // orange F3C08B
         _IsLanternOn = !_IsLanternOn;
         if (_IsLanternOn)
         {

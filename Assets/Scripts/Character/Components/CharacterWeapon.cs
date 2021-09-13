@@ -60,10 +60,10 @@ public class CharacterWeapon : CharacterComponent
         if (!_HandleInput) { return;}
         if(!_Actionable){ return;}
 
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.K))
         {
             Aim();
-            if (Input.GetKeyDown(KeyCode.RightControl))
+            if (Input.GetKeyDown(KeyCode.J))
             {
                 Shoot();
             }
@@ -78,7 +78,7 @@ public class CharacterWeapon : CharacterComponent
             Reload();
         }
 
-        if (Input.GetKeyDown(KeyCode.T) && _SecondaryWeapon != null)
+        if (Input.GetKeyDown(KeyCode.L) && _SecondaryWeapon != null)
         {
             SwapWeapons();
         }
