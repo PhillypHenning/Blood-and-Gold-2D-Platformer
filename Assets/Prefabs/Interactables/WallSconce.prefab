@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2230a499960851a4ab7fc4297a8196b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _DefaultMessage: Press 'F' to interact.
+  _DefaultMessage: '[f] to light'
   _Breakable: 0
   _StartOn: 0
 --- !u!61 &5975007019777511025

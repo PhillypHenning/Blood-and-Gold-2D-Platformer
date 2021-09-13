@@ -127,8 +127,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3697d78f3e8476488b059f35d149f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _DefaultMessage: '[f] to open'
   _Breakable: 0
+  _CustomLockedMessage: 
   _Target: {fileID: 0}
+  _TargetAlternate: {fileID: 0}
   _IsLocked: 0
   _RequiredItem: 0
   _ForcedEntry: 0

@@ -5,7 +5,6 @@ public class Interactable_Door : Interactable
 {
     [SerializeField] protected string _CustomLockedMessage = null;
     [SerializeField] protected Transform _Target;
-    [SerializeField] protected Transform _TargetAlternate;
     protected bool _UseAlternateTarget = false;
     protected Fader _Fader;
 

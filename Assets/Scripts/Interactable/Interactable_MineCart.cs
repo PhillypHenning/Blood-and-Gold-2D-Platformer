@@ -59,7 +59,7 @@ public class Interactable_MineCart : Interactable
         }
         else
         {
-            _DefaultMessage = "Press 'F' to enter.";
+            _DefaultMessage = "[f] to ride";
         }
     }
 

@@ -17,7 +17,7 @@ public class Interactable : MonoBehaviour
     protected bool _EnableRewardable;
     protected bool _RewardIssued = false;
 
-    [SerializeField] protected string _DefaultMessage = "Press 'F' to interact.";
+    [SerializeField] protected string _DefaultMessage = "[f] to interact";
 
     protected Text _TextUI;
 

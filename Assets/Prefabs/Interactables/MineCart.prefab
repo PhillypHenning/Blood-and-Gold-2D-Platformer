@@ -153,6 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3427b8ce78f825049a014ad715717fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _DefaultMessage: '[f] to ride'
   _Breakable: 0
   _Target: {fileID: 0}
+  _CutsceneExitTarget: {fileID: 0}
   _MovementSpeed: 0.1
+  _ExitOnly: 0
