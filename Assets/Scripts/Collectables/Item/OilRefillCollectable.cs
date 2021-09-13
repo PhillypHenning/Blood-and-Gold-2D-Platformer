@@ -17,6 +17,8 @@ public class OilRefillCollectable : Collectable
         // Lantern refil here
         _CharacterLantern.AddOil(_ValueToAdd);
         _Consumed = true;
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Lantern/Oil_Refill");
     }
 
     protected override void SetReferences(GameObject gameObject)

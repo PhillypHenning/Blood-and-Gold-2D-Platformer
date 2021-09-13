@@ -16,6 +16,7 @@ public class HealingCollectable : Collectable
     {
         if (!_CharacterHealth.Heal(_ValueToAdd)) return;
         _Consumed = true;
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/Items/Health/Restore_Health", gameObject);
     }
 
     protected override void SetReferences(GameObject gameObject)
