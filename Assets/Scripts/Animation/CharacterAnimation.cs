@@ -18,6 +18,7 @@ public class CharacterAnimation : MonoBehaviour
 
     private Dictionary<AnimationState, float> _AnimationTimes = new Dictionary<AnimationState, float>();
     private AnimationState _CurrentAnimation;
+    private bool _InMineCart;
 
     public Dictionary<AnimationState, float> AnimationTimes => _AnimationTimes;
 
@@ -49,13 +50,15 @@ public class CharacterAnimation : MonoBehaviour
         ShieldHurt,
         ShieldBreak,
         Attack1,
-        Attack2
+        Attack2,
+        MineCart
     }
 
     void Start()
     {
         _Animator = GetComponentInChildren<Animator>();
         _Character = GetComponent<Character>();
+        _InMineCart = false;
 
         if (_Character == null) print("CharacterAnimation couldn't find Character to assign to _Character.");
         if (_Animator == null) print("CharacterAnimation couldn't find Animator component to assign to _Animator.");
@@ -92,6 +95,10 @@ public class CharacterAnimation : MonoBehaviour
     {
         if (PriorityAnimationPlaying() || StaticAnimationPlaying() || _IsDead) return;
 
+        if (_InMineCart) {
+            ChangeAnimationState(AnimationState.MineCart);
+            return;
+        }
         if (_Character.IsGrounded)
         {
             if (_IsFalling)
@@ -239,9 +246,20 @@ public class CharacterAnimation : MonoBehaviour
     {
         ChangeAnimationState(AnimationState.Attack1, AnimationType.Static); 
     }
+
     public void Attack2()
     {
         ChangeAnimationState(AnimationState.Attack2, AnimationType.Static); 
+    }
+
+    public void EnterMineCart()
+    {
+        _InMineCart = true;
+    }
+
+    public void ExitMineCart()
+    {
+        _InMineCart = false;
     }
 
     private void SetStaticAnimationDelay(float delay)

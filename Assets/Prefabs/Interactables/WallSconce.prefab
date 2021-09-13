@@ -98,7 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2230a499960851a4ab7fc4297a8196b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _DefaultMessage: Press 'F' to interact.
   _Breakable: 0
+  _StartOn: 0
 --- !u!61 &5975007019777511025
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -152,8 +154,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 2
-  m_PointLightOuterRadius: 8
+  m_PointLightInnerRadius: 1.5
+  m_PointLightOuterRadius: 6
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5

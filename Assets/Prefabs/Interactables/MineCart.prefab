@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4915514832218784923}
   - component: {fileID: 8531653826793966982}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 8228434538655187461}
   - component: {fileID: 8228434538655187463}
   - component: {fileID: 8228434538655187466}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: MineCart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,3 +155,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Breakable: 0
   _Target: {fileID: 0}
+  _MovementSpeed: 0.1
