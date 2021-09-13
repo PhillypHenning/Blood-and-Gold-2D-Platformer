@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterHealth : Health
 {
@@ -77,6 +78,10 @@ public class CharacterHealth : Health
         base.Die();
         if (_Character != null)
         {
+            if (_Character.CharacterType == Character.CharacterTypes.Player)
+            {
+                StartCoroutine("ReloadScene");
+            }
             _Character.IsLocked = true;
             _Character.IsAlive = false;
             _Character.Actionable = false;
@@ -96,6 +101,14 @@ public class CharacterHealth : Health
         if (_Character == null) { return; }
         if (_Character.CharacterType == Character.CharacterTypes.AI || _PlayerLives == null) { return; }
         _PlayerLives.UpdateLives((int)_CurrentHealth / 5);
+    }
+
+    // TODO: make a game manager to handle this...
+    private IEnumerator ReloadScene()
+    {
+        yield return new WaitForSeconds(2f);
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
     
 }
