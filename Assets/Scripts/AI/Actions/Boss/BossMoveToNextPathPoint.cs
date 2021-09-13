@@ -45,12 +45,25 @@ public class BossMoveToNextPathPoint : AIAction
                 controller._CharacterMovement.SetHorizontal(-1);
             }
 
+            // Based on the position we are moving towards and the GO's current position
+            if (controller.transform.position.y < controller._BossFlags._MovePointTo.y)
+            {
+                controller._CharacterMovement.SetVertical(1);
+            }
+            else
+            {
+                controller._CharacterMovement.SetVertical(-1);
+            }
+
             // If transform.position is within the range between the point
             // Enumerable.Range(1,100).Contains(x)
 
-            if (IsBetween(controller.transform.position.x, controller._BossFlags._MovePointTo.x + threshhold, controller._BossFlags._MovePointTo.x - threshhold))
+            if (IsBetween(controller.transform.position.x, controller._BossFlags._MovePointTo.x + threshhold, controller._BossFlags._MovePointTo.x - threshhold )
+                // && IsBetween(controller.transform.position.y, controller._BossFlags._MovePointTo.y + threshhold, controller._BossFlags._MovePointTo.y - threshhold )
+            )
             {
                 controller._CharacterMovement.SetHorizontal(0);
+                controller._CharacterMovement.SetVertical(0);
                 controller._BossFlags.IsMoving = false;
                 controller._BossFlags.IsMovingDone = true;
             }
