@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: e46b676b411b0bf4381b6c553a5c3e35
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 5486323723219651878
+    second: sRoughGround_gold_tileSet_v002_0
+  - first:
+      213: -2132007926406610647
+    second: sRoughGround_gold_tileSet_v002_1
+  - first:
+      213: -5050263405336148013
+    second: sRoughGround_gold_tileSet_v002_2
+  - first:
+      213: 25765619711230434
+    second: sRoughGround_gold_tileSet_v002_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,7 +101,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: sRoughGround_gold_tileSet_v002_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 109
+        width: 134
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62d4e45cb56532c40800000000000000
+      internalID: 5486323723219651878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sRoughGround_gold_tileSet_v002_1
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 192
+        width: 130
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 921873836169962e0800000000000000
+      internalID: -2132007926406610647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sRoughGround_gold_tileSet_v002_2
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 128
+        width: 130
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d7c8c6b03cd9e9b0800000000000000
+      internalID: -5050263405336148013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sRoughGround_gold_tileSet_v002_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 79
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e14e42d1b98b5000800000000000000
+      internalID: 25765619711230434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5462868216086393168}
   - component: {fileID: 5462868216086393170}
   - component: {fileID: 5462868216086393175}
+  - component: {fileID: -1135539198405851470}
   m_Layer: 0
   m_Name: ShotgunPickup
   m_TagString: Untagged
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 827425527
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 88bb301c3681b8148be47572cb950816, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -124,3 +125,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _DestroyItemOnPickUp: 1
   _WeaponItemData: {fileID: 11400000, guid: 440ad8ea39fdb4e4fa710269f2a4575b, type: 2}
+--- !u!114 &-1135539198405851470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5462868216086393174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31bbc16bdc07854a8e50347922514ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _DestroyItemOnPickUp: 1
+  _ValueToAdd: 1
+  _ItemData: {fileID: 11400000, guid: b2beeb672c134fe48909e0dd1a4e9680, type: 2}

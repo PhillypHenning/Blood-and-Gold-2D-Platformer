@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8621419871979832402}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Fake Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8621419872333876468}
   - component: {fileID: 8621419872333876469}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: '"Fake wall" (4)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8621419872346758874}
   - component: {fileID: 8621419872346758875}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: '"Fake wall"'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8621419872529882270}
   - component: {fileID: 8621419872529882271}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: '"Fake wall" (3)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8621419872956573225}
   - component: {fileID: 8621419872956573222}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: '"Fake wall" (1)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8621419873339855511}
   - component: {fileID: 8621419873339855508}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: '"Fake wall" (5)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,9 +458,9 @@ GameObject:
   - component: {fileID: 8621419873626874141}
   - component: {fileID: 8621419873626874138}
   - component: {fileID: 8621419873626874139}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Breakable Wall
-  m_TagString: Enemy Shield
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -543,7 +543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8621419873798038631}
   - component: {fileID: 8621419873798038628}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: '"Fake wall" (2)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
