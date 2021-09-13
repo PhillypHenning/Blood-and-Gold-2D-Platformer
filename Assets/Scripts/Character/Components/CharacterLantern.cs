@@ -79,6 +79,8 @@ public class CharacterLantern : CharacterComponent
                 {
                     _OuterRadiusThreshold = MAX_OUTER_RADIUS;
                 }
+
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Lantern/Lantern_Adjust");
             }
             else if (Input.GetKeyDown(KeyCode.Q))
             {
@@ -99,6 +101,8 @@ public class CharacterLantern : CharacterComponent
                 {
                     _OuterRadiusThreshold = MIN_OUTER_RADIUS;
                 }
+
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Lantern/Lantern_Adjust");
             }
 
             SetLanternDial();

@@ -7,12 +7,15 @@ public class MusicManager : MonoBehaviour
 
     private static FMOD.Studio.EventInstance Music;
 
+    FMOD.Studio.EventInstance CartBrake;
+
     [FMODUnity.EventRef] [SerializeField]
     private string musicEvent;
 
     void Start()
     {
         Music = FMODUnity.RuntimeManager.CreateInstance(musicEvent);
+        CartBrake = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Interactables/Mine_Cart/Mine_Cart_Brake");
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -44,6 +47,11 @@ public class MusicManager : MonoBehaviour
             Music.setParameterByName("Area", 4);
         }
 
+        if(other.tag == "MineCartRoom")
+        {
+            CartBrake.start();
+        }
+
     }
 
     public void StopMusic()
@@ -54,5 +62,6 @@ public class MusicManager : MonoBehaviour
     void OnDestroy()
     {
         StopMusic();
+        CartBrake.release();
     }
 }

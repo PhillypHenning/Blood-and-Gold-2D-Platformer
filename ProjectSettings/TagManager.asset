@@ -24,6 +24,7 @@ TagManager:
   - MiniBossRoom
   - Area2
   - BossRoom
+  - MineCartRoom
   layers:
   - Default
   - TransparentFX
