@@ -19,9 +19,12 @@ public class BossStart : AIAction
 
         if(controller.transform.position != _StartPosition){
             controller.transform.position = _StartPosition;
+            controller._BossFlags._StartPosition = _StartPosition;
         }
+
+        controller._Target = GameObject.Find("Player").transform;
         
-        // Set Boss Start bool to false
+        // Set Boss Start bool to false && move to trigger object on door
         controller._BossFlags.BossStarted = true;
     }
 }

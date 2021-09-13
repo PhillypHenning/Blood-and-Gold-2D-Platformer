@@ -14,7 +14,7 @@ public class BossMoveToNextPathPoint : AIAction
 
     private void MoveToNextPosition(StateController controller)
     {
-        if (!controller._BossFlags.IsMoving && !controller._BossFlags.IsMovingDone)
+        if (!controller._BossFlags.IsMoving)
         {
             // Randomly select a value between 0 and Paths.count
             var rand = Random.Range(0, controller._Paths._PathCount);
@@ -22,9 +22,14 @@ public class BossMoveToNextPathPoint : AIAction
 
             // Based on starting position.
             controller._BossFlags._MovePointTo = controller._BossFlags._StartPosition + moveTowardsPoint;
-            Debug.Log("Moving towards; " + controller._BossFlags._MovePointTo);
+            Debug.Log("Moving Started, moving towards: " + controller._BossFlags._MovePointTo);
             // Debug.Log("Moving to position: " + movePointTo);
             controller._BossFlags.IsMoving = true;
+            controller._BossFlags.IsMovingDone = false;
+
+            if(controller._BossFlags._MovePointTo.x < 2){
+                controller._BossFlags._MovePointTo += new Vector3(2f, 0f, 0);
+            }
 
             //Debug.Log("Simulated movement");
             //controller.transform.position = movePointTo;
@@ -66,6 +71,7 @@ public class BossMoveToNextPathPoint : AIAction
                 controller._CharacterMovement.SetVertical(0);
                 controller._BossFlags.IsMoving = false;
                 controller._BossFlags.IsMovingDone = true;
+                Debug.Log("Moving Done.");
             }
 
             

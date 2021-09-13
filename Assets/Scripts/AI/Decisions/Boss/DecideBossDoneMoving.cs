@@ -12,12 +12,9 @@ public class DecideBossDoneMoving : AIDecision
 
     private bool IsBossDoneMoving(StateController controller){
         if(controller._BossFlags.IsMoving){
-            //controller._BossFlags.IsMovingDone = false;
-            //Debug.Log("Boss done moving");
-            Debug.Log("Boss is moving");
+            controller._BossFlags.IsMovingDone = false;
             return true;
         }
-        Debug.Log("Boss Done Moving");
         return false;
     }
 }
