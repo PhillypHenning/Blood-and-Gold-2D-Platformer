@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 507639a3921bed84e9086206bb4e34a2, type: 3}
   m_Name: BossAttack1
   m_EditorClassIdentifier: 
+  TimeUntilAttackIsDone: 0

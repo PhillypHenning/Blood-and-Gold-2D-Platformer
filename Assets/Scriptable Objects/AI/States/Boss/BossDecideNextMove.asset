@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4f9a166eaf4ab478ceac2cab3e5283, type: 3}
+  m_Name: BossDecideNextMove
+  m_EditorClassIdentifier: 
+  _AIActions:
+  - {fileID: 11400000, guid: 2f562c30f51323941b192975483bccf0, type: 2}
+  _AITransitions:
+  - _Decision: {fileID: 11400000, guid: 34717e8e7855850448c786c52bd43d0c, type: 2}
+    _TrueState: {fileID: 11400000, guid: 787dbfdeb64f04345b1496a82737c8fb, type: 2}
+    _FalseState: {fileID: 11400000, guid: 8e3c54feed3c5914b8cd7e5f95d935f1, type: 2}
+  - _Decision: {fileID: 11400000, guid: add1ceeda7d8a424386d2a5315d54590, type: 2}
+    _TrueState: {fileID: 11400000, guid: e44ee6bce2931b642a3f7a50f8289c6c, type: 2}
+    _FalseState: {fileID: 11400000, guid: 4e3600b7d70eb944fa903eb6dbd89920, type: 2}

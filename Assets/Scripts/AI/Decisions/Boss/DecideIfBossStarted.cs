@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/Decisions/Decide Is Boss Started", fileName = "DecideIfBossStarted")]
+[CreateAssetMenu(menuName = "AI/Decisions/Boss/DecideIsBossStarted")]
 public class DecideIfBossStarted : AIDecision
 {
     public override bool Decide(StateController controller)
