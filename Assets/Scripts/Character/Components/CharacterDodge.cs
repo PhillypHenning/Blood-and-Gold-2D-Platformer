@@ -11,7 +11,7 @@ public class CharacterDodge : CharacterComponent
     private bool _DodgeDone = false;
 
     private float _TimeUntilInvunIsDone = 0f;
-    private float _TimeOfInvun = .25f;
+    private float _TimeOfInvun = .60f;
     private bool _InvunActivate = false;
     private int _OriginalLayer;
 
@@ -22,6 +22,7 @@ public class CharacterDodge : CharacterComponent
         base.Start();
         SetToDefault();
         _OriginalLayer = gameObject.layer;
+        Physics2D.IgnoreLayerCollision(9, 10);
     }
 
     protected override void Update()
