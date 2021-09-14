@@ -42,7 +42,7 @@ public class Projectile : MonoBehaviour
     public void MoveProjectile(){
         _Movement = Direction * Speed *Time.deltaTime;
         _RigidBody2D.MovePosition(_RigidBody2D.position + _Movement);
-
+        
         // This will increase bullet speed over time.. 
         Speed += _Acceleration * Time.deltaTime;
     }

@@ -173,6 +173,7 @@ MonoBehaviour:
   _HasIntro: 0
   _HasBossKey: 0
   _CharacterType: 0
+  _AIType: 0
   _CharacterSprite: {fileID: 8995608707729878583}
 --- !u!114 &8995608706561558845
 MonoBehaviour:
@@ -352,8 +353,8 @@ Camera:
   m_GameObject: {fileID: 8995608707019104545}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 3
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -603,3 +604,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba8931fbfc429784d95fa83acf71ad62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  end: {fileID: 4363418999001675366}
