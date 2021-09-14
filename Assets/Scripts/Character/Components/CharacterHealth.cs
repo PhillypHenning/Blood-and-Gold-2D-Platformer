@@ -16,6 +16,8 @@ public class CharacterHealth : Health
     public bool _IsShield;
 
     public bool _Damagable { get; set; }
+    private bool HasMoved = false;
+    private Vector3 StartPos;
 
     protected override void SetToDefault()
     {
@@ -28,10 +30,15 @@ public class CharacterHealth : Health
         Physics2D.IgnoreLayerCollision(7, 9);  // "Player" layer ignores "Dead Body" layer
         Physics2D.IgnoreLayerCollision(8, 9);  // "Enemy" layer ignores "Dead Body" layer
         base.SetToDefault();
+        StartPos = transform.position;
     }
 
     protected override void Update()
     {
+        if(!HasMoved && transform.position != StartPos){
+            HasMoved = true;
+            _Character._GameStartTime = Time.time;
+        }
         base.Update();
         if(_Despawn && Time.time > _TimeUntilDespawn){
             // Disable all child objects
