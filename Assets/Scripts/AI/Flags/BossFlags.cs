@@ -6,6 +6,7 @@ public class BossFlags : MonoBehaviour
 {
     // Intro cutscene
     public bool BossStarted = false;
+    public bool BossIntroStarted = false;
     public bool IntroDone = false;
     
     // Movement
