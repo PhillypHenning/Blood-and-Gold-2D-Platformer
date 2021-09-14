@@ -22,7 +22,7 @@ public class CharacterDodge : CharacterComponent
         base.Start();
         SetToDefault();
         _OriginalLayer = gameObject.layer;
-        Physics2D.IgnoreLayerCollision(10, 9);
+        Physics2D.IgnoreLayerCollision(9, 10);
     }
 
     protected override void Update()
