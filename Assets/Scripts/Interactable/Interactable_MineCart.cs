@@ -15,7 +15,6 @@ public class Interactable_MineCart : Interactable
     protected Vector3 _StartPosition;
 
     FMOD.Studio.EventInstance CartStart;
-    FMOD.Studio.EventInstance CartRoll;
 
     protected override void Start()
     {
@@ -30,7 +29,6 @@ public class Interactable_MineCart : Interactable
         if (_Fader == null) Debug.LogError("Door was unable to locate Fader");
 
         CartStart = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Interactables/Mine_Cart/Mine_Cart_Start");
-        CartRoll = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Interactables/Mine_Cart/Mine_Cart_Rolling");
     }
 
     protected override void Update()
@@ -79,7 +77,6 @@ public class Interactable_MineCart : Interactable
     {
         ExitCart();
         base.OnTriggerExit2D(other);
-        CartRoll.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     protected IEnumerator RelocatePlayer()
@@ -105,9 +102,6 @@ public class Interactable_MineCart : Interactable
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         player.transform.SetParent(transform);
         player.GetComponentInChildren<CharacterAnimation>().EnterMineCart();
-
-        CartRoll.start();
-        CartRoll.release();
     }
 
     private void SetInMotion()

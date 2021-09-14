@@ -12,6 +12,8 @@ public class CharacterAudio : MonoBehaviour
     FMOD.Studio.EventInstance Hurt;
     FMOD.Studio.EventInstance Die;
     FMOD.Studio.EventInstance Dodge;
+    FMOD.Studio.EventInstance MineCart;
+    FMOD.Studio.EventInstance CartBrake;
 
     void Start()
     {
@@ -21,6 +23,8 @@ public class CharacterAudio : MonoBehaviour
         Hurt = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Player_Character/Player_Take_Damage");
         Die = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Player_Character/Player_Death");
         Dodge = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Player_Character/Player_Dodge");
+        MineCart = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Interactables/Mine_Cart/Mine_Cart_Rolling");
+        CartBrake = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Interactables/Mine_Cart/Mine_Cart_Brake");
     }
     void PlayerFootsteps()
     {
@@ -54,6 +58,31 @@ public class CharacterAudio : MonoBehaviour
         end.StopMusic();
     }
 
+    void Ride()
+    {
+        FMOD.Studio.PLAYBACK_STATE PbState;
+        MineCart.getPlaybackState(out PbState);
+
+        if(PbState != FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        {
+            MineCart.start();
+            MineCart.release();
+        }
+    }
+
+    void StopRide()
+    {
+        FMOD.Studio.PLAYBACK_STATE PbState;
+        MineCart.getPlaybackState(out PbState);
+
+            MineCart.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
+        if(PbState == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        {
+            CartBrake.start();
+        }
+    }
+
     void OnDestroy()
     {
         Footsteps.release();
@@ -62,5 +91,6 @@ public class CharacterAudio : MonoBehaviour
         Hurt.release();
         Die.release();
         Dodge.release();
+        CartBrake.release();
     }
 }
