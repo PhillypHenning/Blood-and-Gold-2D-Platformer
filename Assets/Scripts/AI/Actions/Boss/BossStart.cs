@@ -11,20 +11,25 @@ public class BossStart : AIAction
         SetToStart(controller);
     }
 
-    private void SetToStart(StateController controller){
-        controller._BossFlags._StartPosition = controller.transform.position;
-        Debug.Log("Current Position: " + controller._Paths.CurrentPosition);
-        Debug.Log("BossHead Position: " + controller.transform.position);
-        var _StartPosition = controller._Paths.CurrentPosition + controller.transform.position;
+    private void SetToStart(StateController controller)
+    {
+        if (!controller._BossFlags.BossIntroStarted)
+        {
+            controller._BossFlags._StartPosition = controller.transform.position;
+            Debug.Log("Current Position: " + controller._Paths.CurrentPosition);
+            Debug.Log("BossHead Position: " + controller.transform.position);
+            var _StartPosition = controller._Paths.CurrentPosition + controller.transform.position;
 
-        if(controller.transform.position != _StartPosition){
-            controller.transform.position = _StartPosition;
-            controller._BossFlags._StartPosition = _StartPosition;
+            if (controller.transform.position != _StartPosition)
+            {
+                controller.transform.position = _StartPosition;
+                controller._BossFlags._StartPosition = _StartPosition;
+            }
+
+            controller._Target = GameObject.Find("Player").transform;
+
+            // Set Boss Start bool to false && move to trigger object on door
+            controller._BossFlags.BossIntroStarted = true;
         }
-
-        controller._Target = GameObject.Find("Player").transform;
-        
-        // Set Boss Start bool to false && move to trigger object on door
-        controller._BossFlags.BossStarted = true;
     }
 }

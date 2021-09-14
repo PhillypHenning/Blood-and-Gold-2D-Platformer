@@ -296,7 +296,9 @@ MonoBehaviour:
   IsAlive: 1
   IsIntro: 1
   _HasIntro: 0
+  _HasBossKey: 0
   _CharacterType: 1
+  _AIType: 0
   _CharacterSprite: {fileID: 3271340344699568621}
 --- !u!114 &3271340346234227263
 MonoBehaviour:
@@ -397,6 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: ad87781a3eecf04439b9a83f2f0948e8, type: 2}
   remainState: {fileID: 11400000, guid: 4e3600b7d70eb944fa903eb6dbd89920, type: 2}
+  _IntroDone: 0
 --- !u!114 &-8181599771480794591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,7 +439,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3271340346435643757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.326, y: 0.969, z: 0}
+  m_LocalPosition: {x: -0.314, y: 1.153, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3271340346234227259}

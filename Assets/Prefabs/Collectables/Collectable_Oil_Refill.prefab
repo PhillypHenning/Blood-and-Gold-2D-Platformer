@@ -93,7 +93,6 @@ GameObject:
   - component: {fileID: 4220237654818276250}
   - component: {fileID: 4220237654818276245}
   - component: {fileID: 4220237654818276244}
-  - component: {fileID: 4220237654818276251}
   - component: {fileID: -594305252428573880}
   m_Layer: 10
   m_Name: Collectable_Oil_Refill
@@ -154,20 +153,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &4220237654818276251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4220237654818276255}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c185f63aa0a9c3640bf578a5ba01fe5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _DestroyItemOnPickUp: 1
-  _ValueToAdd: 10
 --- !u!114 &-594305252428573880
 MonoBehaviour:
   m_ObjectHideFlags: 0
