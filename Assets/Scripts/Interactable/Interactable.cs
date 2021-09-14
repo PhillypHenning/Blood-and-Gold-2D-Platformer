@@ -48,6 +48,7 @@ public class Interactable : MonoBehaviour
     }
 
     protected virtual void OnTriggerExit2D(Collider2D other) {
+        if (!other.CompareTag("Player")) return;
         RemoveVisualQue();
         _CollidingGameObject = null;
         _Character = null;
