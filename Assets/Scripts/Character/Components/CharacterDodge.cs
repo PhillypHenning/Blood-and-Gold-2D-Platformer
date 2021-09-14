@@ -102,7 +102,9 @@ public class CharacterDodge : CharacterComponent
         //_DodgeDistance = 500f;
         _IsDodging = false;
 
-        // matches dodge duration to length of dodge animation
+        _DodgeDuration = 0.5f;
+        // TODO: Issue on BUILD.... matches dodge duration to length of dodge animation
+        /*
         if (_CharacterAnimation.AnimationTimes.ContainsKey(CharacterAnimation.AnimationState.Dodge))
         {
             _DodgeDuration = _CharacterAnimation.AnimationTimes[CharacterAnimation.AnimationState.Dodge];
@@ -111,6 +113,7 @@ public class CharacterDodge : CharacterComponent
         {
             Debug.LogWarning("CharacterDodge was unable to find Dodge Animation, default 0.5 Dodge Length assigned.");
         }
+        */
     }
 
     private void ChangeToRollLayer(){
