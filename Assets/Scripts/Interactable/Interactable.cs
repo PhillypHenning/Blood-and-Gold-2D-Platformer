@@ -39,6 +39,7 @@ public class Interactable : MonoBehaviour
     
     protected virtual void OnTriggerEnter2D(Collider2D other) {
         // When Character enters the ontrigger collider
+        if (!other.CompareTag("Player")) return;
         _CollidingGameObject = other.gameObject;
 
         if(IsUsableByCollider(other)){
