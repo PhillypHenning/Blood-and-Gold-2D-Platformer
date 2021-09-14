@@ -16,6 +16,8 @@ public class CharacterMovement : CharacterComponent
     public bool _MovementSurpressed;
     public bool _SlidingMovement = false;
 
+    private Transform _Target;
+
 
     // TODO: This component will need to know which way the sprite is facing
 
@@ -49,7 +51,11 @@ public class CharacterMovement : CharacterComponent
         // It can feel like sliding on ice. Be cognitive that the Rigidbody mass is weighed in to the function.
         //_CharacterRigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalInput, 0));
         //_CharacterRigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalInput, 0), ForceMode2D.Force); // <-- Default, gradual force build up applied
+        
         if(_Character.AIType == Character.AITypes.Boss){
+            if(_Target){
+                FollowTarget();
+            }
             _Character.RigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalMovement, _MovementSpeed * _VerticalMovement), ForceMode2D.Force); // <-- Specified, Immediate force applied        
         }
         
@@ -155,5 +161,18 @@ public class CharacterMovement : CharacterComponent
     public void SetVertical(float value)
     {
         _VerticalMovement = value;
+    }
+
+    public void SetTarget(Transform target){
+        _Target = target;
+    }
+
+    public void FollowTarget(){
+        Vector3 relativePos = _Target.position - transform.position;
+        Quaternion tempQuat = Quaternion.LookRotation(relativePos);
+
+        this.transform.rotation = tempQuat;
+        //Quaternion tempFloat = fakeRotator.rotation;
+        //fakeRotator.rotation = Quaternion.LookRotation(relativePos);
     }
 }

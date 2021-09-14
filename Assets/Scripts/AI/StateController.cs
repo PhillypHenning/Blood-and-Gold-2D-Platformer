@@ -28,6 +28,7 @@ public class StateController : MonoBehaviour
     public bool Actionable { get; set; }
 
     public bool _IntroDone = false;
+    private bool TargetSet = false;
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class StateController : MonoBehaviour
         _Character = GetComponent<Character>();
         _Collider2D = GetComponent<Collider2D>();
         _CharacterAnimator = GetComponent<CharacterAnimation>();
+
 
 
         // Try and break these up?
@@ -56,6 +58,10 @@ public class StateController : MonoBehaviour
         if (Actionable)
         {
             currentState.EvaluateState(this);
+        }
+        if(_Target && !TargetSet){
+            _CharacterMovement.SetTarget(_Target);
+            TargetSet=true;
         }
     }
 
