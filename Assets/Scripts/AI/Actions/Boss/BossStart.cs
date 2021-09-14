@@ -16,8 +16,6 @@ public class BossStart : AIAction
         if (!controller._BossFlags.BossIntroStarted)
         {
             controller._BossFlags._StartPosition = controller.transform.position;
-            Debug.Log("Current Position: " + controller._Paths.CurrentPosition);
-            Debug.Log("BossHead Position: " + controller.transform.position);
             var _StartPosition = controller._Paths.CurrentPosition + controller.transform.position;
 
             if (controller.transform.position != _StartPosition)

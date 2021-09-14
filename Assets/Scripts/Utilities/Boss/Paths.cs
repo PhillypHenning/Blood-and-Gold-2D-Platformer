@@ -34,10 +34,6 @@ public class Paths : MonoBehaviour
         //transform.position = currentPosition + currentPoint.Current;
 
         gameStarted = true;
-        foreach(var x in _Paths){
-            Debug.Log(x);
-        }
-        Debug.Log("Starting at position: " + _Paths[_StartingPathPoint]);
     }
 
     // Update is called once per frame

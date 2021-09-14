@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DecideIfAttack2 : MonoBehaviour
+[CreateAssetMenu(menuName = "AI/Decisions/Boss/DecideBossAttack2")]
+public class DecideIfAttack2 : AIDecision
 {
-    // Start is called before the first frame update
-    void Start()
+    public override bool Decide(StateController controller)
     {
-        
+        return DecideIfAttack2Ready(controller);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private bool DecideIfAttack2Ready(StateController controller){
+        if(controller._BossFlags.MovesUntilAttack2 <= 0){
+            controller._BossFlags.MovesUntilAttack2 = controller._BossFlags.FixedMovesUntilAttack2;
+            return true;
+        }
+        else return false;
     }
 }

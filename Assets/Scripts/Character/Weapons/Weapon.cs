@@ -213,7 +213,6 @@ public class Weapon : MonoBehaviour
             projectile.SetDirection(newDirection, transform.rotation, _WeaponOwner.FacingRight);
         }
         else{
-            Debug.Log(newDirection);
             projectile.SetDirection(newDirection, transform.rotation, _WeaponOwner.FacingRight);
         }
     }

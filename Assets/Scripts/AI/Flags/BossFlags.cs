@@ -21,8 +21,20 @@ public class BossFlags : MonoBehaviour
     public bool Attack1Active = false;
     public float TimeUntilAttackIsDone = 0;
 
+    // Attack 2
+    public bool IsAttack2Active = false;
+    public bool IsAttack2Done = false;
+    public float TimeUntilAttack2IsDone = 0f;
+    public float TimeUntilAttack2Active = 0f;
+    public float Attack2TimeBetweenAttacks = 2f; // Technically could do a counter as well..
+    public float TotalTimeOfAttack2 = 7f;
+    public int FixedMovesUntilAttack2 = 3;
+    public int MovesUntilAttack2 = 1; // TODO: Switch back after testing
+    public int DetectAreaOfAttack2 = 8;
+    public float Attack2Damage = 15f;
+
     // Vulnerable
-    public float movesSinceVunerable = 0;
+    public float MovesSinceVunerable = 0;
     public bool VulnerableStarted = false;
     public bool VulnerableFinished = false;
     public bool VulnerableActive = false;
@@ -39,4 +51,11 @@ public class BossFlags : MonoBehaviour
 
     public Vector3 _StartPosition;
     public Vector3 _MovePointTo;
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        //Use the same vars you use to draw your Overlap SPhere to draw your Wire Sphere.
+        Gizmos.DrawWireSphere(transform.position, DetectAreaOfAttack2);
+    }
 }

@@ -21,7 +21,6 @@ public class ObjectPooler : MonoBehaviour
     {
         _Weapon = GetComponent<Weapon>();
         _ObjectPooledFullName = _Weapon._WeaponOwner.CharacterType + " " + _Weapon.WeaponName + " " + _NameOfPooledObject + " pool";
-        Debug.Log(_ObjectPooledFullName);
         
         _ParentPool = new GameObject(_ObjectPooledFullName);
         

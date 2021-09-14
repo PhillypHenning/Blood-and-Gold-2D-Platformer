@@ -57,7 +57,7 @@ public class BossVulnerable : AIAction
 
         if(controller._BossFlags.MoveBossHeadUp){
             if(controller.transform.position.y < controller._BossFlags._StartPosition.y){ 
-                controller._CharacterMovement.SetVertical(100);
+                controller._CharacterMovement.SetVertical(30);
             }
 
             if(controller.transform.position.y >= controller._BossFlags._StartPosition.y){ 

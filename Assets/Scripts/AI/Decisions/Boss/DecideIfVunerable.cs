@@ -11,24 +11,22 @@ public class DecideIfVunerable : AIDecision
     }
 
     private bool DecideVulnerable(StateController controller){
-        if(controller._BossFlags.movesSinceVunerable < 1){
+        if(controller._BossFlags.MovesSinceVunerable < 1){
             return false;
         }
 
-        if(controller._BossFlags.movesSinceVunerable == 2){
+        if(controller._BossFlags.MovesSinceVunerable == 2){
             var rand = Random.Range(0, 100);
             if(rand < 50){
-                controller._BossFlags.movesSinceVunerable = 0;
+                controller._BossFlags.MovesSinceVunerable = 0;
                 controller._BossFlags.VulnerableActive = true;;
-                Debug.Log("Returned true?");
                 return true;
             }
             return false;
         }
 
-        if(controller._BossFlags.movesSinceVunerable >= 3){
-            Debug.Log("Returned true?");
-            controller._BossFlags.movesSinceVunerable = 0;
+        if(controller._BossFlags.MovesSinceVunerable >= 3){
+            controller._BossFlags.MovesSinceVunerable = 0;
             return true;
         }
         

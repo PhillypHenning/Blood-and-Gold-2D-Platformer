@@ -18,7 +18,8 @@ public class DecideNextBossMove : AIDecision
     private bool NextMove(StateController controller){
         if(controller._BossFlags.VulnerableActive){return false;}
         var rang = Random.Range(0, 100);
-        controller._BossFlags.movesSinceVunerable += 1;
+        controller._BossFlags.MovesSinceVunerable += 1;
+        controller._BossFlags.MovesUntilAttack2 -= 1;
 
         if(rang > controller._BossFlags.AttackThreshhold){
             return true;
