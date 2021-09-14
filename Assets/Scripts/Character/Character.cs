@@ -21,6 +21,9 @@ public class Character : MonoBehaviour
     public bool IsIntro = true;
     public bool _HasIntro = false;
     public bool _HasBossKey = false;
+    public float _GameStartTime = 0f;
+    public float _GameFinishTime = 0f;
+    //public bool _IsFacingRight => _FacingRight;
 
 
     // TODO: use character types to determine default stats (like movementspeed)
