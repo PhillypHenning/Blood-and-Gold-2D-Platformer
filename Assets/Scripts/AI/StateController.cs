@@ -25,6 +25,8 @@ public class StateController : MonoBehaviour
 
     public Collider2D _Collider2D { get; set; }
 
+    public GameObject _GameObject {get; set;}
+
     public bool Actionable { get; set; }
 
     public bool _IntroDone = false;
@@ -51,6 +53,7 @@ public class StateController : MonoBehaviour
             _Paths = go.GetComponent<Paths>();
             _BossFlags = GetComponent<BossFlags>();
         }
+        _GameObject = gameObject;
     }
 
     private void Update()

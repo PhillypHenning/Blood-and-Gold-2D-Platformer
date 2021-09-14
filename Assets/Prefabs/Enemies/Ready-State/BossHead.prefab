@@ -332,6 +332,7 @@ MonoBehaviour:
   _DefaultMovementSpeed: 25
   _MovementSurpressed: 0
   _SlidingMovement: 0
+  _FollowTarget: 1
 --- !u!114 &3077463628516637076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,6 +347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CharacterMaxHealth: 200
   _PlayerLives: {fileID: 0}
+  _TimeBetweenDespawn: 5
 --- !u!114 &3077463628516637077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bdeefb8fc173a24bb3cea072ae83ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _PrimaryWeapon: {fileID: 6199886841864414671, guid: d55d15edaa3d2e742bec67774dd99a14, type: 3}
+  _PrimaryWeapon: {fileID: -8126303705752329790, guid: d55d15edaa3d2e742bec67774dd99a14, type: 3}
   _WeaponHolderPosition: {fileID: 3077463628148796209}
 --- !u!114 &3077463628516637072
 MonoBehaviour:
@@ -413,6 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossStarted: 0
+  BossIntroStarted: 0
   IntroDone: 0
   IsMoving: 0
   IsMovingDone: 0
@@ -429,5 +432,7 @@ MonoBehaviour:
   MoveBossHeadDown: 0
   MoveBossHeadUp: 0
   TimeUntilVulnerableFinishes: 0
+  DeathStarted: 0
+  TimeUntilDeath: 0
   _StartPosition: {x: 0, y: 0, z: 0}
   _MovePointTo: {x: 0, y: 0, z: 0}

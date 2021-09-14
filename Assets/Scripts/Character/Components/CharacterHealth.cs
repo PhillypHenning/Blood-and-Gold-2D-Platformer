@@ -10,7 +10,7 @@ public class CharacterHealth : Health
     private Character _Character;
     [SerializeField] private Lives _PlayerLives;
     private float _TimeUntilDespawn = 0;
-    private float _TimeBetweenDespawn = 3f;
+    [SerializeField] private float _TimeBetweenDespawn = 3f;
     private bool _Despawn = false;
 
     public bool _Damagable { get; set; }

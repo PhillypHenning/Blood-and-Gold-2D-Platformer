@@ -25,7 +25,7 @@ public class BossIntro : AIAction
 
                 _TimeUntilIntroIsDone = Time.time + _TotalTimeOfIntro;
 
-                // Start Scream animation
+                // Start Scream animation - TODO WEST
                 controller._CharacterAnimator.Attack2();
             }
             

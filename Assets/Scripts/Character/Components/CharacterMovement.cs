@@ -10,13 +10,14 @@ public class CharacterMovement : CharacterComponent
     private float _HorizontalMovement;
     private float _VerticalMovement;
 
-    public float HorizontalMovement {get; set;}
-    public float VerticalMovement {get; set;}
+    public float HorizontalMovement { get; set; }
+    public float VerticalMovement { get; set; }
 
     public bool _MovementSurpressed;
     public bool _SlidingMovement = false;
 
     private Transform _Target;
+    public bool _FollowTarget = true;
 
 
     // TODO: This component will need to know which way the sprite is facing
@@ -28,13 +29,15 @@ public class CharacterMovement : CharacterComponent
         HorizontalMovement = _HorizontalMovement;
         VerticalMovement = _VerticalMovement;
 
-        if(_Character.CharacterType == Character.CharacterTypes.Player){
+        if (_Character.CharacterType == Character.CharacterTypes.Player)
+        {
             Physics2D.IgnoreLayerCollision(7, 13); // <--  ignore collision with "Enemy Wall"
             Physics2D.IgnoreLayerCollision(7, 8); // <--  ignore collision with "Enemies"
             Physics2D.IgnoreLayerCollision(7, 12);
         }
 
-        else if(_Character.CharacterType == Character.CharacterTypes.AI){ // TODO ADD OTHER AI ENEMIES
+        else if (_Character.CharacterType == Character.CharacterTypes.AI)
+        { // TODO ADD OTHER AI ENEMIES
             Physics2D.IgnoreLayerCollision(8, 8);
             Physics2D.IgnoreLayerCollision(8, 10); // <--  ignore collision with "Enemy Shield"
             Physics2D.IgnoreLayerCollision(8, 12);
@@ -51,25 +54,31 @@ public class CharacterMovement : CharacterComponent
         // It can feel like sliding on ice. Be cognitive that the Rigidbody mass is weighed in to the function.
         //_CharacterRigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalInput, 0));
         //_CharacterRigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalInput, 0), ForceMode2D.Force); // <-- Default, gradual force build up applied
-        
-        if(_Character.AIType == Character.AITypes.Boss){
-            if(_Target){
+
+        if (_Character.AIType == Character.AITypes.Boss)
+        {
+            if (_Target)
+            {
                 FollowTarget();
             }
             _Character.RigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalMovement, _MovementSpeed * _VerticalMovement), ForceMode2D.Force); // <-- Specified, Immediate force applied        
         }
-        
+
         if (CanMove())
         {
-            if(!_SlidingMovement){
+            if (!_SlidingMovement)
+            {
                 _Character.RigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalMovement, 0), ForceMode2D.Impulse); // <-- Specified, Immediate force applied        
-            }else{
+            }
+            else
+            {
                 _Character.RigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalMovement, 0), ForceMode2D.Force); // <-- Specified, Immediate force applied        
             }
-        
+
         }
 
-        if(_Character.AIType == Character.AITypes.Boss){
+        if (_Character.AIType == Character.AITypes.Boss)
+        {
             _Character.RigidBody2D.AddForce(new Vector2(_MovementSpeed * _HorizontalMovement, _MovementSpeed * _VerticalMovement), ForceMode2D.Force); // <-- Specified, Immediate force applied        
         }
     }
@@ -163,14 +172,41 @@ public class CharacterMovement : CharacterComponent
         _VerticalMovement = value;
     }
 
-    public void SetTarget(Transform target){
+    public void SetTarget(Transform target)
+    {
         _Target = target;
     }
 
-    public void FollowTarget(){
-        Vector3 relativePos = _Target.position - transform.position;
-        Quaternion tempQuat = Quaternion.LookRotation(relativePos);
+    public void FollowTarget()
+    {
+        if (!_FollowTarget) { return; }
+        // Rotate towards player
 
+        if (_Target != null)
+        {
+            // Look towards Player
+            if (_Character.FacingRight && transform.position.x > _Target.position.x)
+            {
+                _CharacterFlip.FlipCharacter();
+            }
+            else if (!_Character.FacingRight && transform.position.x < _Target.position.x)
+            {
+                _CharacterFlip.FlipCharacter();
+            }
+
+
+
+            Vector3 targetDirection = (_Target.position - gameObject.transform.position).normalized;
+
+            var targetRotation = Quaternion.LookRotation(targetDirection);
+
+
+            Quaternion preconvert = Quaternion.RotateTowards(gameObject.transform.rotation, targetRotation, Time.deltaTime * 500);
+            Quaternion convert2D = new Quaternion(0.0f, 0.0f, preconvert.z, preconvert.w);
+
+            gameObject.transform.rotation = convert2D;
+
+        }
         //this.transform.rotation = tempQuat;
         //Quaternion tempFloat = fakeRotator.rotation;
         //fakeRotator.rotation = Quaternion.LookRotation(relativePos);

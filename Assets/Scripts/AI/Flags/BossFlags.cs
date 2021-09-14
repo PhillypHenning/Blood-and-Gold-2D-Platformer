@@ -32,6 +32,10 @@ public class BossFlags : MonoBehaviour
     public bool MoveBossHeadUp = false;
     public float TimeUntilVulnerableFinishes = 0;
 
+    // Death 
+    public bool DeathStarted = false;
+    public float TimeUntilDeath = 0f;
+
 
     public Vector3 _StartPosition;
     public Vector3 _MovePointTo;
