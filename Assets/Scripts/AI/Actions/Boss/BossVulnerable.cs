@@ -26,7 +26,8 @@ public class BossVulnerable : AIAction
             controller._BossFlags.TimeUntilVulnerableIsDone = Time.time + TimeOfInvunState;
             controller._BossFlags.TimeUntilVulnerableStarts = Time.time + TimeOfInvun;
             controller._BossFlags.TimeUntilVulnerableFinishes = controller._BossFlags.TimeUntilVulnerableIsDone - TimeOfInvun;
-
+            controller._CharacterMovement._FollowTarget = false;
+            controller.transform.rotation = new Quaternion(0.0f, 0.0f, 0, 0);
             // Move head position down
             HeadPos = controller.transform.position + new Vector3(0, -10, 0);
 
@@ -71,6 +72,7 @@ public class BossVulnerable : AIAction
             controller._CharacterMovement.SetVertical(0);
             controller._BossFlags.MoveBossHeadUp = false;
             controller._BossFlags.VulnerableActive = false;
+            controller._CharacterMovement._FollowTarget = true;
             controller.ResetLayer();
             // Vulnerable deactivated
         }

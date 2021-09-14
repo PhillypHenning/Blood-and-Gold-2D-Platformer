@@ -18,6 +18,7 @@ public class BossAttack1 : AIAction
     }
 
     private void Attack1(StateController controller){
+
         // Projectile Attack
         if(!controller._BossFlags.IsAttacking){
             controller._BossFlags.IsAttacking = true;
