@@ -20,6 +20,11 @@ public class CharacterAnimation : MonoBehaviour
     private AnimationState _CurrentAnimation;
     private bool _InMineCart;
 
+    // shield enemy 
+    public bool _HoldsShield = false;
+    private bool _ShieldBroken = false;
+
+
     public Dictionary<AnimationState, float> AnimationTimes => _AnimationTimes;
 
     // Dynamic animations are fluid and handeled within the UpdateAnimations function
@@ -53,7 +58,8 @@ public class CharacterAnimation : MonoBehaviour
         Attack2,
         Attack3,
         MineCart,
-
+        RunNoShield,
+        IdleNoShield
     }
 
     void Start()
@@ -110,11 +116,25 @@ public class CharacterAnimation : MonoBehaviour
             }
             else if (_IsRunning && !_Character.IsLocked)
             {
-                ChangeAnimationState(AnimationState.Run);
+                if (_HoldsShield && _ShieldBroken)
+                {
+                    ChangeAnimationState(AnimationState.RunNoShield);
+                }
+                else
+                {
+                    ChangeAnimationState(AnimationState.Run);
+                }
             }
             else
             {
-                ChangeAnimationState(AnimationState.Idle);
+                if (_HoldsShield && _ShieldBroken)
+                {
+                    ChangeAnimationState(AnimationState.IdleNoShield);
+                }
+                else
+                {
+                    ChangeAnimationState(AnimationState.Idle);
+                }
             }
         }
         else if (_Character.RigidBody2D.velocity.y < 0)
@@ -241,7 +261,8 @@ public class CharacterAnimation : MonoBehaviour
 
     public void ShieldBreak()
     {
-        ChangeAnimationState(AnimationState.Death, AnimationType.Priority); 
+        _ShieldBroken = true;
+        ChangeAnimationState(AnimationState.ShieldBreak, AnimationType.Priority); 
     }
 
     public void Attack1()

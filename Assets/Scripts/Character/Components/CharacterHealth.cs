@@ -13,6 +13,8 @@ public class CharacterHealth : Health
     [SerializeField] private float _TimeBetweenDespawn = 3f;
     private bool _Despawn = false;
 
+    public bool _IsShield;
+
     public bool _Damagable { get; set; }
 
     protected override void SetToDefault()
@@ -45,12 +47,6 @@ public class CharacterHealth : Health
     protected override void HandleInput()
     {
         base.HandleInput();
-        /* Debugging only 
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            Damage(10);
-        }
-        */
     }
 
     public override void Damage(float amount)
@@ -61,6 +57,14 @@ public class CharacterHealth : Health
         base.Damage(amount);
 
         UpdateLivesUI();
+
+        if (_IsShield && _CurrentHealth > 0)
+        {
+            var parentAnimator = GetComponentInParent<CharacterAnimation>();
+            if (parentAnimator == null) return;
+
+            parentAnimator.ShieldHurt();
+        }
 
         if (_CharacterAnimation == null || !_Character.IsAlive) return;
         _CharacterAnimation.Hurt();
@@ -73,9 +77,11 @@ public class CharacterHealth : Health
         return true;
     }
 
+
     protected override void Die()
     {
         base.Die();
+
         if (_Character != null)
         {
             if (_Character.CharacterType == Character.CharacterTypes.Player)
@@ -91,8 +97,18 @@ public class CharacterHealth : Health
         gameObject.layer = 9; // Changes layer to "Dead Body"
         _Damagable = false;
 
-        if (_CharacterAnimation == null) return;
-        _CharacterAnimation.Die();
+        if (_IsShield)
+        {
+            var parentAnimator = GetComponentInParent<CharacterAnimation>();
+            if (parentAnimator == null) return;
+
+            parentAnimator.ShieldBreak();
+        }
+
+        if (_CharacterAnimation != null)
+        {
+            _CharacterAnimation.Die();
+        }
         base.Die();
     }
 
