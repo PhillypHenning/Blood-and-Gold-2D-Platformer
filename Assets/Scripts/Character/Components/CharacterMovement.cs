@@ -171,7 +171,7 @@ public class CharacterMovement : CharacterComponent
         Vector3 relativePos = _Target.position - transform.position;
         Quaternion tempQuat = Quaternion.LookRotation(relativePos);
 
-        this.transform.rotation = tempQuat;
+        //this.transform.rotation = tempQuat;
         //Quaternion tempFloat = fakeRotator.rotation;
         //fakeRotator.rotation = Quaternion.LookRotation(relativePos);
     }

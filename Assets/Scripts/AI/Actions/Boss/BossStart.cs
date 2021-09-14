@@ -25,6 +25,6 @@ public class BossStart : AIAction
         controller._Target = GameObject.Find("Player").transform;
         
         // Set Boss Start bool to false && move to trigger object on door
-        controller._BossFlags.BossStarted = true;
+        controller._BossFlags.BossStarted = false;
     }
 }
