@@ -196,7 +196,6 @@ public class Weapon : MonoBehaviour
 
     private void SpawnProjectile(Vector2 spawnPosition)
     {
-        Debug.Log("Projectile spawned");
         // EvaluateProjectileSpawn();
         // Start by getting a gameobject from the ObjectPooler
         GameObject pooledProjectile = ObjectPooler.GetGameObjectFromPool();
