@@ -6,6 +6,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class CharacterLantern : CharacterComponent
 {
     [SerializeField] private LanternDial _LanternDial;
+    private UILanternFlame _LanternFlame;
     private bool _IsLanternOn;
     private Light2D _Light;
 
@@ -44,10 +45,12 @@ public class CharacterLantern : CharacterComponent
         base.Start();
         SetToDefault();
         _Light = GetComponentInChildren<Light2D>();
+        _LanternFlame = GameObject.Find("LanternFlame").GetComponent<UILanternFlame>();
 
         SetLanternDial();
 
         if (_Light == null) Debug.LogWarning("CharacterLantern was unable to locate a Light2D component.");
+        if (_LanternFlame == null) Debug.LogWarning("CharacterLantern was unable to locate LanternFlame UI component.");
     }
 
     protected override void HandleInput()
@@ -105,8 +108,23 @@ public class CharacterLantern : CharacterComponent
                 FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Lantern/Lantern_Adjust");
             }
 
+            SetLanternFlame();
             SetLanternDial();
         }
+    }
+
+    private void SetLanternFlame()
+    {
+        if (_IsLanternOn)
+        {
+            bool maxFlame = _InnerRadiusThreshold > (MAX_INNER_RADIUS / 2);
+            _LanternFlame.SetLevel(maxFlame ? 2 : 1);
+        }
+        else
+        {
+            _LanternFlame.SetLevel(0);
+        }
+
     }
 
     protected override void HandleAbility()
@@ -154,6 +172,7 @@ public class CharacterLantern : CharacterComponent
     private void SwitchLanternOnOff()
     {
         _IsLanternOn = !_IsLanternOn;
+        SetLanternFlame();
         if (_IsLanternOn)
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/Lantern/Lantern_Light");

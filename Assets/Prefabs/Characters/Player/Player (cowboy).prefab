@@ -153,8 +153,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.05}
-  m_Size: {x: 1.0635378, y: 2}
+  m_Offset: {x: 0, y: 0.95}
+  m_Size: {x: 1, y: 1.8}
   m_Direction: 0
 --- !u!114 &8995608706561558834
 MonoBehaviour:
@@ -172,6 +172,8 @@ MonoBehaviour:
   IsIntro: 1
   _HasIntro: 0
   _HasBossKey: 0
+  _GameStartTime: 0
+  _GameFinishTime: 0
   _CharacterType: 0
   _AIType: 0
   _CharacterSprite: {fileID: 8995608707729878583}
@@ -191,6 +193,7 @@ MonoBehaviour:
   _DefaultMovementSpeed: 200
   _MovementSurpressed: 0
   _SlidingMovement: 0
+  _FollowTarget: 1
 --- !u!114 &8995608706561558844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +209,8 @@ MonoBehaviour:
   _HeightestJumpReached: 0
   VerticalTakeoff: 15
   JumpIfAble: 0
-  JumpIfAbleCD: 1
+  JumpCD: 0.5
+  JumpCDTimer: 0
 --- !u!114 &8995608706561558841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +225,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CharacterMaxHealth: 50
   _PlayerLives: {fileID: 0}
+  _TimeBetweenDespawn: 3
+  _IsShield: 0
 --- !u!114 &8995608706561558840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc56a35c7e66d314cbd95aa304a5da8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _HoldsShield: 0
 --- !u!114 &8995608706561558855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,7 +511,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8995608707729878583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.923, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8995608706561558835}

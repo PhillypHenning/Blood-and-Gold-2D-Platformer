@@ -19,7 +19,8 @@ public class CharacterJump : CharacterComponent
     public float VerticalTakeoff = 20f;
 
     public bool JumpIfAble = false;
-    public float JumpIfAbleCD = 1f;
+    public float JumpCD = 1f;
+    public float JumpCDTimer;
 
     // Jumping should disable all other CharacterAbilities.. unfortunately I'm not sure if there is a reliable way of knowing when a jump is complete..
     // If we make the variable based on simply standing on the ground that will effect every other ability since the character will likely be standing on the ground. 
@@ -30,6 +31,7 @@ public class CharacterJump : CharacterComponent
     protected override void Start()
     {
         base.Start();
+        JumpCDTimer = JumpCD;
     }
 
     protected override void HandleAbility()
@@ -37,22 +39,24 @@ public class CharacterJump : CharacterComponent
         base.HandleAbility();
         DecideCharacterCanJump();
         ApplyGameGravity();
-        if (JumpIfAble) HandleJumpCD();
+        HandleJumpCD();
 
         _HeightestJumpReached = 0;
     }
 
     private void HandleJumpCD()
     {
-        JumpIfAbleCD -= Time.deltaTime;
+        if (JumpCDTimer < 0) return;
+        JumpCDTimer -= Time.deltaTime;
     }
 
     protected override void HandleInput()
     {
         base.HandleInput();
         if (!_HandleInput) { return; }
-        if (Input.GetKeyDown(KeyCode.Space) && _CharacterCanJump && !_Character.IsLocked)
+        if (Input.GetKeyDown(KeyCode.Space) && _CharacterCanJump && !_Character.IsLocked && JumpCDTimer <= 0)
         {
+            JumpCDTimer = JumpCD;
             Jump();
         }
     }
@@ -60,8 +64,8 @@ public class CharacterJump : CharacterComponent
     protected override void InternalInput()
     {
         base.InternalInput();
-        if((JumpIfAble && JumpIfAbleCD <= 0) && _CharacterCanJump && !_Character.IsLocked){
-            if (JumpIfAble) JumpIfAbleCD = 1f;
+        if((JumpIfAble && JumpCDTimer <= 0) && _CharacterCanJump && !_Character.IsLocked){
+            JumpCDTimer = JumpCD;
             Jump();
         }
     }
