@@ -19,6 +19,8 @@ public class HoldCreature : MonoBehaviour
     public bool IsMoving => _IsMoving;
     public bool IsVunerable => _IsVunerable;
 
+    public Transform Target => _Target;
+
     void Start()
     {
         _TargetCharacter = _Target.GetComponent<Character>();
@@ -54,11 +56,13 @@ public class HoldCreature : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        
         if(!_TargetCharacter.FacingRight && !_IsVunerable){
             transform.position = new Vector3(_Target.position.x+1, transform.position.y, transform.position.z);
         }else{
             transform.position = new Vector3(_Target.position.x-1, transform.position.y, transform.position.z);
         }
+        
     }
     
 

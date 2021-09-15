@@ -78,9 +78,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _WeaponName: Shotgun
   _TimeBetweenShots: 0.5
+  _ShotDelay: 0
   _TimeBetweenReloads: 0.5
   _MaxMagazineSize: 2
   _UsesBullets: 1
+  _TrackingBullets: 0
   _WeaponAnimationManager: {fileID: 0}
   _Actionable: 1
   _IsEmpty: 0

@@ -133,6 +133,7 @@ public class Weapon : MonoBehaviour
     // -------- \\
     private void TriggerShot(bool doAnimation)
     {
+
         // Add timer between shots here
         if (_CanShoot && _Actionable)
         {
@@ -147,6 +148,7 @@ public class Weapon : MonoBehaviour
 
             if (_ShotDelay > 0)
             {
+                Debug.Log("Hmm.");
                 if (_delayedShot) return;
                 StartCoroutine("RequestShotWithDelay");
             }
@@ -194,6 +196,7 @@ public class Weapon : MonoBehaviour
 
     private void SpawnProjectile(Vector2 spawnPosition)
     {
+        Debug.Log("Projectile spawned");
         // EvaluateProjectileSpawn();
         // Start by getting a gameobject from the ObjectPooler
         GameObject pooledProjectile = ObjectPooler.GetGameObjectFromPool();
@@ -257,6 +260,8 @@ public class Weapon : MonoBehaviour
             TriggerShot(doAnimation);
         }
     }
+
+
     public void SetOwner(Character character)
     {
         _WeaponOwner = character;

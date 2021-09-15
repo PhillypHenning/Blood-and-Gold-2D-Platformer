@@ -18,11 +18,13 @@ public class CharacterHealth : Health
     public bool _Damagable { get; set; }
     private bool HasMoved = false;
     private Vector3 StartPos;
+    private CharacterWeapon _CharacterWeapon;
 
     protected override void SetToDefault()
     {
         _Character = GetComponent<Character>();
         _CharacterAnimation = GetComponent<CharacterAnimation>();
+        _CharacterWeapon = GetComponent<CharacterWeapon>();
         if (_Character == null) Debug.LogError("CharacterHealth was unable to find 'Character' component.");
         if (_CharacterAnimation == null) Debug.LogWarning("CharacterHealth was unable to find 'CharacterAnimation' component.");
         _DefaultMaxHealth = _CharacterMaxHealth;
@@ -35,12 +37,14 @@ public class CharacterHealth : Health
 
     protected override void Update()
     {
-        if(!HasMoved && transform.position != StartPos){
+        if (!HasMoved && transform.position != StartPos)
+        {
             HasMoved = true;
             _Character._GameStartTime = Time.time;
         }
         base.Update();
-        if(_Despawn && Time.time > _TimeUntilDespawn){
+        if (_Despawn && Time.time > _TimeUntilDespawn)
+        {
             // Disable all child objects
             for (int i = 0; i < transform.childCount; i++)
             {
@@ -58,7 +62,7 @@ public class CharacterHealth : Health
 
     public override void Damage(float amount)
     {
-        if(!_Hitable) { return; }
+        if (!_Hitable) { return; }
         if (!_Damagable) { return; }
 
         base.Damage(amount);
@@ -98,6 +102,10 @@ public class CharacterHealth : Health
             _Character.IsLocked = true;
             _Character.IsAlive = false;
             _Character.Actionable = false;
+            if (_CharacterWeapon)
+            {
+                _CharacterWeapon.UnequiptAll();
+            }
             _TimeUntilDespawn = Time.time + _TimeBetweenDespawn;
             _Despawn = true;
         }
@@ -130,4 +138,5 @@ public class CharacterHealth : Health
     {
         SceneManager.LoadScene(2);
     }
+    
 }
