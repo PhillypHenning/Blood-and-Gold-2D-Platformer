@@ -17,6 +17,8 @@ public class InventoryItemCollectable : Collectable
     {
         if (!_Inventory.AddToInventory(_ItemData, _ValueToAdd)) return;
         _Consumed = true;
+
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/Items/Revolver_Ammo_Pickup", gameObject);
     }
 
     protected override void SetReferences(GameObject gameObject)
