@@ -25,7 +25,8 @@ public class BossIntro : AIAction
                 _TimeUntilIntroIsDone = Time.time + _TotalTimeOfIntro;
 
                 // Start Scream animation - TODO WEST
-                controller._CharacterAnimator.Attack2();
+                Debug.Log("Checck");
+                controller._CharacterAnimator.Scream();
                 Instantiate(controller._BossFlags.Attack2Prefab, controller._BossFlags.WeaponHolder.position, Quaternion.identity);
             }
             
