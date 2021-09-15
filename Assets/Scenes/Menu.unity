@@ -3666,6 +3666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18eee1760be6b364f9b87f1ccabc64a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicEvent: event:/Music/Menu_Music
 --- !u!4 &1797267478
 Transform:
   m_ObjectHideFlags: 0

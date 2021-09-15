@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class MenuMusic : MonoBehaviour
 {
-    FMOD.Studio.EventInstance Music;
+   private static FMOD.Studio.EventInstance Music;
+
+    [FMODUnity.EventRef]
+    [SerializeField]
+    private string musicEvent;
 
     void Start()
     {
-        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Menu_Music");
+        Music = FMODUnity.RuntimeManager.CreateInstance(musicEvent);
         Music.start();
         Music.release();
     }

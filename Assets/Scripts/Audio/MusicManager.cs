@@ -10,9 +10,12 @@ public class MusicManager : MonoBehaviour
     [FMODUnity.EventRef] [SerializeField]
     private string musicEvent;
 
+    FMOD.Studio.EventInstance Reverb;
+
     void Start()
     {
         Music = FMODUnity.RuntimeManager.CreateInstance(musicEvent);
+        Reverb = FMODUnity.RuntimeManager.CreateInstance("snapshot:/Cave_Verb");
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -22,6 +25,8 @@ public class MusicManager : MonoBehaviour
 
         if(other.tag == "IntroDoor")
         {
+            Reverb.start();
+
             if (PbState != FMOD.Studio.PLAYBACK_STATE.PLAYING)
             {
                 Music.start();
@@ -48,6 +53,7 @@ public class MusicManager : MonoBehaviour
     public void StopMusic()
     {
         Music.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        Reverb.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     void OnDestroy()
