@@ -169,3 +169,4 @@ MonoBehaviour:
   _DestroyItemOnPickUp: 1
   _ValueToAdd: 15
   _ItemData: {fileID: 11400000, guid: 61b8f4d4eea2f3f4cba291a66eaea24e, type: 2}
+  pickupsound: event:/SFX/Items/Lantern/Oil_Refill

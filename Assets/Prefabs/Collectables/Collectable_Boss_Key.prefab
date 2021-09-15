@@ -169,3 +169,4 @@ MonoBehaviour:
   _DestroyItemOnPickUp: 1
   _ValueToAdd: 1
   _ItemData: {fileID: 11400000, guid: e58533802c3cbdb4293ba92480506c34, type: 2}
+  pickupsound: event:/SFX/Items/Revolver_Ammo_Pickup
