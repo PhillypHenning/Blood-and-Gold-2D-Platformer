@@ -80,6 +80,7 @@ public class CharacterHealth : Health
         if (!_Hitable) { return; }
         if (!_Damagable) { return; }
 
+        base.Damage(amount);
         UpdateLivesUI();
 
         if (_IsShield && _CurrentHealth > 0)
@@ -92,8 +93,6 @@ public class CharacterHealth : Health
 
         if (_CharacterAnimation == null || !_Character.IsAlive) return;
         _CharacterAnimation.Hurt();
-
-         base.Damage(amount);
     }
 
     public override bool Heal(float amount)
@@ -105,6 +104,7 @@ public class CharacterHealth : Health
 
     protected override void Die()
     {
+        base.Die();
         if (_Character != null)
         {
             if (_Character.CharacterType == Character.CharacterTypes.Player)
@@ -143,7 +143,6 @@ public class CharacterHealth : Health
             _CharacterAnimation.Die();
             
         }
-        base.Die();
     }
 
     private void UpdateLivesUI()
