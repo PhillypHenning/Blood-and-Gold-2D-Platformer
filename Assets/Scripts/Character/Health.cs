@@ -63,7 +63,7 @@ public class Health : MonoBehaviour
 
         if (newHealth > _MaxHealth)
         {
-            newHealth = _MaxHealth;
+            _CurrentHealth = _MaxHealth;
             return true;
         }
         else
