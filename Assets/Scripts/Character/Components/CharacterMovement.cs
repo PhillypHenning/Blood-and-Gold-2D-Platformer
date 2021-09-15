@@ -104,8 +104,9 @@ public class CharacterMovement : CharacterComponent
         {
             _Character.IsMoving = _HorizontalMovement != 0;
             if (_Character.IsMoving)
-            {
-                if ((_Character.FacingRight && _HorizontalMovement < 0) || !_Character.FacingRight && _HorizontalMovement > 0 && _Character.AIType != Character.AITypes.Boss)
+            {   
+                
+                if (((_Character.FacingRight && _HorizontalMovement < 0) || !_Character.FacingRight && _HorizontalMovement > 0 ) && _Character.AIType != Character.AITypes.Boss)
                 {
                     FlipCharacter();
                 }
@@ -204,10 +205,10 @@ public class CharacterMovement : CharacterComponent
 
 
             Quaternion preconvert = Quaternion.RotateTowards(gameObject.transform.rotation, targetRotation, Time.deltaTime * 500);
-            Quaternion convert2D = new Quaternion(0.0f, 0.0f, preconvert.z, preconvert.w);
+            Quaternion convert2D = new Quaternion(0.0f, 0.0f, Mathf.Clamp(preconvert.z, -0.2f, 0.2f), preconvert.w);
+            //Quaternion convert2D = new Quaternion(0.0f, 0.0f,preconvert.z, preconvert.w);
 
             gameObject.transform.rotation = convert2D;
-
         }
         //this.transform.rotation = tempQuat;
         //Quaternion tempFloat = fakeRotator.rotation;

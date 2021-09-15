@@ -24,20 +24,17 @@ public class BossAttack1 : AIAction
             controller._BossFlags.IsAttacking = true;
             controller._BossFlags.Attack1Active = true;
             controller._BossFlags.TimeUntilAttackIsDone = Time.time + TimeOfAttack;
-            Debug.Log("Attack 1 Started");
             TimeUntilAttack = Time.time - 1; // Set it up to always happen the first time
             Actionable = true;
         }
 
         if(controller._BossFlags.Attack1Active && Time.time > TimeUntilAttack){
             TimeUntilAttack = Time.time + TimeBetweenAttacks;
-            Debug.Log("Using Attack1"); 
             controller._CharacterWeapon._CurrentWeapon.UseWeapon();
         }
 
 
         if(controller._BossFlags.Attack1Active && Time.time > controller._BossFlags.TimeUntilAttackIsDone){
-            Debug.Log("Attack 1 Finished");
             controller._BossFlags.IsAttacking = false;
             controller._BossFlags.Attack1Active = false;
         }

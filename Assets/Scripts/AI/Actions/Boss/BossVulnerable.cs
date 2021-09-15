@@ -34,24 +34,25 @@ public class BossVulnerable : AIAction
             controller.SetLayerToEnemy();
         }
 
-        if(controller._BossFlags.MoveBossHeadDown){
+        //if(controller._BossFlags.MoveBossHeadDown){
             //Debug.Log("controller: " + controller.transform.position.y + " | HeadPos.y " + HeadPos.y);
-            if(controller.transform.position.y > HeadPos.y){ 
-                controller._CharacterMovement.SetVertical(-75);
+            if(controller.transform.position.y > controller._BossFlags.BossHeadDeadPos.position.y && controller._BossFlags.MoveBossHeadDown){ 
+                Debug.Log("Head lowering");
+                controller._CharacterMovement.SetVertical(-50);
+
             // Move head down to position
             }
-        }
+        //}
 
         if(controller._BossFlags.VulnerableStarted && Time.time > controller._BossFlags.TimeUntilVulnerableStarts){
             //Debug.Log("Boss is Vulnerable");
-            controller._BossFlags.MoveBossHeadDown = false;
-
             // Vulnerable active
         }
 
 
         if(controller._BossFlags.VulnerableStarted && Time.time > controller._BossFlags.TimeUntilVulnerableFinishes){
             //Debug.Log("Boss is Vulnerable");
+            controller._BossFlags.MoveBossHeadDown = false;
             controller._BossFlags.MoveBossHeadUp = true;
         }
 

@@ -18,6 +18,9 @@ public class CharacterWeapon : CharacterComponent
     public Weapon _SecondaryWeapon { get; set; }
     private bool _Actionable = true;
 
+    private float TimeUntilNextReload = 0f;
+    private float TimeBetweenReloads = 1.5f;
+
 
     protected override void Start()
     {
@@ -179,6 +182,13 @@ public class CharacterWeapon : CharacterComponent
 
     public void SwapWeapons()
     {
+        // Set time until reload can happen again for the player
+        if(_Character.CharacterType == Character.CharacterTypes.Player){
+            if(Time.time < TimeUntilNextReload){
+                return;
+            }
+        }
+
         if (_CurrentWeapon.WeaponName == _PrimaryWeapon.WeaponName)
         {
             if (_SecondaryWeapon)
@@ -192,7 +202,7 @@ public class CharacterWeapon : CharacterComponent
             //_CurrentWeapon = _WeaponToUse;
             EquipWeapon(_PrimaryWeapon, _WeaponHolderPosition);
         }
-
+        TimeUntilNextReload = Time.time + TimeBetweenReloads;
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Weapon_Switch");
     }
 

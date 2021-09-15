@@ -8,6 +8,11 @@ public class BossFlags : MonoBehaviour
     public bool BossStarted = false;
     public bool BossIntroStarted = false;
     public bool IntroDone = false;
+    [SerializeField] private Transform _BossHeadStartPos;
+    public Transform BossHeadStartPos => _BossHeadStartPos;
+
+    [SerializeField] private Transform _BossHeadDeadPos;
+    public Transform BossHeadDeadPos => _BossHeadDeadPos;
     
     // Movement
     public bool IsMoving = false;
