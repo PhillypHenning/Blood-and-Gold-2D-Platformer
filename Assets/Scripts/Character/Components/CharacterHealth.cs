@@ -93,7 +93,7 @@ public class CharacterHealth : Health
         {
             if (_Character.CharacterType == Character.CharacterTypes.Player)
             {
-                StartCoroutine("ReloadScene");
+                Invoke("GameOver", 1.5f);
             }
             _Character.IsLocked = true;
             _Character.IsAlive = false;
@@ -126,12 +126,8 @@ public class CharacterHealth : Health
         _PlayerLives.UpdateLives((int)_CurrentHealth / 5);
     }
 
-    // TODO: make a game manager to handle this...
-    private IEnumerator ReloadScene()
+    private void GameOver()
     {
-        yield return new WaitForSeconds(2f);
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        SceneManager.LoadScene(2);
     }
-    
 }
