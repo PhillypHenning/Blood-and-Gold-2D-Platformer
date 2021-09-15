@@ -86,7 +86,7 @@ AnimationClip:
   m_Events:
   - time: 0
     functionName: PlayerDeath
-    data: 
+    data: event:/SFX/Player_Character/Player_Death
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

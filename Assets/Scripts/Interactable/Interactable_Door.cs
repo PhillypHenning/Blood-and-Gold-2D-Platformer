@@ -19,6 +19,7 @@ public class Interactable_Door : Interactable
     [SerializeField] private bool _IsIntroDoor = false;
     
 
+
     protected override void Start()
     {
         base.Start();
@@ -58,6 +59,11 @@ public class Interactable_Door : Interactable
         RemoveVisualQue();
         if (_Target != null)
         {
+            if(_RequiredItem == ItemType.Key){
+                var keyObject = GameObject.Find("BossLock");
+                var keyHealth = keyObject.GetComponent<DestoryGameObject>();
+                keyHealth.DestoryMe();
+            }
             StartCoroutine(RelocatePlayer());
         }
 

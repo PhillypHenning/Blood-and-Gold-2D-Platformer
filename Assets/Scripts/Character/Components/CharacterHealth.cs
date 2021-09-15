@@ -12,7 +12,7 @@ public class CharacterHealth : Health
     private float _TimeUntilDespawn = 0;
     [SerializeField] private float _TimeBetweenDespawn = 3f;
     private bool _Despawn = false;
-
+    [SerializeField] private bool EndBoss = false;
     public bool _IsShield;
 
     private Fader _Fader;
@@ -27,8 +27,6 @@ public class CharacterHealth : Health
         _Character = GetComponent<Character>();
         _CharacterAnimation = GetComponent<CharacterAnimation>();
         _CharacterWeapon = GetComponent<CharacterWeapon>();
-        if (_Character == null) Debug.LogError("CharacterHealth was unable to find 'Character' component.");
-        if (_CharacterAnimation == null) Debug.LogWarning("CharacterHealth was unable to find 'CharacterAnimation' component.");
         if (_Character && _Character.CharacterType == Character.CharacterTypes.Player) {
             _Fader = FindObjectOfType<Fader>();
             if (_Fader == null) Debug.LogError("CharacterHealth was unable to locate Fader");
@@ -43,12 +41,6 @@ public class CharacterHealth : Health
 
     protected override void Update()
     {
-        if (!HasMoved && transform.position != StartPos)
-        {
-            HasMoved = true;
-            if (_Character == null) return;
-            _Character._GameStartTime = Time.time;
-        }
         base.Update();
         if (_Despawn && Time.time > _TimeUntilDespawn)
         {
@@ -58,6 +50,22 @@ public class CharacterHealth : Health
                 var child = transform.GetChild(i).gameObject;
                 if (child != null)
                     child.SetActive(false);
+            }
+        }
+
+
+
+        if (_Character != null)
+        {
+            if (_Character.AIType == Character.AITypes.Boss && EndBoss)
+            {
+                if (!_Character.IsAlive)
+                {
+                    var playergo = GameObject.Find("Player");
+                    var player = playergo.GetComponent<Character>();
+
+                    player._GameFinishTime = Time.time;
+                }
             }
         }
     }
@@ -145,5 +153,5 @@ public class CharacterHealth : Health
     {
         SceneManager.LoadScene(2);
     }
-    
+
 }
