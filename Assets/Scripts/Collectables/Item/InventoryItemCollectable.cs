@@ -7,6 +7,11 @@ public class InventoryItemCollectable : Collectable
     [Header ("Settings")]
     [SerializeField] private int _ValueToAdd;
     [SerializeField] private ItemData _ItemData;
+
+    [FMODUnity.EventRef]
+    [SerializeField]
+    private string pickupsound;
+
     // Incase there are different sizes to the value that is added.
 
     private bool _Consumed = false;
@@ -18,7 +23,7 @@ public class InventoryItemCollectable : Collectable
         if (!_Inventory.AddToInventory(_ItemData, _ValueToAdd)) return false;
         _Consumed = true;
 
-        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/Items/Revolver_Ammo_Pickup", gameObject);
+        FMODUnity.RuntimeManager.PlayOneShotAttached(pickupsound, gameObject);
         return true;
     }
 

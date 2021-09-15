@@ -142,3 +142,4 @@ MonoBehaviour:
   _DestroyItemOnPickUp: 1
   _ValueToAdd: 1
   _ItemData: {fileID: 11400000, guid: b2beeb672c134fe48909e0dd1a4e9680, type: 2}
+  pickupsound: event:/SFX/Player_Character/Weapon_Switch
