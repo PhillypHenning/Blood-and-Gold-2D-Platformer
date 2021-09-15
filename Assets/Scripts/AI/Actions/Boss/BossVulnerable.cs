@@ -20,7 +20,6 @@ public class BossVulnerable : AIAction
         // Drop down 7f;
         // Activate hitbox
         if(!controller._BossFlags.VulnerableStarted){
-            Debug.Log("Boss is becoming vulnerable");
             controller._BossFlags.VulnerableStarted = true;
             controller._BossFlags.MoveBossHeadDown = true;
             controller._BossFlags.TimeUntilVulnerableIsDone = Time.time + TimeOfInvunState;
@@ -66,7 +65,6 @@ public class BossVulnerable : AIAction
         }
 
         if(controller._BossFlags.VulnerableStarted && Time.time > controller._BossFlags.TimeUntilVulnerableIsDone){
-            Debug.Log("Boss finished Vulnerable");
             controller._BossFlags.VulnerableStarted = false;
             controller._BossFlags.VulnerableFinished = true;
             controller._CharacterMovement.SetVertical(0);
