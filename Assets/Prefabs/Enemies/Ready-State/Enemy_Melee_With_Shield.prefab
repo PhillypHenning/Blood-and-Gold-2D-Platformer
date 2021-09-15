@@ -200,6 +200,8 @@ MonoBehaviour:
   IsIntro: 1
   _HasIntro: 0
   _HasBossKey: 0
+  _GameStartTime: 0
+  _GameFinishTime: 0
   _CharacterType: 1
   _AIType: 0
   _CharacterSprite: {fileID: 8938013466854552123}
@@ -321,7 +323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RewardsList:
   - {fileID: 4220237654818276251, guid: e259971c56678e547a2c48fc28afe4f2, type: 3}
-  - {fileID: 4220237654818276251, guid: d91300674bc76794594fdc7287d492ff, type: 3}
+  - {fileID: -594305252428573880, guid: d91300674bc76794594fdc7287d492ff, type: 3}
 --- !u!1 &8938013466854552123
 GameObject:
   m_ObjectHideFlags: 0

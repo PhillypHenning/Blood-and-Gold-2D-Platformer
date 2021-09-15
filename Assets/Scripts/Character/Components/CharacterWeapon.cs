@@ -41,11 +41,13 @@ public class CharacterWeapon : CharacterComponent
         {
             _CurrentWeapon.transform.localScale = new Vector3(-1, 1, 1);
         }
-        if(!_CharacterHealth.IsAlive){
+        if (!_CharacterHealth.IsAlive)
+        {
             _Actionable = false;
             _CurrentWeapon._Actionable = false;
 
-            if(_Character.CharacterType == Character.CharacterTypes.AI){
+            if (_Character.CharacterType == Character.CharacterTypes.AI)
+            {
                 //_CurrentWeapon.Destroy();
                 // Find GameObject "Weapon Holder" 
                 if (_WeaponHolder == null) return;
@@ -57,8 +59,8 @@ public class CharacterWeapon : CharacterComponent
     protected override void HandleInput()
     {
         base.HandleInput();
-        if (!_HandleInput) { return;}
-        if(!_Actionable){ return;}
+        if (!_HandleInput) { return; }
+        if (!_Actionable) { return; }
 
         if (Input.GetKey(KeyCode.K))
         {
@@ -88,13 +90,13 @@ public class CharacterWeapon : CharacterComponent
     {
         base.InternalInput();
         if (!_HandleInternalInput) { return; }
-        if(!_Actionable){ return;}
+        if (!_Actionable) { return; }
         Aim();
     }
 
     public void Shoot()
     {
-        if(!_Actionable){return;}
+        if (!_Actionable) { return; }
         if (_CurrentWeapon == null)
         {
             return;
@@ -164,7 +166,7 @@ public class CharacterWeapon : CharacterComponent
 
 
         // Change the direction of the shot based on additional keys held
-        
+
     }
 
     private void StopAim()
@@ -192,5 +194,18 @@ public class CharacterWeapon : CharacterComponent
         }
 
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Weapon_Switch");
+    }
+
+    public void UnequiptAll()
+    {
+
+        if (_CurrentWeapon.WeaponName == "Claw"){return;}
+        
+            var objectpoolername = _CurrentWeapon.GetComponent<ObjectPooler>()._ObjectPooledFullName;
+            var objectpooler = GameObject.Find(objectpoolername);
+            Destroy(objectpooler);
+            Destroy(_CurrentWeapon.gameObject);
+            Destroy(_CurrentWeapon);
+        
     }
 }

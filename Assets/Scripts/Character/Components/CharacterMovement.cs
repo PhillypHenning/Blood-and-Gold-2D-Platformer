@@ -105,7 +105,7 @@ public class CharacterMovement : CharacterComponent
             _Character.IsMoving = _HorizontalMovement != 0;
             if (_Character.IsMoving)
             {
-                if ((_Character.FacingRight && _HorizontalMovement < 0) || !_Character.FacingRight && _HorizontalMovement > 0)
+                if ((_Character.FacingRight && _HorizontalMovement < 0) || !_Character.FacingRight && _HorizontalMovement > 0 && _Character.AIType != Character.AITypes.Boss)
                 {
                     FlipCharacter();
                 }

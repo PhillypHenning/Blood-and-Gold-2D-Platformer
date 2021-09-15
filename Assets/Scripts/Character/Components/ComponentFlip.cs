@@ -21,6 +21,7 @@ public class ComponentFlip : MonoBehaviour
     }
 
     private void Flip(){
+        if(_Character.AIType == Character.AITypes.Boss){return;}
         if (_Character.FacingRight)
         {
             _BoxCollider2D.transform.localScale = new Vector3(1, 1, 1);

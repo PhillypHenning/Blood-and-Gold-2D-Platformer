@@ -297,6 +297,8 @@ MonoBehaviour:
   IsIntro: 1
   _HasIntro: 0
   _HasBossKey: 0
+  _GameStartTime: 0
+  _GameFinishTime: 0
   _CharacterType: 1
   _AIType: 0
   _CharacterSprite: {fileID: 3271340344699568621}
@@ -316,6 +318,7 @@ MonoBehaviour:
   _DefaultMovementSpeed: 150
   _MovementSurpressed: 0
   _SlidingMovement: 0
+  _FollowTarget: 1
 --- !u!114 &3271340346234227262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,6 +349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CharacterMaxHealth: 20
   _PlayerLives: {fileID: 0}
+  _TimeBetweenDespawn: 3
+  _IsShield: 0
 --- !u!114 &3271340346234227260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc56a35c7e66d314cbd95aa304a5da8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _HoldsShield: 0
 --- !u!114 &3271340346234227251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,7 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RewardsList:
   - {fileID: 4220237654818276251, guid: e259971c56678e547a2c48fc28afe4f2, type: 3}
-  - {fileID: 4220237654818276251, guid: d91300674bc76794594fdc7287d492ff, type: 3}
+  - {fileID: -594305252428573880, guid: d91300674bc76794594fdc7287d492ff, type: 3}
 --- !u!1 &3271340346435643757
 GameObject:
   m_ObjectHideFlags: 0
