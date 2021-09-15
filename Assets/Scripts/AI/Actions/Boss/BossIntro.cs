@@ -21,19 +21,19 @@ public class BossIntro : AIAction
             if (!_IntroStarted)
             {
                 _IntroStarted = true;
-                Debug.Log("Intro Started");
 
                 _TimeUntilIntroIsDone = Time.time + _TotalTimeOfIntro;
 
                 // Start Scream animation - TODO WEST
                 controller._CharacterAnimator.Attack2();
+                Debug.Log("Check?");
+                Instantiate(controller._BossFlags.Attack2Prefab, controller._BossFlags.WeaponHolder.position, Quaternion.identity);
             }
             
             //Debug.Log("BOSS SCREAMING");
 
             if (_IntroStarted && Time.time > _TimeUntilIntroIsDone)
             {
-                Debug.Log("Intro Finished");
                 _IntroStarted = false;
                 controller._BossFlags.IntroDone = true;
                 _TimeUntilIntroIsDone = 0;

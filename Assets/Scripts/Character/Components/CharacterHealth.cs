@@ -12,7 +12,7 @@ public class CharacterHealth : Health
     private float _TimeUntilDespawn = 0;
     [SerializeField] private float _TimeBetweenDespawn = 3f;
     private bool _Despawn = false;
-
+    [SerializeField] private bool EndBoss = false;
     public bool _IsShield;
 
     public bool _Damagable { get; set; }
@@ -25,8 +25,6 @@ public class CharacterHealth : Health
         _Character = GetComponent<Character>();
         _CharacterAnimation = GetComponent<CharacterAnimation>();
         _CharacterWeapon = GetComponent<CharacterWeapon>();
-        if (_Character == null) Debug.LogError("CharacterHealth was unable to find 'Character' component.");
-        if (_CharacterAnimation == null) Debug.LogWarning("CharacterHealth was unable to find 'CharacterAnimation' component.");
         _DefaultMaxHealth = _CharacterMaxHealth;
         _Damagable = true;
         Physics2D.IgnoreLayerCollision(7, 9);  // "Player" layer ignores "Dead Body" layer
@@ -37,11 +35,6 @@ public class CharacterHealth : Health
 
     protected override void Update()
     {
-        if (!HasMoved && transform.position != StartPos)
-        {
-            HasMoved = true;
-            _Character._GameStartTime = Time.time;
-        }
         base.Update();
         if (_Despawn && Time.time > _TimeUntilDespawn)
         {
@@ -51,6 +44,22 @@ public class CharacterHealth : Health
                 var child = transform.GetChild(i).gameObject;
                 if (child != null)
                     child.SetActive(false);
+            }
+        }
+
+
+
+        if (_Character != null)
+        {
+            if (_Character.AIType == Character.AITypes.Boss && EndBoss)
+            {
+                if (!_Character.IsAlive)
+                {
+                    var playergo = GameObject.Find("Player");
+                    var player = playergo.GetComponent<Character>();
+
+                    player._GameFinishTime = Time.time;
+                }
             }
         }
     }
@@ -138,5 +147,5 @@ public class CharacterHealth : Health
     {
         SceneManager.LoadScene(2);
     }
-    
+
 }

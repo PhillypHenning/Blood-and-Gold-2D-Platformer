@@ -37,7 +37,6 @@ public class BossVulnerable : AIAction
         //if(controller._BossFlags.MoveBossHeadDown){
             //Debug.Log("controller: " + controller.transform.position.y + " | HeadPos.y " + HeadPos.y);
             if(controller.transform.position.y > controller._BossFlags.BossHeadDeadPos.position.y && controller._BossFlags.MoveBossHeadDown){ 
-                Debug.Log("Head lowering");
                 controller._CharacterMovement.SetVertical(-50);
 
             // Move head down to position

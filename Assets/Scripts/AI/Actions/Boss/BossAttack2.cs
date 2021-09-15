@@ -29,7 +29,6 @@ public class BossAttack2 : AIAction
             controller._BossFlags.TimeUntilAttack2IsDone = Time.time + controller._BossFlags.TotalTimeOfAttack2;
             controller._BossFlags.TimeUntilAttack2Active = Time.time + controller._BossFlags.Attack2TimeBetweenAttacks;
             // Boss tell would go here
-            Debug.Log("Attack 2 started");
             //controller._CharacterMovement.SetVertical(-5);
         }
 
@@ -39,12 +38,10 @@ public class BossAttack2 : AIAction
             controller._BossFlags.TimeUntilAttack2Active = Time.time + controller._BossFlags.Attack2TimeBetweenAttacks;
 
             // Start Attack2
-            Debug.Log("Attack 2");
             _TargetCollider = Physics2D.OverlapCircle(controller.transform.position, controller._BossFlags.DetectAreaOfAttack2, _TargetMask);
             
             // Run animation for yell
             //Instantiate(myPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-            Debug.Log("controller._BossFlags.WeaponHolder.position" + controller._BossFlags.WeaponHolder.position);
             Instantiate(controller._BossFlags.Attack2Prefab, controller._BossFlags.WeaponHolder.position, Quaternion.identity);
         }
 
