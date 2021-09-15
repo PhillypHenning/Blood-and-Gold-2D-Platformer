@@ -123,7 +123,9 @@ public class CharacterWeapon : CharacterComponent
 
         if (_CurrentWeapon != null)
         {
-            _CurrentWeapon.PlayUIAnimationReload();
+            if (_CurrentWeapon._CurrentAmmo != _CurrentWeapon.MagazineSize) {
+                _CurrentWeapon.PlayUIAnimationReload();
+            }
             // If the player switches weapons, while there are bullets out, those bullets are deleted from this. 
             // I can think of two solutions;
             //  1. Create a Destory method in ObjectPooler that waits until all bullets are deleted before destorying itself

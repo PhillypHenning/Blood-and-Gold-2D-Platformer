@@ -39,8 +39,10 @@ public class BossAttack2 : AIAction
 
             // Start Attack2
             _TargetCollider = Physics2D.OverlapCircle(controller.transform.position, controller._BossFlags.DetectAreaOfAttack2, _TargetMask);
-            
+
             // Run animation for yell
+            controller._CharacterAnimator.Scream();
+
             //Instantiate(myPrefab, new Vector3(0, 0, 0), Quaternion.identity);
             Instantiate(controller._BossFlags.Attack2Prefab, controller._BossFlags.WeaponHolder.position, Quaternion.identity);
         }

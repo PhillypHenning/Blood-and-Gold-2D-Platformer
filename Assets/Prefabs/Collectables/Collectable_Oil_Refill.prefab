@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 4220237654818276250}
   - component: {fileID: 4220237654818276245}
   - component: {fileID: 4220237654818276244}
-  - component: {fileID: -594305252428573880}
+  - component: {fileID: 6436008360378256486}
   m_Layer: 10
   m_Name: Collectable_Oil_Refill
   m_TagString: Untagged
@@ -153,7 +153,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &-594305252428573880
+--- !u!114 &6436008360378256486
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,8 +162,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4220237654818276255}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de3350652af97a7429dd3e91032837ab, type: 3}
+  m_Script: {fileID: 11500000, guid: e31bbc16bdc07854a8e50347922514ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickupMessage: Refilled 15% Oil
   _DestroyItemOnPickUp: 1
-  _ValueToAdd: 15
+  _ValueToAdd: 0
+  _ItemData: {fileID: 11400000, guid: 61b8f4d4eea2f3f4cba291a66eaea24e, type: 2}

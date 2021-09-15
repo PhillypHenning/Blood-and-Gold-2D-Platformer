@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c185f63aa0a9c3640bf578a5ba01fe5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickupMessage: +1 Life
   _DestroyItemOnPickUp: 1
   _ValueToAdd: 10
 --- !u!1 &7342769354913249491

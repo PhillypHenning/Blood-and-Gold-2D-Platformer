@@ -26,7 +26,6 @@ public class BossIntro : AIAction
 
                 // Start Scream animation - TODO WEST
                 controller._CharacterAnimator.Attack2();
-                Debug.Log("Check?");
                 Instantiate(controller._BossFlags.Attack2Prefab, controller._BossFlags.WeaponHolder.position, Quaternion.identity);
             }
             

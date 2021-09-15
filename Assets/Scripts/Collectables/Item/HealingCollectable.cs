@@ -12,11 +12,12 @@ public class HealingCollectable : Collectable
 
     private CharacterHealth _CharacterHealth;
 
-    protected override void PickUp()
+    protected override bool PickUp()
     {
-        if (!_CharacterHealth.Heal(_ValueToAdd)) return;
+        if (!_CharacterHealth.Heal(_ValueToAdd)) return false;
         _Consumed = true;
         FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/Items/Health/Restore_Health", gameObject);
+        return true;
     }
 
     protected override void SetReferences(GameObject gameObject)

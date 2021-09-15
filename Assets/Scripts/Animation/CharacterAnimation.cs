@@ -51,15 +51,15 @@ public class CharacterAnimation : MonoBehaviour
         Dodge,
         Hurt,
         Death,
-        DeathNoShadow,
         ShieldHurt,
         ShieldBreak,
-        Attack1,
-        Attack2,
-        Attack3,
         MineCart,
         RunNoShield,
-        IdleNoShield
+        IdleNoShield,
+        Scream,
+        Attack1,
+        Attack2,
+        Puke
     }
 
     void Start()
@@ -176,8 +176,6 @@ public class CharacterAnimation : MonoBehaviour
 
         _CurrentAnimation = newState;
 
-        if (!_AnimationTimes.ContainsKey(newState)) return;
-
         switch (animationType)
         {
             case (AnimationType.Dynamic):
@@ -244,14 +242,7 @@ public class CharacterAnimation : MonoBehaviour
     {
         _IsDead = true;
 
-        if (_Character.CharacterType == Character.CharacterTypes.Player && !_Character.IsGrounded)
-        {
-            ChangeAnimationState(AnimationState.DeathNoShadow, AnimationType.Priority); 
-        }
-        else
-        {
             ChangeAnimationState(AnimationState.Death, AnimationType.Priority); 
-        }
     }
 
     public void ShieldHurt()
@@ -267,18 +258,24 @@ public class CharacterAnimation : MonoBehaviour
 
     public void Attack1()
     {
-        ChangeAnimationState(AnimationState.Attack1, AnimationType.Static); 
+        ChangeAnimationState(AnimationState.Attack1, AnimationType.Priority); 
     }
 
     public void Attack2()
     {
-        ChangeAnimationState(AnimationState.Attack2, AnimationType.Static); 
+        ChangeAnimationState(AnimationState.Attack2, AnimationType.Priority); 
     }
 
-    public void Attack3()
+    public void Scream()
     {
-        ChangeAnimationState(AnimationState.Attack3, AnimationType.Static);
+        ChangeAnimationState(AnimationState.Scream, AnimationType.Priority);
     }
+
+    public void Puke()
+    {
+        ChangeAnimationState(AnimationState.Puke, AnimationType.Priority);
+    }
+
 
     public void EnterMineCart()
     {

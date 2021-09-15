@@ -102,7 +102,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.882353, y: 0.9411765}
+    oldSize: {x: 2, y: 1}
     newSize: {x: 1.882353, y: 0.9411765}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e08c0940949ed438f1c3cb396c0956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickupMessage: 
   _DestroyItemOnPickUp: 1
   _WeaponItemData: {fileID: 11400000, guid: 440ad8ea39fdb4e4fa710269f2a4575b, type: 2}
 --- !u!114 &-1135539198405851470
@@ -137,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31bbc16bdc07854a8e50347922514ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickupMessage: Shotgun unlocked
   _DestroyItemOnPickUp: 1
   _ValueToAdd: 1
   _ItemData: {fileID: 11400000, guid: b2beeb672c134fe48909e0dd1a4e9680, type: 2}

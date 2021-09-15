@@ -22,7 +22,8 @@ public class CharacterDodge : CharacterComponent
         base.Start();
         SetToDefault();
         _OriginalLayer = gameObject.layer;
-        Physics2D.IgnoreLayerCollision(9, 10);
+        // allows interactions with doors, overlays and whatnot while dodging
+        //Physics2D.IgnoreLayerCollision(9, 10);
     }
 
     protected override void Update()

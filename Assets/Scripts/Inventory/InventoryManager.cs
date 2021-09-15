@@ -13,8 +13,7 @@ public class InventoryManager : MonoBehaviour
         _Items = new Dictionary<ItemType, int>
         {
             // adds starting items to inventory
-            { ItemType.Oil, 100 },
-            { ItemType.AmmoHandgun, 12 }
+            { ItemType.Oil, 100 }
         };
     }
 
@@ -47,7 +46,7 @@ public class InventoryManager : MonoBehaviour
 
         if (currentStock + quantity >= item.MaxStack)
         {
-            _Items[item.Type] = quantity;
+            _Items[item.Type] = item.MaxStack;
         }
         else
         {

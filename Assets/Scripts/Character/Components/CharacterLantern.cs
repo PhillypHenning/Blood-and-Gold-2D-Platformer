@@ -149,6 +149,7 @@ public class CharacterLantern : CharacterComponent
         {
             _IsLanternOn = false;
             SetLanternDial();
+            SetLanternFlame();
             return;
         }
 
@@ -335,9 +336,5 @@ public class CharacterLantern : CharacterComponent
         {
             _Light.pointLightOuterRadius -= timeFactor;
         }
-    }
-
-    public void AddOil(float amount){
-        _OilDrainPool += amount;
     }
 }

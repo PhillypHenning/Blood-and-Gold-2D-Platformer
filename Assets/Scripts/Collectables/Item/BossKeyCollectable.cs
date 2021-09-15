@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BossKeyCollectable : Collectable
 {
-    protected override void PickUp()
+    protected override bool PickUp()
     {
         _Character._HasBossKey = true;
+        return true;
     }
 }

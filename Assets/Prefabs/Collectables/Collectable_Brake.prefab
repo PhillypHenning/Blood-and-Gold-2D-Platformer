@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31bbc16bdc07854a8e50347922514ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickupMessage: Found Mine Cart Brake
   _DestroyItemOnPickUp: 1
   _ValueToAdd: 1
   _ItemData: {fileID: 11400000, guid: a1bf1ba47ec57514c95ec6a8482a768d, type: 2}

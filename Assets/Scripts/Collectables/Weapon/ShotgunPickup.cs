@@ -7,9 +7,10 @@ public class ShotgunPickup : Collectable
 {
     [SerializeField] WeaponData _WeaponItemData;
 
-    protected override void PickUp()
+    protected override bool PickUp()
     {
         EquipWeapon();
+        return true;
     }
 
     private void EquipWeapon(){

@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31bbc16bdc07854a8e50347922514ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickupMessage: Found Shiny Key
   _DestroyItemOnPickUp: 1
   _ValueToAdd: 1
   _ItemData: {fileID: 11400000, guid: e58533802c3cbdb4293ba92480506c34, type: 2}

@@ -13,12 +13,13 @@ public class InventoryItemCollectable : Collectable
 
     private InventoryManager _Inventory;
 
-    protected override void PickUp()
+    protected override bool PickUp()
     {
-        if (!_Inventory.AddToInventory(_ItemData, _ValueToAdd)) return;
+        if (!_Inventory.AddToInventory(_ItemData, _ValueToAdd)) return false;
         _Consumed = true;
 
         FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/Items/Revolver_Ammo_Pickup", gameObject);
+        return true;
     }
 
     protected override void SetReferences(GameObject gameObject)

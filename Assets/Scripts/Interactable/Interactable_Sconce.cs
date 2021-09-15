@@ -91,6 +91,8 @@ public class Interactable_Sconce : Interactable
         if (playerInventory.GetQuantity(ItemType.Oil) >= 10)
         {
             playerInventory.RemoveFromInventory(ItemType.Oil, 10);
+            GameObject.Find("Dosh_Tracker").GetComponent<TextPopupUI>().UpdateText("Used 10% Oil");
+            // used 10 oil
             return true;
         }
 

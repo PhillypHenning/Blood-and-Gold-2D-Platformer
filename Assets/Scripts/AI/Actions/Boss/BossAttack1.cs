@@ -30,6 +30,8 @@ public class BossAttack1 : AIAction
 
         if(controller._BossFlags.Attack1Active && Time.time > TimeUntilAttack){
             TimeUntilAttack = Time.time + TimeBetweenAttacks;
+            // play animation1
+            controller._CharacterAnimator.Puke();
             controller._CharacterWeapon._CurrentWeapon.UseWeapon();
         }
 
