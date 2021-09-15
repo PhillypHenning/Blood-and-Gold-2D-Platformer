@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private bool _UsesBullets = true;
     [SerializeField] private bool _TrackingBullets = false;
     [SerializeField] protected WeaponAnimationManager _WeaponAnimationManager;
+    [SerializeField] protected ShotgunUI _ShotgunUI;
     private Vector3 _ProjectileSpawnPosition;
     private Transform _BulletSpawnPos;
     private bool _CanReload = true;
@@ -107,11 +108,11 @@ public class Weapon : MonoBehaviour
         _delayedShot = false;
     }
 
-    virtual protected void PlayUIAnimationShoot()
+    virtual public void PlayUIAnimationShoot()
     {
 
     }
-    virtual protected void PlayUIAnimationReload()
+    virtual public void PlayUIAnimationReload()
     {
 
     }

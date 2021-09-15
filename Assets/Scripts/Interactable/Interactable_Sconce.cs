@@ -25,7 +25,7 @@ public class Interactable_Sconce : Interactable
     protected override void SetToDefault()
     {
         base.SetToDefault();
-        _DefaultMessage = "Press 'F' to light.";
+        _DefaultMessage = "[F] to light";
         _IsLit = _StartOn;
         if(_IsLit){
             _RewardIssued = true;

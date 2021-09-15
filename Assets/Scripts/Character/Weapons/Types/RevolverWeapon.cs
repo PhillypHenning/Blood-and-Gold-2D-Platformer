@@ -30,15 +30,19 @@ public class RevolverWeapon : Weapon
         // For your purposes you'll likely just comment that base out and write your new logic. 
     }
 
-    protected override void PlayUIAnimationShoot()
+    public override void PlayUIAnimationShoot()
     {
-        if (_WeaponAnimationManager == null) return;
-        _WeaponAnimationManager.FireShot();
+        if (_WeaponAnimationManager != null)
+        {
+            _WeaponAnimationManager.FireShot();
+        }
     }
 
-    protected override void PlayUIAnimationReload()
+    public override void PlayUIAnimationReload()
     {
-        if (_WeaponAnimationManager == null) return;
-        _WeaponAnimationManager.Reload();
+        if (_WeaponAnimationManager != null)
+        {
+            _WeaponAnimationManager.Reload();
+        }
     }
 }

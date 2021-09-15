@@ -15,6 +15,8 @@ public class CharacterHealth : Health
 
     public bool _IsShield;
 
+    private Fader _Fader;
+
     public bool _Damagable { get; set; }
     private bool HasMoved = false;
     private Vector3 StartPos;
@@ -27,6 +29,10 @@ public class CharacterHealth : Health
         _CharacterWeapon = GetComponent<CharacterWeapon>();
         if (_Character == null) Debug.LogError("CharacterHealth was unable to find 'Character' component.");
         if (_CharacterAnimation == null) Debug.LogWarning("CharacterHealth was unable to find 'CharacterAnimation' component.");
+        if (_Character && _Character.CharacterType == Character.CharacterTypes.Player) {
+            _Fader = FindObjectOfType<Fader>();
+            if (_Fader == null) Debug.LogError("CharacterHealth was unable to locate Fader");
+        }
         _DefaultMaxHealth = _CharacterMaxHealth;
         _Damagable = true;
         Physics2D.IgnoreLayerCollision(7, 9);  // "Player" layer ignores "Dead Body" layer
@@ -40,6 +46,7 @@ public class CharacterHealth : Health
         if (!HasMoved && transform.position != StartPos)
         {
             HasMoved = true;
+            if (_Character == null) return;
             _Character._GameStartTime = Time.time;
         }
         base.Update();
@@ -88,7 +95,6 @@ public class CharacterHealth : Health
         return true;
     }
 
-
     protected override void Die()
     {
         base.Die();
@@ -97,6 +103,7 @@ public class CharacterHealth : Health
         {
             if (_Character.CharacterType == Character.CharacterTypes.Player)
             {
+                _Fader.FadeOut();
                 Invoke("GameOver", 1.5f);
             }
             _Character.IsLocked = true;
