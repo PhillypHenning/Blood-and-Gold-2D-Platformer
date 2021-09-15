@@ -13,6 +13,12 @@ public class BossFlags : MonoBehaviour
 
     [SerializeField] private Transform _BossHeadDeadPos;
     public Transform BossHeadDeadPos => _BossHeadDeadPos;
+
+    [SerializeField] private GameObject _Attack2Prefab;
+    public GameObject Attack2Prefab => _Attack2Prefab;
+
+    [SerializeField] private Transform _WeaponHolder;
+    public Transform WeaponHolder => _WeaponHolder;
     
     // Movement
     public bool IsMoving = false;

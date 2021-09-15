@@ -41,12 +41,15 @@ public class BossAttack2 : AIAction
             // Start Attack2
             Debug.Log("Attack 2");
             _TargetCollider = Physics2D.OverlapCircle(controller.transform.position, controller._BossFlags.DetectAreaOfAttack2, _TargetMask);
+            
+            // Run animation for yell
+            //Instantiate(myPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            Debug.Log("controller._BossFlags.WeaponHolder.position" + controller._BossFlags.WeaponHolder.position);
+            Instantiate(controller._BossFlags.Attack2Prefab, controller._BossFlags.WeaponHolder.position, Quaternion.identity);
         }
 
         if (_TargetCollider != null)
         {
-            Debug.Log("Damaging Player");
-            Debug.Log(_TargetCollider.name);
             var characterHealth = _TargetCollider.GetComponent<CharacterHealth>();
             characterHealth.Damage(controller._BossFlags.Attack2Damage);
             _TargetCollider = null;
