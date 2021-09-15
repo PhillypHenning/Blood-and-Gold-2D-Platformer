@@ -17,6 +17,7 @@ public class Interactable_Door : Interactable
     [SerializeField] private bool _ForcedEntry = false;
     [SerializeField] private bool _ExitOnly = false;
     [SerializeField] private bool _IsIntroDoor = false;
+    private bool _IsInTransition = false;
     
 
 
@@ -34,7 +35,7 @@ public class Interactable_Door : Interactable
     {
         if(_ExitOnly){ return false;}
         if (_ForcedEntry) { return true; }
-        return Input.GetKeyDown(KeyCode.F);
+        return (!_IsInTransition && Input.GetKeyDown(KeyCode.F));
     }
 
     protected override void Reward()
@@ -85,6 +86,7 @@ public class Interactable_Door : Interactable
         var player = _Character;
         // var characterMovement = _Character.GetComponent<CharacterMovement>();
         player.IsLocked = true;
+        _IsInTransition = true;
 
         yield return _Fader.FadeOut();
         // TODO: fix "MovePosition" call (player is being moved to wrong position when running commented code below)
@@ -99,6 +101,7 @@ public class Interactable_Door : Interactable
         yield return _Fader.FadeWait();
         yield return _Fader.FadeIn();
         player.IsLocked = false;
+        _IsInTransition = false;
     }
 
     protected override void SetToDefault()

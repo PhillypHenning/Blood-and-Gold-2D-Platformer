@@ -20,6 +20,7 @@ public class CharacterAnimation : MonoBehaviour
     private AnimationState _CurrentAnimation;
     private bool _InMineCart;
 
+    public bool _IsBoss;
     // shield enemy 
     public bool _HoldsShield = false;
     private bool _ShieldBroken = false;
@@ -105,6 +106,11 @@ public class CharacterAnimation : MonoBehaviour
 
         if (_InMineCart) {
             ChangeAnimationState(AnimationState.MineCart);
+            return;
+        }
+        if (_IsBoss)
+        {
+            ChangeAnimationState(AnimationState.Idle);
             return;
         }
         if (_Character.IsGrounded)

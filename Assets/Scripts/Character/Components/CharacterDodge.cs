@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterDodge : CharacterComponent
 {
     public float _DodgeDistance;
-    private float _DodgeDuration = 10f;
+    private float _DodgeDuration;
     private float _DodgeTimer;
     private bool _IsDodging;
     private bool _DodgeDone = false;
@@ -103,7 +103,7 @@ public class CharacterDodge : CharacterComponent
         //_DodgeDistance = 500f;
         _IsDodging = false;
 
-        _DodgeDuration = 0.5f;
+        _DodgeDuration = 0.6f;
         // TODO: Issue on BUILD.... matches dodge duration to length of dodge animation
         /*
         if (_CharacterAnimation.AnimationTimes.ContainsKey(CharacterAnimation.AnimationState.Dodge))

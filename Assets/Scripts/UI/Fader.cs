@@ -10,6 +10,7 @@ public class Fader : MonoBehaviour
     private void Start()
     {
         _CanvasGroup = GetComponent<CanvasGroup>();
+        StartCoroutine(FadeIn());
     }
 
     // Wrapper for fade sequence to auto fade out, wait, then fade in

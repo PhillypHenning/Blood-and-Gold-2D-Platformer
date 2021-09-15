@@ -410,7 +410,8 @@ MonoBehaviour:
   _HeightestJumpReached: 0
   VerticalTakeoff: 12.5
   JumpIfAble: 1
-  JumpIfAbleCD: 1
+  JumpCD: 1
+  JumpCDTimer: 0
 --- !u!114 &2785896071529441817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,6 +427,7 @@ MonoBehaviour:
   _CharacterMaxHealth: 10
   _PlayerLives: {fileID: 0}
   _TimeBetweenDespawn: 3
+  EndBoss: 0
   _IsShield: 0
 --- !u!114 &2785896071529441798
 MonoBehaviour:
@@ -538,4 +540,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RewardsList:
   - {fileID: 4220237654818276251, guid: e259971c56678e547a2c48fc28afe4f2, type: 3}
-  - {fileID: -594305252428573880, guid: d91300674bc76794594fdc7287d492ff, type: 3}
+  - {fileID: 6436008360378256486, guid: d91300674bc76794594fdc7287d492ff, type: 3}

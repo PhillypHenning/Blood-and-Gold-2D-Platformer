@@ -10,7 +10,7 @@ public class TextPopupUI : MonoBehaviour
 
     private void Start()
     {
-        _TimeToShow = 3f;
+        _TimeToShow = 2f;
         _TextUI = GetComponent<Text>();
     }
 
@@ -19,7 +19,6 @@ public class TextPopupUI : MonoBehaviour
         if (_TextUI.text != "" && (Time.time >= _TextFadeTime))
         {
             _TextUI.text = "";
-            _TimeToShow = Time.time + _TimeToShow;
         }
     }
 

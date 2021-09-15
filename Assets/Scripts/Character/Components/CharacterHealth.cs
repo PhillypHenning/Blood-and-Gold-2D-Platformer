@@ -114,6 +114,11 @@ public class CharacterHealth : Health
                 _Fader.FadeOut();
                 Invoke("GameOver", 1.5f);
             }
+            else if (_Character.AIType == Character.AITypes.Boss)
+            {
+                _Fader.FadeOut();
+                Invoke("Victory", 10f);
+            }
             _Character.IsLocked = true;
             _Character.IsAlive = false;
             _Character.Actionable = false;
@@ -152,6 +157,10 @@ public class CharacterHealth : Health
     private void GameOver()
     {
         SceneManager.LoadScene(2);
+    }
+    private void Victory()
+    {
+        SceneManager.LoadScene(3);
     }
 
 }

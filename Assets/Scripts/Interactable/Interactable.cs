@@ -43,8 +43,8 @@ public class Interactable : MonoBehaviour
         _CollidingGameObject = other.gameObject;
 
         if(IsUsableByCollider(other)){
-            DisplayVisualQue();
             _EnableRewardable = true;
+            DisplayVisualQue();
         }
     }
 
