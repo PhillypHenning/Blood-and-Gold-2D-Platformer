@@ -57,7 +57,7 @@ public class CharacterLantern : CharacterComponent
     {
         base.HandleInput();
         if (!_HandleInput) return;
-        if (Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             SwitchLanternOnOff();
         }

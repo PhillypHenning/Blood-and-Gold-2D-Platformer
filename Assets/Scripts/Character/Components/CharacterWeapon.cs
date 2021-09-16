@@ -65,10 +65,10 @@ public class CharacterWeapon : CharacterComponent
         if (!_HandleInput) { return; }
         if (!_Actionable) { return; }
 
-        if (Input.GetKey(KeyCode.K))
+        if (Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.Mouse1))
         {
             Aim();
-            if (Input.GetKeyDown(KeyCode.J))
+            if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Mouse0))
             {
                 Shoot();
             }
@@ -83,7 +83,7 @@ public class CharacterWeapon : CharacterComponent
             Reload();
         }
 
-        if (Input.GetKeyDown(KeyCode.L) && _SecondaryWeapon != null)
+        if ((Input.GetKeyDown(KeyCode.L) || Input.GetAxis("Mouse ScrollWheel") != 0) && _SecondaryWeapon != null)
         {
             SwapWeapons();
         }
