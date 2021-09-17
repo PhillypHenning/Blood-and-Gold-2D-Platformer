@@ -27,7 +27,7 @@ public class CharacterLantern : CharacterComponent
     private const float INNER_RADIUS_OFF = 0.3f;
     private const float OUTER_RADIUS_OFF = INNER_RADIUS_OFF * OUTER_RADIUS_FACTOR;
 
-    private const float MAX_DRAIN_RATE = .1f;
+    private const float MAX_DRAIN_RATE = .2f;
 
     // tracks player-set threshold for lantern brightness
     private float _InnerRadiusThreshold;
@@ -127,9 +127,9 @@ public class CharacterLantern : CharacterComponent
 
     }
 
-    protected override void HandleAbility()
+    protected override void HandlePhysicsAbility()
     {
-        base.HandleAbility();
+        base.HandlePhysicsAbility();
         DrainOil();
         UpdateLantern(); 
     }
@@ -158,6 +158,7 @@ public class CharacterLantern : CharacterComponent
 
         _OilDrainPool = 0f;
         _InventoryManager.RemoveFromInventory(ItemType.Oil, 1);
+        print(_InventoryManager.GetQuantity(ItemType.Oil));
     }
 
     private float DrainRate()

@@ -57,6 +57,7 @@ public class CharacterComponent : MonoBehaviour
     }
 
     protected virtual void HandlePhysicsAbility(){
+        if (!_CharacterHealth.IsAlive) return;
         // Use if you need access to the FixedUpdate
         // This needs to be used for Dynamic Rigidbodies.
     }
