@@ -88,6 +88,7 @@ public class BossFlags : MonoBehaviour
             TimeBetweenAttack1 = 2f;
             TimeOfInvunState = 6f;
             TimeOfInvunEnds = 5f;
+            AttackThreshhold = 60f;
         }
     }
 }
