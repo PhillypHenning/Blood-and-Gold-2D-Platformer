@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "AI/Actions/Boss/Vulnerable")]
 public class BossVulnerable : AIAction
 {
-    private float TimeOfInvunState = 10f;
+    private float TimeOfInvunState = 8f;
     private float TimeOfInvun = 2f; 
-    private float TimeOfInvunEnds = 8f;
+    private float TimeOfInvunEnds = 6f;
     private Vector3 HeadPos;
     // This makes the head vulnerable between TimeOfInvun and TimeOfInvunEnds
     
@@ -49,7 +49,7 @@ public class BossVulnerable : AIAction
 
 
         if(controller._BossFlags.VulnerableStarted && Time.time > controller._BossFlags.TimeUntilVulnerableFinishes){
-            //Debug.Log("Boss is Vulnerable");
+            Debug.Log("Boss is Vulnerable");
             controller._BossFlags.MoveBossHeadDown = false;
             controller._BossFlags.MoveBossHeadUp = true;
         }
