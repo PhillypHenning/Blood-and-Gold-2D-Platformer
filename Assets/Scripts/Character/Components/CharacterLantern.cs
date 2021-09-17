@@ -158,7 +158,6 @@ public class CharacterLantern : CharacterComponent
 
         _OilDrainPool = 0f;
         _InventoryManager.RemoveFromInventory(ItemType.Oil, 1);
-        print(_InventoryManager.GetQuantity(ItemType.Oil));
     }
 
     private float DrainRate()
