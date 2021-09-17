@@ -17,6 +17,7 @@ public class StateController : MonoBehaviour
     public CharacterAnimation _CharacterAnimator { get; set; }
     public Character _Character { get; set; }
     public MinibossAltAttack _MiniBossAltAttack { get; set; }
+    public CharacterHealth _CharacterHealth {get; set;}
 
     public Transform _Target { get; set; }
     public Path _Path { get; set; }
@@ -31,11 +32,13 @@ public class StateController : MonoBehaviour
 
     public bool _IntroDone = false;
     private bool TargetSet = false;
+    private bool _EnrageActive = false;
 
     private void Awake()
     {
         Actionable = true;
         _CharacterMovement = GetComponent<CharacterMovement>();
+        _CharacterHealth = GetComponent<CharacterHealth>();
         _CharacterWeapon = GetComponent<CharacterWeapon>();
         _CharacterJump = GetComponent<CharacterJump>();
         _MiniBossAltAttack = GetComponent<MinibossAltAttack>();
@@ -65,6 +68,12 @@ public class StateController : MonoBehaviour
         if(_Target && !TargetSet){
             _CharacterMovement.SetTarget(_Target);
             TargetSet=true;
+        }
+
+        if(_CharacterHealth.CurrentHealth < (_CharacterHealth._CharacterMaxHealth / 3f) && !_EnrageActive){
+            // ENRAAAAAAAAAAAAAAAAAAAAAAAAAAGE
+            _EnrageActive = true;
+            _BossFlags._Enrage = true;
         }
     }
 

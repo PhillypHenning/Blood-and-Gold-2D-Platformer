@@ -50,7 +50,7 @@ public class HoldCreature : MonoBehaviour
             _Animator.SetBool("FallingDown", false);
             _Animator.SetBool("GettingUp", true);
         }
-        if(_BossFlags.VulnerableFinished){
+        if(!_BossFlags.MoveBossHeadUp){
             _Animator.SetBool("GettingUp", false);
         }
     }

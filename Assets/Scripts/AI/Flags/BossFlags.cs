@@ -30,7 +30,11 @@ public class BossFlags : MonoBehaviour
 
     // Attack 1
     public bool Attack1Active = false;
-    public float TimeUntilAttackIsDone = 0;
+    public float TimeUntilAttack1IsDone = 0;
+    public float TimeOfAttack1 = 5f;
+    public float TimeUntilAttack1 = 0;
+    public float TimeBetweenAttack1 = 3f;
+    public bool Attack1Actionable = false;
 
     // Attack 2
     public bool IsAttack2Active = false;
@@ -44,6 +48,10 @@ public class BossFlags : MonoBehaviour
     public int DetectAreaOfAttack2 = 8;
     public float Attack2Damage = 15f;
 
+    // Enrage
+    public bool _Enrage = false;
+    private bool _EnrageActive = false;
+
     // Vulnerable
     public float MovesSinceVunerable = 0;
     public bool VulnerableStarted = false;
@@ -54,6 +62,9 @@ public class BossFlags : MonoBehaviour
     public bool MoveBossHeadDown = false;
     public bool MoveBossHeadUp = false;
     public float TimeUntilVulnerableFinishes = 0;
+    public float TimeOfInvunState = 8f;
+    public float TimeOfInvun = 2f; 
+    public float TimeOfInvunEnds = 6f;
 
     // Death 
     public bool DeathStarted = false;
@@ -67,5 +78,16 @@ public class BossFlags : MonoBehaviour
         Gizmos.color = Color.red;
         //Use the same vars you use to draw your Overlap SPhere to draw your Wire Sphere.
         Gizmos.DrawWireSphere(transform.position, DetectAreaOfAttack2);
+    }
+
+    private void Update()
+    {
+        if(_Enrage && !_EnrageActive){
+            _EnrageActive = true;
+            TimeOfAttack1 = 8f;
+            TimeBetweenAttack1 = 2f;
+            TimeOfInvunState = 6f;
+            TimeOfInvunEnds = 5f;
+        }
     }
 }
