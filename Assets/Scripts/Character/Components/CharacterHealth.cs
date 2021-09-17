@@ -117,7 +117,7 @@ public class CharacterHealth : Health
                 //_Fader.FadeOut();
                 Invoke("Victory", 10f);
             }
-            _Character.IsLocked = true;
+            _Character.ForceLockCharacter();
             _Character.IsAlive = false;
             _Character.Actionable = false;
             if (_CharacterWeapon)

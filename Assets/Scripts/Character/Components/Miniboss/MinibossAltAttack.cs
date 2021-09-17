@@ -63,7 +63,8 @@ public class MinibossAltAttack : CharacterComponent
         }
 
         if(!Attacking && Actionable){
-            _Character.IsLocked = true;
+            //_Character.IsLocked = true;
+            _Character.LockCharacter(_TimeToCompleteAttack);
             Attacking = true;
             Actionable = false;
 
@@ -106,7 +107,6 @@ public class MinibossAltAttack : CharacterComponent
 
         if (Time.time > _TimeUntilAttackIsComplete && !Actionable && Attacking)
         {
-            _Character.IsLocked = false;
             Attacking = false;
         }
 

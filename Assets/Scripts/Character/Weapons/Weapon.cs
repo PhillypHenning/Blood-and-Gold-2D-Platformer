@@ -149,7 +149,6 @@ public class Weapon : MonoBehaviour
 
             if (_ShotDelay > 0)
             {
-                Debug.Log("Hmm.");
                 if (_delayedShot) return;
                 StartCoroutine("RequestShotWithDelay");
             }

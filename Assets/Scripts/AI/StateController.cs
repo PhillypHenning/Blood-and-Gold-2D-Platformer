@@ -70,6 +70,12 @@ public class StateController : MonoBehaviour
             TargetSet=true;
         }
 
+        if (_BossFlags == null)
+        {
+            print("not a boss");
+            return;
+        }
+
         if(_CharacterHealth.CurrentHealth < (_CharacterHealth._CharacterMaxHealth / 3f) && !_EnrageActive){
             // ENRAAAAAAAAAAAAAAAAAAAAAAAAAAGE
             _EnrageActive = true;

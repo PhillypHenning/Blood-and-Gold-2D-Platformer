@@ -65,7 +65,7 @@ public class CharacterWeapon : CharacterComponent
         if (!_HandleInput) { return; }
         if (!_Actionable) { return; }
 
-        if (Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.Mouse1))
+        if ((Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.Mouse1)) && !_Character.IsLocked)
         {
             Aim();
             if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Mouse0))

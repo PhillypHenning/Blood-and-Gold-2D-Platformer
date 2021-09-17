@@ -78,7 +78,7 @@ public class CharacterDodge : CharacterComponent
     {
         // TODO: adjust collider to fit sprite animation
         _IsDodging = true;
-        _Character.IsLocked = true;
+        _Character.LockCharacter(_DodgeDuration);
         _DodgeTimer = 0f;
         _CharacterAnimation.Dodge();
         _TimeUntilInvunIsDone = Time.time + _TimeOfInvun;
@@ -89,7 +89,6 @@ public class CharacterDodge : CharacterComponent
 
     private void StopDodge()
     {
-        _Character.IsLocked = false;
         _IsDodging = false;
     }
 

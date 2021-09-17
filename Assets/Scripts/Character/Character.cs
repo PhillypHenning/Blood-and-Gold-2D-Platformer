@@ -7,12 +7,13 @@ public class Character : MonoBehaviour
     // Global character state variables
     private bool _IsGrounded;
     private bool _IsLocked;
+    private bool _ForcedLock;
     private bool _IsMoving;
     private bool _Actionable = true;
     private bool _FacingRight = true;
 
     // public property accessors
-    public bool IsLocked { get => _IsLocked; set => _IsLocked = value; }
+    public bool IsLocked { get => _IsLocked; }
     public bool IsGrounded { get => _IsGrounded; set => _IsGrounded = value; }
     public bool IsMoving { get => _IsMoving; set => _IsMoving = value; }
     public bool FacingRight { get => _FacingRight; set => _FacingRight = value; }
@@ -24,6 +25,9 @@ public class Character : MonoBehaviour
     public float _GameStartTime = 0f;
     public float _GameFinishTime = 0f;
     //public bool _IsFacingRight => _FacingRight;
+
+    private float _LockTimeEclapsed = 0f;
+    private float _LockEndTime;
 
 
     // TODO: use character types to determine default stats (like movementspeed)
@@ -64,6 +68,19 @@ public class Character : MonoBehaviour
         _Collider2D = GetComponent<Collider2D>();
     }
 
+    private void Update()
+    {
+        if (_ForcedLock) return;
+        if (_IsLocked && _LockTimeEclapsed < _LockEndTime)
+        {
+            _LockTimeEclapsed += Time.deltaTime;
+        }
+        else
+        {
+            ForceUnlockCharacter();
+        }
+    }
+
     public void DeactivateCharacter(){
         CharacterType = CharacterTypes.Inactive;
         Actionable = false;
@@ -72,6 +89,29 @@ public class Character : MonoBehaviour
     public void ReactivateCharacter(){
         CharacterType = _CharacterType;
         Actionable = true;
+    }
+
+    public void ForceLockCharacter()
+    {
+        _IsLocked = true;
+        _ForcedLock = true;
+    }
+
+    public void LockCharacter(float lockTime)
+    {
+        _IsLocked = true;
+        if (_LockEndTime < lockTime)
+        {
+            _LockEndTime = lockTime;
+        }
+    }
+
+    public void ForceUnlockCharacter()
+    {
+        _IsLocked = false;
+        _ForcedLock = false;
+        _LockTimeEclapsed = 0;
+        _LockEndTime = 0;
     }
 
 }

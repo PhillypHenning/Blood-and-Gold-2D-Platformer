@@ -85,7 +85,7 @@ public class Interactable_MineCart : Interactable
         // holds _Character in case reference is lost when player leaves collision 
         var player = _Character;
         if (player.CharacterType != Character.CharacterTypes.Player) yield return null;
-        player.IsLocked = true;
+        player.ForceLockCharacter();
 
         yield return _Fader.FadeOut();
 
@@ -121,7 +121,7 @@ public class Interactable_MineCart : Interactable
     {
         if (!_SetInMotion) return;
         _Character.transform.SetParent(null);
-        _Character.IsLocked = false;
+        _Character.ForceUnlockCharacter();
         _Character.GetComponentInChildren<CharacterAnimation>().ExitMineCart();
         _SetInMotion = false;
         transform.position = _StartPosition;

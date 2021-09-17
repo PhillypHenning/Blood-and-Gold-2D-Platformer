@@ -85,7 +85,7 @@ public class Interactable_Door : Interactable
         // holds _Character in case reference is lost when player leaves collision 
         var player = _Character;
         // var characterMovement = _Character.GetComponent<CharacterMovement>();
-        player.IsLocked = true;
+        player.ForceLockCharacter();
         _IsInTransition = true;
 
         yield return _Fader.FadeOut();
@@ -100,7 +100,7 @@ public class Interactable_Door : Interactable
 
         yield return _Fader.FadeWait();
         yield return _Fader.FadeIn();
-        player.IsLocked = false;
+        player.ForceUnlockCharacter();
         _IsInTransition = false;
     }
 
