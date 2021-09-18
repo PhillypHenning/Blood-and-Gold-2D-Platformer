@@ -189,10 +189,14 @@ public class CharacterWeapon : CharacterComponent
     {
         // Set time until reload can happen again for the player
         if(_Character.CharacterType == Character.CharacterTypes.Player){
+
             if(Time.time < TimeUntilNextReload){
                 return;
             }
+            var delay = TimeBetweenReloads * (1 - ((float)_CurrentWeapon._CurrentAmmo / _CurrentWeapon.MagazineSize));
+            TimeUntilNextReload = Time.time + delay;
         }
+
 
         if (_CurrentWeapon.WeaponName == _PrimaryWeapon.WeaponName)
         {
@@ -208,8 +212,6 @@ public class CharacterWeapon : CharacterComponent
             EquipWeapon(_PrimaryWeapon, _WeaponHolderPosition);
         }
 
-        var delay = TimeBetweenReloads * (1 - ((float)_CurrentWeapon._CurrentAmmo / _CurrentWeapon.MagazineSize));
-        TimeUntilNextReload = Time.time + delay;
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Weapon_Switch");
     }
 
