@@ -19,7 +19,8 @@ public class CharacterWeapon : CharacterComponent
     private bool _Actionable = true;
 
     private float TimeUntilNextReload = 0f;
-    private float TimeBetweenReloads = .8f;
+    private float TimeBetweenReloads = 1f;
+    // base delay on amount of ammo remaining
 
 
     protected override void Start()
@@ -112,7 +113,9 @@ public class CharacterWeapon : CharacterComponent
             return;
         }
 
-        TimeUntilNextReload = Time.time + TimeBetweenReloads;
+        // calculates the number of bullets missing and multiplies the reload timer by the result to increase delay as weapon has less bullets
+        var delay = TimeBetweenReloads * (1 - ((float)_CurrentWeapon._CurrentAmmo / _CurrentWeapon.MagazineSize));
+        TimeUntilNextReload = Time.time + delay;
         _CurrentWeapon.Reload();
     }
 
@@ -204,7 +207,9 @@ public class CharacterWeapon : CharacterComponent
             //_CurrentWeapon = _WeaponToUse;
             EquipWeapon(_PrimaryWeapon, _WeaponHolderPosition);
         }
-        TimeUntilNextReload = Time.time + TimeBetweenReloads;
+
+        var delay = TimeBetweenReloads * (1 - ((float)_CurrentWeapon._CurrentAmmo / _CurrentWeapon.MagazineSize));
+        TimeUntilNextReload = Time.time + delay;
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Weapon_Switch");
     }
 

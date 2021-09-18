@@ -8,6 +8,7 @@ public class DetectPlayer : AIDecision
     private Collider2D _TargetCollider;
 
     public float _DetectArea = 3f;
+    // TODO: update mask to allow enemies to continue chasing while player is in the dead body layer
     public LayerMask _TargetMask;
 
     private float _CurrentMovementSpeed;

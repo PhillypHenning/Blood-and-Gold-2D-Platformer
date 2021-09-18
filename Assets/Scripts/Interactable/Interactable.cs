@@ -104,7 +104,6 @@ public class Interactable : MonoBehaviour
 
     protected virtual void SetToDefault(){
         _TextUI = GameObject.Find("Interaction_Text").GetComponent<TextMeshProUGUI>();
-        if (_TextUI) print("successfully found textUI");
     }
 
     public void DamageInteractable(float damage){
