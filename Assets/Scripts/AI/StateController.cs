@@ -72,7 +72,6 @@ public class StateController : MonoBehaviour
 
         if (_BossFlags == null)
         {
-            print("not a boss");
             return;
         }
 

@@ -40,6 +40,11 @@ public class CharacterLantern : CharacterComponent
     private float _FlickerMax;
     private float _FlickerMin;
 
+    // snuff cooldowns stored in player to prevent snuff spamming when more than 1 fast/jump boi is attacking 
+    private float _SnuffCD = 2.5f;
+    private float _SnuffCDEnd = 0;
+    private bool _CanSnuff;
+
     protected override void Start()
     {
         base.Start();
@@ -134,6 +139,15 @@ public class CharacterLantern : CharacterComponent
         UpdateLantern(); 
     }
 
+    protected override void HandleAbility()
+    {
+        base.HandleAbility();
+        if (!_CanSnuff && Time.time > _SnuffCDEnd)
+        {
+            _CanSnuff = true;
+        }
+    }
+
     protected override void SetToDefault()
     {
         _IsLanternOn = false;
@@ -186,6 +200,16 @@ public class CharacterLantern : CharacterComponent
         SetLanternDial();
     }
 
+    public void SnuffLantern()
+    {
+        print("lantern turning off light.");
+        if (_CanSnuff)
+        {
+            _SnuffCDEnd = Time.time + _SnuffCD;
+            _CanSnuff = false;
+            if (_IsLanternOn) SwitchLanternOnOff();
+        }
+    }
 
     private void Flicker()
     {

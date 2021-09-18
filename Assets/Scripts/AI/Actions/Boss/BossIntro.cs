@@ -14,7 +14,6 @@ public class BossIntro : AIAction
 
     public override void Act(StateController controller)
     {
-        Debug.Log("boss intro act called. " + Time.time);
         InitiateBossIntro(controller);
     }
 

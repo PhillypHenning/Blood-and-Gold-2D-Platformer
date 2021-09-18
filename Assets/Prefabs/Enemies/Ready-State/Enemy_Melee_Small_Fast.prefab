@@ -106,7 +106,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -7866394953887510506, guid: b4a4c26bf693f16428fa7077378761ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 6.25, y: 3.4375}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 2785896070448362804}
   - component: {fileID: 2785896070448362806}
   - component: {fileID: 2785896070448362807}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Snuff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.38650608}
   serializedVersion: 2
-  m_Radius: 0.8865042
+  m_Radius: 2
 --- !u!1 &2785896071264115011
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc56a35c7e66d314cbd95aa304a5da8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _IsBoss: 0
   _HoldsShield: 0
 --- !u!114 &2785896071529441799
 MonoBehaviour:

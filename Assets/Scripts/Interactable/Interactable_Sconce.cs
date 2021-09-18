@@ -48,6 +48,7 @@ public class Interactable_Sconce : Interactable
             UpdateMessage("Not enough fuel to light sconce.");
             return;
         }
+        GameObject.Find("SconceCounter").GetComponent<SconceCounter>().AddSconce();
         RemoveVisualQue();
         LightSconce();
         TorchAudio();
@@ -90,8 +91,8 @@ public class Interactable_Sconce : Interactable
         if (playerInventory == null) Debug.LogError("Player inventory not found.");
         if (playerInventory.GetQuantity(ItemType.Oil) >= 10)
         {
-            playerInventory.RemoveFromInventory(ItemType.Oil, 10);
-            GameObject.Find("Dosh_Tracker").GetComponent<TextPopupUI>().UpdateText("Used 10% Oil");
+            playerInventory.RemoveFromInventory(ItemType.Oil, 5);
+            GameObject.Find("Dosh_Tracker").GetComponent<TextPopupUI>().UpdateText("Used 5 Oil");
             // used 10 oil
             return true;
         }

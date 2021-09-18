@@ -72,10 +72,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _WeaponName: Claw
   _TimeBetweenShots: 0
+  _ShotDelay: 0
   _TimeBetweenReloads: 0
   _MaxMagazineSize: 0
   _UsesBullets: 0
+  _TrackingBullets: 0
   _WeaponAnimationManager: {fileID: 0}
+  _ShotgunUI: {fileID: 0}
   _Actionable: 1
+  _IsEmpty: 0
+  _TimeModifier: 1
   _TimeBetweenHits: 1
   _DamageToDeal: 5
+  _ActiveHitboxTime: 0.5

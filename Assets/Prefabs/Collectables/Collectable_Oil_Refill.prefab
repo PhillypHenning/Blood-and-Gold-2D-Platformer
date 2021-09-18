@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31bbc16bdc07854a8e50347922514ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickupMessage: Refilled 15% Oil
+  PickupMessage: Refilled 15 Oil
   _DestroyItemOnPickUp: 1
   _ValueToAdd: 15
   _ItemData: {fileID: 11400000, guid: 61b8f4d4eea2f3f4cba291a66eaea24e, type: 2}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +20,7 @@ public class Interactable : MonoBehaviour
 
     [SerializeField] protected string _DefaultMessage = "[F] to interact";
 
-    protected Text _TextUI;
+    protected TextMeshProUGUI _TextUI;
 
 
     [SerializeField] public bool _Breakable = false;
@@ -102,7 +103,8 @@ public class Interactable : MonoBehaviour
     }
 
     protected virtual void SetToDefault(){
-        _TextUI = GameObject.Find("Interaction_Text").GetComponent<Text>();
+        _TextUI = GameObject.Find("Interaction_Text").GetComponent<TextMeshProUGUI>();
+        if (_TextUI) print("successfully found textUI");
     }
 
     public void DamageInteractable(float damage){

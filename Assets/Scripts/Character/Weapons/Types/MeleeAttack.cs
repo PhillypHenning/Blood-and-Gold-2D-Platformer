@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class MeleeAttack : Weapon
 {
-    [SerializeField] private float _TimeBetweenHits = 1f;
+    [SerializeField] private float _TimeBetweenHits = 5f;
     [SerializeField] private int _DamageToDeal;
+    [SerializeField] private float _ActiveHitboxTime = 0.5f;
     private BoxCollider2D _BoxCollider;
-    private float _NextHitTime = 0;
+    private float _NextHitTime;
+
+    private float _HitboxEndTime = 0;
+    private bool _IsHitboxActive = false;
+
 
     protected override void Start()
     {
@@ -19,10 +24,14 @@ public class MeleeAttack : Weapon
     protected override void Update()
     {
         base.Update();
+        if (!_IsAttacking || !_IsHitboxActive) return;
+        if (Time.time > _HitboxEndTime)
+        {
+             _BoxCollider.enabled = false;
+        }
         if(Time.time > _NextHitTime){
-            _CanShoot = true;
-            _IsAttacking = false;
-            _BoxCollider.enabled = false;
+             _CanShoot = true;
+             _IsAttacking = false;
         }
     }
 
@@ -36,10 +45,11 @@ public class MeleeAttack : Weapon
         }
     }
 
-    public override void UseWeapon(bool doAnimation = false)
+    public override void UseWeapon(bool doAnimation = true)
     {
         if (_CanShoot && !IsAttacking && _Actionable)
         {
+
             Attack();
         }
 
@@ -70,8 +80,11 @@ public class MeleeAttack : Weapon
         _IsAttacking = true;
         _CanShoot = false;
         _BoxCollider.enabled = true;
+        _IsHitboxActive = true;
         _NextHitTime = Time.time + _TimeBetweenHits;
+        _HitboxEndTime = Time.time + _ActiveHitboxTime;
 
         // TODO: Animation added here
+        _WeaponOwner.GetComponent<CharacterAnimation>().Attack1();
     }
 }
