@@ -53,8 +53,7 @@ crashlytics-build.properties
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
-/TEMP/
-TEMP.meta
+Assets/TEMP/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
