@@ -16,7 +16,7 @@ public class Character_Component : MonoBehaviour
     private void Update()
     {
         HandleInput();
-        HandleBasicInteraction();
+        HandleBasicComponentFunction();
     }
 
     // Physics based in here
