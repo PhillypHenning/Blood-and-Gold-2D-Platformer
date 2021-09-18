@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     // Protected
     protected Character _Character;
     protected float _CurrentHealth;
+    protected float _OriginalMaxHealth;
 
     // Serialized
     [SerializeField] protected float _MaxHealth; 
@@ -21,6 +22,7 @@ public class Health : MonoBehaviour
     protected virtual void Start()
     {        
         _CurrentHealth = _MaxHealth;
+        _OriginalMaxHealth = _MaxHealth;
     }
 
     // Update is called once per frame
