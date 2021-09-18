@@ -5,33 +5,26 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     // Private
-    private Character _Character;
+    
 
     // Protected
+    protected Character _Character;
     protected float _CurrentHealth;
 
     // Serialized
-    [SerializeField] private float _MaxHealth; 
-    [SerializeField] private ComponentTypes _ComponentType;
+    [SerializeField] protected float _MaxHealth; 
 
     // Public 
     public float CurrentHealth => _CurrentHealth; //READONLY
 
-    public enum ComponentTypes {
-        CharacterHealth,
-        InteractableHealth
-    }
-
     // Start is called before the first frame update
-    void Start()
-    {
-        if(_ComponentType == ComponentTypes.CharacterHealth){ _Character = GetComponent<Character>(); }
-        
+    protected virtual void Start()
+    {        
         _CurrentHealth = _MaxHealth;
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         
     }
