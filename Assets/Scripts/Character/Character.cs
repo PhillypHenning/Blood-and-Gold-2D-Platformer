@@ -17,6 +17,7 @@ public class Character : MonoBehaviour
     private bool _CharacterIsMoving;
     private bool _CharacterIsFacingRight;
     private bool _CharacterIsGrounded;
+    private bool _CharacterIsHitable;
 
     // Serialized
     [SerializeField] private LayerMask _OriginalLayer;
@@ -30,6 +31,7 @@ public class Character : MonoBehaviour
     public bool CharacterIsMoving { get => _CharacterIsMoving; set => _CharacterIsMoving = value; }
     public bool CharacterIsFacingRight { get => _CharacterIsFacingRight; set => _CharacterIsFacingRight = value; }
     public bool CharacterIsGrounded { get => _CharacterIsGrounded; set => _CharacterIsGrounded = value; }
+    public bool CharacterIsHitable { get => _CharacterIsHitable; set => _CharacterIsHitable = value; }
 
     public LayerMask OriginalLayer => _OriginalLayer; // READ-ONLY
     public CharacterTypes CharacterType { get => _CharacterType; set => _CharacterType = value; }

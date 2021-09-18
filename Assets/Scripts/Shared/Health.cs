@@ -1,0 +1,72 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Health : MonoBehaviour
+{
+    // Private
+    private Character _Character;
+
+    // Protected
+    protected float _CurrentHealth;
+
+    // Serialized
+    [SerializeField] private float _MaxHealth; 
+    [SerializeField] private ComponentTypes _ComponentType;
+
+    // Public 
+    public float CurrentHealth => _CurrentHealth; //READONLY
+
+    public enum ComponentTypes {
+        CharacterHealth,
+        InteractableHealth
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        if(_ComponentType == ComponentTypes.CharacterHealth){ _Character = GetComponent<Character>(); }
+        
+        _CurrentHealth = _MaxHealth;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public virtual void Heal(float amount){
+        float newHealth = _CurrentHealth + amount;
+
+        if (newHealth > _MaxHealth)
+        {
+            _CurrentHealth = _MaxHealth;
+        }
+        else
+        {
+            _CurrentHealth += amount;
+        }
+    }
+
+    public virtual void Damage(float amount){
+        if(!_Character.CharacterIsHitable){ return; }
+
+        float newHealth = _CurrentHealth - amount;
+
+        if (newHealth <= 0)
+        {
+            _CurrentHealth = 0;
+            Die();
+        }
+        else
+        {
+            _CurrentHealth -= amount;
+        }
+    }
+
+    public virtual void Die(){
+        // Check if _Character is not null
+        if(_Character){ _Character.CharacterIsAlive = false; }
+    }
+}
