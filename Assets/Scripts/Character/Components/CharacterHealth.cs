@@ -7,6 +7,5 @@ public class CharacterHealth : Health
     protected override void Start(){
         base.Start();
         _Character = GetComponent<Character>();
-
     }
 }

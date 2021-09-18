@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
     private float _GameStartTime;
     private float _GameEndTime;
 
-    private bool _CharacterIsAlive;
+    private bool _CharacterIsAlive = true;
     private bool _CharacterIsActionable; // Actionable is used to specify abilities.
     private bool _CharacterMovementLocked; // Movement Locked is to specify movement
     private bool _CharacterIsMoving;
@@ -22,7 +22,7 @@ public class Character : MonoBehaviour
     // Serialized
     [SerializeField] private LayerMask _OriginalLayer;
     [SerializeField] private CharacterTypes _CharacterType;
-    [SerializeField] private StateOfInteractions _CharacterStateOfInteraction;
+    private StateOfInteractions _CharacterStateOfInteraction;
 
     // Public 
     public bool CharacterIsAlive { get => _CharacterIsAlive; set => _CharacterIsAlive = value; }
@@ -48,13 +48,15 @@ public class Character : MonoBehaviour
         Inactive,
         Active,
         // Player
+        Intro,
         CutScene,
         Playing,
-        Pause
+        Pause,
     }
 
     private void Start() {
-        
+        if(_CharacterType == CharacterTypes.Player){ CharacterStateOfInteraction = StateOfInteractions.Intro;}
+        if(_CharacterType == CharacterTypes.AI){ CharacterStateOfInteraction = StateOfInteractions.Active; }
     }
 
     private void Update() {
