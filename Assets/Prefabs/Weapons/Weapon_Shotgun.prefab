@@ -84,6 +84,7 @@ MonoBehaviour:
   _UsesBullets: 1
   _TrackingBullets: 0
   _WeaponAnimationManager: {fileID: 0}
+  _ShotgunUI: {fileID: 0}
   _Actionable: 1
   _IsEmpty: 0
   _TimeModifier: 1

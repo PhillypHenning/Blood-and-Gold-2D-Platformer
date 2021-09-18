@@ -13,6 +13,8 @@ public class MeleeAttack : Weapon
     private float _HitboxEndTime = 0;
     private bool _IsHitboxActive = false;
 
+    private bool _AttackDidDamage = false;
+
 
     protected override void Start()
     {
@@ -24,14 +26,15 @@ public class MeleeAttack : Weapon
     protected override void Update()
     {
         base.Update();
-        if (!_IsAttacking || !_IsHitboxActive) return;
-        if (Time.time > _HitboxEndTime)
+        //if (!_IsAttacking || !_IsHitboxActive) return;
+        if (_IsHitboxActive && Time.time > _HitboxEndTime)
         {
-             _BoxCollider.enabled = false;
+            _BoxCollider.enabled = false;
+            _AttackDidDamage = false;
         }
-        if(Time.time > _NextHitTime){
-             _CanShoot = true;
-             _IsAttacking = false;
+        if(_IsAttacking && Time.time > _NextHitTime){
+            _CanShoot = true;
+            _IsAttacking = false;
         }
     }
 
@@ -39,9 +42,11 @@ public class MeleeAttack : Weapon
     {
         if (other.CompareTag("Player"))
         {
+            if (_AttackDidDamage) return;
             // player is dodging
             if (other.gameObject.layer == 9) return;
             other.GetComponent<CharacterHealth>().Damage(_DamageToDeal);
+            _AttackDidDamage = true;
         }
     }
 

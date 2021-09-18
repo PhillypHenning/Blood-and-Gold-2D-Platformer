@@ -18,12 +18,13 @@ public class Interactable_Door : Interactable
     [SerializeField] private bool _ExitOnly = false;
     [SerializeField] private bool _IsIntroDoor = false;
     private bool _IsInTransition = false;
-    
 
+    private int _OriginalLayer;
 
     protected override void Start()
     {
         base.Start();
+        _OriginalLayer = gameObject.layer;
         _Fader = FindObjectOfType<Fader>();
         if (_Fader == null) Debug.LogError("Door was unable to locate Fader");
 
@@ -85,6 +86,7 @@ public class Interactable_Door : Interactable
         // holds _Character in case reference is lost when player leaves collision 
         var player = _Character;
         // var characterMovement = _Character.GetComponent<CharacterMovement>();
+        player.ChangeToDeadLayer();
         player.ForceLockCharacter();
         _IsInTransition = true;
 
@@ -100,6 +102,7 @@ public class Interactable_Door : Interactable
 
         yield return _Fader.FadeWait();
         yield return _Fader.FadeIn();
+        player.ChangeToOriginalLayer();
         player.ForceUnlockCharacter();
         _IsInTransition = false;
     }

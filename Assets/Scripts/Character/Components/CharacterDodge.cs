@@ -13,7 +13,6 @@ public class CharacterDodge : CharacterComponent
     private float _TimeUntilInvunIsDone = 0f;
     private float _TimeOfInvun = .60f;
     private bool _InvunActivate = false;
-    private int _OriginalLayer;
 
     // Ensure this component is the second in the character gameobject hierarchy (Scripts; 1. Character, 2. CharacterComponents) 
 
@@ -21,7 +20,6 @@ public class CharacterDodge : CharacterComponent
     {
         base.Start();
         SetToDefault();
-        _OriginalLayer = gameObject.layer;
         // allows interactions with doors, overlays and whatnot while dodging
         //Physics2D.IgnoreLayerCollision(9, 10);
     }
@@ -33,7 +31,7 @@ public class CharacterDodge : CharacterComponent
             if(_InvunActivate){
                 _InvunActivate = false;
                 //_CharacterHealth.TurnOffMakeInvun();
-                ChangeBackToOriginalLayer();
+                _Character.ChangeToOriginalLayer();
             }
         }
     }
@@ -84,7 +82,7 @@ public class CharacterDodge : CharacterComponent
         _TimeUntilInvunIsDone = Time.time + _TimeOfInvun;
         _InvunActivate = true;
         //_CharacterHealth.MakeInvun();
-        ChangeToRollLayer();
+        _Character.ChangeToDeadLayer();
     }
 
     private void StopDodge()
@@ -114,13 +112,5 @@ public class CharacterDodge : CharacterComponent
             Debug.LogWarning("CharacterDodge was unable to find Dodge Animation, default 0.5 Dodge Length assigned.");
         }
         */
-    }
-
-    private void ChangeToRollLayer(){
-        gameObject.layer = 9;
-    }
-
-    private void ChangeBackToOriginalLayer(){
-        gameObject.layer = _OriginalLayer;
     }
 }

@@ -19,7 +19,7 @@ public class CharacterWeapon : CharacterComponent
     private bool _Actionable = true;
 
     private float TimeUntilNextReload = 0f;
-    private float TimeBetweenReloads = 1.5f;
+    private float TimeBetweenReloads = .8f;
 
 
     protected override void Start()
@@ -100,20 +100,19 @@ public class CharacterWeapon : CharacterComponent
     public void Shoot()
     {
         if (!_Actionable) { return; }
-        if (_CurrentWeapon == null)
-        {
-            return;
-        }
+        if (_CurrentWeapon == null || Time.time < TimeUntilNextReload) return;
         _CurrentWeapon.UseWeapon();
     }
 
     public void Reload()
     {
-        if (_CurrentWeapon == null)
+        if (_CurrentWeapon == null || Time.time < TimeUntilNextReload)
         {
+            // TODO: auditory feedback to indicate reload on cooldown?
             return;
         }
 
+        TimeUntilNextReload = Time.time + TimeBetweenReloads;
         _CurrentWeapon.Reload();
     }
 

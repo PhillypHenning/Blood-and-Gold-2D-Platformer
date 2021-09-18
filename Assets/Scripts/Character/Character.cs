@@ -29,6 +29,8 @@ public class Character : MonoBehaviour
     private float _LockTimeEclapsed = 0f;
     private float _LockEndTime;
 
+    private int _OriginalLayer;
+
 
     // TODO: use character types to determine default stats (like movementspeed)
     // scriptable object or a simple switch case within respective character component setToDefault functions
@@ -63,6 +65,7 @@ public class Character : MonoBehaviour
     private void Start()
     {
         CharacterType = _CharacterType;
+        _OriginalLayer = gameObject.layer;
         //AIType = _AIType;
         _RigidBody2D = GetComponent<Rigidbody2D>();
         _Collider2D = GetComponent<Collider2D>();
@@ -112,6 +115,16 @@ public class Character : MonoBehaviour
         _ForcedLock = false;
         _LockTimeEclapsed = 0;
         _LockEndTime = 0;
+    }
+
+    public void ChangeToDeadLayer()
+    {
+        gameObject.layer = 9;
+    }
+
+    public void ChangeToOriginalLayer()
+    {
+        gameObject.layer = _OriginalLayer;
     }
 
 }

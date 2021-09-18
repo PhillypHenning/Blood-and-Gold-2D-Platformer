@@ -47,11 +47,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _WeaponName: Revolver
-  _TimeBetweenShots: 0.15
+  _TimeBetweenShots: 0.3
+  _ShotDelay: 0
   _TimeBetweenReloads: 0.5
   _MaxMagazineSize: 6
   _UsesBullets: 1
+  _TrackingBullets: 0
   _WeaponAnimationManager: {fileID: 0}
+  _ShotgunUI: {fileID: 0}
   _Actionable: 1
   _IsEmpty: 0
   _TimeModifier: 1
