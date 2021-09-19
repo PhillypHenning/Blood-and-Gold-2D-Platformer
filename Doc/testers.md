@@ -24,7 +24,7 @@ Changelogs have dates on them, however there will always be a `master-changelog`
 ## How to create an issue ticket for the developers
 1. First we need to head to the main page of our [Github](https://github.com/PhillypHenning/2D-Platformer-Template) 
 1. Above the main middle section on the top left click on `Issues`
-1. On the right click on `Create Issue`
+1. On the right click on `New Issue`
 1. Give the issue you've found a name and write a short summary of what you did to find it. The more info the better but we have discord to chat if we need to. 
 1. On the right panel select `Labels` and apply a relevant tag, we recommend `Bug`. 
 
