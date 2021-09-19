@@ -39,11 +39,11 @@ public class Character : MonoBehaviour
     
     public CharacterTypes CharacterType { get => _CharacterType; set => _CharacterType = value; }
     public StateOfInteractions CharacterStateOfInteraction { get => _CharacterStateOfInteraction; set => _CharacterStateOfInteraction = value; }
-
+    public Rigidbody2D CharacterRigidBody2D { get => _CharacterRigidBody2D; set => _CharacterRigidBody2D = value; }
+    
     // READ ONLY
     public LayerMask OriginalLayer => _OriginalLayer;
     public GameObject CharacterSprite => _CharacterSprite;
-    public Rigidbody2D CharacterRigidBody2D => _CharacterRigidBody2D;
 
     // Enums
     public enum CharacterTypes {
@@ -70,11 +70,10 @@ public class Character : MonoBehaviour
 
         _OriginalLayer = _CurrentLayer;
 
-        _CharacterRigidBody2D = GetComponent<Rigidbody2D>();
+        CharacterRigidBody2D = GetComponent<Rigidbody2D>();
     }
 
     private void Update() {
         
     }
-    
 }
