@@ -8,25 +8,61 @@ public class Character : MonoBehaviour
     // Used to contain metadata of the character state
 
     // Private
+    [Header("Timers")]
     private float _GameStartTime;
     private float _GameEndTime;
 
-    private bool _CharacterIsAlive = true;
+    [Header("Lockouts")]
     private bool _CharacterIsActionable; // Actionable is used to specify abilities.
     private bool _CharacterMovementLocked; // Movement Locked is to specify movement
-    private bool _CharacterIsMoving;
-    private bool _CharacterIsFacingRight = true;
-    private bool _CharacterIsGrounded;
-    private bool _CharacterIsHitable;
+    private bool _DirectionalLocked = false;
+    public bool DirectionalLocked { get => _DirectionalLocked; set => _DirectionalLocked = value; }
 
+    [Header("Movement Settings")]
+    private bool _CharacterIsMoving;
+    private bool _CharacterIsGrounded;
+    private bool _CharacterIsFacingRight = true;
+    [SerializeField] private Sensor _GroundSensor;
+    public Sensor GroundSensor {get => _GroundSensor; set => _GroundSensor = value; }
+
+    [Header("Jump")]
+    // TODO: MOVE JUMP
+
+    [Header("Dodge")]
+    private bool _CharacterCanDodge = true;
+    private bool _CharacterIsDodging = false;
+    private float _TimeUntilDodgeIsDone = 0f;
+    private float _DodgeCooldownFinish = 0f;
+    [SerializeField] private float _DodgeCooldownDuraction;
+    [SerializeField] private float _DodgeDistance = 3f;
+    [SerializeField] private float _DodgeSpeed = 0.05f;
+    public bool CharacterCanDodge { get => _CharacterCanDodge; set => _CharacterCanDodge = value; }
+    public bool CharacterIsDodging { get => _CharacterIsDodging; set => _CharacterIsDodging = value; }
+    
+    public float DodgeCooldownFinish { get => _DodgeCooldownFinish; set => _DodgeCooldownFinish = value; }
+    public float DodgeCooldownDuraction { get => _DodgeCooldownDuraction; set => _DodgeCooldownDuraction = value; }
+    
+    public float DodgeDistance { get => _DodgeDistance; set => _DodgeDistance = value; }
+    public float DodgeSpeed { get => _DodgeSpeed; set => _DodgeSpeed = value; }
+
+    
+    [Header("Invun")]
+
+
+    [Header("Health")]
+    private bool _CharacterIsHitable;
+    private bool _CharacterIsAlive = true;
+
+
+    [Header("Settings")]
     private StateOfInteractions _CharacterStateOfInteraction;
     private LayerMask _OriginalLayer;
     private Rigidbody2D _CharacterRigidBody2D;
 
-    // Serialized
     [SerializeField] private LayerMask _CurrentLayer;
     [SerializeField] private CharacterTypes _CharacterType;
     [SerializeField] private GameObject _CharacterSprite;
+
 
     // Public 
     public bool CharacterIsAlive { get => _CharacterIsAlive; set => _CharacterIsAlive = value; }

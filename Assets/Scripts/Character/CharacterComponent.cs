@@ -6,14 +6,17 @@ public class CharacterComponent : MonoBehaviour
 {
     protected Character _Character;
     protected ComponentAchievements _CharacterAchievements;
+    protected CharacterInputs _CharacterInputs;
 
     public ComponentAchievements CharacterAchievements { get => _CharacterAchievements; set => _CharacterAchievements = value; }
+    public CharacterInputs CharacterInputs { get => _CharacterInputs; set => _CharacterInputs = value; }
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
         _Character = GetComponent<Character>();
         CharacterAchievements = GetComponent<ComponentAchievements>();
+        CharacterInputs = GetComponent<CharacterInputs>();
     }
 
     // Calculations, checks and the such should be in here
@@ -21,7 +24,6 @@ public class CharacterComponent : MonoBehaviour
     {
         HandleInput();
         HandleBasicComponentFunction();
-
     }
 
     // Physics based in here

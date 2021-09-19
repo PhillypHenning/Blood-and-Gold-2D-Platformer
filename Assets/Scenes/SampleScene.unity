@@ -325,6 +325,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6f39c0919331244a883cece5a788d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _GroundSensor: {fileID: 3185177411605453419}
+  _DodgeCooldownDuraction: 2
+  _DodgeDistance: 3
+  _DodgeSpeed: 0.05
   _CurrentLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -1272,6 +1276,8 @@ GameObject:
   - component: {fileID: 1783257465}
   - component: {fileID: 8825737367646396410}
   - component: {fileID: 8825737367646396411}
+  - component: {fileID: 8825737367646396412}
+  - component: {fileID: 8825737367646396413}
   m_Layer: 6
   m_Name: Green
   m_TagString: Player
@@ -1295,7 +1301,6 @@ MonoBehaviour:
   _GravityScaled: 0
   _VerticalTakeOff: 15
   _TimeBetweenJumps: 0
-  _GroundSensor: {fileID: 3185177411605453419}
 --- !u!114 &8825737367646396411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1306,6 +1311,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cc4b56fbbfd7b5429b34377f924e568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8825737367646396412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8825737367646396409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66864928d5cb34340ad009080d620f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8825737367646396413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8825737367646396409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f82b3efde0de04b9f51e711c9b577d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9091758785279480574

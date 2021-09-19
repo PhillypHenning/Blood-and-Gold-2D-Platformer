@@ -10,14 +10,11 @@ public class CharacterJump : CharacterComponent
     private float _LowJumpModifier = 2.5f;
     private float _JumpStartPos;
 
-    private KeyCode _JumpKeyCode = KeyCode.Space; // TODO: INPUT OVERRIDES
-
     // Serialized
     [SerializeField] private float _FallMultiplier = 2.5f;
     [SerializeField] private float _GravityScaled;
     [SerializeField] private float _VerticalTakeOff = 15f;
     [SerializeField] private float _TimeBetweenJumps;
-    [SerializeField] private Sensor _GroundSensor;
     
     // public
     public float FallMultiplier {get => _FallMultiplier; set => _FallMultiplier = value;}
@@ -26,8 +23,6 @@ public class CharacterJump : CharacterComponent
     public float TimeBetweenJumps {get => _TimeBetweenJumps; set => _TimeBetweenJumps = value;}
     public float LowJumpModifier {get => _LowJumpModifier; set => _LowJumpModifier = value;}
     public bool CharacterIsJumping {get => _CharacterIsJumping; set => _CharacterIsJumping = value;}
-
-    public KeyCode JumpKeyCode {get => _JumpKeyCode; set => _JumpKeyCode = value;}
 
     protected override void Start(){
         base.Start();   
@@ -44,7 +39,6 @@ public class CharacterJump : CharacterComponent
 
     protected override bool HandlePlayerInput(){
         if(!base.HandlePlayerInput()) return false;
-        // TODO: Add lockouts
         
         if(DecideIfCharacterCanJump()) Jump();
         
@@ -59,12 +53,13 @@ public class CharacterJump : CharacterComponent
 
     private bool DecideIfCharacterCanJump(){
         // TODO: JUMP TIMEOUT
-        if(_GroundSensor.SensorActivated && JumpInput()) return true;
+        // TODO: Add lockouts
+        if(_Character.GroundSensor.SensorActivated && JumpInput()) return true;
         return false;
     }
 
     private bool JumpInput(){
-        if(Input.GetKeyDown(JumpKeyCode)) return true;
+        if(Input.GetKeyDown(CharacterInputs.JumpKeyCode)) return true;
         return false;
     }
 
@@ -86,10 +81,10 @@ public class CharacterJump : CharacterComponent
     }
 
     private void DecideIfCharacterLanded(){
-        if(_GroundSensor.SensorActivated && _Character.CharacterRigidBody2D.velocity.y < 0f) CharacterIsJumping = false;
+        if(_Character.GroundSensor.SensorActivated && _Character.CharacterRigidBody2D.velocity.y < 0f) CharacterIsJumping = false;
     }
 
-    private void CalculateComponentData(){
+    private void CalculateComponentData(){ // TODO: MAYBE MOVE THIS TO THE COMPONENT CLASS
         if(!IsPlayer()) return;
         float curJumpHeight = transform.position.y;
         if(curJumpHeight > CharacterAchievements.HighestJumpedReached && _CharacterIsJumping){

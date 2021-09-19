@@ -13,7 +13,6 @@ public class CharacterMovement : CharacterComponent
     [SerializeField] private float _MovementSpeed;
     [SerializeField] private bool _UsesVerticalMovement = false;
     [SerializeField] private float _MaxSpeed = 100f;
-    // [SerializeField] private LayerMask[] _LayerMasksToIgnore;
 
     // Public
     public float HorizontalMovement { get => _HorizontalMovement; set => _HorizontalMovement = value; }
@@ -24,8 +23,16 @@ public class CharacterMovement : CharacterComponent
         SetLayerCollisionIgnores();
     }
 
+    protected override void Update()
+    {
+        base.Update();
+        DetectIfGrounded();
+    }
+
     protected override void HandlePhysicsComponentFunction(){
         base.HandlePhysicsComponentFunction();
+        if(_Character.DirectionalLocked) return;
+
         // Horizontal
         if(!_Character.CharacterMovementLocked && !_UsesVerticalMovement){
             var calc = _MovementSpeed * _HorizontalMovement;
@@ -107,5 +114,10 @@ public class CharacterMovement : CharacterComponent
 
     public void MovePosition(Vector2 newPos){
         _Character.CharacterRigidBody2D.MovePosition(newPos);
+    }
+
+    private void DetectIfGrounded(){
+        if(_Character.GroundSensor.SensorActivated) _Character.CharacterIsGrounded = true;
+        else _Character.CharacterIsGrounded = false;
     }
 }
