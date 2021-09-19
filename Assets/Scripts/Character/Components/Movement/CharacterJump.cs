@@ -34,7 +34,7 @@ public class CharacterJump : CharacterComponent
     }
 
     protected override void HandleBasicComponentFunction(){
-        DecideCharacterLanded();
+        DecideIfCharacterLanded();
         CalculateComponentData();
     }
 
@@ -53,7 +53,6 @@ public class CharacterJump : CharacterComponent
 
     protected override bool HandleAIInput(){
         // TODO: AI JUMP
-        Debug.Log("Nope");
         if(!base.HandleAIInput()) return false;
         return false;
     }
@@ -86,7 +85,7 @@ public class CharacterJump : CharacterComponent
         }
     }
 
-    private void DecideCharacterLanded(){
+    private void DecideIfCharacterLanded(){
         if(_GroundSensor.SensorActivated && _Character.CharacterRigidBody2D.velocity.y < 0f) CharacterIsJumping = false;
     }
 
