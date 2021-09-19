@@ -5,11 +5,15 @@ using UnityEngine;
 public class CharacterComponent : MonoBehaviour
 {
     protected Character _Character;
+    protected ComponentAchievements _CharacterAchievements;
+
+    public ComponentAchievements CharacterAchievements { get => _CharacterAchievements; set => _CharacterAchievements = value; }
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
         _Character = GetComponent<Character>();
+        CharacterAchievements = GetComponent<ComponentAchievements>();
     }
 
     // Calculations, checks and the such should be in here
@@ -31,11 +35,11 @@ public class CharacterComponent : MonoBehaviour
     }
 
     protected virtual bool HandlePlayerInput(){
-        return _Character.CharacterType == Character.CharacterTypes.Player;
+        return IsPlayer();
     }
 
     protected virtual bool HandleAIInput(){
-       return _Character.CharacterType == Character.CharacterTypes.AI;
+       return IsAI();
     }
 
     protected virtual void HandleBasicComponentFunction(){
@@ -44,5 +48,13 @@ public class CharacterComponent : MonoBehaviour
 
     protected virtual void HandlePhysicsComponentFunction(){
 
+    }
+
+    protected virtual bool IsPlayer(){
+        return _Character.CharacterType == Character.CharacterTypes.Player;
+    }
+
+    protected virtual bool IsAI(){
+        return _Character.CharacterType == Character.CharacterTypes.AI;
     }
 }

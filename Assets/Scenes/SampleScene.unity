@@ -1271,6 +1271,7 @@ GameObject:
   - component: {fileID: 1783257462}
   - component: {fileID: 1783257465}
   - component: {fileID: 8825737367646396410}
+  - component: {fileID: 8825737367646396411}
   m_Layer: 6
   m_Name: Green
   m_TagString: Player
@@ -1295,6 +1296,18 @@ MonoBehaviour:
   _VerticalTakeOff: 15
   _TimeBetweenJumps: 0
   _GroundSensor: {fileID: 3185177411605453419}
+--- !u!114 &8825737367646396411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8825737367646396409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc4b56fbbfd7b5429b34377f924e568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9091758785279480574
 GameObject:
   m_ObjectHideFlags: 0
