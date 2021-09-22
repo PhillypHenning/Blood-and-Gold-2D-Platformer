@@ -169,7 +169,11 @@ public class CharacterWeapon : CharacterComponent
         // Enable the gameobject
         if (_CurrentWeaponsSprite != null)
         {
-            _CurrentWeaponsSprite.enabled = true;
+            if (_Character.CharacterType == Character.CharacterTypes.Player)
+            {
+                _Character.HoldingRevolver = true;
+            }
+            //_CurrentWeaponsSprite.enabled = true;
         }
 
 
@@ -181,7 +185,11 @@ public class CharacterWeapon : CharacterComponent
     {
         if (_CurrentWeaponsSprite != null)
         {
-            _CurrentWeaponsSprite.enabled = false;
+            if (_Character.CharacterType == Character.CharacterTypes.Player)
+            {
+                _Character.HoldingRevolver = false;
+            }
+            //_CurrentWeaponsSprite.enabled = false;
         }
     }
 

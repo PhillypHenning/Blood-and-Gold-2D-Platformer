@@ -60,7 +60,12 @@ public class CharacterAnimation : MonoBehaviour
         Scream,
         Attack1,
         Attack2,
-        Puke
+        Puke,
+        RunWithRevolver,
+        RunStartWithRevolver,
+        JumpWithRevolver,
+        IdleWithRevolver,
+        FallWithRevolver
     }
 
     void Start()
@@ -128,7 +133,14 @@ public class CharacterAnimation : MonoBehaviour
                 }
                 else
                 {
-                    ChangeAnimationState(AnimationState.Run);
+                    if (_Character.HoldingRevolver)
+                    {
+                        ChangeAnimationState(AnimationState.RunWithRevolver);
+                    }
+                    else
+                    {
+                        ChangeAnimationState(AnimationState.Run);
+                    }
                 }
             }
             else
@@ -136,6 +148,10 @@ public class CharacterAnimation : MonoBehaviour
                 if (_HoldsShield && _ShieldBroken)
                 {
                     ChangeAnimationState(AnimationState.IdleNoShield);
+                }
+                else if (_Character.HoldingRevolver)
+                {
+                    ChangeAnimationState(AnimationState.IdleWithRevolver);
                 }
                 else
                 {
@@ -147,13 +163,24 @@ public class CharacterAnimation : MonoBehaviour
         {
             if (_IsFalling)
             {
-                ChangeAnimationState(AnimationState.Fall);
+                if (_Character.HoldingRevolver)
+                {
+                    ChangeAnimationState(AnimationState.FallWithRevolver);
+                }
+                else
+                {
+                    ChangeAnimationState(AnimationState.Fall);
+                }
             }
             else
             {
                 _IsFalling = true;
                 ChangeAnimationState(AnimationState.JumpToFall);
             }
+        }
+        else
+        {
+            Jump();
         }
     }
 
@@ -212,7 +239,14 @@ public class CharacterAnimation : MonoBehaviour
         if (!_Character.IsGrounded || _IsRunning) return;
         _IsRunning = true;
 
-        ChangeAnimationState(AnimationState.RunStart, AnimationType.Static);
+        if (_Character.HoldingRevolver)
+        {
+            ChangeAnimationState(AnimationState.RunStartWithRevolver, AnimationType.Static);
+        }
+        else
+        {
+            ChangeAnimationState(AnimationState.RunStart, AnimationType.Static);
+        }
     }
 
     private void RunStop()
@@ -226,7 +260,14 @@ public class CharacterAnimation : MonoBehaviour
 
     public void Jump()
     {
-        ChangeAnimationState(AnimationState.Jump, AnimationType.Priority);
+        if (_Character.HoldingRevolver)
+        {
+            ChangeAnimationState(AnimationState.JumpWithRevolver, AnimationType.Priority);
+        }
+        else
+        {
+            ChangeAnimationState(AnimationState.Jump, AnimationType.Priority);
+        }
     }
 
     private void Landing()

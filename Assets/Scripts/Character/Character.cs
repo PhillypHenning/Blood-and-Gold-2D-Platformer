@@ -26,6 +26,8 @@ public class Character : MonoBehaviour
     public float _GameFinishTime = 0f;
     //public bool _IsFacingRight => _FacingRight;
 
+    public bool HoldingRevolver = false;
+
     private float _LockTimeEclapsed = 0f;
     private float _LockEndTime;
 
