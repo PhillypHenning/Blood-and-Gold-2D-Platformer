@@ -212,7 +212,18 @@ public class CharacterAnimation : MonoBehaviour
         if (!_AnimationTimes.ContainsKey(newState)) return;
         if (_CurrentAnimation == newState || (PriorityAnimationPlaying() && animationType != AnimationType.Priority)) return;
 
-        _Animator.Play(newState.ToString());
+        // oof I dun like this, but it must be done to sync those sexy run animations
+        if ((_CurrentAnimation == AnimationState.Run || _CurrentAnimation == AnimationState.RunWithRevolver || _CurrentAnimation == AnimationState.RunStartWithShotgun)
+              && (newState == AnimationState.Run || newState == AnimationState.RunWithRevolver || newState == AnimationState.RunWithShotgun))
+        {
+            var normalizedTime = _Animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+            _Animator.Play(newState.ToString(), -1, normalizedTime - Mathf.Floor(normalizedTime));
+        }
+        else 
+        {
+            _Animator.Play(newState.ToString());
+        }
+
 
         _CurrentAnimation = newState;
 

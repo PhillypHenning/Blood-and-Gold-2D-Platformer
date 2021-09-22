@@ -25,7 +25,6 @@ public class ShotgunUI : MonoBehaviour
 
     public void FireShot()
     {
-        print("fire in the hole.");
         if (_CurrentShots - 1 < 0) return;
         _CurrentShots--;
         UpdateChamber(_CurrentShots);
@@ -34,7 +33,6 @@ public class ShotgunUI : MonoBehaviour
     public void Reload()
     {
         _CurrentShots = 2;
-        print("reload");
         UpdateChamber(2);
     }
 }

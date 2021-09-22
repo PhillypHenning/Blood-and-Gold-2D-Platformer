@@ -202,7 +202,6 @@ public class CharacterLantern : CharacterComponent
 
     public void SnuffLantern()
     {
-        print("lantern turning off light.");
         if (_CanSnuff)
         {
             _SnuffCDEnd = Time.time + _SnuffCD;
