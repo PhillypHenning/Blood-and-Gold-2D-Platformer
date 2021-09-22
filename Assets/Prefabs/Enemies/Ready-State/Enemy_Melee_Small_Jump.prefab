@@ -375,6 +375,7 @@ MonoBehaviour:
   _HasBossKey: 0
   _GameStartTime: 0
   _GameFinishTime: 0
+  HoldingRevolver: 0
   _CharacterType: 1
   _AIType: 0
   _CharacterSprite: {fileID: 2785896069849538951}
@@ -524,8 +525,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.026111003, y: 0.054842543}
-  m_Size: {x: 2.410393, y: 0.9216801}
+  m_Offset: {x: -0.026110984, y: 0.20937575}
+  m_Size: {x: 2.4103932, y: 1.2307471}
   m_Direction: 1
 --- !u!114 &5905139624288097998
 MonoBehaviour:

@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private bool _TrackingBullets = false;
     [SerializeField] protected WeaponAnimationManager _WeaponAnimationManager;
     [SerializeField] protected ShotgunUI _ShotgunUI;
+    [SerializeField] protected GameObject _ShootEffect;
     private Vector3 _ProjectileSpawnPosition;
     private Transform _BulletSpawnPos;
     private bool _CanReload = true;
@@ -21,6 +22,7 @@ public class Weapon : MonoBehaviour
     private float _NextShotAnimationTime = 0;
     protected bool _IsAttacking;
     private bool _delayedShot = false;
+    private GameObject _Effect;
 
     // Properties
     public Character _WeaponOwner { get; set; }
@@ -76,6 +78,10 @@ public class Weapon : MonoBehaviour
 
     virtual protected void Update()
     {
+        if (_Effect != null)
+        {
+            _Effect.transform.position = _BulletSpawnPos.position;
+        }
         if (_CurrentAmmo == 0)
         {
             _IsEmpty = true;
@@ -196,6 +202,10 @@ public class Weapon : MonoBehaviour
 
     private void SpawnProjectile(Vector2 spawnPosition)
     {
+        if (_ShootEffect != null)
+        {
+            StartCoroutine(SpawnEffectForFrame());
+        }
         // EvaluateProjectileSpawn();
         // Start by getting a gameobject from the ObjectPooler
         GameObject pooledProjectile = ObjectPooler.GetGameObjectFromPool();
@@ -217,6 +227,14 @@ public class Weapon : MonoBehaviour
         else{
             projectile.SetDirection(newDirection, transform.rotation, _WeaponOwner.FacingRight);
         }
+    }
+
+    private IEnumerator SpawnEffectForFrame()
+    {
+        _Effect = Instantiate(_ShootEffect, ProjectileSpawnPosition, Quaternion.identity);
+        yield return new WaitForSeconds(0.1f);
+        Destroy(_Effect);
+        _Effect = null;
     }
     /*
    //\\

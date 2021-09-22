@@ -55,6 +55,7 @@ MonoBehaviour:
   _TrackingBullets: 0
   _WeaponAnimationManager: {fileID: 0}
   _ShotgunUI: {fileID: 0}
+  _ShootEffect: {fileID: 4172205472444020750, guid: afcc3ba19a0488449b5fa2cbc3572d52, type: 3}
   _Actionable: 1
   _IsEmpty: 0
   _TimeModifier: 1

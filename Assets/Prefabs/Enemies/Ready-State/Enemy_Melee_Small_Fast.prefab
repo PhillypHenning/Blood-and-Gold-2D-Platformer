@@ -375,6 +375,7 @@ MonoBehaviour:
   _HasBossKey: 0
   _GameStartTime: 0
   _GameFinishTime: 0
+  HoldingRevolver: 0
   _CharacterType: 1
   _AIType: 0
   _CharacterSprite: {fileID: 2785896069849538951}
@@ -498,7 +499,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.023712158, y: 0.11032486}
+  m_Offset: {x: -0.023712158, y: 0.3870468}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -509,7 +510,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.3755493, y: 0.9832382}
+  m_Size: {x: 2.3755493, y: 1.5366821}
   m_EdgeRadius: 0
 --- !u!70 &-5845934837156759868
 CapsuleCollider2D:
