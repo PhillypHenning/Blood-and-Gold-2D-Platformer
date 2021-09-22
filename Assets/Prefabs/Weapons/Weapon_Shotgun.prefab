@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4430191700488058706}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.819, y: 0.178, z: 0}
+  m_LocalPosition: {x: 0.707, y: 0.154, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3444428115995217870}
@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 6581642602160749439}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 24.34, y: -14.46, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1590865461296071231}
   - {fileID: 7834556721659205200}
@@ -85,6 +85,7 @@ MonoBehaviour:
   _TrackingBullets: 0
   _WeaponAnimationManager: {fileID: 0}
   _ShotgunUI: {fileID: 0}
+  _ShootEffect: {fileID: 4172205472444020750, guid: afcc3ba19a0488449b5fa2cbc3572d52, type: 3}
   _Actionable: 1
   _IsEmpty: 0
   _TimeModifier: 1

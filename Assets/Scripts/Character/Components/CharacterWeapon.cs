@@ -22,6 +22,8 @@ public class CharacterWeapon : CharacterComponent
     private float TimeBetweenReloads = 1f;
     // base delay on amount of ammo remaining
 
+    private bool _IsAiming = false;
+
 
     protected override void Start()
     {
@@ -169,9 +171,17 @@ public class CharacterWeapon : CharacterComponent
         // Enable the gameobject
         if (_CurrentWeaponsSprite != null)
         {
+            _IsAiming = true;
             if (_Character.CharacterType == Character.CharacterTypes.Player)
             {
-                _Character.HoldingRevolver = true;
+                if (_CurrentWeapon.WeaponName == "Revolver")
+                {
+                    _Character.HoldingRevolver = true;
+                }
+                else if (_CurrentWeapon.WeaponName == "Shotgun")
+                {
+                    _Character.HoldingShotgun = true;
+                }
             }
             //_CurrentWeaponsSprite.enabled = true;
         }
@@ -185,9 +195,11 @@ public class CharacterWeapon : CharacterComponent
     {
         if (_CurrentWeaponsSprite != null)
         {
+            _IsAiming = false;
             if (_Character.CharacterType == Character.CharacterTypes.Player)
             {
                 _Character.HoldingRevolver = false;
+                _Character.HoldingShotgun = false;
             }
             //_CurrentWeaponsSprite.enabled = false;
         }
@@ -218,6 +230,28 @@ public class CharacterWeapon : CharacterComponent
         {
             //_CurrentWeapon = _WeaponToUse;
             EquipWeapon(_PrimaryWeapon, _WeaponHolderPosition);
+        }
+        
+        if (_Character.CharacterType == Character.CharacterTypes.Player)
+        {
+            if (_IsAiming)
+            {
+                if (_CurrentWeapon.WeaponName == "Revolver")
+                {
+                    _Character.HoldingRevolver = true;
+                    _Character.HoldingShotgun = false;
+                }
+                else if (_CurrentWeapon.WeaponName == "Shotgun")
+                {
+                    _Character.HoldingRevolver = false;
+                    _Character.HoldingShotgun = true;
+                }
+            }
+            else
+            {
+                _Character.HoldingRevolver = false;
+                _Character.HoldingShotgun = false;
+            }
         }
 
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Player_Character/Weapon_Switch");

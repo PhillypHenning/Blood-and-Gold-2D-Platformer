@@ -65,7 +65,12 @@ public class CharacterAnimation : MonoBehaviour
         RunStartWithRevolver,
         JumpWithRevolver,
         IdleWithRevolver,
-        FallWithRevolver
+        FallWithRevolver,
+        RunWithShotgun,
+        RunStartWithShotgun,
+        JumpWithShotgun,
+        IdleWithShotgun,
+        FallWithShotgun
     }
 
     void Start()
@@ -133,14 +138,7 @@ public class CharacterAnimation : MonoBehaviour
                 }
                 else
                 {
-                    if (_Character.HoldingRevolver)
-                    {
-                        ChangeAnimationState(AnimationState.RunWithRevolver);
-                    }
-                    else
-                    {
-                        ChangeAnimationState(AnimationState.Run);
-                    }
+                    Run();
                 }
             }
             else
@@ -152,6 +150,10 @@ public class CharacterAnimation : MonoBehaviour
                 else if (_Character.HoldingRevolver)
                 {
                     ChangeAnimationState(AnimationState.IdleWithRevolver);
+                }
+                else if (_Character.HoldingShotgun)
+                {
+                    ChangeAnimationState(AnimationState.IdleWithShotgun);
                 }
                 else
                 {
@@ -166,6 +168,10 @@ public class CharacterAnimation : MonoBehaviour
                 if (_Character.HoldingRevolver)
                 {
                     ChangeAnimationState(AnimationState.FallWithRevolver);
+                }
+                else if (_Character.HoldingShotgun)
+                {
+                    ChangeAnimationState(AnimationState.FallWithShotgun);
                 }
                 else
                 {
@@ -183,6 +189,7 @@ public class CharacterAnimation : MonoBehaviour
             Jump();
         }
     }
+
 
     private void UpdateAnimationCooldowns()
     {
@@ -234,6 +241,22 @@ public class CharacterAnimation : MonoBehaviour
         }
     }
 
+    private void Run()
+    {
+        if (_Character.HoldingRevolver)
+        {
+            ChangeAnimationState(AnimationState.RunWithRevolver);
+        }
+        else if (_Character.HoldingShotgun)
+        {
+            ChangeAnimationState(AnimationState.RunWithShotgun);
+        }
+        else 
+        {
+            ChangeAnimationState(AnimationState.Run);
+        }
+    }
+
     private void RunStart()
     {
         if (!_Character.IsGrounded || _IsRunning) return;
@@ -242,6 +265,10 @@ public class CharacterAnimation : MonoBehaviour
         if (_Character.HoldingRevolver)
         {
             ChangeAnimationState(AnimationState.RunStartWithRevolver, AnimationType.Static);
+        }
+        else if (_Character.HoldingShotgun)
+        {
+            ChangeAnimationState(AnimationState.RunStartWithShotgun, AnimationType.Static);
         }
         else
         {
@@ -263,6 +290,10 @@ public class CharacterAnimation : MonoBehaviour
         if (_Character.HoldingRevolver)
         {
             ChangeAnimationState(AnimationState.JumpWithRevolver, AnimationType.Priority);
+        }
+        else if (_Character.HoldingShotgun)
+        {
+            ChangeAnimationState(AnimationState.JumpWithShotgun, AnimationType.Priority);
         }
         else
         {
